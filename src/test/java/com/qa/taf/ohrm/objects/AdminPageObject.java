@@ -43,4 +43,7 @@ public class AdminPageObject {
 	public WebElement adminSearchResultData;
 	public String adminSearchResultDataLabel = "AdminSearchResultData";
 
+	
+	
+
 }
