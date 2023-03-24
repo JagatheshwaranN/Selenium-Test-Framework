@@ -2,67 +2,56 @@ package com.qa.taf.ohrm.elements;
 
 import org.openqa.selenium.WebElement;
 
-import org.openqa.selenium.support.PageFactory;
-
 import com.qa.taf.ohrm.objects.LoginPageObject;
-import com.qa.taf.ohrm.pages.LoginPage;
 
-public class LoginPageElement extends LoginPage {
-
-	public LoginPageObject loginPageObject;
-
-	public LoginPageElement() {
-		
-		this.loginPageObject = new LoginPageObject();
-		PageFactory.initElements(getDriver(), this.loginPageObject);
-	}
+public class LoginPageElement extends LoginPageObject {
 
 	public WebElement getUserName() {
-		return loginPageObject.userName;
+		return userName;
 	}
 
 	public String getUserNameLabel() {
-		return loginPageObject.userNameLabel;
+		return userNameLabel;
 	}
 
 	public WebElement getPassWord() {
-		return loginPageObject.passWord;
+		return passWord;
 	}
 
 	public String getPassWordLabel() {
-		return loginPageObject.passWordLabel;
+		return passWordLabel;
 	}
 
 	public WebElement getLogin() {
-		return loginPageObject.login;
+		return login;
 	}
 
 	public String getLoginLabel() {
-		return loginPageObject.loginLabel;
+		return loginLabel;
 	}
 
 	public WebElement getForgotPasswordLink() {
-		return loginPageObject.forgotPasswordLink;
+		return forgotPasswordLink;
 	}
 
 	public String getForgotPasswordLinkLabel() {
-		return loginPageObject.forgotPasswordLinkLabel;
+		return forgotPasswordLinkLabel;
 	}
 
 	public WebElement getFplUserName() {
-		return loginPageObject.fplUserName;
+		return fplUserName;
 	}
 
 	public String getFplUserNameLabel() {
-		return loginPageObject.fplUserNameLabel;
+		return fplUserNameLabel;
 	}
 
 	public WebElement getFplReset() {
-		return loginPageObject.fplReset;
+		return fplReset;
 	}
 
 	public String getFplResetLabel() {
-		return loginPageObject.fplResetLabel;
+		return fplResetLabel;
 	}
 
 }

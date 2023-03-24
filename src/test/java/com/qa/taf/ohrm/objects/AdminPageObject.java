@@ -5,7 +5,7 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class AdminPageObject {
+public class AdminPageObject extends DashboardPageObject {
 
 	@FindBy(css = ".oxd-topbar-header-breadcrumb")
 	public WebElement adminHeader;
@@ -42,8 +42,5 @@ public class AdminPageObject {
 	@FindBy(css = ".oxd-table-cell.oxd-padding-cell:nth-child(2)")
 	public WebElement adminSearchResultData;
 	public String adminSearchResultDataLabel = "AdminSearchResultData";
-
-	
-	
 
 }

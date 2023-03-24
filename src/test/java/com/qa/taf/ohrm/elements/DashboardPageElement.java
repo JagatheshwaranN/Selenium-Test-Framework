@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.qa.taf.ohrm.objects.DashboardPageObject;
 
-public class DashboardPageElement extends LoginPageElement {
+public class DashboardPageElement extends DashboardPageObject {
 
 	public DashboardPageObject dashboardPageObject;
 

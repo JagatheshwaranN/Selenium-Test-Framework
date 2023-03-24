@@ -7,7 +7,7 @@ import org.openqa.selenium.support.PageFactory;
 
 import com.qa.taf.ohrm.objects.AdminPageObject;
 
-public class AdminPageElement extends DashboardPageElement {
+public class AdminPageElement extends AdminPageObject {
 
 	public AdminPageObject adminPageObject;
 

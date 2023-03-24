@@ -5,7 +5,7 @@ import java.util.List;
 import org.openqa.selenium.WebElement;
 import com.qa.taf.ohrm.elements.DashboardPageElement;
 
-public class DashboardPage extends LoginPage {
+public class DashboardPage extends DashboardPageElement {
 
 	DashboardPageElement dashboardPageElement = new DashboardPageElement();
 

@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import java.util.List;
 
-public class DashboardPageObject {
+public class DashboardPageObject extends LoginPageObject {
 
 	@FindBys({ @FindBy(css = ".oxd-topbar-header-userarea"), @FindBy(css = ".oxd-userdropdown-tab") })
 	public WebElement userDropDown;

@@ -2,7 +2,7 @@ package com.qa.taf.ohrm.pages;
 
 import com.qa.taf.ohrm.elements.AdminPageElement;
 
-public class AdminPage extends DashboardPage {
+public class AdminPage extends AdminPageElement {
 
 	AdminPageElement adminPageElement = new AdminPageElement();
 
