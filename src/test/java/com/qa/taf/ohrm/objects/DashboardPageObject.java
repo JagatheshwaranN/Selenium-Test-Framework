@@ -5,16 +5,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
 import java.util.List;
 
-public class DashboardPageElement {
-
-	/**
-	 * @FindBys - It is used to identify an element which is inside the particular
-	 *          div /section. For example, in below code, the userDropDown is going
-	 *          to be searched inside the UserArea div section only.
-	 */
-
-//	@FindBy(css = ".oxd-userdropdown-tab")
-//	public WebElement userDropDown;
+public class DashboardPageObject {
 
 	@FindBys({ @FindBy(css = ".oxd-topbar-header-userarea"), @FindBy(css = ".oxd-userdropdown-tab") })
 	public WebElement userDropDown;
@@ -35,4 +26,5 @@ public class DashboardPageElement {
 	@FindBy(xpath = "//div[@class='oxd-grid-item oxd-grid-item--gutters orangehrm-quick-launch-card']")
 	public List<WebElement> quickLaunchCards;
 	public String quickLaunchCardsLabel = "QuickLaunchCards";
-}
+
+	}

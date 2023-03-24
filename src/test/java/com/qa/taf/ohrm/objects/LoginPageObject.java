@@ -4,14 +4,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 
-public class LoginPageElement {
-
-	/**
-	 * @FindAll - It is used to identify an element on the page with more than one
-	 *          locator. For example, in below code for login button, it has two
-	 *          locators such as xpath and css. If incase anyone of the locator
-	 *          didn't work then the element can be identified by the other locator.
-	 */
+public class LoginPageObject {
 
 	@FindBy(xpath = "//input[@name='username']")
 	public WebElement userName;

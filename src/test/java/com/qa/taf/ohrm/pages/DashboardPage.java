@@ -3,43 +3,31 @@ package com.qa.taf.ohrm.pages;
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
-
-import com.qa.taf.ohrm.objects.DashboardPageElement;
-
-
+import com.qa.taf.ohrm.elements.DashboardPageElement;
 
 public class DashboardPage extends LoginPage {
 
-	public DashboardPageElement dashboardPageElement;
+	DashboardPageElement dashboardPageElement = new DashboardPageElement();
 
-	public DashboardPage() {
+	public void userDropDown() {
 
-		this.dashboardPageElement = new DashboardPageElement();
-//		AjaxElementLocatorFactory ajaxElementLocatorFactory = new AjaxElementLocatorFactory(driver,
-//				Integer.parseInt(Constants.WebDriverWaitTime));
-		PageFactory.initElements(driver, this.dashboardPageElement);
-	}
-
-	public void pfUserDropDown() {
-
-		elementClick(dashboardPageElement.userDropDown, dashboardPageElement.userDropDownLabel);
-		isElementPresent(dashboardPageElement.userDropDownMenu, dashboardPageElement.userDropDownMenuLabel);
+		elementClick(dashboardPageElement.getUserDropDown(), dashboardPageElement.getUserDropDownLabel());
+		isElementPresent(dashboardPageElement.getUserDropDownMenu(), dashboardPageElement.getUserDropDownMenuLabel());
 	}
 
 	public void pfDoLogout() {
 
-		pfUserDropDown();
-		elementClick(dashboardPageElement.logout, dashboardPageElement.logoutLabel);
+		userDropDown();
+		elementClick(dashboardPageElement.getLogout(), dashboardPageElement.getLogoutLabel());
 	}
 
-	public AdminPage pfNavigateToAdminPage() {
+	public AdminPage navigateToAdminPage() {
 
-		elementClick(dashboardPageElement.adminSection, dashboardPageElement.adminSectionLabel);
+		elementClick(dashboardPageElement.getAdminSection(), dashboardPageElement.getAdminSectionLabel());
 		return new AdminPage();
 	}
 
 	public List<WebElement> getQuickLaunchCards() {
-		return dashboardPageElement.quickLaunchCards;
+		return dashboardPageElement.getQuickLaunchCards();
 	}
 }

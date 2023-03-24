@@ -1,28 +1,18 @@
 package com.qa.taf.ohrm.pages;
 
-import org.openqa.selenium.support.PageFactory;
+import com.qa.taf.ohrm.elements.LoginPageElement;
 
+import com.qa.taf.reuse.ReusableComponent;
 
-import com.qa.taf.ohrm.objects.AdminPageElement;
-import com.qa.taf.ohrm.objects.LoginPageElement;
+public class LoginPage extends ReusableComponent {
 
-public class LoginPage {
+	LoginPageElement loginPageElement = new LoginPageElement();
 
-	public LoginPageElement loginPageElement;
+	public DashboardPage doLogin(String username, String password) {
 
-	public LoginPage() {
-
-		this.loginPageElement = new LoginPageElement();
-//		AjaxElementLocatorFactory ajaxElementLocatorFactory = new AjaxElementLocatorFactory(driver,
-//				Integer.parseInt(Constants.WebDriverWaitTime));
-		PageFactory.initElements(driver, this.loginPageElement);
-	}
-
-	public DashboardPage pfDoLogin(String username, String password) {
-
-		elementType(loginPageElement.userName, username, loginPageElement.userNameLabel);
-		elementType(loginPageElement.passWord, password, loginPageElement.passWordLabel);
-		elementClick(loginPageElement.login, loginPageElement.loginLabel);
+		elementType(loginPageElement.getUserName(), username, loginPageElement.getUserNameLabel());
+		elementType(loginPageElement.getPassWord(), password, loginPageElement.getPassWordLabel());
+		elementClick(loginPageElement.getLogin(), loginPageElement.getLoginLabel());
 		return new DashboardPage();
 	}
 }

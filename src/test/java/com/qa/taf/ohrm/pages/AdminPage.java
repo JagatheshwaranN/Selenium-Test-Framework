@@ -1,33 +1,23 @@
 package com.qa.taf.ohrm.pages;
 
-import org.openqa.selenium.support.PageFactory;
-
-import com.qa.taf.ohrm.objects.AdminPageElement;
-
-
+import com.qa.taf.ohrm.elements.AdminPageElement;
 
 public class AdminPage extends DashboardPage {
 
-	public AdminPageElement adminPageElement;
+	AdminPageElement adminPageElement = new AdminPageElement();
 
-	public AdminPage() {
+	public void searchUser(String user, String status) {
 
-		this.adminPageElement = new AdminPageElement();
-//		AjaxElementLocatorFactory ajaxElementLocatorFactory = new AjaxElementLocatorFactory(driver,
-//				Integer.parseInt(Constants.WebDriverWaitTime));
-		PageFactory.initElements(driver, this.adminPageElement);
-	}
-
-	public void pfSearchUser(String user, String status) {
-
-		isElementPresent(adminPageElement.adminHeader, adminPageElement.adminHeaderLabel);
-		elementType(adminPageElement.adminSearchUserName, user, adminPageElement.adminSearchUserNameLabel);
-		elementSelect(adminPageElement.adminUserRoleDropDown, adminPageElement.adminUserRoleDropDownOptions, user,
-				adminPageElement.adminUserRoleDropDownLabel);
-		elementSelect(adminPageElement.adminUserStatusDropDown, adminPageElement.adminUserStatusDropDownOptions, status,
-				adminPageElement.adminUserStatusDropDownLabel);
-		elementClick(adminPageElement.adminSearch, adminPageElement.adminSearchLabel);
-		isElementPresent(adminPageElement.adminSearchResultSection, adminPageElement.adminSearchResultSectionLabel);
-		isElementPresent(adminPageElement.adminSearchResultData, adminPageElement.adminSearchResultDataLabel);
+		isElementPresent(adminPageElement.getAdminHeader(), adminPageElement.getAdminHeaderLabel());
+		elementType(adminPageElement.getAdminSearchUserName(), user, adminPageElement.getAdminSearchUserNameLabel());
+		elementSelect(adminPageElement.getAdminUserRoleDropDown(), adminPageElement.getAdminUserRoleDropDownOptions(),
+				user, adminPageElement.getAdminUserRoleDropDownLabel());
+		elementSelect(adminPageElement.getAdminUserStatusDropDown(),
+				adminPageElement.getAdminUserStatusDropDownOptions(), status,
+				adminPageElement.getAdminUserStatusDropDownLabel());
+		elementClick(adminPageElement.getAdminSearch(), adminPageElement.getAdminSearchLabel());
+		isElementPresent(adminPageElement.getAdminSearchResultSection(),
+				adminPageElement.getAdminSearchResultSectionLabel());
+		isElementPresent(adminPageElement.getAdminSearchResultData(), adminPageElement.getAdminSearchResultDataLabel());
 	}
 }
