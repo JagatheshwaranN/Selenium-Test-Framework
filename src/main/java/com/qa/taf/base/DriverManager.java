@@ -10,7 +10,6 @@ public class DriverManager {
 
 	private WebDriver driver;
 	private ChromeOptions options;
-
 	private static ThreadLocal<WebDriver> driverLocal = new ThreadLocal<WebDriver>();
 
 	public WebDriver getDriver() {
@@ -30,7 +29,7 @@ public class DriverManager {
 		setDriver(driver);
 		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 		try {
-			Thread.sleep(10000);
+			Thread.sleep(7000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
