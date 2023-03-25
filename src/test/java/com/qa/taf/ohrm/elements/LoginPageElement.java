@@ -53,5 +53,4 @@ public class LoginPageElement extends LoginPageObject {
 	public String getFplResetLabel() {
 		return fplResetLabel;
 	}
-
 }

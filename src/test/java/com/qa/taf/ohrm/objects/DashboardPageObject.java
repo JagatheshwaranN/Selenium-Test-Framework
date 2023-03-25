@@ -3,28 +3,34 @@ package com.qa.taf.ohrm.objects;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
+import org.openqa.selenium.support.PageFactory;
+
 import java.util.List;
 
 public class DashboardPageObject extends LoginPageObject {
 
+	public DashboardPageObject() {
+
+		PageFactory.initElements(getDriver(), this);
+	}
+
 	@FindBys({ @FindBy(css = ".oxd-topbar-header-userarea"), @FindBy(css = ".oxd-userdropdown-tab") })
-	public WebElement userDropDown;
-	public String userDropDownLabel = "UserDropDown";
+	protected WebElement userDropDown;
+	protected String userDropDownLabel = "UserDropDown";
 
 	@FindBy(css = ".oxd-dropdown-menu")
-	public WebElement userDropDownMenu;
-	public String userDropDownMenuLabel = "UserDropDownMenu";
+	protected WebElement userDropDownMenu;
+	protected String userDropDownMenuLabel = "UserDropDownMenu";
 
 	@FindBy(xpath = "//a[contains(@href,'logout')]")
-	public WebElement logout;
-	public String logoutLabel = "Logout";
+	protected WebElement logout;
+	protected String logoutLabel = "Logout";
 
 	@FindBy(xpath = "//a[contains(@href,'admin/viewAdminModule')]")
-	public WebElement adminSection;
-	public String adminSectionLabel = "AdminSection";
+	protected WebElement adminSection;
+	protected String adminSectionLabel = "AdminSection";
 
 	@FindBy(xpath = "//div[@class='oxd-grid-item oxd-grid-item--gutters orangehrm-quick-launch-card']")
-	public List<WebElement> quickLaunchCards;
-	public String quickLaunchCardsLabel = "QuickLaunchCards";
-
-	}
+	protected List<WebElement> quickLaunchCards;
+	protected String quickLaunchCardsLabel = "QuickLaunchCards";
+}

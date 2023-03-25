@@ -3,89 +3,80 @@ package com.qa.taf.ohrm.elements;
 import java.util.List;
 
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.PageFactory;
 
 import com.qa.taf.ohrm.objects.AdminPageObject;
 
 public class AdminPageElement extends AdminPageObject {
 
-	public AdminPageObject adminPageObject;
-
-	public AdminPageElement() {
-
-		this.adminPageObject = new AdminPageObject();
-		PageFactory.initElements(getDriver(), this.adminPageObject);
-	}
-
 	public WebElement getAdminHeader() {
-		return adminPageObject.adminHeader;
+		return adminHeader;
 	}
 
 	public String getAdminHeaderLabel() {
-		return adminPageObject.adminHeaderLabel;
+		return adminHeaderLabel;
 	}
 
 	public WebElement getAdminSearchUserName() {
-		return adminPageObject.adminSearchUserName;
+		return adminSearchUserName;
 	}
 
 	public String getAdminSearchUserNameLabel() {
-		return adminPageObject.adminSearchUserNameLabel;
+		return adminSearchUserNameLabel;
 	}
 
 	public WebElement getAdminUserRoleDropDown() {
-		return adminPageObject.adminUserRoleDropDown;
+		return adminUserRoleDropDown;
 	}
 
 	public String getAdminUserRoleDropDownLabel() {
-		return adminPageObject.adminUserRoleDropDownLabel;
+		return adminUserRoleDropDownLabel;
 	}
 
 	public List<WebElement> getAdminUserRoleDropDownOptions() {
-		return adminPageObject.adminUserRoleDropDownOptions;
+		return adminUserRoleDropDownOptions;
 	}
 
 	public String getAdminUserRoleDropDownOptionsLabel() {
-		return adminPageObject.adminUserRoleDropDownOptionsLabel;
+		return adminUserRoleDropDownOptionsLabel;
 	}
 
 	public WebElement getAdminUserStatusDropDown() {
-		return adminPageObject.adminUserStatusDropDown;
+		return adminUserStatusDropDown;
 	}
 
 	public String getAdminUserStatusDropDownLabel() {
-		return adminPageObject.adminUserStatusDropDownLabel;
+		return adminUserStatusDropDownLabel;
 	}
 
 	public List<WebElement> getAdminUserStatusDropDownOptions() {
-		return adminPageObject.adminUserStatusDropDownOptions;
+		return adminUserStatusDropDownOptions;
 	}
 
 	public String getAdminUserStatusDropDownOptionsLabel() {
-		return adminPageObject.adminUserStatusDropDownOptionsLabel;
+		return adminUserStatusDropDownOptionsLabel;
 	}
 
 	public WebElement getAdminSearch() {
-		return adminPageObject.adminSearch;
+		return adminSearch;
 	}
 
 	public String getAdminSearchLabel() {
-		return adminPageObject.adminSearchLabel;
+		return adminSearchLabel;
 	}
 
 	public WebElement getAdminSearchResultSection() {
-		return adminPageObject.adminSearchResultSection;
+		return adminSearchResultSection;
 	}
 
 	public String getAdminSearchResultSectionLabel() {
-		return adminPageObject.adminSearchResultSectionLabel;
+		return adminSearchResultSectionLabel;
 	}
 
 	public WebElement getAdminSearchResultData() {
-		return adminPageObject.adminSearchResultData;
+		return adminSearchResultData;
 	}
 
 	public String getAdminSearchResultDataLabel() {
-		return adminPageObject.adminSearchResultDataLabel;
+		return adminSearchResultDataLabel;
 	}
 }

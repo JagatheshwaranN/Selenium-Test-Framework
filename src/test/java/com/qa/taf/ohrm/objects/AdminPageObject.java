@@ -4,43 +4,48 @@ import java.util.List;
 
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 
 public class AdminPageObject extends DashboardPageObject {
 
+	public AdminPageObject() {
+
+		PageFactory.initElements(getDriver(), this);
+	}
+
 	@FindBy(css = ".oxd-topbar-header-breadcrumb")
-	public WebElement adminHeader;
-	public String adminHeaderLabel = "AdminHeader";
+	protected WebElement adminHeader;
+	protected String adminHeaderLabel = "AdminHeader";
 
 	@FindBy(css = ".oxd-form .oxd-input.oxd-input--active")
-	public WebElement adminSearchUserName;
-	public String adminSearchUserNameLabel = "AdminSearchUserName";
+	protected WebElement adminSearchUserName;
+	protected String adminSearchUserNameLabel = "AdminSearchUserName";
 
 	@FindBy(xpath = "(//div[contains(@class,'oxd-select-text--after')])[1]")
-	public WebElement adminUserRoleDropDown;
-	public String adminUserRoleDropDownLabel = "AdminUserRoleDropDown";
+	protected WebElement adminUserRoleDropDown;
+	protected String adminUserRoleDropDownLabel = "AdminUserRoleDropDown";
 
 	@FindBy(xpath = "//div[@role='listbox']//div[@role='option']//span")
-	public List<WebElement> adminUserRoleDropDownOptions;
-	public String adminUserRoleDropDownOptionsLabel = "AdminUserRoleDropDownOptions";
+	protected List<WebElement> adminUserRoleDropDownOptions;
+	protected String adminUserRoleDropDownOptionsLabel = "AdminUserRoleDropDownOptions";
 
 	@FindBy(xpath = "(//div[contains(@class,'oxd-select-text--after')])[2]")
-	public WebElement adminUserStatusDropDown;
-	public String adminUserStatusDropDownLabel = "AdminUserStatusDropDown";
+	protected WebElement adminUserStatusDropDown;
+	protected String adminUserStatusDropDownLabel = "AdminUserStatusDropDown";
 
 	@FindBy(xpath = "//div[@role='listbox']//div[@role='option']//span")
-	public List<WebElement> adminUserStatusDropDownOptions;
-	public String adminUserStatusDropDownOptionsLabel = "AdminUserStatusDropDownOptions";
+	protected List<WebElement> adminUserStatusDropDownOptions;
+	protected String adminUserStatusDropDownOptionsLabel = "AdminUserStatusDropDownOptions";
 
 	@FindBy(xpath = "//button[contains(@class,'oxd-button--secondary orangehrm-left-space')]")
-	public WebElement adminSearch;
-	public String adminSearchLabel = "AdminSearch";
+	protected WebElement adminSearch;
+	protected String adminSearchLabel = "AdminSearch";
 
 	@FindBy(css = ".oxd-table-card")
-	public WebElement adminSearchResultSection;
-	public String adminSearchResultSectionLabel = "AdminSearchResultSection";
+	protected WebElement adminSearchResultSection;
+	protected String adminSearchResultSectionLabel = "AdminSearchResultSection";
 
 	@FindBy(css = ".oxd-table-cell.oxd-padding-cell:nth-child(2)")
-	public WebElement adminSearchResultData;
-	public String adminSearchResultDataLabel = "AdminSearchResultData";
-
+	protected WebElement adminSearchResultData;
+	protected String adminSearchResultDataLabel = "AdminSearchResultData";
 }
