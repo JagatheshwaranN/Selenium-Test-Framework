@@ -16,7 +16,7 @@ public class LoginPageTest extends DriverManager {
 	@Test(dataProviderClass = TestDataUtil.class, dataProvider = "fetchData")
 	public void loginPageTest(Hashtable<String, String> data) {
 
-		Class<LoginPageTest> classObject = LoginPageTest.class;
+		var classObject = LoginPageTest.class;
 		Method[] methods = classObject.getMethods();
 		if (!TestDataUtil.isTestRunnable(methods[0].getName(), excelReaderUtil)) {
 			throw new SkipException("Skipping the Test - " + StringUtils.capitalize(methods[0].getName())
