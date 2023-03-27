@@ -26,12 +26,15 @@ public class FileReaderUtil {
 	}
 
 	public static String getDataFromPropFile(String key) {
+
 		String data = null;
-		if (Optional.ofNullable(key).isPresent()) {
-			data = properties.getProperty(key).strip();
-		} else {
-			System.out.println("Key - " + key + " is not present in the Configuration.Properties file");
-			Assert.fail();
+		try {
+			if (Optional.ofNullable(key).isPresent()) {
+				data = properties.getProperty(key).strip();
+			}
+		} catch (NullPointerException ex) {
+			Assert.fail("The key - " + key + " - is not present in the configuration properties file" + "\n"
+					+ ex.getMessage());
 		}
 		return data;
 	}
