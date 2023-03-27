@@ -8,8 +8,9 @@ import org.testng.annotations.BeforeMethod;
 
 import com.qa.taf.util.ConstantUtil;
 import com.qa.taf.util.ExcelReaderUtil;
+import com.qa.taf.util.FileReaderUtil;
 
-public class DriverManager {
+public class DriverManager extends FileReaderUtil {
 
 	private WebDriver driver;
 	private ChromeOptions options;
@@ -27,19 +28,20 @@ public class DriverManager {
 
 	@BeforeMethod
 	public void invokeBrowser() {
-		// if (browser.equalsIgnoreCase("chrome")) {
-		options = new ChromeOptions();
-		options.addArguments("--remote-allow-origins=*");
-		driver = new ChromeDriver(options);
-		setDriver(driver);
-		driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
-		try {
-			Thread.sleep(7000);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		loadPropertyFile();
+		if (getDataFromPropFile("browser").equalsIgnoreCase("Chrome")) {
+			options = new ChromeOptions();
+			options.addArguments("--remote-allow-origins=*");
+			driver = new ChromeDriver(options);
+			setDriver(driver);
+			driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
+			try {
+				Thread.sleep(7000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 		}
-		// }
 	}
 
 	@AfterMethod
