@@ -9,7 +9,7 @@ import com.qa.taf.ohrm.pages.LoginPage;
 
 public class AdminPageTest extends DriverManager {
 
-	@Test
+	@Test()
 	public void adminPageTest() throws InterruptedException {
 
 		LoginPage loginPage = new LoginPage();

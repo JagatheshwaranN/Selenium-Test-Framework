@@ -95,4 +95,13 @@ public class ReusableComponent extends DriverManager {
 			ex.printStackTrace();
 		}
 	}
+
+	public static void waitForSomeTime() {
+
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException ex) {
+			ex.printStackTrace();
+		}
+	}
 }

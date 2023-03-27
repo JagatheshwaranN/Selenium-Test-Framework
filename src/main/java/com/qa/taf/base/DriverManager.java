@@ -6,11 +6,16 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
+import com.qa.taf.util.ConstantUtil;
+import com.qa.taf.util.ExcelReaderUtil;
+
 public class DriverManager {
 
 	private WebDriver driver;
 	private ChromeOptions options;
 	private static ThreadLocal<WebDriver> driverLocal = new ThreadLocal<WebDriver>();
+	public static ExcelReaderUtil excelReaderUtil = new ExcelReaderUtil(
+			System.getProperty("user.dir") + ConstantUtil.Excel_File_Path);
 
 	public WebDriver getDriver() {
 		return driverLocal.get();
