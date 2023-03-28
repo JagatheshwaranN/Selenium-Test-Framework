@@ -39,4 +39,5 @@ public class LoginPageObject extends ReusableComponent {
 	@FindBy(xpath = "//button[contains(@class,'orangehrm-forgot-password-button--reset')]")
 	protected WebElement fplReset;
 	protected String fplResetLabel = "FPLReset";
+
 }
