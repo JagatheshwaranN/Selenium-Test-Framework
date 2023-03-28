@@ -24,15 +24,15 @@ public abstract class Page {
 
 	public abstract String getPageTitle();
 
-	public abstract String getPageHeader(WebElement element);
+	public abstract String getPageHeader(WebElement element, String elementLabel);
 
-	public abstract void waitForElementVisible(WebElement element);
+	public abstract void waitForElementVisible(WebElement element, String elementLabel);
 
 	public abstract void waitForPageTitle(String title);
 
-	public abstract WebElement generateElement(By locator);
+	public abstract WebElement generateElement(By locator, String locatorLabel);
 
-	public abstract WebElement generateElement(String locator);
+	public abstract WebElement generateElement(String locator, String locatorLabel);
 
 	public <TPage extends BasePage> TPage getInstance(Class<TPage> pageClass) {
 		try {
