@@ -5,12 +5,12 @@ import org.openqa.selenium.WebElement;
 
 public interface WebPage {
 
-	public void elementClear(WebElement element, String elementLabel);
+	public void clearElement(WebElement element, String elementLabel);
 
-	public void elementClick(WebElement element, String elementLabel);
+	public void clickElement(WebElement element, String elementLabel);
 
-	public void elementClick(By locator, String value, String elementLabel);
+	public void clickElement(By locator, String value, String elementLabel);
 
-	public void enterText(WebElement element, String text, String elementLabel);
+	public void typeElement(WebElement element, String text, String elementLabel);
 
 }

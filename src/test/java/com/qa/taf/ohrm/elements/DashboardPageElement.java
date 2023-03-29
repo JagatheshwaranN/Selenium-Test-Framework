@@ -2,11 +2,17 @@ package com.qa.taf.ohrm.elements;
 
 import java.util.List;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.qa.taf.ohrm.objects.DashboardPageObject;
 
 public class DashboardPageElement extends DashboardPageObject {
+
+	public DashboardPageElement(WebDriver driver) {
+		super(driver);
+		// TODO Auto-generated constructor stub
+	}
 
 	public WebElement getUserDropDown() {
 		return userDropDown;

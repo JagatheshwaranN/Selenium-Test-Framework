@@ -1,10 +1,16 @@
 package com.qa.taf.ohrm.elements;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.qa.taf.ohrm.objects.LoginPageObject;
 
 public class LoginPageElement extends LoginPageObject {
+
+	public LoginPageElement(WebDriver driver) {
+		super(driver);
+		// TODO Auto-generated constructor stub
+	}
 
 	public WebElement getUserName() {
 		return userName;

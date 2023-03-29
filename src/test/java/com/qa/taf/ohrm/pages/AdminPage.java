@@ -1,8 +1,15 @@
 package com.qa.taf.ohrm.pages;
 
+import org.openqa.selenium.WebDriver;
+
 import com.qa.taf.ohrm.elements.AdminPageElement;
 
 public class AdminPage extends AdminPageElement {
+
+	public AdminPage(WebDriver driver) {
+		super(driver);
+		// TODO Auto-generated constructor stub
+	}
 
 	AdminPageElement adminPageElement = new AdminPageElement();
 

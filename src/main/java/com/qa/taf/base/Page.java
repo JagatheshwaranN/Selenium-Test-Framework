@@ -1,5 +1,7 @@
 package com.qa.taf.base;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -12,6 +14,7 @@ public abstract class Page {
 
 	public Page(WebDriver driver) {
 		this.setDriver(driver);
+		this.wait = new WebDriverWait(this.getDriver(), Duration.ofSeconds(30));
 	}
 
 	public WebDriver getDriver() {
@@ -36,7 +39,7 @@ public abstract class Page {
 
 	public <TPage extends BasePage> TPage getInstance(Class<TPage> pageClass) {
 		try {
-			return pageClass.getDeclaredConstructor(WebDriver.class).newInstance(this.getDriver());
+			return pageClass.getDeclaredConstructor(WebDriver.class).newInstance(getDriver());
 		} catch (Exception ex) {
 			ex.printStackTrace();
 			return null;

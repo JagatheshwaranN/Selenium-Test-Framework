@@ -2,14 +2,15 @@ package com.qa.taf.ohrm.objects;
 
 import java.util.List;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class AdminPageObject extends DashboardPageObject {
 
-	public AdminPageObject() {
-
+	public AdminPageObject(WebDriver driver) {
+		super(driver);
 		PageFactory.initElements(getDriver(), this);
 	}
 

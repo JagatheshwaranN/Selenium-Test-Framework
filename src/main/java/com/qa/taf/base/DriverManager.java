@@ -17,6 +17,7 @@ public class DriverManager extends FileReaderUtil {
 	private static ThreadLocal<WebDriver> driverLocal = new ThreadLocal<WebDriver>();
 	public static ExcelReaderUtil excelReaderUtil = new ExcelReaderUtil(
 			System.getProperty("user.dir") + ConstantUtil.Excel_File_Path);
+	public static Page page;
 
 	public WebDriver getDriver() {
 		return driverLocal.get();
@@ -34,11 +35,11 @@ public class DriverManager extends FileReaderUtil {
 			options.addArguments("--remote-allow-origins=*");
 			driver = new ChromeDriver(options);
 			setDriver(driver);
+			page = new BasePage(getDriver());
 			driver.get("https://opensource-demo.orangehrmlive.com/web/index.php/auth/login");
 			try {
 				Thread.sleep(7000);
 			} catch (InterruptedException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
