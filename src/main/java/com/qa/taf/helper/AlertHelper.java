@@ -2,7 +2,7 @@ package com.qa.taf.helper;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.NoAlertPresentException;
-import org.openqa.selenium.WebDriver;
+
 import org.testng.Assert;
 
 import com.qa.taf.base.BasePage;
@@ -14,10 +14,6 @@ import com.qa.taf.base.BasePage;
  */
 public class AlertHelper extends BasePage {
 
-	public AlertHelper(WebDriver driver) {
-		super(driver);
-	}
-
 	public Alert getAlert() {
 		try {
 			System.out.println("The control switched to alert popup window");
@@ -25,7 +21,7 @@ public class AlertHelper extends BasePage {
 			System.out.println("Error occured while the get the alert window" + "\n" + ex);
 			Assert.fail();
 		}
-		return getDriver().switchTo().alert();
+		return driverManager.getDriver().switchTo().alert();
 	}
 
 	public void acceptAlert() {
@@ -63,7 +59,7 @@ public class AlertHelper extends BasePage {
 
 	public boolean isAlertPresent() {
 		try {
-			getDriver().switchTo().alert();
+			driverManager.getDriver().switchTo().alert();
 			System.out.println("The alert popup window is present on the page");
 			return true;
 		} catch (NoAlertPresentException ex) {

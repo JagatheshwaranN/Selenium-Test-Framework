@@ -2,7 +2,7 @@ package com.qa.taf.helper;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
@@ -16,16 +16,11 @@ import com.qa.taf.base.WebPage;
  */
 public class JavaScriptHelper extends BasePage implements WebPage {
 
-	JavascriptExecutor executor;
-
-	public JavaScriptHelper(WebDriver driver) {
-		super(driver);
-	}
+	JavascriptExecutor executor = (JavascriptExecutor) driverManager.getDriver();;
 
 	@Override
 	public void clickElement(WebElement element, String elementLabel) {
 		try {
-			executor = (JavascriptExecutor) getDriver();
 			executor.executeScript("arguments[0].click();", element);
 			System.out.println("The " + elementLabel + " element is clicked by javascript");
 		} catch (Exception ex) {
@@ -41,7 +36,6 @@ public class JavaScriptHelper extends BasePage implements WebPage {
 		String updatedLocatorToString = null;
 		WebElement element;
 		try {
-			executor = (JavascriptExecutor) getDriver();
 			locatorToString = locator.toString();
 			if (locatorToString.contains("@1@")) {
 				updatedLocatorToString = locatorToString.replaceAll("@1@", value);
@@ -61,7 +55,6 @@ public class JavaScriptHelper extends BasePage implements WebPage {
 	@Override
 	public void typeElement(WebElement element, String text, String elementLabel) {
 		try {
-			executor = (JavascriptExecutor) getDriver();
 			executor.executeScript("arguments[0].value='" + text + "';", element);
 			System.out.println("The text " + text + " is entered into an " + elementLabel + " element by javascript");
 		} catch (Exception ex) {
@@ -74,7 +67,6 @@ public class JavaScriptHelper extends BasePage implements WebPage {
 	@Override
 	public void clearElement(WebElement element, String elementLabel) {
 		try {
-			executor = (JavascriptExecutor) getDriver();
 			executor.executeScript("arguments[0].value = '';", element);
 		} catch (Exception ex) {
 			System.out
@@ -90,9 +82,7 @@ public class JavaScriptHelper extends BasePage implements WebPage {
 			System.out.println("Error occured while execute script by javascript" + "\n" + ex);
 			Assert.fail();
 		}
-		executor = (JavascriptExecutor) getDriver();
 		return executor.executeScript(script);
-
 	}
 
 	public Object executeScript(String script, Object... arguments) {
@@ -102,7 +92,6 @@ public class JavaScriptHelper extends BasePage implements WebPage {
 			System.out.println("Error occured while execute script by javascript" + "\n" + ex);
 			Assert.fail();
 		}
-		executor = (JavascriptExecutor) getDriver();
 		return executor.executeScript(script, arguments);
 	}
 

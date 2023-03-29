@@ -8,12 +8,12 @@ import org.testng.SkipException;
 import org.testng.annotations.Test;
 
 import com.qa.taf.base.DriverManager;
-import com.qa.taf.ohrm.pages.AdminPage;
-import com.qa.taf.ohrm.pages.DashboardPage;
-import com.qa.taf.ohrm.pages.LoginPage;
+import com.qa.taf.ohrm.pages.PageManager;
 import com.qa.taf.util.TestDataUtil;
 
 public class AdminPageTest extends DriverManager {
+
+	PageManager pageManager;
 
 	@Test(dataProviderClass = TestDataUtil.class, dataProvider = "fetchData")
 	public void adminPageTest(Hashtable<String, String> data) throws InterruptedException {
@@ -28,11 +28,11 @@ public class AdminPageTest extends DriverManager {
 			throw new SkipException("Skipping the TestCase - " + StringUtils.capitalize(methods[0].getName())
 					+ " as the RunMode for the Test Data is set to N");
 		}
-		LoginPage loginPage = new LoginPage();
-		DashboardPage dashboardPage = loginPage.doLogin("Admin", "admin123");
+		pageManager = new PageManager();
+		pageManager.getLoginPage().doLogin("Admin", "admin123");
 		Thread.sleep(5000);
-		AdminPage adminPage = dashboardPage.navigateToAdminPage();
+		pageManager.getDashboardPage().navigateToAdminPage();
 		Thread.sleep(5000);
-		adminPage.searchUser("Admin", "Enabled");
+		pageManager.getAdminPage().searchUser("Admin", "Enabled");
 	}
 }

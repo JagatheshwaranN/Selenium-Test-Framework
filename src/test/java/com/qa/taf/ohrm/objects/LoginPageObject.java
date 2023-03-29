@@ -1,7 +1,6 @@
 
 package com.qa.taf.ohrm.objects;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
@@ -11,9 +10,8 @@ import com.qa.taf.reuse.ReusableComponent;
 
 public class LoginPageObject extends ReusableComponent {
 
-	public LoginPageObject(WebDriver driver) {
-		super(driver);
-		PageFactory.initElements(getDriver(), this);
+	public LoginPageObject() {
+		PageFactory.initElements(driverManager.getDriver(), this);
 	}
 
 	@FindBy(xpath = "//input[@name='username']")

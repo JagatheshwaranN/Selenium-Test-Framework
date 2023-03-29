@@ -1,20 +1,21 @@
 package com.qa.taf.base;
 
+import java.time.Duration;
+
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 public class BasePage extends Page {
 
-	public BasePage(WebDriver driver) {
-		super(driver);
-	}
+	public WebDriverWait wait = new WebDriverWait(driverManager.getDriver(), Duration.ofSeconds(30));
 
 	@Override
 	public String getPageTitle() {
-		return getDriver().getTitle();
+		return driverManager.getDriver().getTitle();
 	}
 
 	@Override
@@ -48,7 +49,7 @@ public class BasePage extends Page {
 	public WebElement generateElement(By locator, String locatorLabel) {
 		WebElement element = null;
 		try {
-			element = getDriver().findElement(locator);
+			element = driverManager.getDriver().findElement(locator);
 		} catch (Exception ex) {
 			System.out.println("Error occured while construct of an web element : " + locatorLabel + "\n" + ex);
 			Assert.fail();
@@ -60,7 +61,7 @@ public class BasePage extends Page {
 	public WebElement generateElement(String locator, String locatorLabel) {
 		WebElement element = null;
 		try {
-			element = getDriver().findElement(By.xpath(locator));
+			element = driverManager.getDriver().findElement(By.xpath(locator));
 		} catch (Exception ex) {
 			System.out.println("Error occured while construct of an web element : " + locatorLabel + "\n" + ex);
 			Assert.fail();

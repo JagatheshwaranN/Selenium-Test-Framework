@@ -6,9 +6,9 @@ public class LoginPage extends LoginPageElement {
 
 	public DashboardPage doLogin(String username, String password) {
 
-		elementType(getUserName(), username, getUserNameLabel());
-		elementType(getPassWord(), password, getPassWordLabel());
-		elementClick(getLogin(), getLoginLabel());
+		typeElement(getUserName(), username, getUserNameLabel());
+		typeElement(getPassWord(), password, getPassWordLabel());
+		clickElement(getLogin(), getLoginLabel());
 		return new DashboardPage();
 	}
 }

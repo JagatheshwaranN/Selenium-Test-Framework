@@ -1,7 +1,5 @@
 package com.qa.taf.helper;
 
-
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
@@ -13,12 +11,6 @@ import com.qa.taf.base.BasePage;
  *
  */
 public class VerificationHelper extends BasePage {
-
-	public VerificationHelper(WebDriver driver) {
-		super(driver);
-	}
-
-	
 
 	public boolean verifyElementPresent(WebElement element, String elementLabel) {
 		boolean isDisplayed = false;

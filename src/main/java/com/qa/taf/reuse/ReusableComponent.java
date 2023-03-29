@@ -3,16 +3,16 @@ package com.qa.taf.reuse;
 import java.util.List;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
+
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 
 import com.qa.taf.base.BasePage;
-import com.qa.taf.base.DriverManager;
+
 import com.qa.taf.base.WebPage;
 
-public class ReusableComponent extends DriverManager implements WebPage {
+public class ReusableComponent extends BasePage implements WebPage {
 
 	public static boolean isElementPresent(WebElement element, String elementLabel) {
 

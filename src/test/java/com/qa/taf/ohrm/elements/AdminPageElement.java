@@ -2,17 +2,11 @@ package com.qa.taf.ohrm.elements;
 
 import java.util.List;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.qa.taf.ohrm.objects.AdminPageObject;
 
 public class AdminPageElement extends AdminPageObject {
-
-	public AdminPageElement(WebDriver driver) {
-		super(driver);
-		// TODO Auto-generated constructor stub
-	}
 
 	public WebElement getAdminHeader() {
 		return adminHeader;

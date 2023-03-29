@@ -8,10 +8,13 @@ import org.testng.SkipException;
 import org.testng.annotations.Test;
 
 import com.qa.taf.base.DriverManager;
-import com.qa.taf.ohrm.pages.LoginPage;
+
+import com.qa.taf.ohrm.pages.PageManager;
 import com.qa.taf.util.TestDataUtil;
 
 public class LoginPageTest extends DriverManager {
+
+	PageManager pageManager;
 
 	@Test(dataProviderClass = TestDataUtil.class, dataProvider = "fetchData")
 	public void loginPageTest(Hashtable<String, String> data) {
@@ -26,7 +29,7 @@ public class LoginPageTest extends DriverManager {
 			throw new SkipException("Skipping the TestCase - " + StringUtils.capitalize(methods[0].getName())
 					+ " as the RunMode for the Test Data is set to N");
 		}
-		LoginPage loginPage = new LoginPage();
-		loginPage.doLogin(data.get("UserName"), data.get("Password"));
+		pageManager = new PageManager();
+		pageManager.getLoginPage().doLogin(data.get("UserName"), data.get("Password"));
 	}
 }

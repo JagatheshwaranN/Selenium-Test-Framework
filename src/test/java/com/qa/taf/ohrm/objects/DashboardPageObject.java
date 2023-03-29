@@ -1,6 +1,5 @@
 package com.qa.taf.ohrm.objects;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
@@ -10,9 +9,8 @@ import java.util.List;
 
 public class DashboardPageObject extends LoginPageObject {
 
-	public DashboardPageObject(WebDriver driver) {
-		super(driver);
-		PageFactory.initElements(getDriver(), this);
+	public DashboardPageObject() {
+		PageFactory.initElements(driverManager.getDriver(), this);
 	}
 
 	@FindBys({ @FindBy(css = ".oxd-topbar-header-userarea"), @FindBy(css = ".oxd-userdropdown-tab") })
