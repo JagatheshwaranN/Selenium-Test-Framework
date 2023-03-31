@@ -10,6 +10,7 @@ public class ConstantUtil {
 	public static final String TEST_RUN_MODE = "RunMode";
 
 	public static final String BROWSER = "Browser";
+	public static final String ENV = "Env";
 	public static final String APP_URL = "AppUrl";
 
 	public static final String CHROME_LAUNCH_OPTION = "--remote-allow-origins=*";

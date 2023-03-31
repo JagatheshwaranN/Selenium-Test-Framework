@@ -1,7 +1,8 @@
 package com.qa.taf.util;
 
-import java.io.FileInputStream;
+import java.io.BufferedReader;
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.util.Optional;
 import java.util.Properties;
@@ -14,9 +15,9 @@ public class FileReaderUtil {
 
 	public static void loadPropertyFile() {
 
-		try (FileInputStream fileInputStream = new FileInputStream(
-				System.getProperty("user.dir") + ConstantUtil.CONFIG_FILE_PATH)) {
-			properties.load(fileInputStream);
+		try (BufferedReader bufferedReader = new BufferedReader(
+				new FileReader(System.getProperty("user.dir") + ConstantUtil.CONFIG_FILE_PATH))) {
+			properties.load(bufferedReader);
 			System.out.println("Configuration property file loaded !!");
 		} catch (FileNotFoundException ex) {
 			ex.printStackTrace();

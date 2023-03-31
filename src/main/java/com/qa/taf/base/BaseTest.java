@@ -4,6 +4,8 @@ import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
 import com.qa.taf.util.ConstantUtil;
+import com.qa.taf.util.DriverType;
+import com.qa.taf.util.EnvType;
 
 public class BaseTest extends DriverManager {
 
@@ -20,7 +22,7 @@ public class BaseTest extends DriverManager {
 	@BeforeMethod
 	public void testStartUp() {
 		loadPropertyFile();
-		if (System.getenv(ConstantUtil.BROWSER ) != null && !System.getenv(ConstantUtil.BROWSER).isEmpty()) {
+		if (System.getenv(ConstantUtil.BROWSER) != null && !System.getenv(ConstantUtil.BROWSER).isEmpty()) {
 			setBrowser(System.getenv(ConstantUtil.BROWSER));
 		} else {
 			setBrowser(getDataFromPropFile(ConstantUtil.BROWSER));
@@ -35,4 +37,27 @@ public class BaseTest extends DriverManager {
 			getDriver().quit();
 		}
 	}
+
+	public DriverType getBrowser1() {
+		var browser = getDataFromPropFile(ConstantUtil.BROWSER);
+		if (browser.equalsIgnoreCase("Chrome"))
+			return DriverType.CHROME;
+		else if (browser.equalsIgnoreCase("Firefox"))
+			return DriverType.FIREFOX;
+		else if (browser.equalsIgnoreCase("Edge"))
+			return DriverType.EDGE;
+		else
+			throw new RuntimeException(browser + " value is not found in the Configuration Property file");
+	}
+
+	public EnvType getEnvType() {
+		var env = getDataFromPropFile(ConstantUtil.ENV);
+		if (env.equalsIgnoreCase("Local"))
+			return EnvType.LOCAL;
+		else if (env.equalsIgnoreCase("Remote"))
+			return EnvType.REMOTE;
+		else
+			throw new RuntimeException(env + " value is not found in the Configuration Property file");
+	}
+
 }
