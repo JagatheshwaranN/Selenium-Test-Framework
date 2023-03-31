@@ -15,7 +15,7 @@ public class FileReaderUtil {
 	public static void loadPropertyFile() {
 
 		try (FileInputStream fileInputStream = new FileInputStream(
-				System.getProperty("user.dir") + ConstantUtil.Config_File_Path)) {
+				System.getProperty("user.dir") + ConstantUtil.CONFIG_FILE_PATH)) {
 			properties.load(fileInputStream);
 			System.out.println("Configuration property file loaded !!");
 		} catch (FileNotFoundException ex) {

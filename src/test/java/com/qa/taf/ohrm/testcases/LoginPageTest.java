@@ -7,6 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.testng.SkipException;
 import org.testng.annotations.Test;
 
+import com.qa.taf.base.BaseTest;
 import com.qa.taf.base.DriverManager;
 
 import com.qa.taf.ohrm.pages.PageManager;
@@ -31,5 +32,11 @@ public class LoginPageTest extends BaseTest {
 		}
 		pageManager = new PageManager();
 		pageManager.getLoginPage().doLogin(data.get("UserName"), data.get("Password"));
+		try {
+			Thread.sleep(5000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 }

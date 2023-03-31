@@ -30,9 +30,9 @@ public class TestDataUtil extends DriverManager {
 
 	public static boolean isTestRunnable(String testName, ExcelReaderUtil excelReaderUtil) {
 
-		var sheetName = ConstantUtil.Test_Suite_Name;
-		var testCaseColumn = ConstantUtil.Test_Case_Name;
-		var runModeColumn = ConstantUtil.Test_Run_Mode;
+		var sheetName = ConstantUtil.TEST_SUITE_NAME;
+		var testCaseColumn = ConstantUtil.TEST_CASE_NAME;
+		var runModeColumn = ConstantUtil.TEST_RUN_MODE;
 		var rows = excelReaderUtil.getRowCount(sheetName);
 		for (var row = 2; row <= rows; row++) {
 			var testCase = excelReaderUtil.getCellData(sheetName, testCaseColumn, row);
