@@ -12,7 +12,7 @@ import com.qa.taf.base.DriverManager;
 import com.qa.taf.ohrm.pages.PageManager;
 import com.qa.taf.util.TestDataUtil;
 
-public class LoginPageTest extends DriverManager {
+public class LoginPageTest extends BaseTest {
 
 	PageManager pageManager;
 
@@ -21,7 +21,7 @@ public class LoginPageTest extends DriverManager {
 
 		var classObject = LoginPageTest.class;
 		Method[] methods = classObject.getMethods();
-		if (!TestDataUtil.isTestRunnable(methods[0].getName(), excelReaderUtil)) {
+		if (!TestDataUtil.isTestRunnable(methods[0].getName(), DriverManager.excelReaderUtil)) {
 			throw new SkipException("Skipping the Test - " + StringUtils.capitalize(methods[0].getName())
 					+ " as the RunMode is set to N");
 		}
