@@ -10,15 +10,14 @@ import com.qa.taf.util.ConstantUtil;
 import com.qa.taf.util.DriverType;
 import com.qa.taf.util.EnvType;
 import com.qa.taf.util.ExcelReaderUtil;
-import com.qa.taf.util.FileReaderUtil;
 
-public class DriverManager extends FileReaderUtil {
+public class DriverManager extends BrowserManager {
 
 	private WebDriver driver;
 	private ChromeOptions options;
 	private static ThreadLocal<WebDriver> driverLocal = new ThreadLocal<WebDriver>();
-	private static DriverType driverType = null;
-	private static EnvType envType = null;
+	public DriverType driverType = getBrowserType();
+	public EnvType envType = getEnvType();
 	public static ExcelReaderUtil excelReaderUtil = new ExcelReaderUtil(
 			System.getProperty("user.dir") + ConstantUtil.EXCEL_FILE_PATH);
 	public static BasePage page;
@@ -31,19 +30,31 @@ public class DriverManager extends FileReaderUtil {
 		driverLocal.set(driver);
 	}
 
-	public void launchBrowser(String browser) {
-		if (getDataFromPropFile(ConstantUtil.BROWSER).equalsIgnoreCase(browser)) {
-			options = new ChromeOptions();
-			options.addArguments(ConstantUtil.CHROME_LAUNCH_OPTION);
-			driver = new ChromeDriver(options);
-			setDriver(driver);
-			page = new BasePage();
-			driver.get(getDataFromPropFile(ConstantUtil.APP_URL));
-			try {
-				Thread.sleep(7000);
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
+//	public void launchBrowser(String browser) {
+//		if (getDataFromPropFile(ConstantUtil.BROWSER).equalsIgnoreCase(browser)) {
+//			options = new ChromeOptions();
+//			options.addArguments(ConstantUtil.CHROME_LAUNCH_OPTION);
+//			driver = new ChromeDriver(options);
+//			setDriver(driver);
+//			page = new BasePage();
+//			driver.get(getDataFromPropFile(ConstantUtil.APP_URL));
+//			try {
+//				Thread.sleep(7000);
+//			} catch (InterruptedException e) {
+//				e.printStackTrace();
+//			}
+//		}
+//	}
+
+	public void launchBrowser() {
+		driver = createDriver();
+		setDriver(driver);
+		page = new BasePage();
+		driver.get(getDataFromPropFile(ConstantUtil.APP_URL));
+		try {
+			Thread.sleep(7000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
 		}
 	}
 
@@ -62,7 +73,9 @@ public class DriverManager extends FileReaderUtil {
 	private WebDriver createLocalDriver() {
 		switch (driverType) {
 		case CHROME:
-			driver = new ChromeDriver();
+			options = new ChromeOptions();
+			options.addArguments(ConstantUtil.CHROME_LAUNCH_OPTION);
+			driver = new ChromeDriver(options);
 			break;
 		case FIREFOX:
 			driver = new FirefoxDriver();
