@@ -7,11 +7,12 @@ import org.apache.commons.lang3.StringUtils;
 import org.testng.SkipException;
 import org.testng.annotations.Test;
 
+import com.qa.taf.base.BaseTest;
 import com.qa.taf.base.DriverManager;
 import com.qa.taf.ohrm.pages.PageManager;
 import com.qa.taf.util.TestDataUtil;
 
-public class AdminPageTest extends DriverManager {
+public class AdminPageTest extends BaseTest {
 
 	PageManager pageManager;
 
@@ -20,7 +21,7 @@ public class AdminPageTest extends DriverManager {
 
 		var classObject = AdminPageTest.class;
 		Method[] methods = classObject.getMethods();
-		if (!TestDataUtil.isTestRunnable(methods[0].getName(), excelReaderUtil)) {
+		if (!TestDataUtil.isTestRunnable(methods[0].getName(), DriverManager.excelReaderUtil)) {
 			throw new SkipException("Skipping the Test - " + StringUtils.capitalize(methods[0].getName())
 					+ " as the RunMode is set to N");
 		}
@@ -29,10 +30,10 @@ public class AdminPageTest extends DriverManager {
 					+ " as the RunMode for the Test Data is set to N");
 		}
 		pageManager = new PageManager();
-		pageManager.getLoginPage().doLogin("Admin", "admin123");
+		pageManager.getLoginPage().doLogin(data.get("UserName"), data.get("Password"));
 		Thread.sleep(5000);
 		pageManager.getDashboardPage().navigateToAdminPage();
 		Thread.sleep(5000);
-		pageManager.getAdminPage().searchUser("Admin", "Enabled");
+		pageManager.getAdminPage().searchUser(data.get("User"), data.get("SearchCriteria"));
 	}
 }
