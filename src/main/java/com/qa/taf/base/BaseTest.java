@@ -5,21 +5,20 @@ import org.testng.annotations.BeforeMethod;
 
 import com.qa.taf.util.FileReaderUtil;
 
-public class BaseTest {
-
-	DriverManager driverManager = new DriverManager();
+public class BaseTest extends DriverManager {
 
 	@BeforeMethod
 	public void testStartUp() {
-		FileReaderUtil.loadPropertyFile();
 
-		driverManager.launchBrowser();
+		FileReaderUtil.loadPropertyFile();
+		launchBrowser();
 	}
 
 	@AfterMethod
 	public void testTearDown() {
-		if (driverManager.getDriver() != null) {
-			driverManager.getDriver().quit();
+		// DriverManager driverManager = new DriverManager();
+		if (getDriver() != null) {
+			getDriver().quit();
 		}
 	}
 

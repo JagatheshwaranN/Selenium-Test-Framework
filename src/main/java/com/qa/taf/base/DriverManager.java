@@ -7,8 +7,6 @@ import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import com.qa.taf.util.ConstantUtil;
-import com.qa.taf.util.DriverType;
-import com.qa.taf.util.EnvType;
 import com.qa.taf.util.ExcelReaderUtil;
 
 public class DriverManager extends BrowserManager {
@@ -16,8 +14,8 @@ public class DriverManager extends BrowserManager {
 	private WebDriver driver;
 	private ChromeOptions options;
 	private static ThreadLocal<WebDriver> driverLocal = new ThreadLocal<WebDriver>();
-	public DriverType driverType = getBrowserType();
-	public EnvType envType = getEnvType();
+//	public DriverType driverType = getBrowserType();
+//	public EnvType envType = getEnvType();
 	public static ExcelReaderUtil excelReaderUtil = new ExcelReaderUtil(
 			System.getProperty("user.dir") + ConstantUtil.EXCEL_FILE_PATH);
 	public static BasePage page;
@@ -59,7 +57,7 @@ public class DriverManager extends BrowserManager {
 	}
 
 	private WebDriver createDriver() {
-		switch (envType) {
+		switch (getEnvType()) {
 		case LOCAL:
 			driver = createLocalDriver();
 			break;
@@ -71,7 +69,7 @@ public class DriverManager extends BrowserManager {
 	}
 
 	private WebDriver createLocalDriver() {
-		switch (driverType) {
+		switch (getBrowserType()) {
 		case CHROME:
 			options = new ChromeOptions();
 			options.addArguments(ConstantUtil.CHROME_LAUNCH_OPTION);

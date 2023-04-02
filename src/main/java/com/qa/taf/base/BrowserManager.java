@@ -40,7 +40,7 @@ public class BrowserManager extends FileReaderUtil {
 		else if (getBrowser().equalsIgnoreCase("Edge"))
 			return DriverType.EDGE;
 		else
-			throw new RuntimeException(browser + " value is not found in the Configuration Property file");
+			throw new RuntimeException(getBrowser() + " value is not found in the Configuration Property file");
 	}
 
 	public EnvType getEnvType() {
@@ -55,6 +55,6 @@ public class BrowserManager extends FileReaderUtil {
 		else if (getEnv().equalsIgnoreCase("Remote"))
 			return EnvType.REMOTE;
 		else
-			throw new RuntimeException(env + " value is not found in the Configuration Property file");
+			throw new RuntimeException(getEnv() + " value is not found in the Configuration Property file");
 	}
 }
