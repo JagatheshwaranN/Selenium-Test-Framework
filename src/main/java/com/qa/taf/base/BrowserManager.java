@@ -33,14 +33,19 @@ public class BrowserManager extends FileReaderUtil {
 			setBrowser(getDataFromPropFile(ConstantUtil.BROWSER));
 		}
 		properties.setProperty(ConstantUtil.BROWSER, getBrowser());
-		if (getBrowser().equalsIgnoreCase("Chrome"))
-			return DriverType.CHROME;
-		else if (getBrowser().equalsIgnoreCase("Firefox"))
-			return DriverType.FIREFOX;
-		else if (getBrowser().equalsIgnoreCase("Edge"))
-			return DriverType.EDGE;
-		else
-			throw new RuntimeException(getBrowser() + " value is not found in the Configuration Property file");
+		return switch (getBrowser().toString()) {
+		case "Chrome" -> {
+			yield DriverType.CHROME;
+		}
+		case "Firefox" -> {
+			yield DriverType.FIREFOX;
+		}
+		case "Edge" -> {
+			yield DriverType.EDGE;
+		}
+		default -> throw new IllegalArgumentException(
+				getBrowser().toString() + " value is not found in the Configuration Property file");
+		};
 	}
 
 	public EnvType getEnvType() {
