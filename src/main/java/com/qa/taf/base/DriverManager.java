@@ -57,32 +57,33 @@ public class DriverManager extends BrowserManager {
 	}
 
 	private WebDriver createDriver() {
-		switch (getEnvType()) {
-		case LOCAL:
-			driver = createLocalDriver();
-			break;
-		case REMOTE:
-			driver = createRemoteDriver();
-			break;
+		return driver = switch (getEnvType().toString()) {
+		case "LOCAL" -> {
+			yield driver = createLocalDriver();
 		}
-		return driver;
+		case "REMOTE" -> {
+			yield driver = createRemoteDriver();
+		}
+		default -> throw new IllegalArgumentException("Unexpected Value : " + getEnvType().toString());
+		};
 	}
 
 	private WebDriver createLocalDriver() {
-		switch (getBrowserType()) {
-		case CHROME:
+		return driver = switch (getBrowserType().toString()) {
+		case "CHROME" -> {
 			options = new ChromeOptions();
-			options.addArguments(ConstantUtil.CHROME_LAUNCH_OPTION);
-			driver = new ChromeDriver(options);
-			break;
-		case FIREFOX:
-			driver = new FirefoxDriver();
-			break;
-		case EDGE:
-			driver = new EdgeDriver();
-			break;
+			options.addArguments(ConstantUtil.CHROME_LAUNCH_OPTION1);
+			options.addArguments(ConstantUtil.CHROME_LAUNCH_OPTION2);
+			yield driver = new ChromeDriver(options);
 		}
-		return driver;
+		case "FIREFOX" -> {
+			yield driver = new FirefoxDriver();
+		}
+		case "EDGE" -> {
+			yield driver = new EdgeDriver();
+		}
+		default -> throw new IllegalArgumentException("Unexpected Value : " + getBrowserType().toString());
+		};
 	}
 
 	private WebDriver createRemoteDriver() {

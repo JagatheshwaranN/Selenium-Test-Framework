@@ -13,6 +13,7 @@ public class ConstantUtil {
 	public static final String ENV = "Env";
 	public static final String APP_URL = "AppUrl";
 
-	public static final String CHROME_LAUNCH_OPTION = "--remote-allow-origins=*";
+	public static final String CHROME_LAUNCH_OPTION1 = "--remote-allow-origins=*";
+	public static final String CHROME_LAUNCH_OPTION2 = "--start-maximized";
 
 }
