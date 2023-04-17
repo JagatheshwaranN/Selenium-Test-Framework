@@ -1,10 +1,18 @@
 package com.qa.taf.base;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+
+import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
+import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.qa.taf.util.ConstantUtil;
 import com.qa.taf.util.ExcelReaderUtil;
@@ -13,6 +21,7 @@ public class DriverManager extends BrowserManager {
 
 	private WebDriver driver;
 	private ChromeOptions options;
+	private DesiredCapabilities capabilities = new DesiredCapabilities();
 	private static ThreadLocal<WebDriver> driverLocal = new ThreadLocal<WebDriver>();
 	public static ExcelReaderUtil excelReaderUtil = new ExcelReaderUtil(
 			System.getProperty("user.dir") + ConstantUtil.EXCEL_FILE_PATH);
@@ -27,6 +36,7 @@ public class DriverManager extends BrowserManager {
 	}
 
 	public void launchBrowser() {
+
 		driver = createDriver();
 		setDriver(driver);
 		page = new BasePage();
@@ -39,6 +49,7 @@ public class DriverManager extends BrowserManager {
 	}
 
 	private WebDriver createDriver() {
+
 		return driver = switch (getEnvType().toString()) {
 		case "LOCAL" -> {
 			yield driver = createLocalDriver();
@@ -51,6 +62,7 @@ public class DriverManager extends BrowserManager {
 	}
 
 	private WebDriver createLocalDriver() {
+
 		return driver = switch (getBrowserType().toString()) {
 		case "CHROME" -> {
 			options = new ChromeOptions();
@@ -69,8 +81,29 @@ public class DriverManager extends BrowserManager {
 	}
 
 	private WebDriver createRemoteDriver() {
-		// TODO Auto-generated method stub
-		return null;
+
+		if (getBrowser().equalsIgnoreCase(ConstantUtil.GC_BROWSER)) {
+			capabilities.setPlatform(Platform.ANY);
+			capabilities.setBrowserName(ConstantUtil.GC_BROWSER);
+			ChromeOptions options = new ChromeOptions();
+			options.merge(capabilities);
+		} else if (getBrowser().equalsIgnoreCase(ConstantUtil.FF_BROWSER)) {
+			capabilities.setPlatform(Platform.ANY);
+			capabilities.setBrowserName(ConstantUtil.FF_BROWSER);
+			FirefoxOptions options = new FirefoxOptions();
+			options.merge(capabilities);
+		} else if (getBrowser().equalsIgnoreCase(ConstantUtil.FF_BROWSER)) {
+			capabilities.setPlatform(Platform.ANY);
+			capabilities.setBrowserName(ConstantUtil.ME_BROWSER);
+			EdgeOptions options = new EdgeOptions();
+			options.merge(capabilities);
+		}
+		try {
+			driver = new RemoteWebDriver(new URL("http://192.168.1.10:4444"), capabilities);
+		} catch (MalformedURLException ex) {
+			ex.printStackTrace();
+		}
+		return driver;
 	}
 
 }

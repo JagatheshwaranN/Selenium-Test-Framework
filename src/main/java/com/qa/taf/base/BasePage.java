@@ -11,7 +11,7 @@ import org.testng.Assert;
 
 public class BasePage extends Page {
 
-	public WebDriverWait wait = new WebDriverWait(driverManager.getDriver(), Duration.ofSeconds(30));
+	public WebDriverWait wait = new WebDriverWait(driverManager.getDriver(), Duration.ofSeconds(10));
 
 	@Override
 	public String getPageTitle() {
