@@ -27,6 +27,7 @@ public class BrowserManager extends FileReaderUtil {
 	}
 
 	public DriverType getBrowserType() {
+		System.out.println("Inside GetBrowserType");
 		if (System.getenv(ConstantUtil.BROWSER) != null && !System.getenv(ConstantUtil.BROWSER).isEmpty()) {
 			setBrowser(System.getenv(ConstantUtil.BROWSER));
 		} else {
@@ -35,6 +36,7 @@ public class BrowserManager extends FileReaderUtil {
 		properties.setProperty(ConstantUtil.BROWSER, getBrowser());
 		return switch (getBrowser().toString()) {
 		case "Chrome" -> {
+			System.out.println("Inside GetBrowserType 2");
 			yield DriverType.CHROME;
 		}
 		case "Firefox" -> {

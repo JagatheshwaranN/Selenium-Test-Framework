@@ -20,9 +20,11 @@ import com.qa.taf.util.ExcelReaderUtil;
 public class DriverManager extends BrowserManager {
 
 	private WebDriver driver;
-	private ChromeOptions options;
+	private ChromeOptions gcOptions;
+	private FirefoxOptions ffOptions;
+	private EdgeOptions meOptions;
 	private DesiredCapabilities capabilities = new DesiredCapabilities();
-	private static ThreadLocal<WebDriver> driverLocal = new ThreadLocal<WebDriver>();
+	public static ThreadLocal<WebDriver> driverLocal = new ThreadLocal<WebDriver>();
 	public static ExcelReaderUtil excelReaderUtil = new ExcelReaderUtil(
 			System.getProperty("user.dir") + ConstantUtil.EXCEL_FILE_PATH);
 	public static BasePage page;
@@ -65,10 +67,10 @@ public class DriverManager extends BrowserManager {
 
 		return driver = switch (getBrowserType().toString()) {
 		case "CHROME" -> {
-			options = new ChromeOptions();
-			options.addArguments(ConstantUtil.CHROME_LAUNCH_OPTION1);
-			options.addArguments(ConstantUtil.CHROME_LAUNCH_OPTION2);
-			yield driver = new ChromeDriver(options);
+			gcOptions = new ChromeOptions();
+			gcOptions.addArguments(ConstantUtil.CHROME_LAUNCH_OPTION1);
+			gcOptions.addArguments(ConstantUtil.CHROME_LAUNCH_OPTION2);
+			yield driver = new ChromeDriver(gcOptions);
 		}
 		case "FIREFOX" -> {
 			yield driver = new FirefoxDriver();
@@ -82,22 +84,30 @@ public class DriverManager extends BrowserManager {
 
 	private WebDriver createRemoteDriver() {
 
-		if (getBrowser().equalsIgnoreCase(ConstantUtil.GC_BROWSER)) {
+		switch (getBrowserType().toString()) {
+		case "CHROME" -> {
 			capabilities.setPlatform(Platform.ANY);
 			capabilities.setBrowserName(ConstantUtil.GC_BROWSER);
-			ChromeOptions options = new ChromeOptions();
-			options.merge(capabilities);
-		} else if (getBrowser().equalsIgnoreCase(ConstantUtil.FF_BROWSER)) {
+			gcOptions = new ChromeOptions();
+			gcOptions.addArguments(ConstantUtil.CHROME_LAUNCH_OPTION1);
+			gcOptions.addArguments(ConstantUtil.CHROME_LAUNCH_OPTION2);
+			gcOptions.merge(capabilities);
+		}
+		case "FIREFOX" -> {
 			capabilities.setPlatform(Platform.ANY);
 			capabilities.setBrowserName(ConstantUtil.FF_BROWSER);
-			FirefoxOptions options = new FirefoxOptions();
-			options.merge(capabilities);
-		} else if (getBrowser().equalsIgnoreCase(ConstantUtil.FF_BROWSER)) {
+			ffOptions = new FirefoxOptions();
+			ffOptions.merge(capabilities);
+		}
+		case "EDGE" -> {
 			capabilities.setPlatform(Platform.ANY);
 			capabilities.setBrowserName(ConstantUtil.ME_BROWSER);
-			EdgeOptions options = new EdgeOptions();
-			options.merge(capabilities);
+			meOptions = new EdgeOptions();
+			meOptions.merge(capabilities);
 		}
+		default -> throw new IllegalArgumentException("Unexpected Value : " + getBrowserType().toString());
+		}
+		;
 		try {
 			driver = new RemoteWebDriver(new URL("http://192.168.1.10:4444"), capabilities);
 		} catch (MalformedURLException ex) {
@@ -105,5 +115,4 @@ public class DriverManager extends BrowserManager {
 		}
 		return driver;
 	}
-
 }
