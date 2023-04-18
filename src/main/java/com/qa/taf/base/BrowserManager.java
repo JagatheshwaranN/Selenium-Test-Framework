@@ -27,7 +27,7 @@ public class BrowserManager extends FileReaderUtil {
 	}
 
 	public DriverType getBrowserType() {
-		System.out.println("Inside GetBrowserType");
+
 		if (System.getenv(ConstantUtil.BROWSER) != null && !System.getenv(ConstantUtil.BROWSER).isEmpty()) {
 			setBrowser(System.getenv(ConstantUtil.BROWSER));
 		} else {
@@ -36,7 +36,6 @@ public class BrowserManager extends FileReaderUtil {
 		properties.setProperty(ConstantUtil.BROWSER, getBrowser());
 		return switch (getBrowser().toString()) {
 		case "Chrome" -> {
-			System.out.println("Inside GetBrowserType 2");
 			yield DriverType.CHROME;
 		}
 		case "Firefox" -> {
@@ -51,15 +50,16 @@ public class BrowserManager extends FileReaderUtil {
 	}
 
 	public EnvType getEnvType() {
+		
 		if (System.getenv(ConstantUtil.ENV) != null && !System.getenv(ConstantUtil.ENV).isEmpty()) {
 			setEnv(System.getenv(ConstantUtil.ENV));
 		} else {
 			setEnv(getDataFromPropFile(ConstantUtil.ENV));
 		}
 		properties.setProperty(ConstantUtil.ENV, getEnv());
-		if (getEnv().equalsIgnoreCase("Local"))
+		if (getEnv().equalsIgnoreCase(ConstantUtil.LC_ENV))
 			return EnvType.LOCAL;
-		else if (getEnv().equalsIgnoreCase("Remote"))
+		else if (getEnv().equalsIgnoreCase(ConstantUtil.RE_ENV))
 			return EnvType.REMOTE;
 		else
 			throw new RuntimeException(getEnv() + " value is not found in the Configuration Property file");

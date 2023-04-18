@@ -15,12 +15,7 @@ import com.qa.taf.base.BasePage;
 public class AlertHelper extends BasePage {
 
 	public Alert getAlert() {
-		try {
-			System.out.println("The control switched to alert popup window");
-		} catch (Exception ex) {
-			System.out.println("Error occured while the get the alert window" + "\n" + ex);
-			Assert.fail();
-		}
+
 		return driverManager.getDriver().switchTo().alert();
 	}
 

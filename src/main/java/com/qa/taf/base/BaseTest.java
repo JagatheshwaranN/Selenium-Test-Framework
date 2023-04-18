@@ -9,14 +9,12 @@ public class BaseTest extends DriverManager {
 
 	@BeforeMethod
 	public void testStartUp() {
-		
 		FileReaderUtil.loadPropertyFile();
 		launchBrowser();
 	}
 
 	@AfterMethod
 	public void testTearDown() {
-		
 		if (getDriver() != null) {
 			getDriver().quit();
 		}
