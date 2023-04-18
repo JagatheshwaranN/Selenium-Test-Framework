@@ -23,5 +23,6 @@ public class ConstantUtil {
 
 	public static final String CHROME_LAUNCH_OPTION1 = "--remote-allow-origins=*";
 	public static final String CHROME_LAUNCH_OPTION2 = "--start-maximized";
+	public static final String EDGE_LAUNCH_OPTION = "--start-maximized";
 
 }
