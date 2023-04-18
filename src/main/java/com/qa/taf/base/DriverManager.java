@@ -68,8 +68,8 @@ public class DriverManager extends BrowserManager {
 		return driver = switch (getBrowserType().toString()) {
 		case "CHROME" -> {
 			gcOptions = new ChromeOptions();
-			gcOptions.addArguments(ConstantUtil.CHROME_LAUNCH_OPTION1);
-			gcOptions.addArguments(ConstantUtil.CHROME_LAUNCH_OPTION2);
+			gcOptions.addArguments(ConstantUtil.CHROME_REMOTE_ORIGIN);
+			gcOptions.addArguments(ConstantUtil.BROWSER_MAXIMIZE);
 			yield driver = new ChromeDriver(gcOptions);
 		}
 		case "FIREFOX" -> {
@@ -89,8 +89,8 @@ public class DriverManager extends BrowserManager {
 			gcOptions = new ChromeOptions();
 			gcOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.ANY);
 			gcOptions.setCapability(CapabilityType.BROWSER_NAME, ConstantUtil.GC_BROWSER);
-			gcOptions.addArguments(ConstantUtil.CHROME_LAUNCH_OPTION1);
-			gcOptions.addArguments(ConstantUtil.CHROME_LAUNCH_OPTION2);
+			gcOptions.addArguments(ConstantUtil.CHROME_REMOTE_ORIGIN);
+			gcOptions.addArguments(ConstantUtil.BROWSER_MAXIMIZE);
 			try {
 				driver = new RemoteWebDriver(new URL("http://192.168.1.10:4444"), gcOptions);
 			} catch (MalformedURLException ex) {
@@ -113,7 +113,7 @@ public class DriverManager extends BrowserManager {
 			meOptions = new EdgeOptions();
 			meOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.ANY);
 			meOptions.setCapability(CapabilityType.BROWSER_NAME, ConstantUtil.ME_BROWSER);
-			meOptions.addArguments(ConstantUtil.EDGE_LAUNCH_OPTION);
+			meOptions.addArguments(ConstantUtil.BROWSER_MAXIMIZE);
 			try {
 				driver = new RemoteWebDriver(new URL("http://192.168.1.10:4444"), meOptions);
 			} catch (MalformedURLException ex) {

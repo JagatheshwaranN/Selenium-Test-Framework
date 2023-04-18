@@ -12,17 +12,15 @@ public class ConstantUtil {
 	public static final String BROWSER = "Browser";
 	public static final String ENV = "Env";
 	public static final String APP_URL = "AppUrl";
-	
+
 	public static final String GC_BROWSER = "chrome";
 	public static final String FF_BROWSER = "firefox";
 	public static final String ME_BROWSER = "MicrosoftEdge";
-	
+
 	public static final String LC_ENV = "Local";
 	public static final String RE_ENV = "Remote";
-	
 
-	public static final String CHROME_LAUNCH_OPTION1 = "--remote-allow-origins=*";
-	public static final String CHROME_LAUNCH_OPTION2 = "--start-maximized";
-	public static final String EDGE_LAUNCH_OPTION = "--start-maximized";
+	public static final String CHROME_REMOTE_ORIGIN = "--remote-allow-origins=*";
+	public static final String BROWSER_MAXIMIZE = "--start-maximized";
 
 }
