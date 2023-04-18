@@ -14,7 +14,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-import com.qa.taf.util.ConstantUtil;
+import com.qa.taf.constant.ConstantUtil;
 import com.qa.taf.util.ExcelReaderUtil;
 
 public class DriverManager extends BrowserManager {

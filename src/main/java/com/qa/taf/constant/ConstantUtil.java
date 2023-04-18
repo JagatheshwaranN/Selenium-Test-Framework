@@ -1,4 +1,4 @@
-package com.qa.taf.util;
+package com.qa.taf.constant;
 
 public class ConstantUtil {
 

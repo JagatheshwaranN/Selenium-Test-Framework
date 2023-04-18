@@ -1,8 +1,8 @@
 package com.qa.taf.base;
 
-import com.qa.taf.util.ConstantUtil;
-import com.qa.taf.util.DriverType;
-import com.qa.taf.util.EnvType;
+import com.qa.taf.constant.ConstantUtil;
+import com.qa.taf.constant.DriverType;
+import com.qa.taf.constant.EnvType;
 import com.qa.taf.util.FileReaderUtil;
 
 public class BrowserManager extends FileReaderUtil {

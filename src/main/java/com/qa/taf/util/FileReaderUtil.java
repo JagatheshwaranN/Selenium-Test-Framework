@@ -10,6 +10,8 @@ import java.util.Properties;
 
 import org.testng.Assert;
 
+import com.qa.taf.constant.ConstantUtil;
+
 public class FileReaderUtil {
 
 	public static Properties properties = new Properties();
