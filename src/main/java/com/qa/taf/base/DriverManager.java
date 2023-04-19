@@ -3,6 +3,8 @@ package com.qa.taf.base;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -19,11 +21,11 @@ import com.qa.taf.util.ExcelReaderUtil;
 
 public class DriverManager extends BrowserManager {
 
+	private static Logger log = LogManager.getFormatterLogger(DriverManager.class);
 	private WebDriver driver;
 	private ChromeOptions gcOptions;
 	private FirefoxOptions ffOptions;
 	private EdgeOptions meOptions;
-	// private DesiredCapabilities capabilities = new DesiredCapabilities();
 	public static ThreadLocal<WebDriver> driverLocal = new ThreadLocal<WebDriver>();
 	public static ExcelReaderUtil excelReaderUtil = new ExcelReaderUtil(
 			System.getProperty("user.dir") + ConstantUtil.EXCEL_FILE_PATH);
@@ -38,7 +40,8 @@ public class DriverManager extends BrowserManager {
 	}
 
 	public void launchBrowser() {
-
+		log.info("Logger Demo Implementation");
+		log.error("Logger Demo Implementation");
 		driver = createDriver();
 		setDriver(driver);
 		page = new BasePage();
