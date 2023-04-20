@@ -22,5 +22,7 @@ public class ConstantUtil {
 
 	public static final String CHROME_REMOTE_ORIGIN = "--remote-allow-origins=*";
 	public static final String BROWSER_MAXIMIZE = "--start-maximized";
+	
+	public static final int IMPLICIT_WAIT_TIME = 10;
 
 }

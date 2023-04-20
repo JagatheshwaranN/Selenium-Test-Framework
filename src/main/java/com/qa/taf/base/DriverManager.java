@@ -40,8 +40,6 @@ public class DriverManager extends BrowserManager {
 	}
 
 	public void launchBrowser() {
-		log.info("Logger Demo Implementation");
-		log.error("Logger Demo Implementation");
 		driver = createDriver();
 		setDriver(driver);
 		page = new BasePage();
@@ -54,7 +52,7 @@ public class DriverManager extends BrowserManager {
 	}
 
 	private WebDriver createDriver() {
-
+		
 		return driver = switch (getEnvType().toString()) {
 		case "LOCAL" -> {
 			yield driver = createLocalDriver();
@@ -70,15 +68,20 @@ public class DriverManager extends BrowserManager {
 
 		return driver = switch (getBrowserType().toString()) {
 		case "CHROME" -> {
+			log.info("Chrome driver is initialized for local test execution");
 			gcOptions = new ChromeOptions();
 			gcOptions.addArguments(ConstantUtil.CHROME_REMOTE_ORIGIN);
 			gcOptions.addArguments(ConstantUtil.BROWSER_MAXIMIZE);
 			yield driver = new ChromeDriver(gcOptions);
 		}
 		case "FIREFOX" -> {
+			log.info("Firefox driver is initialized for local test execution");
 			yield driver = new FirefoxDriver();
 		}
 		case "EDGE" -> {
+			log.info("Edge driver is initialized for local test execution");
+			meOptions = new EdgeOptions();
+			meOptions.addArguments(ConstantUtil.BROWSER_MAXIMIZE);
 			yield driver = new EdgeDriver();
 		}
 		default -> throw new IllegalArgumentException("Unexpected Value : " + getBrowserType().toString());
@@ -95,6 +98,7 @@ public class DriverManager extends BrowserManager {
 			gcOptions.addArguments(ConstantUtil.CHROME_REMOTE_ORIGIN);
 			gcOptions.addArguments(ConstantUtil.BROWSER_MAXIMIZE);
 			try {
+				log.info("Chrome driver is initialized for remote test execution");
 				driver = new RemoteWebDriver(new URL("http://192.168.1.10:4444"), gcOptions);
 			} catch (MalformedURLException ex) {
 				ex.printStackTrace();
@@ -106,6 +110,7 @@ public class DriverManager extends BrowserManager {
 			ffOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.ANY);
 			ffOptions.setCapability(CapabilityType.BROWSER_NAME, ConstantUtil.FF_BROWSER);
 			try {
+				log.info("Firefox driver is initialized for remote test execution");
 				driver = new RemoteWebDriver(new URL("http://192.168.1.10:4444"), ffOptions);
 			} catch (MalformedURLException ex) {
 				ex.printStackTrace();
@@ -118,6 +123,7 @@ public class DriverManager extends BrowserManager {
 			meOptions.setCapability(CapabilityType.BROWSER_NAME, ConstantUtil.ME_BROWSER);
 			meOptions.addArguments(ConstantUtil.BROWSER_MAXIMIZE);
 			try {
+				log.info("Edge driver is initialized for remote test execution");
 				driver = new RemoteWebDriver(new URL("http://192.168.1.10:4444"), meOptions);
 			} catch (MalformedURLException ex) {
 				ex.printStackTrace();

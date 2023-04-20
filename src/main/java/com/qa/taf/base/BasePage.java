@@ -2,6 +2,8 @@ package com.qa.taf.base;
 
 import java.time.Duration;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 
 import org.openqa.selenium.WebElement;
@@ -9,9 +11,13 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
+import com.qa.taf.constant.ConstantUtil;
+
 public class BasePage extends Page {
 
-	public WebDriverWait wait = new WebDriverWait(driverManager.getDriver(), Duration.ofSeconds(10));
+	private static Logger log = LogManager.getFormatterLogger(BasePage.class);
+	public WebDriverWait wait = new WebDriverWait(driverManager.getDriver(),
+			Duration.ofSeconds(ConstantUtil.IMPLICIT_WAIT_TIME));
 
 	@Override
 	public String getPageTitle() {
@@ -29,10 +35,9 @@ public class BasePage extends Page {
 		try {
 			wait.until(ExpectedConditions.visibilityOf(element));
 		} catch (Exception ex) {
-			System.out.println("Error occured while wait for an element : " + elementLabel + "\n" + ex);
+			log.error("Error occured while wait for an element : " + elementLabel + "\n" + ex);
 			Assert.fail();
 		}
-
 	}
 
 	@Override
@@ -40,7 +45,7 @@ public class BasePage extends Page {
 		try {
 			wait.until(ExpectedConditions.titleContains(title));
 		} catch (Exception ex) {
-			System.out.println("Error occured while wait for the page title : " + title + "\n" + ex);
+			log.error("Error occured while wait for the page title : " + title + "\n" + ex);
 			Assert.fail();
 		}
 	}
@@ -51,7 +56,7 @@ public class BasePage extends Page {
 		try {
 			element = driverManager.getDriver().findElement(locator);
 		} catch (Exception ex) {
-			System.out.println("Error occured while construct of an web element : " + locatorLabel + "\n" + ex);
+			log.error("Error occured while construct of an web element : " + locatorLabel + "\n" + ex);
 			Assert.fail();
 		}
 		return element;
@@ -63,7 +68,7 @@ public class BasePage extends Page {
 		try {
 			element = driverManager.getDriver().findElement(By.xpath(locator));
 		} catch (Exception ex) {
-			System.out.println("Error occured while construct of an web element : " + locatorLabel + "\n" + ex);
+			log.error("Error occured while construct of an web element : " + locatorLabel + "\n" + ex);
 			Assert.fail();
 		}
 		return element;
