@@ -3,6 +3,8 @@ package com.qa.taf.helper;
 import java.util.LinkedList;
 import java.util.Set;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 
 import com.qa.taf.base.BasePage;
@@ -16,12 +18,14 @@ import com.qa.taf.base.BasePage;
  */
 public class BrowserHelper extends BasePage {
 
+	private static Logger log = LogManager.getFormatterLogger(BrowserHelper.class);
+
 	public void goBack() {
 		try {
 			driverManager.getDriver().navigate().back();
-			System.out.println("The browser navigated to previous page");
+			log.info("The browser is navigated to previous page");
 		} catch (Exception ex) {
-			System.out.println("Error occured while browser navigate to previous page" + "\n" + ex);
+			log.error("Error occured while the browser navigate to previous page" + "\n" + ex);
 			Assert.fail();
 		}
 	}
@@ -29,9 +33,9 @@ public class BrowserHelper extends BasePage {
 	public void goForward() {
 		try {
 			driverManager.getDriver().navigate().forward();
-			System.out.println("The browser navigated to front page");
+			log.info("The browser is navigated to front page");
 		} catch (Exception ex) {
-			System.out.println("Error occured while browser navigate to front page" + "\n" + ex);
+			log.error("Error occured while the browser navigate to front page" + "\n" + ex);
 			Assert.fail();
 		}
 	}
@@ -39,18 +43,18 @@ public class BrowserHelper extends BasePage {
 	public void refresh() {
 		try {
 			driverManager.getDriver().navigate().refresh();
-			System.out.println("The browser refreshed the current page");
+			log.info("The browser is refreshed the current page");
 		} catch (Exception ex) {
-			System.out.println("Error occured while browser refresh the current page" + "\n" + ex);
+			log.error("Error occured while the browser refresh the current page" + "\n" + ex);
 			Assert.fail();
 		}
 	}
 
 	public Set<String> getWindowHandles() {
 		try {
-			System.out.println("The browser window handles are captured");
+			log.info("The browser window handles are captured");
 		} catch (Exception ex) {
-			System.out.println("Error occured while capturing the browser window handles" + "\n" + ex);
+			log.error("Error occured while capturing the browser window handles" + "\n" + ex);
 			Assert.fail();
 		}
 		return driverManager.getDriver().getWindowHandles();
@@ -60,11 +64,11 @@ public class BrowserHelper extends BasePage {
 		try {
 			var windowsId = new LinkedList<String>(getWindowHandles());
 			if (index < 0 || index > windowsId.size())
-				throw new IllegalArgumentException("Window handle has invalid index : " + index);
+				throw new IllegalArgumentException("Browser window handle has invalid index ==> " + index);
 			driverManager.getDriver().switchTo().window(windowsId.get(index));
-			System.out.println("The control switched to window with index : " + index);
+			log.info("The control is switched to browser window whose index is ==> " + index);
 		} catch (Exception ex) {
-			System.out.println("Error occured while control switch between windows" + "\n" + ex);
+			log.error("Error occured while the control switch between the browser windows" + "\n" + ex);
 			Assert.fail();
 		}
 	}
@@ -73,9 +77,9 @@ public class BrowserHelper extends BasePage {
 		try {
 			var windowsId = new LinkedList<String>(getWindowHandles());
 			driverManager.getDriver().switchTo().window(windowsId.get(0));
-			System.out.println("The control switched to the parent window");
+			log.info("The control is switched to the parent browser window");
 		} catch (Exception ex) {
-			System.out.println("Error occured while the control switch to parent window" + "\n" + ex);
+			log.error("Error occured while the control switch to the parent browser window" + "\n" + ex);
 			Assert.fail();
 		}
 	}
@@ -85,13 +89,13 @@ public class BrowserHelper extends BasePage {
 			switchToParentWindow();
 			var windowsId = new LinkedList<String>(getWindowHandles());
 			for (var i = 1; i < windowsId.size(); i++) {
-				System.out.println("Child window id : " + windowsId.get(i));
+				log.info("The child browser window id ==> " + windowsId.get(i));
 				driverManager.getDriver().switchTo().window(windowsId.get(i));
 				driverManager.getDriver().close();
 			}
 			switchToParentWindow();
 		} catch (Exception ex) {
-			System.out.println("Error occured while the control switch to parent window" + "\n" + ex);
+			log.error("Error occured while the control switch to the parent browser window" + "\n" + ex);
 			Assert.fail();
 		}
 	}
@@ -99,9 +103,9 @@ public class BrowserHelper extends BasePage {
 	public void switchToFrame(String nameOrid) {
 		try {
 			driverManager.getDriver().switchTo().frame(nameOrid);
-			System.out.println("The control switch to frame with name or id : " + nameOrid);
+			log.info("The control is switched to the frame whose name or id is ==> " + nameOrid);
 		} catch (Exception ex) {
-			System.out.println("Error occured while the control switch to frame" + "\n" + ex);
+			log.error("Error occured while the control switch to the frame" + "\n" + ex);
 			Assert.fail();
 		}
 	}
@@ -110,9 +114,9 @@ public class BrowserHelper extends BasePage {
 		String url = null;
 		try {
 			url = driverManager.getDriver().getCurrentUrl();
-			System.out.println("The browser current page url : " + url);
+			log.info("The browser current page url is ==> " + url);
 		} catch (Exception ex) {
-			System.out.println("Error occured while the get the current page URL" + "\n" + ex);
+			log.error("Error occured while the get the browser window's current page URL" + "\n" + ex);
 			Assert.fail();
 		}
 		return url;

@@ -1,5 +1,7 @@
 package com.qa.taf.helper;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.NoAlertPresentException;
 
@@ -14,17 +16,18 @@ import com.qa.taf.base.BasePage;
  */
 public class AlertHelper extends BasePage {
 
-	public Alert getAlert() {
+	private static Logger log = LogManager.getFormatterLogger(AlertHelper.class);
 
+	public Alert getAlert() {
 		return driverManager.getDriver().switchTo().alert();
 	}
 
 	public void acceptAlert() {
 		try {
 			getAlert().accept();
-			System.out.println("The alert popup window is accepted");
+			log.info("The alert popup window present on the page is accepted");
 		} catch (Exception ex) {
-			System.out.println("Error occured while accept the alert window" + "\n" + ex);
+			log.error("Error occured while accept the alert popup window" + "\n" + ex);
 			Assert.fail();
 		}
 	}
@@ -32,9 +35,9 @@ public class AlertHelper extends BasePage {
 	public void dismissAlert() {
 		try {
 			getAlert().dismiss();
-			System.out.println("The alert popup window is dismissed");
+			log.info("The alert popup window present on the page is dismissed");
 		} catch (Exception ex) {
-			System.out.println("Error occured while dismiss the alert window" + "\n" + ex);
+			log.error("Error occured while dismiss the alert popup window" + "\n" + ex);
 			Assert.fail();
 		}
 	}
@@ -43,9 +46,9 @@ public class AlertHelper extends BasePage {
 		String text = null;
 		try {
 			text = getAlert().getText();
-			System.out.println("The text " + text + " from alert window is captured");
+			log.info("The text " + text + " from alert popup window is captured");
 		} catch (Exception ex) {
-			System.out.println("Error occured while get the alert window text" + "\n" + ex);
+			log.error("Error occured while get the alert popup window's text" + "\n" + ex);
 			Assert.fail();
 		}
 		return text;
@@ -55,10 +58,15 @@ public class AlertHelper extends BasePage {
 	public boolean isAlertPresent() {
 		try {
 			driverManager.getDriver().switchTo().alert();
-			System.out.println("The alert popup window is present on the page");
+			log.info("The alert popup window is present on the page");
+//			try {
+//				wait.until(ExpectedConditions.alertIsPresent());
+//			} catch (TimeoutException ex) {
+//				ex.printStackTrace();
+//			}
 			return true;
 		} catch (NoAlertPresentException ex) {
-			System.out.println("The alert popup window is not present on the page");
+			log.error("The alert popup window is not present on the page");
 			return false;
 		}
 
@@ -69,11 +77,11 @@ public class AlertHelper extends BasePage {
 			if (!isAlertPresent()) {
 				return;
 			}
-			System.out.println("The alert popup window is present on the page and accepted");
+			log.info("The alert popup window is present on the page and accepted");
 			getAlertText();
 			acceptAlert();
 		} catch (Exception ex) {
-			System.out.println("Error occured while check for alert window to accept" + "\n" + ex);
+			log.error("Error occured while check for alert popup window" + "\n" + ex);
 			Assert.fail();
 		}
 	}
@@ -83,10 +91,10 @@ public class AlertHelper extends BasePage {
 			if (!isAlertPresent()) {
 				return;
 			}
-			System.out.println("The alert popup window is present on the page and dismissed");
+			log.info("The alert popup window is present on the page and dismissed");
 			dismissAlert();
 		} catch (Exception ex) {
-			System.out.println("Error occured while check for alert window to dismiss" + "\n" + ex);
+			log.error("Error occured while check for alert popup window" + "\n" + ex);
 			Assert.fail();
 		}
 	}
@@ -99,9 +107,9 @@ public class AlertHelper extends BasePage {
 			var alert = getAlert();
 			alert.sendKeys(text);
 			alert.accept();
-			System.out.println("The alert prompt window is present on the page and accepted");
+			log.info("The alert prompt window is present on the page and accepted");
 		} catch (Exception ex) {
-			System.out.println("Error occured while accept the alert prompt window" + "\n" + ex);
+			log.error("Error occured while accept the alert prompt window" + "\n" + ex);
 			Assert.fail();
 		}
 	}
