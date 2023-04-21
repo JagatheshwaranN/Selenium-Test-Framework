@@ -3,6 +3,8 @@ package com.qa.taf.helper;
 import java.util.LinkedList;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
@@ -16,14 +18,16 @@ import com.qa.taf.base.BasePage;
  */
 public class DropDownHelper extends BasePage {
 
+	private static Logger log = LogManager.getFormatterLogger(DropDownHelper.class);
+
 	public void selectByValue(WebElement element, String value, String elementLabel) {
 		try {
 			var select = new Select(element);
 			select.selectByValue(value);
-			System.out.println("The value " + value + " is selected from " + elementLabel + " dropdown");
+			log.info("The value " + value + " is selected from the " + elementLabel + " dropdown");
 		} catch (Exception ex) {
-			System.out.println(
-					"Error occured while select option by value from " + elementLabel + " dropdown" + "\n" + ex);
+			log.error("Error occured while select the " + value + " option from the " + elementLabel
+					+ " dropdown" + "\n" + ex);
 			Assert.fail();
 		}
 	}
@@ -32,10 +36,10 @@ public class DropDownHelper extends BasePage {
 		try {
 			var select = new Select(element);
 			select.selectByIndex(index);
-			System.out.println("The value at index " + index + " is selected from " + elementLabel + " dropdown");
+			log.info("The value whose index " + index + " is selected from the " + elementLabel + " dropdown");
 		} catch (Exception ex) {
-			System.out.println(
-					"Error occured while select option by index from " + elementLabel + " dropdown" + "\n" + ex);
+			log.error("Error occured while select the option with " + index + " index from the " + elementLabel
+					+ " dropdown" + "\n" + ex);
 			Assert.fail();
 		}
 	}
@@ -44,21 +48,22 @@ public class DropDownHelper extends BasePage {
 		try {
 			var select = new Select(element);
 			select.selectByVisibleText(visibleText);
-			System.out.println("The visible text " + visibleText + " is selected from " + elementLabel + " dropdown");
+			log.info("The visible text " + visibleText + " is selected from the " + elementLabel + " dropdown");
 		} catch (Exception ex) {
-			System.out.println(
-					"Error occured while select option by visible text from " + elementLabel + " dropdown" + "\n" + ex);
+			log.error("Error occured while select the " + visibleText + " option from the " + elementLabel
+					+ " dropdown" + "\n" + ex);
 			Assert.fail();
 		}
 	}
 
-	public String getSelectValue(WebElement element, String elementLabel) {
+	public String getSelectedValue(WebElement element, String elementLabel) {
 		String value = null;
 		try {
 			value = new Select(element).getFirstSelectedOption().getText();
-			System.out.println("The selected value in " + elementLabel + " dropdown is : " + value);
+			log.info("The " + value + " option is selected in the " + elementLabel + " dropdown");
 		} catch (Exception ex) {
-			System.out.println("Error occured while get selected value from " + elementLabel + " dropdown" + "\n" + ex);
+			log.error(
+					"Error occured while get the selected value from the " + elementLabel + " dropdown" + "\n" + ex);
 			Assert.fail();
 		}
 		return value;
@@ -71,13 +76,12 @@ public class DropDownHelper extends BasePage {
 			var listelements = select.getOptions();
 			dropdownvalues = new LinkedList<String>();
 			for (var elements : listelements) {
-				System.out
-						.println("The option values of the " + elementLabel + " dropdown are : " + elements.getText());
+				log.info("The " + elementLabel + " dropdown has the option value as " + elements.getText());
 				dropdownvalues.add(elements.getText());
 			}
 		} catch (Exception ex) {
-			System.out.println(
-					"Error occured while get the option values from " + elementLabel + " dropdown" + "\n" + ex);
+			log.error(
+					"Error occured while get the option values from the " + elementLabel + " dropdown" + "\n" + ex);
 			Assert.fail();
 		}
 		return dropdownvalues;

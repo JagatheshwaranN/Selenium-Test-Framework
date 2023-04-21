@@ -1,5 +1,7 @@
 package com.qa.taf.helper;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 
@@ -12,13 +14,16 @@ import com.qa.taf.base.BasePage;
  */
 public class VerificationHelper extends BasePage {
 
+	private static Logger log = LogManager.getFormatterLogger(VerificationHelper.class);
+
 	public boolean verifyElementPresent(WebElement element, String elementLabel) {
 		boolean isDisplayed = false;
 		try {
 			isDisplayed = element.isDisplayed();
-			System.out.println("The element " + elementLabel + " is present on the page");
+			log.info("The " + elementLabel + " element is present on the page");
 		} catch (Exception ex) {
-			System.out.println("Error occured while check for presence of an " + elementLabel + " element" + "\n" + ex);
+			log.error(
+					"Error occured while check for the presence of the " + elementLabel + " element" + "\n" + ex);
 			Assert.fail();
 		}
 		return isDisplayed;
@@ -29,13 +34,13 @@ public class VerificationHelper extends BasePage {
 		try {
 			var actualText = element.getText();
 			if (actualText.equals(text)) {
-				System.out.println("The element " + elementLabel + " text and given text is equal");
+				log.info("The " + elementLabel + "element's text and given text are equal");
 				return flag = true;
 			} else {
 				return flag;
 			}
 		} catch (Exception ex) {
-			System.out.println("Error occured while check an " + elementLabel + " element text" + "\n" + ex);
+			log.error("Error occured while check the " + elementLabel + " element's text" + "\n" + ex);
 			Assert.fail();
 		}
 		return flag;
@@ -49,9 +54,9 @@ public class VerificationHelper extends BasePage {
 			if (!displayed)
 				return null;
 			text = element.getText();
-			System.out.println("The element " + elementLabel + " text is : " + text);
+			log.info("The " + elementLabel + " element's text is ==> " + text);
 		} catch (Exception ex) {
-			System.out.println("Error occured while read value of an " + elementLabel + " element" + "\n" + ex);
+			log.error("Error occured while read the text of the " + elementLabel + " element" + "\n" + ex);
 			Assert.fail();
 		}
 		return text;
@@ -63,9 +68,9 @@ public class VerificationHelper extends BasePage {
 			if (!isDisplayed(element, elementLabel))
 				return null;
 			value = element.getAttribute("value");
-			System.out.println("The element " + elementLabel + " text is : " + value);
+			log.info("The " + elementLabel + " element's value is ==> " + value);
 		} catch (Exception ex) {
-			System.out.println("Error occured while read text of an " + elementLabel + " element" + "\n" + ex);
+			log.error("Error occured while read the value of the " + elementLabel + " element" + "\n" + ex);
 			Assert.fail();
 		}
 		return value;
@@ -76,9 +81,10 @@ public class VerificationHelper extends BasePage {
 		try {
 			element.isDisplayed();
 			flag = true;
-			System.out.println("The element " + elementLabel + " is displayed on the page");
+			log.info("The " + elementLabel + " element is displayed on the page");
 		} catch (Exception ex) {
-			System.out.println("Error occured while check for display of an " + elementLabel + " element" + "\n" + ex);
+			log.error(
+					"Error occured while check for the display of the " + elementLabel + " element" + "\n" + ex);
 			Assert.fail();
 		}
 		return flag;
