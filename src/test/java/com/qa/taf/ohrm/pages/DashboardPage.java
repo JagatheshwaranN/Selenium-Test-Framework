@@ -7,20 +7,19 @@ import com.qa.taf.ohrm.elements.DashboardPageElement;
 
 public class DashboardPage extends DashboardPageElement {
 
-	public void userDropDown() {
+	PageManager pageManager = new PageManager();
 
+	public void userDropDown() {
 		clickElement(getUserDropDown(), getUserDropDownLabel());
-		isElementPresent(getUserDropDownMenu(), getUserDropDownMenuLabel());
+		pageManager.getVerificationHelper().verifyElementPresent(getUserDropDownMenu(), getUserDropDownMenuLabel());
 	}
 
 	public void pfDoLogout() {
-
 		userDropDown();
 		clickElement(getLogout(), getLogoutLabel());
 	}
 
 	public AdminPage navigateToAdminPage() {
-
 		clickElement(getAdminSection(), getAdminSectionLabel());
 		return new AdminPage();
 	}

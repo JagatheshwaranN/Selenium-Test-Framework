@@ -56,8 +56,7 @@ public class DropDownHelper extends BasePage {
 		}
 	}
 
-	public static void elementSelect(WebElement element1, List<WebElement> element2, String value,
-			String elementLabel) {
+	public void elementSelect(WebElement element1, List<WebElement> element2, String value, String elementLabel) {
 		try {
 			element1.click();
 			List<WebElement> options = element2;

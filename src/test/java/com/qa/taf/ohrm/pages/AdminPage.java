@@ -4,16 +4,20 @@ import com.qa.taf.ohrm.elements.AdminPageElement;
 
 public class AdminPage extends AdminPageElement {
 
-	public void searchUser(String user, String status) {
+	PageManager pageManager = new PageManager();
 
-		isElementPresent(getAdminHeader(), getAdminHeaderLabel());
+	public void searchUser(String user, String status) {
+		
+		pageManager.getVerificationHelper().verifyElementPresent(getAdminHeader(), getAdminHeaderLabel());
 		typeElement(getAdminSearchUserName(), user, getAdminSearchUserNameLabel());
-		elementSelect(getAdminUserRoleDropDown(), getAdminUserRoleDropDownOptions(), user,
-				getAdminUserRoleDropDownLabel());
-		elementSelect(getAdminUserStatusDropDown(), getAdminUserStatusDropDownOptions(), status,
-				getAdminUserStatusDropDownLabel());
+		pageManager.getDropDownHelper().elementSelect(getAdminUserRoleDropDown(), getAdminUserRoleDropDownOptions(),
+				user, getAdminUserRoleDropDownLabel());
+		pageManager.getDropDownHelper().elementSelect(getAdminUserStatusDropDown(), getAdminUserStatusDropDownOptions(),
+				status, getAdminUserStatusDropDownLabel());
 		clickElement(getAdminSearch(), getAdminSearchLabel());
-		isElementPresent(getAdminSearchResultSection(), getAdminSearchResultSectionLabel());
-		isElementPresent(getAdminSearchResultData(), getAdminSearchResultDataLabel());
+		pageManager.getVerificationHelper().verifyElementPresent(getAdminSearchResultSection(),
+				getAdminSearchResultSectionLabel());
+		pageManager.getVerificationHelper().verifyElementPresent(getAdminSearchResultData(),
+				getAdminSearchResultDataLabel());
 	}
 }
