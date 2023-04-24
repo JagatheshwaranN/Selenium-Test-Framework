@@ -26,8 +26,8 @@ public class DropDownHelper extends BasePage {
 			select.selectByValue(value);
 			log.info("The value " + value + " is selected from the " + elementLabel + " dropdown");
 		} catch (Exception ex) {
-			log.error("Error occured while select the " + value + " option from the " + elementLabel
-					+ " dropdown" + "\n" + ex);
+			log.error("Error occured while select the " + value + " option from the " + elementLabel + " dropdown"
+					+ "\n" + ex);
 			Assert.fail();
 		}
 	}
@@ -50,8 +50,33 @@ public class DropDownHelper extends BasePage {
 			select.selectByVisibleText(visibleText);
 			log.info("The visible text " + visibleText + " is selected from the " + elementLabel + " dropdown");
 		} catch (Exception ex) {
-			log.error("Error occured while select the " + visibleText + " option from the " + elementLabel
-					+ " dropdown" + "\n" + ex);
+			log.error("Error occured while select the " + visibleText + " option from the " + elementLabel + " dropdown"
+					+ "\n" + ex);
+			Assert.fail();
+		}
+	}
+
+	public static void elementSelect(WebElement element1, List<WebElement> element2, String value,
+			String elementLabel) {
+		try {
+			element1.click();
+			List<WebElement> options = element2;
+			boolean flag = false;
+			for (WebElement option : options) {
+				if (option.getText().equalsIgnoreCase(value)) {
+					flag = true;
+					option.click();
+					log.info("The option " + value + " is selected from the " + elementLabel + " dropdown");
+					break;
+				}
+			}
+			if (flag == false) {
+				log.error(flag + "-" + value + " option not found on the " + elementLabel + " dropdown");
+				Assert.fail(flag + "-" + value + " option not found on the " + elementLabel + " dropdown");
+			}
+		} catch (Exception ex) {
+			log.error("Error occured while select the " + value + " option from the " + elementLabel + " dropdown"
+					+ "\n" + ex);
 			Assert.fail();
 		}
 	}
@@ -62,8 +87,7 @@ public class DropDownHelper extends BasePage {
 			value = new Select(element).getFirstSelectedOption().getText();
 			log.info("The " + value + " option is selected in the " + elementLabel + " dropdown");
 		} catch (Exception ex) {
-			log.error(
-					"Error occured while get the selected value from the " + elementLabel + " dropdown" + "\n" + ex);
+			log.error("Error occured while get the selected value from the " + elementLabel + " dropdown" + "\n" + ex);
 			Assert.fail();
 		}
 		return value;
@@ -80,8 +104,7 @@ public class DropDownHelper extends BasePage {
 				dropdownvalues.add(elements.getText());
 			}
 		} catch (Exception ex) {
-			log.error(
-					"Error occured while get the option values from the " + elementLabel + " dropdown" + "\n" + ex);
+			log.error("Error occured while get the option values from the " + elementLabel + " dropdown" + "\n" + ex);
 			Assert.fail();
 		}
 		return dropdownvalues;
