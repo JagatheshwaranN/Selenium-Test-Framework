@@ -8,12 +8,15 @@ import java.io.IOException;
 import java.util.Optional;
 import java.util.Properties;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 
 import com.qa.taf.constant.ConstantUtil;
 
 public class FileReaderUtil {
 
+	private static Logger log = LogManager.getFormatterLogger(FileReaderUtil.class);
 	public static Properties properties = new Properties();
 
 	public static void loadPropertyFile() {
@@ -21,11 +24,12 @@ public class FileReaderUtil {
 		try (FileInputStream fileInputStream = new FileInputStream(
 				new File(System.getProperty("user.dir") + ConstantUtil.CONFIG_FILE_PATH))) {
 			properties.load(fileInputStream);
-			System.out.println("Configuration property file loaded !!");
+			log.info("Configuration property file loaded !!");
 		} catch (FileNotFoundException ex) {
-			ex.printStackTrace();
+			log.error("The Configuration property file not found on the given path " + ConstantUtil.CONFIG_FILE_PATH
+					+ "\n" + ex);
 		} catch (IOException ex) {
-			ex.printStackTrace();
+			log.error("Error occured while load the Configuration property file " + "\n" + ex);
 		}
 	}
 
@@ -35,6 +39,7 @@ public class FileReaderUtil {
 		try {
 			if (Optional.ofNullable(key).isPresent()) {
 				data = properties.getProperty(key).strip();
+				log.info("The " + data + " data fetched from the Configuration property file");
 			}
 		} catch (NullPointerException ex) {
 			Assert.fail("The key - " + key + " - is not present in the configuration properties file" + "\n"
