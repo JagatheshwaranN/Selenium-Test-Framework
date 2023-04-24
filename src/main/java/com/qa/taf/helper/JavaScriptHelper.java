@@ -27,8 +27,7 @@ public class JavaScriptHelper extends BasePage implements WebPage {
 			executor.executeScript("arguments[0].click();", element);
 			log.info("The " + elementLabel + " element is clicked by javascript");
 		} catch (Exception ex) {
-			System.out
-					.println("Error occured while click on the " + elementLabel + " element by javascript" + "\n" + ex);
+			log.error("Error occured while click on the " + elementLabel + " element by javascript" + "\n" + ex);
 			Assert.fail();
 		}
 	}
@@ -49,8 +48,7 @@ public class JavaScriptHelper extends BasePage implements WebPage {
 			executor.executeScript("arguments[0].click();", element);
 			log.info("The " + elementLabel + " element is clicked by javascript");
 		} catch (Exception ex) {
-			System.out
-					.println("Error occured while click on the " + elementLabel + " element by javascript" + "\n" + ex);
+			log.error("Error occured while click on the " + elementLabel + " element by javascript" + "\n" + ex);
 			Assert.fail();
 		}
 	}
@@ -61,8 +59,7 @@ public class JavaScriptHelper extends BasePage implements WebPage {
 			executor.executeScript("arguments[0].value='" + text + "';", element);
 			log.info("The text " + text + " is entered into the " + elementLabel + " element by javascript");
 		} catch (Exception ex) {
-			log.error(
-					"Error occured while enter text into the " + elementLabel + " element by javascript" + "\n" + ex);
+			log.error("Error occured while enter text into the " + elementLabel + " element by javascript" + "\n" + ex);
 			Assert.fail();
 		}
 	}
@@ -73,8 +70,8 @@ public class JavaScriptHelper extends BasePage implements WebPage {
 			executor.executeScript("arguments[0].value = '';", element);
 			log.info("The content of the " + elementLabel + " element is cleared by javascript");
 		} catch (Exception ex) {
-			log.error("Error occured while clear the content of the " + elementLabel + " element by javascript"
-					+ "\n" + ex);
+			log.error("Error occured while clear the content of the " + elementLabel + " element by javascript" + "\n"
+					+ ex);
 			Assert.fail();
 		}
 	}
@@ -93,8 +90,7 @@ public class JavaScriptHelper extends BasePage implements WebPage {
 					element.getLocation().y);
 			log.info("The control is scrolled to the " + elementLabel + " element by javascript");
 		} catch (Exception ex) {
-			log.error(
-					"Error occured while scroll to the " + elementLabel + " element by javascript" + "\n" + ex);
+			log.error("Error occured while scroll to the " + elementLabel + " element by javascript" + "\n" + ex);
 			Assert.fail();
 		}
 	}
@@ -105,8 +101,7 @@ public class JavaScriptHelper extends BasePage implements WebPage {
 			element.click();
 			log.info("The control is scrolled to the " + elementLabel + " element and clicked by javascript");
 		} catch (Exception ex) {
-			log.error(
-					"Error occured while scroll to the " + elementLabel + " element by javascript" + "\n" + ex);
+			log.error("Error occured while scroll to the " + elementLabel + " element by javascript" + "\n" + ex);
 			Assert.fail();
 		}
 	}
@@ -116,8 +111,8 @@ public class JavaScriptHelper extends BasePage implements WebPage {
 			executeScript("arguments[0].scrollIntoView()", element);
 			log.info("The control is scrolled into the view of the " + elementLabel + " element by javascript");
 		} catch (Exception ex) {
-			log.error("Error occured while scroll into view of the " + elementLabel + " element by javascript"
-					+ "\n" + ex);
+			log.error("Error occured while scroll into view of the " + elementLabel + " element by javascript" + "\n"
+					+ ex);
 			Assert.fail();
 		}
 	}
@@ -129,8 +124,8 @@ public class JavaScriptHelper extends BasePage implements WebPage {
 			log.info("The control is scrolled into the view of the " + elementLabel
 					+ " element and clicked by javascript");
 		} catch (Exception ex) {
-			log.error("Error occured while scroll into view of the " + elementLabel + " element by javascript"
-					+ "\n" + ex);
+			log.error("Error occured while scroll into view of the " + elementLabel + " element by javascript" + "\n"
+					+ ex);
 			Assert.fail();
 		}
 	}
@@ -140,9 +135,8 @@ public class JavaScriptHelper extends BasePage implements WebPage {
 			executeScript("window.scrollTo(0, -document.body.scrollHeight)");
 			log.info("The control is scrolled up vertically to the top of the page by javscript");
 		} catch (Exception ex) {
-			log.error(
-					"Error occured while the control is scroll up vertically to the top of the page by javascript"
-							+ "\n" + ex);
+			log.error("Error occured while the control is scroll up vertically to the top of the page by javascript"
+					+ "\n" + ex);
 			Assert.fail();
 		}
 	}
