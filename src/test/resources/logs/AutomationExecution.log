@@ -2,3 +2,33 @@
 [ERROR] 2023-04-19 19:41:58.656 [TestNG-tests-1] DriverManager - Logger Demo Implementation
 [INFO ] 2023-04-19 19:53:54.969 [TestNG-tests-1] DriverManager - Logger Demo Implementation
 [ERROR] 2023-04-19 19:53:54.974 [TestNG-tests-1] DriverManager - Logger Demo Implementation
+[INFO ] 2023-04-25 16:37:50.179 [main] TestDataUtil - The {UserName=Admin} is fetched from the loginPageTest excel sheet
+[INFO ] 2023-04-25 16:37:50.186 [main] TestDataUtil - The {Password=admin123, UserName=Admin} is fetched from the loginPageTest excel sheet
+[INFO ] 2023-04-25 16:37:50.186 [main] TestDataUtil - The {RunMode=Y, Password=admin123, UserName=Admin} is fetched from the loginPageTest excel sheet
+[INFO ] 2023-04-25 16:37:50.258 [main] FileReaderUtil - Configuration property file loaded !!
+[INFO ] 2023-04-25 16:37:50.258 [main] FileReaderUtil - The Local data fetched from the Configuration property file
+[INFO ] 2023-04-25 16:37:50.259 [main] BrowserManager - Local Environment is opted for test execution
+[INFO ] 2023-04-25 16:37:50.261 [main] FileReaderUtil - The Chrome data fetched from the Configuration property file
+[INFO ] 2023-04-25 16:37:50.261 [main] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2023-04-25 16:37:50.262 [main] DriverManager - Chrome driver is initialized for local test execution
+[INFO ] 2023-04-25 16:38:08.772 [main] FileReaderUtil - The https://opensource-demo.orangehrmlive.com/web/index.php/auth/login data fetched from the Configuration property file
+[INFO ] 2023-04-25 16:38:27.647 [main] TestDataUtil - The loginPageTest is available in the excel sheet TestSuite and runmode is set to Y
+[INFO ] 2023-04-25 16:38:28.188 [main] VerificationHelper - The UserName element is present on the page
+[INFO ] 2023-04-25 16:38:28.504 [main] ReusableComponent - The text Admin is entered into the UserName element
+[INFO ] 2023-04-25 16:38:28.749 [main] ReusableComponent - The text admin123 is entered into the Password element
+[INFO ] 2023-04-25 16:38:30.457 [main] ReusableComponent - The Login element is clicked
+[INFO ] 2023-04-25 16:43:40.278 [main] TestDataUtil - The '{UserName=Admin}' is fetched from the loginPageTest excel sheet
+[INFO ] 2023-04-25 16:43:40.284 [main] TestDataUtil - The '{Password=admin123, UserName=Admin}' is fetched from the loginPageTest excel sheet
+[INFO ] 2023-04-25 16:43:40.285 [main] TestDataUtil - The '{RunMode=Y, Password=admin123, UserName=Admin}' is fetched from the loginPageTest excel sheet
+[INFO ] 2023-04-25 16:43:40.327 [main] FileReaderUtil - Configuration property file loaded !!
+[INFO ] 2023-04-25 16:43:40.327 [main] FileReaderUtil - The Local data fetched from the Configuration property file
+[INFO ] 2023-04-25 16:43:40.329 [main] BrowserManager - Local Environment is opted for test execution
+[INFO ] 2023-04-25 16:43:40.331 [main] FileReaderUtil - The Chrome data fetched from the Configuration property file
+[INFO ] 2023-04-25 16:43:40.334 [main] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2023-04-25 16:43:40.334 [main] DriverManager - Chrome driver is initialized for local test execution
+[INFO ] 2023-04-25 16:43:45.135 [main] FileReaderUtil - The https://opensource-demo.orangehrmlive.com/web/index.php/auth/login data fetched from the Configuration property file
+[INFO ] 2023-04-25 16:43:57.898 [main] TestDataUtil - The 'loginPageTest' test case is available in the excel sheet TestSuite and runmode is set to Y
+[INFO ] 2023-04-25 16:43:58.019 [main] VerificationHelper - The UserName element is present on the page
+[INFO ] 2023-04-25 16:43:58.202 [main] ReusableComponent - The text Admin is entered into the UserName element
+[INFO ] 2023-04-25 16:43:58.432 [main] ReusableComponent - The text admin123 is entered into the Password element
+[INFO ] 2023-04-25 16:44:00.135 [main] ReusableComponent - The Login element is clicked

@@ -5,7 +5,6 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 
 import com.qa.taf.base.BasePage;
 
@@ -25,27 +24,17 @@ public class ReusableComponent extends BasePage implements WebPage {
 
 	@Override
 	public void clearElement(WebElement element, String elementLabel) {
-		try {
-			if (element != null) {
-				element.clear();
-				log.info("The " + elementLabel + " element's content is cleared");
-			}
-		} catch (Exception ex) {
-			log.error("Error occured while clear the content of the " + elementLabel + " element" + "\n" + ex);
-			Assert.fail();
+		if (element != null) {
+			element.clear();
+			log.info("The " + "'" + elementLabel + "'" + " element's content is cleared");
 		}
 	}
 
 	@Override
 	public void clickElement(WebElement element, String elementLabel) {
-		try {
-			if (element != null) {
-				element.click();
-				log.info("The " + elementLabel + " element is clicked");
-			}
-		} catch (Exception ex) {
-			log.error("Error occured while click on the " + elementLabel + " element" + "\n" + ex);
-			Assert.fail();
+		if (element != null) {
+			element.click();
+			log.info("The " + "'" + elementLabel + "'" + " element is clicked");
 		}
 	}
 
@@ -54,32 +43,21 @@ public class ReusableComponent extends BasePage implements WebPage {
 		String locatorToString = null;
 		String updatedLocatorToString = null;
 		WebElement element;
-		try {
-			locatorToString = locator.toString();
-			if (locatorToString.contains("@1@")) {
-				updatedLocatorToString = locatorToString.replaceAll("@1@", value);
-			}
-			updatedLocatorToString = updatedLocatorToString.split(":")[1].trim();
-			log.info("The locator string replaced with the value ==> " + updatedLocatorToString);
-			element = generateElement(updatedLocatorToString, elementLabel);
-			element.click();
-		} catch (Exception ex) {
-			log.error("Error occured while click on the " + elementLabel + " element" + "\n" + ex);
-			Assert.fail();
+		locatorToString = locator.toString();
+		if (locatorToString.contains("@1@")) {
+			updatedLocatorToString = locatorToString.replaceAll("@1@", value);
 		}
-
+		updatedLocatorToString = updatedLocatorToString.split(":")[1].trim();
+		log.info("The locator string replaced with the value ==> " + updatedLocatorToString);
+		element = generateElement(updatedLocatorToString, elementLabel);
+		element.click();
 	}
 
 	@Override
 	public void typeElement(WebElement element, String text, String elementLabel) {
-		try {
-			if (element != null) {
-				element.sendKeys(text);
-				log.info("The text " + text + " is entered into the " + elementLabel + " element");
-			}
-		} catch (Exception ex) {
-			log.error("Error occured while click on the " + elementLabel + " element" + "\n" + ex);
-			Assert.fail();
+		if (element != null) {
+			element.sendKeys(text);
+			log.info("The text " + "'" + text + "'" + " is entered into the " + "'" + elementLabel + "'" + " element");
 		}
 	}
 }

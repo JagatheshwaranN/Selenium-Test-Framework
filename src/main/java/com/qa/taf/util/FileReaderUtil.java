@@ -20,7 +20,7 @@ public class FileReaderUtil {
 	public static Properties properties = new Properties();
 
 	public static void loadPropertyFile() {
-
+		
 		try (FileInputStream fileInputStream = new FileInputStream(
 				new File(System.getProperty("user.dir") + ConstantUtil.CONFIG_FILE_PATH))) {
 			properties.load(fileInputStream);
@@ -34,15 +34,15 @@ public class FileReaderUtil {
 	}
 
 	public static String getDataFromPropFile(String key) {
-
+		
 		String data = null;
 		try {
 			if (Optional.ofNullable(key).isPresent()) {
 				data = properties.getProperty(key).strip();
-				log.info("The " + data + " data fetched from the Configuration property file");
+				log.info("The " + "'" + data + "'" + " data fetched from the configuration property file");
 			}
 		} catch (NullPointerException ex) {
-			Assert.fail("The key - " + key + " - is not present in the configuration properties file" + "\n"
+			Assert.fail("The key - " + "'" + key + "'" + " - is not present in the configuration property file" + "\n"
 					+ ex.getMessage());
 		}
 		return data;

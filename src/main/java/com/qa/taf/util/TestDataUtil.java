@@ -27,7 +27,7 @@ public class TestDataUtil extends DriverManager {
 				table.put(excelReaderUtil.getCellData(sheetName, col, 1),
 						excelReaderUtil.getCellData(sheetName, col, row));
 				data[row - 2][0] = table;
-				log.info("The " + data[row - 2][0] + " is fetched from the " + sheetName + " excel sheet");
+				log.info("The " + "'" + data[row - 2][0] + "'" + " is fetched from the " + sheetName + " excel sheet");
 			}
 		}
 		return data;
@@ -44,11 +44,11 @@ public class TestDataUtil extends DriverManager {
 			if (testCase.equalsIgnoreCase(testName)) {
 				var runMode = excelReaderUtil.getCellData(sheetName, runModeColumn, row);
 				if (runMode.equalsIgnoreCase("Y")) {
-					log.info("The " + testName + " is available in the excel sheet " + sheetName
-							+ " and runmode is set to Y");
+					log.info("The " + "'" + testName + "'" + " test case is available in the excel sheet " + "'"
+							+ sheetName + "'" + " and runmode is set to Y");
 					return true;
 				} else {
-					log.info("The " + testName + " is available in the excel sheet " + sheetName
+					log.info("The " + "'" + testName + "'" + " is available in the excel sheet " + "'" + sheetName + "'"
 							+ " and runmode is set to N");
 					return false;
 				}
