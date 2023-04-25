@@ -3,6 +3,8 @@ package com.qa.taf.util;
 import java.lang.reflect.Method;
 import java.util.Hashtable;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.annotations.DataProvider;
 
 import com.qa.taf.base.DriverManager;
@@ -10,9 +12,10 @@ import com.qa.taf.constant.ConstantUtil;
 
 public class TestDataUtil extends DriverManager {
 
+	private static Logger log = LogManager.getFormatterLogger(TestDataUtil.class);
+
 	@DataProvider(name = "fetchData")
 	public static Object[][] fetchDataFromExcel(Method method) {
-
 		var sheetName = method.getName();
 		var totalRows = excelReaderUtil.getRowCount(sheetName);
 		var totalColumns = excelReaderUtil.getColumnCount(sheetName);
@@ -24,6 +27,7 @@ public class TestDataUtil extends DriverManager {
 				table.put(excelReaderUtil.getCellData(sheetName, col, 1),
 						excelReaderUtil.getCellData(sheetName, col, row));
 				data[row - 2][0] = table;
+				log.info("The " + data[row - 2][0] + " is fetched from the " + sheetName + " excel sheet");
 			}
 		}
 		return data;
@@ -40,8 +44,12 @@ public class TestDataUtil extends DriverManager {
 			if (testCase.equalsIgnoreCase(testName)) {
 				var runMode = excelReaderUtil.getCellData(sheetName, runModeColumn, row);
 				if (runMode.equalsIgnoreCase("Y")) {
+					log.info("The " + testName + " is available in the excel sheet " + sheetName
+							+ " and runmode is set to Y");
 					return true;
 				} else {
+					log.info("The " + testName + " is available in the excel sheet " + sheetName
+							+ " and runmode is set to N");
 					return false;
 				}
 			}

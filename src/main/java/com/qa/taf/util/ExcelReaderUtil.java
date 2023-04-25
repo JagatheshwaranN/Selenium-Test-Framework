@@ -1,7 +1,9 @@
 package com.qa.taf.util;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import java.util.Calendar;
 
 import org.apache.poi.common.usermodel.HyperlinkType;
@@ -34,16 +36,17 @@ public class ExcelReaderUtil {
 	public ExcelReaderUtil(String path) {
 
 		this.path = path;
+
 		try {
 			fis = new FileInputStream(path);
 			workbook = new XSSFWorkbook(fis);
 			sheet = workbook.getSheetAt(0);
 			fis.close();
-		} catch (Exception e) {
-
-			e.printStackTrace();
+		} catch (FileNotFoundException ex) {
+			ex.printStackTrace();
+		} catch (IOException ex) {
+			ex.printStackTrace();
 		}
-
 	}
 
 	// returns the row count in a sheet
