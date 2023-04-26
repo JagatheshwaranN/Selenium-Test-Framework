@@ -47,7 +47,7 @@ public class VerificationHelper extends BasePage {
 		if (!verifyElementPresent(element, elementLabel))
 			return null;
 		text = element.getText();
-		log.info("The " + "'" + elementLabel + "'" + " element's text is ==> " + text);
+		log.info("The " + "'" + elementLabel + "'" + " element's text is ==> " + "'" + text + "'");
 		return text;
 	}
 
@@ -56,7 +56,7 @@ public class VerificationHelper extends BasePage {
 		if (!verifyElementPresent(element, elementLabel))
 			return null;
 		value = element.getAttribute("value");
-		log.info("The " + "'" + elementLabel + "'" + " element's value is ==> " + value);
+		log.info("The " + "'" + elementLabel + "'" + " element's value is ==> " + "'" + value + "'");
 		return value;
 	}
 }
