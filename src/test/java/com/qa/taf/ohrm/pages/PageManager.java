@@ -34,5 +34,4 @@ public class PageManager {
 	public DropDownHelper getDropDownHelper() {
 		return (dropDownHelper == null) ? dropDownHelper = new DropDownHelper() : dropDownHelper;
 	}
-
 }
