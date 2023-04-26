@@ -52,7 +52,7 @@ public class DriverManager extends BrowserManager {
 	}
 
 	private WebDriver createDriver() {
-		
+
 		return driver = switch (getEnvType().toString()) {
 		case "LOCAL" -> {
 			yield driver = createLocalDriver();
@@ -60,7 +60,7 @@ public class DriverManager extends BrowserManager {
 		case "REMOTE" -> {
 			yield driver = createRemoteDriver();
 		}
-		default -> throw new IllegalArgumentException("Unexpected Value : " + getEnvType().toString());
+		default -> throw new IllegalArgumentException("Unexpected Value ==> " + getEnvType().toString());
 		};
 	}
 
@@ -84,7 +84,7 @@ public class DriverManager extends BrowserManager {
 			meOptions.addArguments(ConstantUtil.BROWSER_MAXIMIZE);
 			yield driver = new EdgeDriver();
 		}
-		default -> throw new IllegalArgumentException("Unexpected Value : " + getBrowserType().toString());
+		default -> throw new IllegalArgumentException("Unexpected Value ==> " + getBrowserType().toString());
 		};
 	}
 
@@ -130,7 +130,7 @@ public class DriverManager extends BrowserManager {
 			}
 			yield driver;
 		}
-		default -> throw new IllegalArgumentException("Unexpected Value : " + getBrowserType().toString());
+		default -> throw new IllegalArgumentException("Unexpected Value ==> " + getBrowserType().toString());
 		};
 	}
 }

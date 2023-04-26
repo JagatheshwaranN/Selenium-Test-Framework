@@ -5,7 +5,7 @@ import java.time.Duration;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
-
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -34,44 +34,24 @@ public class BasePage extends Page {
 	public void waitForElementVisible(WebElement element, String elementLabel) {
 		try {
 			wait.until(ExpectedConditions.visibilityOf(element));
-		} catch (Exception ex) {
-			log.error("Error occured while wait for an element : " + elementLabel + "\n" + ex);
+		} catch (NoSuchElementException ex) {
+			log.error("Error occured while wait for an element : " + "'" + elementLabel + "'" + "\n" + ex);
 			Assert.fail();
 		}
 	}
 
 	@Override
 	public void waitForPageTitle(String title) {
-		try {
-			wait.until(ExpectedConditions.titleContains(title));
-		} catch (Exception ex) {
-			log.error("Error occured while wait for the page title : " + title + "\n" + ex);
-			Assert.fail();
-		}
+		wait.until(ExpectedConditions.titleContains(title));
 	}
 
 	@Override
 	public WebElement generateElement(By locator, String locatorLabel) {
-		WebElement element = null;
-		try {
-			element = driverManager.getDriver().findElement(locator);
-		} catch (Exception ex) {
-			log.error("Error occured while construct of an web element : " + locatorLabel + "\n" + ex);
-			Assert.fail();
-		}
-		return element;
+		return driverManager.getDriver().findElement(locator);
 	}
 
 	@Override
 	public WebElement generateElement(String locator, String locatorLabel) {
-		WebElement element = null;
-		try {
-			element = driverManager.getDriver().findElement(By.xpath(locator));
-		} catch (Exception ex) {
-			log.error("Error occured while construct of an web element : " + locatorLabel + "\n" + ex);
-			Assert.fail();
-		}
-		return element;
+		return driverManager.getDriver().findElement(By.xpath(locator));
 	}
-
 }
