@@ -20,21 +20,21 @@ public class FileReaderUtil {
 	public static Properties properties = new Properties();
 
 	public static void loadPropertyFile() {
-		
+
 		try (FileInputStream fileInputStream = new FileInputStream(
 				new File(System.getProperty("user.dir") + ConstantUtil.CONFIG_FILE_PATH))) {
 			properties.load(fileInputStream);
-			log.info("Configuration property file loaded !!");
+			log.info("The configuration property file is loaded !!");
 		} catch (FileNotFoundException ex) {
-			log.error("The Configuration property file not found on the given path " + ConstantUtil.CONFIG_FILE_PATH
-					+ "\n" + ex);
+			log.error("The configuration property file not found on the given path " + "'"
+					+ ConstantUtil.CONFIG_FILE_PATH + "'" + "\n" + ex);
 		} catch (IOException ex) {
-			log.error("Error occured while load the Configuration property file " + "\n" + ex);
+			log.error("Error occured while load the configuration property file " + "\n" + ex);
 		}
 	}
 
 	public static String getDataFromPropFile(String key) {
-		
+
 		String data = null;
 		try {
 			if (Optional.ofNullable(key).isPresent()) {

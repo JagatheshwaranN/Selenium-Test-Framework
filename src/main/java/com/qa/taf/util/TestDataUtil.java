@@ -27,7 +27,8 @@ public class TestDataUtil extends DriverManager {
 				table.put(excelReaderUtil.getCellData(sheetName, col, 1),
 						excelReaderUtil.getCellData(sheetName, col, row));
 				data[row - 2][0] = table;
-				log.info("The " + "'" + data[row - 2][0] + "'" + " is fetched from the " + sheetName + " excel sheet");
+				log.info("The " + "'" + data[row - 2][0] + "'" + " is fetched from the " + "'" + sheetName + "'"
+						+ " excel sheet");
 			}
 		}
 		return data;
