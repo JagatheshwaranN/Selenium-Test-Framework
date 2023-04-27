@@ -22,6 +22,10 @@ public class ConstantUtil {
 
 	public static final String CHROME_REMOTE_ORIGIN = "--remote-allow-origins=*";
 	public static final String BROWSER_MAXIMIZE = "--start-maximized";
-	
+
 	public static final int EXPLICIT_WAIT_TIME = 5;
+
+	public static final String EXTENT_REPORT_CONFIG_FILE_PATH = "//src//test//resources//report//report-config.xml";
+	public static final String EXTENT_REPORT_PATH = "//target//report//ExtentSpark.html";
+
 }

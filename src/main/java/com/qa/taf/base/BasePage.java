@@ -35,7 +35,7 @@ public class BasePage extends Page {
 		try {
 			wait.until(ExpectedConditions.visibilityOf(element));
 		} catch (NoSuchElementException ex) {
-			log.error("Error occured while wait for an element : " + "'" + elementLabel + "'" + "\n" + ex);
+			log.error("Error occured while wait for the element " + "'" + elementLabel + "'" + "\n" + ex);
 			Assert.fail();
 		}
 	}
