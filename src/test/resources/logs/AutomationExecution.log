@@ -32,3 +32,76 @@
 [INFO ] 2023-04-25 16:43:58.202 [main] ReusableComponent - The text Admin is entered into the UserName element
 [INFO ] 2023-04-25 16:43:58.432 [main] ReusableComponent - The text admin123 is entered into the Password element
 [INFO ] 2023-04-25 16:44:00.135 [main] ReusableComponent - The Login element is clicked
+[INFO ] 2023-04-27 12:54:16.204 [TestNG-tests-1] TestDataUtil - The '{UserName=Admin}' is fetched from the 'loginPageTest' excel sheet
+[INFO ] 2023-04-27 12:54:16.204 [TestNG-tests-2] TestDataUtil - The '{UserName=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 12:54:16.230 [TestNG-tests-2] TestDataUtil - The '{Password=admin123, UserName=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 12:54:16.232 [TestNG-tests-2] TestDataUtil - The '{Password=admin123, UserName=Admin, User=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 12:54:16.230 [TestNG-tests-1] TestDataUtil - The '{Password=admin123, UserName=Admin}' is fetched from the 'loginPageTest' excel sheet
+[INFO ] 2023-04-27 12:54:16.235 [TestNG-tests-2] TestDataUtil - The '{SearchCriteria=Enabled, Password=admin123, UserName=Admin, User=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 12:54:16.236 [TestNG-tests-1] TestDataUtil - The '{RunMode=Y, Password=admin123, UserName=Admin}' is fetched from the 'loginPageTest' excel sheet
+[INFO ] 2023-04-27 12:54:16.236 [TestNG-tests-2] TestDataUtil - The '{SearchCriteria=Enabled, RunMode=Y, Password=admin123, UserName=Admin, User=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 12:54:16.336 [TestNG-tests-1] FileReaderUtil - The configuration property file is loaded !!
+[INFO ] 2023-04-27 12:54:16.337 [TestNG-tests-2] FileReaderUtil - The configuration property file is loaded !!
+[INFO ] 2023-04-27 12:54:16.338 [TestNG-tests-2] FileReaderUtil - The 'Local' data fetched from the configuration property file
+[INFO ] 2023-04-27 12:54:16.338 [TestNG-tests-1] FileReaderUtil - The 'Local' data fetched from the configuration property file
+[INFO ] 2023-04-27 12:54:16.341 [TestNG-tests-2] BrowserManager - Local Environment is opted for test execution
+[INFO ] 2023-04-27 12:54:16.343 [TestNG-tests-2] FileReaderUtil - The 'Chrome' data fetched from the configuration property file
+[INFO ] 2023-04-27 12:54:16.343 [TestNG-tests-1] BrowserManager - Local Environment is opted for test execution
+[INFO ] 2023-04-27 12:54:16.344 [TestNG-tests-2] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2023-04-27 12:54:16.346 [TestNG-tests-2] DriverManager - Chrome driver is initialized for local test execution
+[INFO ] 2023-04-27 12:54:16.350 [TestNG-tests-1] FileReaderUtil - The 'Chrome' data fetched from the configuration property file
+[INFO ] 2023-04-27 12:54:16.351 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2023-04-27 12:54:16.352 [TestNG-tests-1] DriverManager - Chrome driver is initialized for local test execution
+[INFO ] 2023-04-27 12:54:34.368 [TestNG-tests-2] FileReaderUtil - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration property file
+[INFO ] 2023-04-27 12:54:34.368 [TestNG-tests-1] FileReaderUtil - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration property file
+[INFO ] 2023-04-27 12:54:46.628 [TestNG-tests-2] TestDataUtil - The 'adminPageTest' test case is available in the excel sheet 'TestSuite' and runmode is set to Y
+[INFO ] 2023-04-27 12:54:47.435 [TestNG-tests-2] VerificationHelper - The 'UserName' element is present on the page
+[INFO ] 2023-04-27 12:54:47.758 [TestNG-tests-2] ReusableComponent - The text 'Admin' is entered into the 'UserName' element
+[INFO ] 2023-04-27 12:54:47.938 [TestNG-tests-2] ReusableComponent - The text 'admin123' is entered into the 'Password' element
+[INFO ] 2023-04-27 12:54:48.579 [TestNG-tests-1] TestDataUtil - The 'loginPageTest' test case is available in the excel sheet 'TestSuite' and runmode is set to Y
+[INFO ] 2023-04-27 12:54:48.693 [TestNG-tests-1] VerificationHelper - The 'UserName' element is present on the page
+[INFO ] 2023-04-27 12:54:48.819 [TestNG-tests-1] ReusableComponent - The text 'Admin' is entered into the 'UserName' element
+[INFO ] 2023-04-27 12:54:49.010 [TestNG-tests-1] ReusableComponent - The text 'admin123' is entered into the 'Password' element
+[INFO ] 2023-04-27 12:54:50.212 [TestNG-tests-2] ReusableComponent - The 'Login' element is clicked
+[INFO ] 2023-04-27 12:54:51.254 [TestNG-tests-1] ReusableComponent - The 'Login' element is clicked
+[INFO ] 2023-04-27 12:54:56.925 [TestNG-tests-2] ReusableComponent - The 'AdminSection' element is clicked
+[INFO ] 2023-04-27 12:55:02.258 [TestNG-tests-2] VerificationHelper - The 'AdminHeader' element is present on the page
+[INFO ] 2023-04-27 12:55:02.500 [TestNG-tests-2] ReusableComponent - The text 'Admin' is entered into the 'AdminSearchUserName' element
+[INFO ] 2023-04-27 12:55:03.054 [TestNG-tests-2] DropDownHelper - The option 'Admin' is selected from the 'AdminUserRoleDropDown' dropdown
+[INFO ] 2023-04-27 12:55:03.334 [TestNG-tests-2] DropDownHelper - The option 'Enabled' is selected from the 'AdminUserStatusDropDown' dropdown
+[INFO ] 2023-04-27 12:55:03.464 [TestNG-tests-2] ReusableComponent - The 'AdminSearch' element is clicked
+[ERROR] 2023-04-27 12:55:03.512 [TestNG-tests-2] VerificationHelper - Error occured while check for the presence of the 'AdminSearchResultSection' element
+org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"css selector","selector":".oxd-table-card"}
+  (Session info: chrome=112.0.5615.138)
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.8.0', revision: '267030adea'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '17.0.3.1'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Command: [e6d1bc443690e79293a95d68a0694845, findElement {using=css selector, value=.oxd-table-card}]
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 112.0.5615.138, chrome: {chromedriverVersion: 112.0.5615.49 (bd2a7bcb881c..., userDataDir: C:\Users\JAGATH~1\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:5396}, networkConnectionEnabled: false, pageLoadStrategy: normal, platformName: WINDOWS, proxy: Proxy(), se:cdp: ws://localhost:5396/devtool..., se:cdpVersion: 112.0.5615.138, setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify, webauthn:extension:credBlob: true, webauthn:extension:largeBlob: true, webauthn:extension:minPinLength: true, webauthn:extension:prf: true, webauthn:virtualAuthenticators: true}
+Session ID: e6d1bc443690e79293a95d68a0694845
+[INFO ] 2023-04-27 13:02:52.371 [main] TestDataUtil - The '{UserName=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 13:02:52.394 [main] TestDataUtil - The '{Password=admin123, UserName=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 13:02:52.396 [main] TestDataUtil - The '{Password=admin123, UserName=Admin, User=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 13:02:52.407 [main] TestDataUtil - The '{SearchCriteria=Enabled, Password=admin123, UserName=Admin, User=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 13:02:52.408 [main] TestDataUtil - The '{SearchCriteria=Enabled, RunMode=Y, Password=admin123, UserName=Admin, User=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 13:02:52.482 [main] FileReaderUtil - The configuration property file is loaded !!
+[INFO ] 2023-04-27 13:02:52.483 [main] FileReaderUtil - The 'Local' data fetched from the configuration property file
+[INFO ] 2023-04-27 13:02:52.484 [main] BrowserManager - Local Environment is opted for test execution
+[INFO ] 2023-04-27 13:02:52.485 [main] FileReaderUtil - The 'Chrome' data fetched from the configuration property file
+[INFO ] 2023-04-27 13:02:52.486 [main] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2023-04-27 13:02:52.487 [main] DriverManager - Chrome driver is initialized for local test execution
+[INFO ] 2023-04-27 13:02:57.813 [main] FileReaderUtil - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration property file
+[INFO ] 2023-04-27 13:03:09.516 [main] TestDataUtil - The 'adminPageTest' test case is available in the excel sheet 'TestSuite' and runmode is set to Y
+[INFO ] 2023-04-27 13:03:09.691 [main] VerificationHelper - The 'UserName' element is present on the page
+[INFO ] 2023-04-27 13:03:09.843 [main] ReusableComponent - The text 'Admin' is entered into the 'UserName' element
+[INFO ] 2023-04-27 13:03:10.007 [main] ReusableComponent - The text 'admin123' is entered into the 'Password' element
+[INFO ] 2023-04-27 13:03:11.578 [main] ReusableComponent - The 'Login' element is clicked
+[INFO ] 2023-04-27 13:03:17.818 [main] ReusableComponent - The 'AdminSection' element is clicked
+[INFO ] 2023-04-27 13:03:23.007 [main] VerificationHelper - The 'AdminHeader' element is present on the page
+[INFO ] 2023-04-27 13:03:23.331 [main] ReusableComponent - The text 'Admin' is entered into the 'AdminSearchUserName' element
+[INFO ] 2023-04-27 13:03:23.702 [main] DropDownHelper - The option 'Admin' is selected from the 'AdminUserRoleDropDown' dropdown
+[INFO ] 2023-04-27 13:03:23.971 [main] DropDownHelper - The option 'Enabled' is selected from the 'AdminUserStatusDropDown' dropdown
+[INFO ] 2023-04-27 13:03:24.089 [main] ReusableComponent - The 'AdminSearch' element is clicked
+[INFO ] 2023-04-27 13:03:24.815 [main] VerificationHelper - The 'AdminSearchResultSection' element is present on the page
+[INFO ] 2023-04-27 13:03:24.897 [main] VerificationHelper - The 'AdminSearchResultData' element is present on the page

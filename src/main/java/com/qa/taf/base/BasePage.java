@@ -17,7 +17,7 @@ public class BasePage extends Page {
 
 	private static Logger log = LogManager.getFormatterLogger(BasePage.class);
 	public WebDriverWait wait = new WebDriverWait(driverManager.getDriver(),
-			Duration.ofSeconds(ConstantUtil.IMPLICIT_WAIT_TIME));
+			Duration.ofSeconds(ConstantUtil.EXPLICIT_WAIT_TIME));
 
 	@Override
 	public String getPageTitle() {
