@@ -1,5 +1,11 @@
 package com.qa.taf.listener;
 
+import java.io.File;
+import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+
+import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.ISuite;
@@ -12,21 +18,20 @@ import org.testng.Reporter;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.qa.taf.base.DriverManager;
+import com.qa.taf.constant.ConstantUtil;
 import com.qa.taf.reuse.ReusableComponent;
 
 public class TestListener extends DriverManager implements ITestListener, ISuiteListener {
 
-	//private static String messageBody;
+	// private static String messageBody;
 
 	@Override
 	public void onStart(ISuite suite) {
-		// TODO Auto-generated method stub
 		ISuiteListener.super.onStart(suite);
 	}
 
 	@Override
 	public void onFinish(ISuite suite) {
-		// TODO Auto-generated method stub
 		ISuiteListener.super.onFinish(suite);
 	}
 
@@ -45,6 +50,7 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
 	@Override
 	public void onTestStart(ITestResult result) {
 		test.log(Status.INFO, () -> result.getName().toUpperCase() + " Test Started");
+		Reporter.log(result.getName().toUpperCase() + " Test Started");
 	}
 
 	@Override
@@ -77,8 +83,17 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
 	}
 
 	private String captureScreenShot() {
-		// TODO Auto-generated method stub
-		return null;
+		Calendar calendar = Calendar.getInstance();
+		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd_MM_YYYY_hh_mm_ss");
+		File source = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
+		File destination = new File(System.getProperty("user.dir") + ConstantUtil.SNAPSHOT_PATH
+				+ simpleDateFormat.format(calendar.getTime()) + ".png");
+		try {
+			FileUtils.copyFile(source, destination);
+		} catch (IOException ex) {
+			ex.printStackTrace();
+		}
+		return destination.getAbsolutePath();
 	}
 
 	private void testNGReporterUpdate(String testStatus, String screenShot) {

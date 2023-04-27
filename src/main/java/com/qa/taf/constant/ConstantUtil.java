@@ -27,5 +27,7 @@ public class ConstantUtil {
 
 	public static final String EXTENT_REPORT_CONFIG_FILE_PATH = "//src//test//resources//report//report-config.xml";
 	public static final String EXTENT_REPORT_PATH = "//target//report//ExtentSpark.html";
+	public static final String SNAPSHOT_PATH = "//src//test//resources//screenshots//";
+	
 
 }
