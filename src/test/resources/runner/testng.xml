@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Data Driven Test Automation" parallel="tests">
-	<!-- <listeners> <listener class-name="org.uncommons.reportng.JUnitXMLReporter" 
-		/> <listener class-name="org.uncommons.reportng.HTMLReporter" /> <listener 
-		class-name="com.jtaf.ohrm.listeners.ReportListener" /> </listeners> -->
+	<!-- <listeners>
+		<listener class-name="org.uncommons.reportng.JUnitXMLReporter" /> 
+			<listener class-name="org.uncommons.reportng.HTMLReporter" />
+		<listener class-name="com.qa.taf.listener.TestListener" />
+	</listeners> -->
 	<test thread-count="1" name="LoginPageTest">
 		<classes>
 			<class name="com.qa.taf.ohrm.testcases.LoginPageTest" />

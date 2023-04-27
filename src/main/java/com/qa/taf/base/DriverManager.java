@@ -16,8 +16,11 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 import com.qa.taf.constant.ConstantUtil;
 import com.qa.taf.util.ExcelReaderUtil;
+import com.qa.taf.util.ExtentUtil;
 
 public class DriverManager extends BrowserManager {
 
@@ -29,6 +32,8 @@ public class DriverManager extends BrowserManager {
 	public static ThreadLocal<WebDriver> driverLocal = new ThreadLocal<WebDriver>();
 	public static ExcelReaderUtil excelReaderUtil = new ExcelReaderUtil(
 			System.getProperty("user.dir") + ConstantUtil.EXCEL_FILE_PATH);
+	public static ExtentReports report = ExtentUtil.getInstance();
+	public static ExtentTest test;
 	public static BasePage page;
 
 	public WebDriver getDriver() {

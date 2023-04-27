@@ -105,3 +105,148 @@ Session ID: e6d1bc443690e79293a95d68a0694845
 [INFO ] 2023-04-27 13:03:24.089 [main] ReusableComponent - The 'AdminSearch' element is clicked
 [INFO ] 2023-04-27 13:03:24.815 [main] VerificationHelper - The 'AdminSearchResultSection' element is present on the page
 [INFO ] 2023-04-27 13:03:24.897 [main] VerificationHelper - The 'AdminSearchResultData' element is present on the page
+[INFO ] 2023-04-27 14:31:21.864 [main] ExtentUtil - Extent Report instance is created !!
+[INFO ] 2023-04-27 14:31:22.530 [TestNG-tests-1] TestDataUtil - The '{UserName=Admin}' is fetched from the 'loginPageTest' excel sheet
+[INFO ] 2023-04-27 14:31:22.536 [TestNG-tests-2] TestDataUtil - The '{UserName=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 14:31:22.537 [TestNG-tests-1] TestDataUtil - The '{Admin=admin123, UserName=Admin}' is fetched from the 'loginPageTest' excel sheet
+[INFO ] 2023-04-27 14:31:22.542 [TestNG-tests-2] TestDataUtil - The '{Password=admin123, UserName=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 14:31:22.544 [TestNG-tests-2] TestDataUtil - The '{Password=admin123, UserName=Admin, User=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 14:31:22.550 [TestNG-tests-2] TestDataUtil - The '{SearchCriteria=Enabled, Password=admin123, UserName=Admin, User=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 14:31:22.553 [TestNG-tests-2] TestDataUtil - The '{SearchCriteria=Enabled, RunMode=Y, Password=admin123, UserName=Admin, User=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 14:31:22.556 [TestNG-tests-1] TestDataUtil - The '{RunMode=Y, Admin=admin123, UserName=Admin}' is fetched from the 'loginPageTest' excel sheet
+[INFO ] 2023-04-27 14:31:22.607 [TestNG-tests-1] FileReaderUtil - The configuration property file is loaded !!
+[INFO ] 2023-04-27 14:31:22.607 [TestNG-tests-2] FileReaderUtil - The configuration property file is loaded !!
+[INFO ] 2023-04-27 14:31:22.608 [TestNG-tests-2] FileReaderUtil - The 'Local' data fetched from the configuration property file
+[INFO ] 2023-04-27 14:31:22.610 [TestNG-tests-2] BrowserManager - Local Environment is opted for test execution
+[INFO ] 2023-04-27 14:31:22.611 [TestNG-tests-2] FileReaderUtil - The 'Chrome' data fetched from the configuration property file
+[INFO ] 2023-04-27 14:31:22.611 [TestNG-tests-2] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2023-04-27 14:31:22.612 [TestNG-tests-2] DriverManager - Chrome driver is initialized for local test execution
+[INFO ] 2023-04-27 14:31:22.620 [TestNG-tests-1] FileReaderUtil - The 'Local' data fetched from the configuration property file
+[INFO ] 2023-04-27 14:31:22.626 [TestNG-tests-1] BrowserManager - Local Environment is opted for test execution
+[INFO ] 2023-04-27 14:31:22.628 [TestNG-tests-1] FileReaderUtil - The 'Chrome' data fetched from the configuration property file
+[INFO ] 2023-04-27 14:31:22.631 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2023-04-27 14:31:22.633 [TestNG-tests-1] DriverManager - Chrome driver is initialized for local test execution
+[INFO ] 2023-04-27 14:31:28.065 [TestNG-tests-2] FileReaderUtil - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration property file
+[INFO ] 2023-04-27 14:31:28.071 [TestNG-tests-1] FileReaderUtil - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration property file
+[INFO ] 2023-04-27 14:31:40.007 [TestNG-tests-2] TestDataUtil - The 'adminPageTest' test case is available in the excel sheet 'TestSuite' and runmode is set to Y
+[INFO ] 2023-04-27 14:31:40.163 [TestNG-tests-2] VerificationHelper - The 'UserName' element is present on the page
+[INFO ] 2023-04-27 14:31:40.323 [TestNG-tests-2] ReusableComponent - The text 'Admin' is entered into the 'UserName' element
+[INFO ] 2023-04-27 14:31:40.489 [TestNG-tests-2] ReusableComponent - The text 'admin123' is entered into the 'Password' element
+[INFO ] 2023-04-27 14:31:42.106 [TestNG-tests-2] ReusableComponent - The 'Login' element is clicked
+[INFO ] 2023-04-27 14:31:42.776 [TestNG-tests-1] TestDataUtil - The 'loginPageTest' test case is available in the excel sheet 'TestSuite' and runmode is set to Y
+[INFO ] 2023-04-27 14:31:42.908 [TestNG-tests-1] VerificationHelper - The 'UserName' element is present on the page
+[INFO ] 2023-04-27 14:31:43.217 [TestNG-tests-1] ReusableComponent - The text 'Admin' is entered into the 'UserName' element
+[INFO ] 2023-04-27 14:31:48.410 [TestNG-tests-2] ReusableComponent - The 'AdminSection' element is clicked
+[INFO ] 2023-04-27 14:31:53.599 [TestNG-tests-2] VerificationHelper - The 'AdminHeader' element is present on the page
+[INFO ] 2023-04-27 14:31:54.098 [TestNG-tests-2] ReusableComponent - The text 'Admin' is entered into the 'AdminSearchUserName' element
+[INFO ] 2023-04-27 14:31:54.537 [TestNG-tests-2] DropDownHelper - The option 'Admin' is selected from the 'AdminUserRoleDropDown' dropdown
+[INFO ] 2023-04-27 14:31:54.812 [TestNG-tests-2] DropDownHelper - The option 'Enabled' is selected from the 'AdminUserStatusDropDown' dropdown
+[INFO ] 2023-04-27 14:31:54.964 [TestNG-tests-2] ReusableComponent - The 'AdminSearch' element is clicked
+[INFO ] 2023-04-27 14:31:55.665 [TestNG-tests-2] VerificationHelper - The 'AdminSearchResultSection' element is present on the page
+[INFO ] 2023-04-27 14:31:55.730 [TestNG-tests-2] VerificationHelper - The 'AdminSearchResultData' element is present on the page
+[INFO ] 2023-04-27 14:39:56.187 [main] ExtentUtil - Extent Report instance is created !!
+[INFO ] 2023-04-27 14:39:56.827 [TestNG-tests-1] TestDataUtil - The '{UserName=Admin}' is fetched from the 'loginPageTest' excel sheet
+[INFO ] 2023-04-27 14:39:56.830 [TestNG-tests-1] TestDataUtil - The '{Password=admin123, UserName=Admin}' is fetched from the 'loginPageTest' excel sheet
+[INFO ] 2023-04-27 14:39:56.831 [TestNG-tests-1] TestDataUtil - The '{RunMode=Y, Password=admin123, UserName=Admin}' is fetched from the 'loginPageTest' excel sheet
+[INFO ] 2023-04-27 14:39:56.856 [TestNG-tests-2] TestDataUtil - The '{Y=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 14:39:56.874 [TestNG-tests-2] TestDataUtil - The '{Password=admin123, Y=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 14:39:56.878 [TestNG-tests-2] TestDataUtil - The '{Password=admin123, Y=Admin, User=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 14:39:56.881 [TestNG-tests-2] TestDataUtil - The '{SearchCriteria=Enabled, Password=admin123, Y=Admin, User=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 14:39:56.886 [TestNG-tests-2] TestDataUtil - The '{SearchCriteria=Enabled, RunMode=Y, Password=admin123, Y=Admin, User=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 14:39:56.920 [TestNG-tests-1] FileReaderUtil - The configuration property file is loaded !!
+[INFO ] 2023-04-27 14:39:56.920 [TestNG-tests-2] FileReaderUtil - The configuration property file is loaded !!
+[INFO ] 2023-04-27 14:39:56.922 [TestNG-tests-1] FileReaderUtil - The 'Local' data fetched from the configuration property file
+[INFO ] 2023-04-27 14:39:56.930 [TestNG-tests-1] BrowserManager - Local Environment is opted for test execution
+[INFO ] 2023-04-27 14:39:56.932 [TestNG-tests-1] FileReaderUtil - The 'Chrome' data fetched from the configuration property file
+[INFO ] 2023-04-27 14:39:56.932 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2023-04-27 14:39:56.933 [TestNG-tests-1] DriverManager - Chrome driver is initialized for local test execution
+[INFO ] 2023-04-27 14:39:56.935 [TestNG-tests-2] FileReaderUtil - The 'Local' data fetched from the configuration property file
+[INFO ] 2023-04-27 14:39:56.936 [TestNG-tests-2] BrowserManager - Local Environment is opted for test execution
+[INFO ] 2023-04-27 14:39:56.937 [TestNG-tests-2] FileReaderUtil - The 'Chrome' data fetched from the configuration property file
+[INFO ] 2023-04-27 14:39:56.937 [TestNG-tests-2] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2023-04-27 14:39:56.937 [TestNG-tests-2] DriverManager - Chrome driver is initialized for local test execution
+[INFO ] 2023-04-27 14:40:02.549 [TestNG-tests-1] FileReaderUtil - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration property file
+[INFO ] 2023-04-27 14:40:02.600 [TestNG-tests-2] FileReaderUtil - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration property file
+[INFO ] 2023-04-27 14:40:18.319 [TestNG-tests-2] TestDataUtil - The 'adminPageTest' test case is available in the excel sheet 'TestSuite' and runmode is set to Y
+[INFO ] 2023-04-27 14:40:18.496 [TestNG-tests-2] VerificationHelper - The 'UserName' element is present on the page
+[INFO ] 2023-04-27 14:40:19.994 [TestNG-tests-1] TestDataUtil - The 'loginPageTest' test case is available in the excel sheet 'TestSuite' and runmode is set to Y
+[INFO ] 2023-04-27 14:40:20.116 [TestNG-tests-1] VerificationHelper - The 'UserName' element is present on the page
+[INFO ] 2023-04-27 14:40:20.236 [TestNG-tests-1] ReusableComponent - The text 'Admin' is entered into the 'UserName' element
+[INFO ] 2023-04-27 14:40:20.410 [TestNG-tests-1] ReusableComponent - The text 'admin123' is entered into the 'Password' element
+[INFO ] 2023-04-27 14:40:22.070 [TestNG-tests-1] ReusableComponent - The 'Login' element is clicked
+[INFO ] 2023-04-27 14:41:30.709 [main] ExtentUtil - Extent Report instance is created !!
+[INFO ] 2023-04-27 14:41:31.454 [TestNG-tests-2] TestDataUtil - The '{UserName=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 14:41:31.457 [TestNG-tests-2] TestDataUtil - The '{Password=admin123, UserName=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 14:41:31.458 [TestNG-tests-2] TestDataUtil - The '{Password=admin123, UserName=Admin, User=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 14:41:31.460 [TestNG-tests-2] TestDataUtil - The '{SearchCriteria=Enabled, Password=admin123, UserName=Admin, User=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 14:41:31.460 [TestNG-tests-1] TestDataUtil - The '{UserName=Enabled}' is fetched from the 'loginPageTest' excel sheet
+[INFO ] 2023-04-27 14:41:31.461 [TestNG-tests-2] TestDataUtil - The '{SearchCriteria=Enabled, RunMode=Y, Password=admin123, UserName=Admin, User=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 14:41:31.462 [TestNG-tests-1] TestDataUtil - The '{Password=admin123, UserName=Enabled}' is fetched from the 'loginPageTest' excel sheet
+[INFO ] 2023-04-27 14:41:31.463 [TestNG-tests-1] TestDataUtil - The '{RunMode=Y, Password=admin123, UserName=Enabled}' is fetched from the 'loginPageTest' excel sheet
+[INFO ] 2023-04-27 14:41:31.524 [TestNG-tests-1] FileReaderUtil - The configuration property file is loaded !!
+[INFO ] 2023-04-27 14:41:31.524 [TestNG-tests-2] FileReaderUtil - The configuration property file is loaded !!
+[INFO ] 2023-04-27 14:41:31.525 [TestNG-tests-2] FileReaderUtil - The 'Local' data fetched from the configuration property file
+[INFO ] 2023-04-27 14:41:31.525 [TestNG-tests-2] BrowserManager - Local Environment is opted for test execution
+[INFO ] 2023-04-27 14:41:31.526 [TestNG-tests-1] FileReaderUtil - The 'Local' data fetched from the configuration property file
+[INFO ] 2023-04-27 14:41:31.526 [TestNG-tests-2] FileReaderUtil - The 'Chrome' data fetched from the configuration property file
+[INFO ] 2023-04-27 14:41:31.526 [TestNG-tests-1] BrowserManager - Local Environment is opted for test execution
+[INFO ] 2023-04-27 14:41:31.526 [TestNG-tests-1] FileReaderUtil - The 'Chrome' data fetched from the configuration property file
+[INFO ] 2023-04-27 14:41:31.527 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2023-04-27 14:41:31.526 [TestNG-tests-2] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2023-04-27 14:41:31.528 [TestNG-tests-1] DriverManager - Chrome driver is initialized for local test execution
+[INFO ] 2023-04-27 14:41:31.528 [TestNG-tests-2] DriverManager - Chrome driver is initialized for local test execution
+[INFO ] 2023-04-27 14:41:37.922 [TestNG-tests-2] FileReaderUtil - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration property file
+[INFO ] 2023-04-27 14:41:50.252 [TestNG-tests-2] TestDataUtil - The 'adminPageTest' test case is available in the excel sheet 'TestSuite' and runmode is set to Y
+[INFO ] 2023-04-27 14:41:50.375 [TestNG-tests-2] VerificationHelper - The 'UserName' element is present on the page
+[INFO ] 2023-04-27 14:41:50.462 [TestNG-tests-2] ReusableComponent - The text 'Admin' is entered into the 'UserName' element
+[INFO ] 2023-04-27 14:41:50.597 [TestNG-tests-2] ReusableComponent - The text 'admin123' is entered into the 'Password' element
+[INFO ] 2023-04-27 14:41:52.120 [TestNG-tests-2] ReusableComponent - The 'Login' element is clicked
+[INFO ] 2023-04-27 14:41:58.489 [TestNG-tests-2] ReusableComponent - The 'AdminSection' element is clicked
+[INFO ] 2023-04-27 14:42:03.665 [TestNG-tests-2] VerificationHelper - The 'AdminHeader' element is present on the page
+[INFO ] 2023-04-27 14:42:04.117 [TestNG-tests-2] ReusableComponent - The text 'Admin' is entered into the 'AdminSearchUserName' element
+[INFO ] 2023-04-27 14:42:04.858 [TestNG-tests-2] DropDownHelper - The option 'Admin' is selected from the 'AdminUserRoleDropDown' dropdown
+[INFO ] 2023-04-27 14:42:05.283 [TestNG-tests-2] DropDownHelper - The option 'Enabled' is selected from the 'AdminUserStatusDropDown' dropdown
+[INFO ] 2023-04-27 14:42:05.471 [TestNG-tests-2] ReusableComponent - The 'AdminSearch' element is clicked
+[INFO ] 2023-04-27 14:42:06.676 [TestNG-tests-2] VerificationHelper - The 'AdminSearchResultSection' element is present on the page
+[INFO ] 2023-04-27 14:42:06.765 [TestNG-tests-2] VerificationHelper - The 'AdminSearchResultData' element is present on the page
+[INFO ] 2023-04-27 14:42:53.018 [main] ExtentUtil - Extent Report instance is created !!
+[INFO ] 2023-04-27 14:42:53.364 [TestNG-tests-1] TestDataUtil - The '{UserName=Admin}' is fetched from the 'loginPageTest' excel sheet
+[INFO ] 2023-04-27 14:42:53.370 [TestNG-tests-1] TestDataUtil - The '{Password=admin123, UserName=Admin}' is fetched from the 'loginPageTest' excel sheet
+[INFO ] 2023-04-27 14:42:53.363 [TestNG-tests-2] TestDataUtil - The '{UserName=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 14:42:53.374 [TestNG-tests-1] TestDataUtil - The '{RunMode=Y, Password=admin123, UserName=Admin}' is fetched from the 'loginPageTest' excel sheet
+[INFO ] 2023-04-27 14:42:53.387 [TestNG-tests-2] TestDataUtil - The '{Password=admin123, UserName=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 14:42:53.393 [TestNG-tests-2] TestDataUtil - The '{Password=admin123, UserName=Admin, User=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 14:42:53.398 [TestNG-tests-2] TestDataUtil - The '{SearchCriteria=Enabled, Password=admin123, UserName=Admin, User=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 14:42:53.402 [TestNG-tests-2] TestDataUtil - The '{SearchCriteria=Enabled, RunMode=Y, Password=admin123, UserName=Admin, User=Admin}' is fetched from the 'adminPageTest' excel sheet
+[INFO ] 2023-04-27 14:42:53.420 [TestNG-tests-2] FileReaderUtil - The configuration property file is loaded !!
+[INFO ] 2023-04-27 14:42:53.420 [TestNG-tests-1] FileReaderUtil - The configuration property file is loaded !!
+[INFO ] 2023-04-27 14:42:53.421 [TestNG-tests-1] FileReaderUtil - The 'Local' data fetched from the configuration property file
+[INFO ] 2023-04-27 14:42:53.422 [TestNG-tests-1] BrowserManager - Local Environment is opted for test execution
+[INFO ] 2023-04-27 14:42:53.423 [TestNG-tests-1] FileReaderUtil - The 'Chrome' data fetched from the configuration property file
+[INFO ] 2023-04-27 14:42:53.424 [TestNG-tests-2] FileReaderUtil - The 'Local' data fetched from the configuration property file
+[INFO ] 2023-04-27 14:42:53.424 [TestNG-tests-2] BrowserManager - Local Environment is opted for test execution
+[INFO ] 2023-04-27 14:42:53.425 [TestNG-tests-2] FileReaderUtil - The 'Chrome' data fetched from the configuration property file
+[INFO ] 2023-04-27 14:42:53.426 [TestNG-tests-2] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2023-04-27 14:42:53.426 [TestNG-tests-2] DriverManager - Chrome driver is initialized for local test execution
+[INFO ] 2023-04-27 14:42:53.428 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2023-04-27 14:42:53.428 [TestNG-tests-1] DriverManager - Chrome driver is initialized for local test execution
+[INFO ] 2023-04-27 14:42:58.384 [TestNG-tests-1] FileReaderUtil - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration property file
+[INFO ] 2023-04-27 14:42:58.384 [TestNG-tests-2] FileReaderUtil - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration property file
+[INFO ] 2023-04-27 14:43:10.304 [TestNG-tests-2] TestDataUtil - The 'adminPageTest' test case is available in the excel sheet 'TestSuite' and runmode is set to Y
+[INFO ] 2023-04-27 14:43:10.543 [TestNG-tests-2] VerificationHelper - The 'UserName' element is present on the page
+[INFO ] 2023-04-27 14:43:10.643 [TestNG-tests-2] ReusableComponent - The text 'Admin' is entered into the 'UserName' element
+[INFO ] 2023-04-27 14:43:10.763 [TestNG-tests-2] ReusableComponent - The text 'admin123' is entered into the 'Password' element
+[INFO ] 2023-04-27 14:43:12.606 [TestNG-tests-2] ReusableComponent - The 'Login' element is clicked
+[INFO ] 2023-04-27 14:43:14.893 [TestNG-tests-1] TestDataUtil - The 'loginPageTest' test case is available in the excel sheet 'TestSuite' and runmode is set to Y
+[INFO ] 2023-04-27 14:43:15.007 [TestNG-tests-1] VerificationHelper - The 'UserName' element is present on the page
+[INFO ] 2023-04-27 14:43:15.162 [TestNG-tests-1] ReusableComponent - The text 'Admin' is entered into the 'UserName' element
+[INFO ] 2023-04-27 14:43:15.369 [TestNG-tests-1] ReusableComponent - The text 'admin123' is entered into the 'Password' element
+[INFO ] 2023-04-27 14:43:17.085 [TestNG-tests-1] ReusableComponent - The 'Login' element is clicked
+[INFO ] 2023-04-27 14:43:19.161 [TestNG-tests-2] ReusableComponent - The 'AdminSection' element is clicked
+[INFO ] 2023-04-27 14:43:24.272 [TestNG-tests-2] VerificationHelper - The 'AdminHeader' element is present on the page
+[INFO ] 2023-04-27 14:43:24.625 [TestNG-tests-2] ReusableComponent - The text 'Admin' is entered into the 'AdminSearchUserName' element
+[INFO ] 2023-04-27 14:43:25.241 [TestNG-tests-2] DropDownHelper - The option 'Admin' is selected from the 'AdminUserRoleDropDown' dropdown
+[INFO ] 2023-04-27 14:43:25.831 [TestNG-tests-2] DropDownHelper - The option 'Enabled' is selected from the 'AdminUserStatusDropDown' dropdown
+[INFO ] 2023-04-27 14:43:26.107 [TestNG-tests-2] ReusableComponent - The 'AdminSearch' element is clicked
+[INFO ] 2023-04-27 14:43:26.997 [TestNG-tests-2] VerificationHelper - The 'AdminSearchResultSection' element is present on the page
+[INFO ] 2023-04-27 14:43:27.153 [TestNG-tests-2] VerificationHelper - The 'AdminSearchResultData' element is present on the page
