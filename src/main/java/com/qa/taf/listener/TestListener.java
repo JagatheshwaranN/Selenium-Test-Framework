@@ -103,5 +103,6 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
 		Reporter.log("<a target='_blank' href='" + screenShot + "'><img src='" + screenShot
 				+ "' height='100' width='100' /></a>");
 	}
+
 }
 

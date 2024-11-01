@@ -1,5 +1,6 @@
-package com.qa.taf.base;
+package com.qa.taf.ohrm.base;
 
+import com.qa.taf.base.DriverManager;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 

@@ -10,24 +10,25 @@ import com.qa.taf.util.FileReaderUtil;
 
 public class BrowserManager extends FileReaderUtil {
 
-	private static Logger log = LogManager.getFormatterLogger(BrowserManager.class);
+	private static final Logger log = LogManager.getFormatterLogger(BrowserManager.class);
+
 	private static String browser;
 	private static String env;
-
-	public static String getBrowser() {
-		return browser;
-	}
 
 	public static void setBrowser(String browser) {
 		BrowserManager.browser = browser;
 	}
 
-	public static String getEnv() {
-		return env;
+	public static String getBrowser() {
+		return browser;
 	}
 
 	public static void setEnv(String env) {
 		BrowserManager.env = env;
+	}
+
+	public static String getEnv() {
+		return env;
 	}
 
 	public DriverType getBrowserType() {
@@ -39,7 +40,7 @@ public class BrowserManager extends FileReaderUtil {
 		}
 		properties.setProperty(ConstantUtil.BROWSER, getBrowser());
 
-		return switch (getBrowser().toString()) {
+		return switch (getBrowser()) {
 		case "Chrome" -> {
 			log.info("Chrome browser is set for test execution");
 			yield DriverType.CHROME;
@@ -53,7 +54,7 @@ public class BrowserManager extends FileReaderUtil {
 			yield DriverType.EDGE;
 		}
 		default -> throw new IllegalArgumentException(
-				getBrowser().toString() + " value is not found in the Configuration Property file");
+				getBrowser() + " value is not found in the Configuration Property file");
 		};
 	}
 

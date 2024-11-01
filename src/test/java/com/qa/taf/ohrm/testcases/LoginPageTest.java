@@ -7,7 +7,7 @@ import org.apache.commons.lang3.StringUtils;
 import org.testng.SkipException;
 import org.testng.annotations.Test;
 
-import com.qa.taf.base.BaseTest;
+import com.qa.taf.ohrm.base.BaseTest;
 import com.qa.taf.base.DriverManager;
 
 import com.qa.taf.ohrm.pages.PageManager;

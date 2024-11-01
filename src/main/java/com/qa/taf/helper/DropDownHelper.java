@@ -3,11 +3,11 @@ package com.qa.taf.helper;
 import java.util.LinkedList;
 import java.util.List;
 
+import com.qa.taf.handler.BaseException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 
 import com.qa.taf.base.BasePage;
 
@@ -53,11 +53,9 @@ public class DropDownHelper extends BasePage {
 				break;
 			}
 		}
-		if (flag == false) {
-			log.error(flag + "-" + "'" + value + "'" + " option not found on the " + "'" + elementLabel + "'"
-					+ " dropdown");
-			Assert.fail(flag + "-" + "'" + value + "'" + " option not found on the " + "'" + elementLabel + "'"
-					+ " dropdown");
+		if (!flag) {
+            log.error("{}-'{}' option not found on the '{}' dropdown", flag, value, elementLabel);
+			throw new BaseException.OptionNotFoundException(value, elementLabel);
 		}
 	}
 

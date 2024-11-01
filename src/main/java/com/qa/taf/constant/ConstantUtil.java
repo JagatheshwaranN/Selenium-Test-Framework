@@ -21,8 +21,8 @@ public class ConstantUtil {
 
 	// Browser Details
 	public static final String BROWSER = "Browser";
-	public static final String GC_BROWSER = "chrome";
-	public static final String FF_BROWSER = "firefox";
+	public static final String GC_BROWSER = "Chrome";
+	public static final String FF_BROWSER = "Firefox";
 	public static final String ME_BROWSER = "MicrosoftEdge";
 
 	// Browser Option Details

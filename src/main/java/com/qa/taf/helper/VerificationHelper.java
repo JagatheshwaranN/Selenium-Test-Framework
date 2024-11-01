@@ -1,10 +1,11 @@
 package com.qa.taf.helper;
 
+import com.qa.taf.handler.BaseException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
+
 
 import com.qa.taf.base.BasePage;
 
@@ -25,7 +26,7 @@ public class VerificationHelper extends BasePage {
 		} catch (NoSuchElementException ex) {
 			log.error("Error occured while check for the presence of the " + "'" + elementLabel + "'" + " element"
 					+ "\n" + ex);
-			Assert.fail();
+			throw new BaseException.ElementNotFoundException(elementLabel);
 		}
 		return isDisplayed;
 	}
