@@ -39,7 +39,7 @@ public class BrowserManager extends FileReaderUtil {
                 yield BrowserType.EDGE;
             }
             default ->
-                    throw new BaseException.ConfigTypeException(getBrowser() + " value is not found in the Configuration Property file");
+                    throw new BaseException.ConfigTypeException(getBrowser());
         };
     }
 

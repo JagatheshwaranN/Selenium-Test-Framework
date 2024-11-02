@@ -2,7 +2,7 @@ package com.qa.stf.handler;
 
 public class BaseException extends RuntimeException {
 
-    public BaseException(String message){
+    public BaseException(String message) {
         super(message);
     }
 
@@ -26,8 +26,15 @@ public class BaseException extends RuntimeException {
 
     public static class ConfigTypeException extends BaseException {
 
-        public ConfigTypeException(String elementLabel) {
-            super("Element '" + elementLabel + "' is not found / modified on the DOM.");
+        public ConfigTypeException(String config) {
+            super("The '" + config + "' config type is not valid. Please check the configuration.");
+        }
+    }
+
+    public static class InvalidDataException extends BaseException {
+
+        public InvalidDataException(String data) {
+            super("The '" + data + "' value is not valid. Please check the data.");
         }
     }
 }

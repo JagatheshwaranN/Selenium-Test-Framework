@@ -1,8 +1,6 @@
 package com.qa.stf.base;
 
-import com.qa.stf.constant.BrowserType;
 import com.qa.stf.constant.EnvType;
-import com.qa.stf.constant.TestConstants;
 import com.qa.stf.handler.BaseException;
 import com.qa.stf.util.FileReaderUtil;
 import org.apache.logging.log4j.LogManager;
@@ -32,7 +30,7 @@ public class EnvironmentManager extends FileReaderUtil  {
             log.info("Remote Environment is opted for test execution");
             return EnvType.REMOTE;
         } else
-            throw new BaseException.ConfigTypeException(getEnv() + " value is not found in the Configuration Property file");
+            throw new BaseException.ConfigTypeException(getEnv());
     }
 
     private String getValue(String key) {

@@ -4,6 +4,7 @@ import java.net.MalformedURLException;
 import java.net.URI;
 
 import com.qa.stf.constant.BrowserType;
+import com.qa.stf.handler.BaseException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Platform;
@@ -69,8 +70,7 @@ public class DriverManager extends BrowserManager {
                     throw new RuntimeException(e);
                 }
             }
-            default ->
-                    throw new IllegalArgumentException("Unexpected Value ==> " + environmentManager.getEnvType().toString());
+            default -> throw new BaseException.InvalidDataException(environmentManager.getEnvType().toString());
         };
     }
 
@@ -96,7 +96,7 @@ public class DriverManager extends BrowserManager {
                 meOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
                 yield new EdgeDriver(meOptions);
             }
-            default -> throw new IllegalArgumentException("Unexpected Value ==> " + getBrowserType().toString());
+            default -> throw new BaseException.InvalidDataException(getBrowserType().toString());
         };
     }
 
@@ -124,7 +124,7 @@ public class DriverManager extends BrowserManager {
                 meOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
                 yield new RemoteWebDriver(URI.create("http://192.168.1.10:4444").toURL(), meOptions);
             }
-            default -> throw new IllegalArgumentException("Unexpected Value ==> " + getBrowserType().toString());
+            default -> throw new BaseException.InvalidDataException(getBrowserType().toString());
         };
     }
 
