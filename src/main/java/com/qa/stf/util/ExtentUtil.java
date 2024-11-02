@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Logger;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
-import com.qa.stf.constant.ConstantUtil;
+import com.qa.stf.constant.TestConstants;
 
 public class ExtentUtil {
 
@@ -19,10 +19,10 @@ public class ExtentUtil {
 	public static ExtentReports getInstance() {
 		if (extentSparkReporter == null) {
 			extentSparkReporter = new ExtentSparkReporter(
-					System.getProperty("user.dir") + ConstantUtil.EXTENT_REPORT_PATH);
+					System.getProperty("user.dir") + TestConstants.EXTENT_REPORT_PATH);
 			try {
 				extentSparkReporter.loadXMLConfig(
-						new File(System.getProperty("user.dir") + ConstantUtil.EXTENT_REPORT_CONFIG_FILE_PATH));
+						new File(System.getProperty("user.dir") + TestConstants.EXTENT_REPORT_CONFIG_FILE_PATH));
 			} catch (IOException ex) {
 				ex.printStackTrace();
 			}

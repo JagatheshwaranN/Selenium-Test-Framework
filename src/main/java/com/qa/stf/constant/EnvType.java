@@ -2,6 +2,19 @@ package com.qa.stf.constant;
 
 public enum EnvType {
 
-	LOCAL, REMOTE
+    ENV("Env"),
+    LOCAL("Local"),
+    REMOTE("Remote");
+
+    private final String env;
+
+    EnvType(String env) {
+        this.env = env;
+    }
+
+    public String getName() {
+        return env;
+    }
+
 }
 

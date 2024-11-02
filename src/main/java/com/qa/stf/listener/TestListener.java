@@ -18,7 +18,7 @@ import org.testng.Reporter;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.qa.stf.base.DriverManager;
-import com.qa.stf.constant.ConstantUtil;
+import com.qa.stf.constant.TestConstants;
 import com.qa.stf.reuse.ReusableComponent;
 
 public class TestListener extends DriverManager implements ITestListener, ISuiteListener {
@@ -86,7 +86,7 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
 		Calendar calendar = Calendar.getInstance();
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd_MM_YYYY_hh_mm_ss");
 		File source = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
-		File destination = new File(System.getProperty("user.dir") + ConstantUtil.SNAPSHOT_PATH
+		File destination = new File(System.getProperty("user.dir") + TestConstants.SNAPSHOT_PATH
 				+ simpleDateFormat.format(calendar.getTime()) + ".png");
 		try {
 			FileUtils.copyFile(source, destination);

@@ -7,14 +7,14 @@ public enum BrowserType {
     FIREFOX("Firefox"),
     EDGE("MicrosoftEdge");
 
-    private final String name;
+    private final String browser;
 
-    BrowserType(String name) {
-        this.name = name;
+    BrowserType(String browser) {
+        this.browser = browser;
     }
 
     public String getName() {
-        return name;
+        return browser;
     }
 
 }

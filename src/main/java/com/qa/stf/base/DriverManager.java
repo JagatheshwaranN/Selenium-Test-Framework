@@ -19,7 +19,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.qa.stf.constant.ConstantUtil;
+import com.qa.stf.constant.TestConstants;
 import com.qa.stf.util.ExcelReaderUtil;
 import com.qa.stf.util.ExtentUtil;
 
@@ -33,10 +33,16 @@ public class DriverManager extends BrowserManager {
     private EdgeOptions meOptions;
     public static ThreadLocal<WebDriver> driverLocal = new ThreadLocal<>();
     public static ExcelReaderUtil excelReaderUtil = new ExcelReaderUtil(
-            System.getProperty("user.dir") + ConstantUtil.EXCEL_FILE_PATH);
+            System.getProperty("user.dir") + TestConstants.EXCEL_FILE_PATH);
     public static ExtentReports report = ExtentUtil.getInstance();
     public static ExtentTest test;
     public static BasePage page;
+
+    private final EnvironmentManager environmentManager;
+
+    public DriverManager() {
+        this.environmentManager = new EnvironmentManager();
+    }
 
     public void setDriver(WebDriver driver) {
         driverLocal.set(driver);
@@ -50,11 +56,11 @@ public class DriverManager extends BrowserManager {
         driver = createDriver();
         setDriver(driver);
         page = new BasePage();
-        driver.get(getDataFromPropFile(ConstantUtil.APP_URL));
+        driver.get(getDataFromPropFile(TestConstants.APP_URL));
     }
 
     private WebDriver createDriver() {
-        return driver = switch (getEnvType().toString()) {
+        return driver = switch (environmentManager.getEnvType().toString()) {
             case "LOCAL" -> createLocalDriver();
             case "REMOTE" -> {
                 try {
@@ -63,7 +69,8 @@ public class DriverManager extends BrowserManager {
                     throw new RuntimeException(e);
                 }
             }
-            default -> throw new IllegalArgumentException("Unexpected Value ==> " + getEnvType().toString());
+            default ->
+                    throw new IllegalArgumentException("Unexpected Value ==> " + environmentManager.getEnvType().toString());
         };
     }
 
@@ -74,19 +81,19 @@ public class DriverManager extends BrowserManager {
                 log.info("Chrome driver is initialized for local test execution");
                 gcOptions = new ChromeOptions();
                 //gcOptions.addArguments(ConstantUtil.CHROME_REMOTE_ORIGIN);
-                gcOptions.addArguments(ConstantUtil.BROWSER_MAXIMIZE);
+                gcOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
                 yield new ChromeDriver(gcOptions);
             }
             case "FIREFOX" -> {
                 log.info("Firefox driver is initialized for local test execution");
                 ffOptions = new FirefoxOptions();
-                ffOptions.addArguments(ConstantUtil.BROWSER_MAXIMIZE);
+                ffOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
                 yield new FirefoxDriver(ffOptions);
             }
             case "EDGE" -> {
                 log.info("Edge driver is initialized for local test execution");
                 meOptions = new EdgeOptions();
-                meOptions.addArguments(ConstantUtil.BROWSER_MAXIMIZE);
+                meOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
                 yield new EdgeDriver(meOptions);
             }
             default -> throw new IllegalArgumentException("Unexpected Value ==> " + getBrowserType().toString());
@@ -96,25 +103,25 @@ public class DriverManager extends BrowserManager {
     private WebDriver createRemoteDriver() throws MalformedURLException {
 
         return driver = switch (getBrowserType().toString()) {
-            case "CHROME" -> {
+            case "Chrome" -> {
                 gcOptions = new ChromeOptions();
                 gcOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.ANY);
-                gcOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME);
-                gcOptions.addArguments(ConstantUtil.CHROME_REMOTE_ORIGIN);
-                gcOptions.addArguments(ConstantUtil.BROWSER_MAXIMIZE);
+                gcOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME.getName());
+                gcOptions.addArguments(TestConstants.CHROME_REMOTE_ORIGIN);
+                gcOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
                 yield new RemoteWebDriver(URI.create("http://192.168.1.10:4444").toURL(), gcOptions);
             }
-            case "FIREFOX" -> {
+            case "Firefox" -> {
                 ffOptions = new FirefoxOptions();
                 ffOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.ANY);
-                ffOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.FIREFOX);
+                ffOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.FIREFOX.getName());
                 yield new RemoteWebDriver(URI.create("http://192.168.1.10:4444").toURL(), ffOptions);
             }
-            case "EDGE" -> {
+            case "MicrosoftEdge" -> {
                 meOptions = new EdgeOptions();
                 meOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.ANY);
-                meOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.EDGE);
-                meOptions.addArguments(ConstantUtil.BROWSER_MAXIMIZE);
+                meOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.EDGE.getName());
+                meOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
                 yield new RemoteWebDriver(URI.create("http://192.168.1.10:4444").toURL(), meOptions);
             }
             default -> throw new IllegalArgumentException("Unexpected Value ==> " + getBrowserType().toString());

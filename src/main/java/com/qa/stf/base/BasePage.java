@@ -9,12 +9,12 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.qa.stf.constant.ConstantUtil;
+import com.qa.stf.constant.TestConstants;
 
 public class BasePage extends Page {
 
     public WebDriverWait wait = new WebDriverWait(driverManager.getDriver(),
-            Duration.ofSeconds(ConstantUtil.EXPLICIT_WAIT_TIME));
+            Duration.ofSeconds(TestConstants.EXPLICIT_WAIT_TIME));
 
     @Override
     public String getPageTitle() {

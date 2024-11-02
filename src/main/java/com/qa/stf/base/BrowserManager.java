@@ -1,80 +1,52 @@
 package com.qa.stf.base;
 
+import com.qa.stf.constant.BrowserType;
+import com.qa.stf.constant.TestConstants;
+import com.qa.stf.handler.BaseException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.qa.stf.constant.ConstantUtil;
-import com.qa.stf.constant.DriverType;
-import com.qa.stf.constant.EnvType;
 import com.qa.stf.util.FileReaderUtil;
 
 public class BrowserManager extends FileReaderUtil {
 
-	private static final Logger log = LogManager.getFormatterLogger(BrowserManager.class);
+    private static final Logger log = LogManager.getFormatterLogger(BrowserManager.class);
 
-	private static String browser;
-	private static String env;
+    private String browser;
 
-	public static void setBrowser(String browser) {
-		BrowserManager.browser = browser;
-	}
+    public void setBrowser(String browser) {
+        this.browser = browser;
+    }
 
-	public static String getBrowser() {
-		return browser;
-	}
+    public String getBrowser() {
+        return browser;
+    }
 
-	public static void setEnv(String env) {
-		BrowserManager.env = env;
-	}
+    public BrowserType getBrowserType() {
+        setBrowser(getValue(BrowserType.BROWSER.getName()));
+        properties.setProperty(BrowserType.BROWSER.getName(), getBrowser());
+        return switch (getBrowser()) {
+            case TestConstants.CHROME -> {
+                log.info("Chrome browser is set for test execution");
+                yield BrowserType.CHROME;
+            }
+            case TestConstants.FIREFOX -> {
+                log.info("Firefox browser is set for test execution");
+                yield BrowserType.FIREFOX;
+            }
+            case TestConstants.EDGE -> {
+                log.info("Edge browser is set for test execution");
+                yield BrowserType.EDGE;
+            }
+            default ->
+                    throw new BaseException.ConfigTypeException(getBrowser() + " value is not found in the Configuration Property file");
+        };
+    }
 
-	public static String getEnv() {
-		return env;
-	}
+    private String getValue(String key) {
+        return System.getenv(key) != null && !System.getenv(key).isEmpty()
+                ? System.getenv(key)
+                : getDataFromPropFile(key);
+    }
 
-	public DriverType getBrowserType() {
-
-		if (System.getenv(ConstantUtil.BROWSER) != null && !System.getenv(ConstantUtil.BROWSER).isEmpty()) {
-			setBrowser(System.getenv(ConstantUtil.BROWSER));
-		} else {
-			setBrowser(getDataFromPropFile(ConstantUtil.BROWSER));
-		}
-		properties.setProperty(ConstantUtil.BROWSER, getBrowser());
-
-		return switch (getBrowser()) {
-		case "Chrome" -> {
-			log.info("Chrome browser is set for test execution");
-			yield DriverType.CHROME;
-		}
-		case "Firefox" -> {
-			log.info("Firefox browser is set for test execution");
-			yield DriverType.FIREFOX;
-		}
-		case "Edge" -> {
-			log.info("Edge browser is set for test execution");
-			yield DriverType.EDGE;
-		}
-		default -> throw new IllegalArgumentException(
-				getBrowser() + " value is not found in the Configuration Property file");
-		};
-	}
-
-	public EnvType getEnvType() {
-
-		if (System.getenv(ConstantUtil.ENV) != null && !System.getenv(ConstantUtil.ENV).isEmpty()) {
-			setEnv(System.getenv(ConstantUtil.ENV));
-		} else {
-			setEnv(getDataFromPropFile(ConstantUtil.ENV));
-		}
-		properties.setProperty(ConstantUtil.ENV, getEnv());
-
-		if (getEnv().equalsIgnoreCase(ConstantUtil.LC_ENV)) {
-			log.info("Local Environment is opted for test execution");
-			return EnvType.LOCAL;
-		} else if (getEnv().equalsIgnoreCase(ConstantUtil.RE_ENV)) {
-			log.info("Remote Environment is opted for test execution");
-			return EnvType.REMOTE;
-		} else
-			throw new RuntimeException(getEnv() + " value is not found in the Configuration Property file");
-	}
 }
-

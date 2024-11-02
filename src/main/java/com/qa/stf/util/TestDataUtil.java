@@ -8,7 +8,7 @@ import org.apache.logging.log4j.Logger;
 import org.testng.annotations.DataProvider;
 
 import com.qa.stf.base.DriverManager;
-import com.qa.stf.constant.ConstantUtil;
+import com.qa.stf.constant.TestConstants;
 
 public class TestDataUtil extends DriverManager {
 
@@ -36,9 +36,9 @@ public class TestDataUtil extends DriverManager {
 
 	public static boolean isTestRunnable(String testName, ExcelReaderUtil excelReaderUtil) {
 
-		var sheetName = ConstantUtil.TEST_SUITE_NAME;
-		var testCaseColumn = ConstantUtil.TEST_CASE_NAME;
-		var runModeColumn = ConstantUtil.TEST_RUN_MODE;
+		var sheetName = TestConstants.TEST_SUITE_NAME;
+		var testCaseColumn = TestConstants.TEST_CASE_NAME;
+		var runModeColumn = TestConstants.TEST_RUN_MODE;
 		var rows = excelReaderUtil.getRowCount(sheetName);
 		for (var row = 2; row <= rows; row++) {
 			var testCase = excelReaderUtil.getCellData(sheetName, testCaseColumn, row);

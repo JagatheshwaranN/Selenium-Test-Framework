@@ -12,7 +12,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 
-import com.qa.stf.constant.ConstantUtil;
+import com.qa.stf.constant.TestConstants;
 
 public class FileReaderUtil {
 
@@ -22,12 +22,12 @@ public class FileReaderUtil {
 	public static void loadPropertyFile() {
 
 		try (FileInputStream fileInputStream = new FileInputStream(
-				new File(System.getProperty("user.dir") + ConstantUtil.CONFIG_FILE_PATH))) {
+				new File(System.getProperty("user.dir") + TestConstants.CONFIG_FILE_PATH))) {
 			properties.load(fileInputStream);
 			log.info("The configuration property file is loaded !!");
 		} catch (FileNotFoundException ex) {
 			log.error("The configuration property file not found on the given path " + "'"
-					+ ConstantUtil.CONFIG_FILE_PATH + "'" + "\n" + ex);
+					+ TestConstants.CONFIG_FILE_PATH + "'" + "\n" + ex);
 		} catch (IOException ex) {
 			log.error("Error occured while load the configuration property file " + "\n" + ex);
 		}

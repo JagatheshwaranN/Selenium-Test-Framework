@@ -23,4 +23,11 @@ public class BaseException extends RuntimeException {
             super("Element '" + elementLabel + "' is not found / modified on the DOM.");
         }
     }
+
+    public static class ConfigTypeException extends BaseException {
+
+        public ConfigTypeException(String elementLabel) {
+            super("Element '" + elementLabel + "' is not found / modified on the DOM.");
+        }
+    }
 }
