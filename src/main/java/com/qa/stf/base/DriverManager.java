@@ -33,10 +33,13 @@ public class DriverManager extends BrowserManager {
     private FirefoxOptions ffOptions;
     private EdgeOptions meOptions;
     public static ThreadLocal<WebDriver> driverLocal = new ThreadLocal<>();
+
     public static ExcelReaderUtil excelReaderUtil = new ExcelReaderUtil(
             System.getProperty("user.dir") + TestConstants.EXCEL_FILE_PATH);
+
     public static ExtentReports report = ExtentUtil.getInstance();
     public static ExtentTest test;
+
     public static BasePage page;
 
     private final EnvironmentManager environmentManager;
@@ -109,20 +112,20 @@ public class DriverManager extends BrowserManager {
                 gcOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME.getName());
                 gcOptions.addArguments(TestConstants.CHROME_REMOTE_ORIGIN);
                 gcOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
-                yield new RemoteWebDriver(URI.create("http://192.168.1.10:4444").toURL(), gcOptions);
+                yield new RemoteWebDriver(URI.create(getDataFromPropFile("RemoteUrl")).toURL(), gcOptions);
             }
             case "Firefox" -> {
                 ffOptions = new FirefoxOptions();
                 ffOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.ANY);
                 ffOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.FIREFOX.getName());
-                yield new RemoteWebDriver(URI.create("http://192.168.1.10:4444").toURL(), ffOptions);
+                yield new RemoteWebDriver(URI.create(getDataFromPropFile("RemoteUrl")).toURL(), ffOptions);
             }
             case "MicrosoftEdge" -> {
                 meOptions = new EdgeOptions();
                 meOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.ANY);
                 meOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.EDGE.getName());
                 meOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
-                yield new RemoteWebDriver(URI.create("http://192.168.1.10:4444").toURL(), meOptions);
+                yield new RemoteWebDriver(URI.create(getDataFromPropFile("RemoteUrl")).toURL(), meOptions);
             }
             default -> throw new BaseException.InvalidDataException(getBrowserType().toString());
         };

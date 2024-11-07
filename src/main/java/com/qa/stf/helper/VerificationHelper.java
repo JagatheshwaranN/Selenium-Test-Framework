@@ -10,25 +10,21 @@ import org.openqa.selenium.WebElement;
 import com.qa.stf.base.BasePage;
 
 /**
- * 
+ *
  * @author Jaga
  *
  */
-public class VerificationHelper extends BasePage {
+public class VerificationHelper {
 
-	private static Logger log = LogManager.getFormatterLogger(VerificationHelper.class);
+	private static final Logger log = LogManager.getLogger(VerificationHelper.class);
 
 	public boolean verifyElementPresent(WebElement element, String elementLabel) {
-		boolean isDisplayed = false;
 		try {
-			isDisplayed = element.isDisplayed();
-			log.info("The " + "'" + elementLabel + "'" + " element is present on the page");
+			return element.isDisplayed();
 		} catch (NoSuchElementException ex) {
-			log.error("Error occured while check for the presence of the " + "'" + elementLabel + "'" + " element"
-					+ "\n" + ex);
-			throw new BaseException.ElementNotFoundException(elementLabel);
+			log.error("Error occurred while checking for the presence of the '{}' element.", elementLabel, ex);
+			throw new BaseException.ElementNotFoundException(elementLabel, ex);
 		}
-		return isDisplayed;
 	}
 
 	public boolean verifyTextEquals(WebElement element, String text, String elementLabel) {
@@ -60,5 +56,6 @@ public class VerificationHelper extends BasePage {
 		log.info("The " + "'" + elementLabel + "'" + " element's value is ==> " + "'" + value + "'");
 		return value;
 	}
+
 }
 

@@ -32,7 +32,7 @@ public class BasePage extends Page {
         try {
             wait.until(ExpectedConditions.visibilityOf(element));
         } catch (NoSuchElementException ex) {
-            throw new BaseException.ElementNotFoundException(elementLabel);
+            throw new BaseException.ElementNotFoundException(elementLabel, ex);
         }
     }
 

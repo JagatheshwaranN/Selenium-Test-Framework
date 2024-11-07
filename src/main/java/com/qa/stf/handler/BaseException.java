@@ -19,8 +19,8 @@ public class BaseException extends RuntimeException {
 
     public static class ElementNotFoundException extends BaseException {
 
-        public ElementNotFoundException(String elementLabel) {
-            super("Element '" + elementLabel + "' is not found / modified on the DOM.");
+        public ElementNotFoundException(String elementLabel, Throwable throwable) {
+            super("Element '" + elementLabel + "' is not found / modified on the DOM.", throwable);
         }
     }
 
