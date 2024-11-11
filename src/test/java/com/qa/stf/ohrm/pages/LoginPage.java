@@ -8,7 +8,7 @@ public class LoginPage extends LoginPageElement {
 
 	public DashboardPage doLogin(String username, String password) {
 
-		pageManager.getVerificationHelper().verifyElementPresent(getUserName(), getUserNameLabel());
+		pageManager.getVerificationHelper().isElementDisplayed(getUserName(), getUserNameLabel());
 		typeElement(getUserName(), username, getUserNameLabel());
 		typeElement(getPassWord(), password, getPassWordLabel());
 		clickElement(getLogin(), getLoginLabel());

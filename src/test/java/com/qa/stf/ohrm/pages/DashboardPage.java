@@ -11,7 +11,7 @@ public class DashboardPage extends DashboardPageElement {
 
 	public void userDropDown() {
 		clickElement(getUserDropDown(), getUserDropDownLabel());
-		pageManager.getVerificationHelper().verifyElementPresent(getUserDropDownMenu(), getUserDropDownMenuLabel());
+		pageManager.getVerificationHelper().isElementDisplayed(getUserDropDownMenu(), getUserDropDownMenuLabel());
 	}
 
 	public void pfDoLogout() {

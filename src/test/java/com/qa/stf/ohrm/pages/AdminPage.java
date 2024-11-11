@@ -8,7 +8,7 @@ public class AdminPage extends AdminPageElement {
 
 	public void searchUser(String user, String status) {
 
-		pageManager.getVerificationHelper().verifyElementPresent(getAdminHeader(), getAdminHeaderLabel());
+		pageManager.getVerificationHelper().isElementDisplayed(getAdminHeader(), getAdminHeaderLabel());
 		typeElement(getAdminSearchUserName(), user, getAdminSearchUserNameLabel());
 		pageManager.getDropDownHelper().elementSelect(getAdminUserRoleDropDown(), getAdminUserRoleDropDownOptions(),
 				user, getAdminUserRoleDropDownLabel());
@@ -16,9 +16,9 @@ public class AdminPage extends AdminPageElement {
 				status, getAdminUserStatusDropDownLabel());
 		clickElement(getAdminSearch(), getAdminSearchLabel());
 		waitForElementVisible(getAdminSearchResultSection(), getAdminSearchResultSectionLabel());
-		pageManager.getVerificationHelper().verifyElementPresent(getAdminSearchResultSection(),
+		pageManager.getVerificationHelper().isElementDisplayed(getAdminSearchResultSection(),
 				getAdminSearchResultSectionLabel());
-		pageManager.getVerificationHelper().verifyElementPresent(getAdminSearchResultData(),
+		pageManager.getVerificationHelper().isElementDisplayed(getAdminSearchResultData(),
 				getAdminSearchResultDataLabel());
 	}
 }
