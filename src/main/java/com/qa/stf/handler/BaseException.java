@@ -37,4 +37,11 @@ public class BaseException extends RuntimeException {
             super("The '" + data + "' value is not valid. Please check the data.");
         }
     }
+
+    public static class AlertNotFoundException extends BaseException {
+
+        public AlertNotFoundException(Throwable throwable) {
+            super("Alert was not present on the page.", throwable);
+        }
+    }
 }
