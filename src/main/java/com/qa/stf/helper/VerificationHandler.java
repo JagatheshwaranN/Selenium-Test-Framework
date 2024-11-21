@@ -12,9 +12,9 @@ import java.util.Objects;
 /**
  * A helper class for verifying properties of WebElements.
  */
-public class VerificationHelper {
+public class VerificationHandler {
 
-    private static final Logger log = LogManager.getLogger(VerificationHelper.class);
+    private static final Logger log = LogManager.getLogger(VerificationHandler.class);
 
     /**
      * Checks if the specified element is displayed.

@@ -1,7 +1,7 @@
 package com.qa.stf.ohrm.pages;
 
 import com.qa.stf.helper.DropDownHelper;
-import com.qa.stf.helper.VerificationHelper;
+import com.qa.stf.helper.VerificationHandler;
 
 public class PageManager {
 
@@ -11,7 +11,7 @@ public class PageManager {
 
 	private AdminPage adminPage;
 
-	private VerificationHelper verificationHelper;
+	private VerificationHandler verificationHelper;
 
 	private DropDownHelper dropDownHelper;
 
@@ -27,8 +27,8 @@ public class PageManager {
 		return (adminPage == null) ? adminPage = new AdminPage() : adminPage;
 	}
 
-	public VerificationHelper getVerificationHelper() {
-		return (verificationHelper == null) ? verificationHelper = new VerificationHelper() : verificationHelper;
+	public VerificationHandler getVerificationHelper() {
+		return (verificationHelper == null) ? verificationHelper = new VerificationHandler() : verificationHelper;
 	}
 
 	public DropDownHelper getDropDownHelper() {

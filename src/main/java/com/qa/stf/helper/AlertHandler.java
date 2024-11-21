@@ -10,26 +10,42 @@ import com.qa.stf.base.BasePage;
 
 import java.util.Optional;
 
-
+/**
+ * A helper class for handling browser alerts, including regular alerts,
+ * confirmation boxes, and prompt dialogs. Provides methods to interact
+ * with and retrieve information from alerts.
+ */
 public class AlertHandler extends BasePage {
 
     private static final Logger log = LogManager.getLogger(AlertHandler.class);
 
+    /**
+     * Retrieves the currently active alert on the page.
+     *
+     * @return An Optional containing the Alert if present, or throws an exception if
+     * no alert is found.
+     */
     public Optional<Alert> getAlert() {
-        try{
+        try {
             return Optional.of(driverManager.getDriver().switchTo().alert());
-        }catch (NoAlertPresentException ex){
+        } catch (NoAlertPresentException ex) {
             throw new BaseException.AlertNotFoundException(ex);
         }
     }
 
+    /**
+     * Accepts the currently active alert if present.
+     */
     public void acceptAlert() {
         getAlert().ifPresent(alert -> {
-           alert.accept();
-           log.info("The alert popup is accepted");
+            alert.accept();
+            log.info("The alert popup is accepted");
         });
     }
 
+    /**
+     * Dismisses the currently active alert if present.
+     */
     public void dismissAlert() {
         getAlert().ifPresent(alert -> {
             alert.dismiss();
@@ -37,6 +53,11 @@ public class AlertHandler extends BasePage {
         });
     }
 
+    /**
+     * Retrieves the text from the currently active alert.
+     *
+     * @return The text of the alert, or "No Alert Present" if no alert is active.
+     */
     public String getAlertText() {
         Optional<Alert> alert = getAlert();
         String text = alert.map(Alert::getText).orElse("No Alert Present");
@@ -44,6 +65,11 @@ public class AlertHandler extends BasePage {
         return text;
     }
 
+    /**
+     * Sends the specified text to the alert (prompt) and accepts it.
+     *
+     * @param text The text to send to the alert prompt.
+     */
     public void acceptPrompt(String text) {
         getAlert().ifPresent(alert -> {
             alert.sendKeys(text);
@@ -53,4 +79,3 @@ public class AlertHandler extends BasePage {
     }
 
 }
-
