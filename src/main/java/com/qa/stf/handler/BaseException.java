@@ -44,4 +44,25 @@ public class BaseException extends RuntimeException {
             super("Alert was not present on the page.", throwable);
         }
     }
+
+    public static class NavigationException extends BaseException {
+
+        public NavigationException(String data, Throwable throwable) {
+            super(data, throwable);
+        }
+    }
+
+    public static class WindowException extends BaseException {
+
+        public WindowException(String data, Throwable throwable) {
+            super(data, throwable);
+        }
+    }
+
+    public static class FrameException extends BaseException {
+
+        public FrameException(String data, Throwable throwable) {
+            super(data, throwable);
+        }
+    }
 }
