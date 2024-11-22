@@ -10,12 +10,57 @@ import org.apache.logging.log4j.Logger;
 import com.qa.stf.base.BasePage;
 import org.openqa.selenium.*;
 
+/**
+ * The BrowserHandler class provides utility methods to interact with
+ * and manage browser-specific operations in Selenium WebDriver.
+ * It includes methods to handle browser navigation, manage browser windows,
+ * switch between frames, and retrieve page information like the URL and title.
+ *
+ * <p>Features:
+ * <ul>
+ *   <li>Navigation: Methods for navigating back, forward, and refreshing the browser.</li>
+ *   <li>Window Management: Methods to retrieve and switch between browser window handles.</li>
+ *   <li>Frame Handling: Methods to switch to frames using name, index, or WebElement reference.</li>
+ *   <li>Page Information: Methods to retrieve the current page URL and title.</li>
+ * </ul>
+ *
+ * <p>Exception Handling:
+ * <ul>
+ *   <li>Custom exceptions from the {@link com.qa.stf.handler.BaseException} class
+ *       are thrown for more descriptive error handling.</li>
+ *   <li>Detailed logging is provided for successful operations and error scenarios.</li>
+ * </ul>
+ *
+ * <p>Usage:
+ * This class extends the {@link com.qa.stf.base.BasePage} and relies on the
+ * {@code driverManager} to obtain the WebDriver instance for all operations.
+ * Ensure the WebDriver is initialized before using these methods.
+ *
+ * <p>Note:
+ * The class assumes proper WebDriver setup and configuration. Users must handle
+ * WebDriver initialization and termination separately.
+ *
+ * <p>Example:
+ * <pre>
+ * {@code
+ * BrowserHandler browserHandler = new BrowserHandler();
+ * browserHandler.navigateBack();
+ * String pageUrl = browserHandler.getPageUrl();
+ * browserHandler.switchToFrame("frameName");
+ * }
+ * </pre>
+ *
+ * @author Jagatheshwaran N
+ * @version 1.1
+ */
 public class BrowserHandler extends BasePage {
 
     private static final Logger log = LogManager.getLogger(BrowserHandler.class);
 
     /**
      * Navigates the browser back to the previous page in the session history.
+     * <p> This method attempts to navigate to the previous page in the browser's history.
+     * If the navigation fails, a BaseException.NavigationException is thrown. </p>
      *
      * @throws BaseException.NavigationException If navigation back fails due to
      *                                           a WebDriver exception.
@@ -32,6 +77,8 @@ public class BrowserHandler extends BasePage {
 
     /**
      * Navigates the browser forward to the next page in the session history.
+     * <p> This method attempts to navigate to the next page in the browser's history.
+     * If the navigation fails, a BaseException.NavigationException is thrown. </p>
      *
      * @throws BaseException.NavigationException If navigation forward fails due to
      *                                           a WebDriver exception.
@@ -48,6 +95,8 @@ public class BrowserHandler extends BasePage {
 
     /**
      * Refreshes the current page in the browser.
+     * <p> This method attempts to refresh the current page. If the refresh fails, a
+     * BaseException.NavigationException is thrown. </p>
      *
      * @throws BaseException.NavigationException If the page refresh fails due to a
      *                                           WebDriver exception.
@@ -64,6 +113,9 @@ public class BrowserHandler extends BasePage {
 
     /**
      * Retrieves the handle of the currently active browser window.
+     * <p> This method fetches the unique window handle of the current browser window.
+     * If there is an issue retrieving the handle, a BaseException.WindowException is
+     * thrown. </p>
      *
      * @return The handle of the current browser window.
      * @throws BaseException.WindowException If retrieving the window handle fails due to
@@ -82,6 +134,9 @@ public class BrowserHandler extends BasePage {
 
     /**
      * Retrieves the handles of all currently open browser windows.
+     * <p> This method fetches all window handles for the currently open browser windows.
+     * If there is an issue retrieving the window handles, a BaseException.WindowException
+     * is thrown. </p>
      *
      * @return A set of handles for all open browser windows.
      * @throws BaseException.WindowException If retrieving the window handles fails due to
@@ -100,6 +155,9 @@ public class BrowserHandler extends BasePage {
 
     /**
      * Switches to a browser window based on the specified index.
+     * <p> This method switches the browser's context to a window at the specified index.
+     * If the provided index is out of bounds or there is an error during the switch, an
+     * IllegalArgumentException or BaseException.WindowException is thrown. </p>
      *
      * @param index The index of the window to switch to (0-based).
      * @throws IllegalArgumentException      If the provided index is out of bounds.
@@ -121,6 +179,10 @@ public class BrowserHandler extends BasePage {
 
     /**
      * Switches control to the parent browser window.
+     * <p>This method switches the browser's context to the first window in the list of
+     * open windows. If there are no windows available, an IllegalStateException is thrown.
+     * If there is an error during the switch, a BaseException.WindowException is thrown.
+     * </p>
      *
      * @throws IllegalStateException         If there are no browser windows available to switch.
      * @throws BaseException.WindowException If the parent window cannot be switched to due to
@@ -142,6 +204,11 @@ public class BrowserHandler extends BasePage {
 
     /**
      * Switches to the parent browser window after closing all child windows.
+     * <p>This method closes all child windows (except the first) and then switches to the
+     * first window, which is assumed to be the parent window. If there are no windows to
+     * close, an IllegalArgumentException is thrown. If there is an error closing child
+     * windows or switching to the parent window, a BaseException.WindowException is thrown.
+     * </p>
      *
      * @throws IllegalArgumentException      If there are no browser windows available to close.
      * @throws BaseException.WindowException If there is an error closing child windows or
@@ -169,6 +236,10 @@ public class BrowserHandler extends BasePage {
 
     /**
      * Switches to a frame using its name or ID.
+     * <p>This method switches the browser context to a frame identified by its name or ID.
+     * If the frame name or ID is null or empty, an IllegalArgumentException is thrown.
+     * If the frame is not found, a NoSuchFrameException is thrown.
+     * </p>
      *
      * @param frameNameOrId The name or ID of the frame.
      * @throws IllegalArgumentException If the frame name or ID is null or empty.
@@ -189,6 +260,9 @@ public class BrowserHandler extends BasePage {
 
     /**
      * Switches to a frame using its index.
+     * <p>This method switches the browser context to a frame identified by its index in the
+     * list of available frames. If the frame index is negative, an IllegalArgumentException
+     * is thrown. If the frame is not found, a NoSuchFrameException is thrown.</p>
      *
      * @param frameIndex The index of the frame.
      * @throws IllegalArgumentException If the frame index is negative.
@@ -209,6 +283,10 @@ public class BrowserHandler extends BasePage {
 
     /**
      * Switches to a frame using a WebElement reference.
+     * <p>This method switches the browser context to a frame identified by a WebElement.
+     * If the frame WebElement is null, an IllegalArgumentException is thrown. If the
+     * WebElement is stale or the frame is not found, a StaleElementReferenceException or
+     * NoSuchFrameException is thrown.</p>
      *
      * @param frameElement The WebElement of the frame.
      * @throws IllegalArgumentException       If the frame WebElement is null.
@@ -233,6 +311,8 @@ public class BrowserHandler extends BasePage {
 
     /**
      * Retrieves the current URL of the browser page.
+     * <p>This method fetches the URL of the current browser page.
+     * If the URL cannot be retrieved, a WebDriverException is thrown.</p>
      *
      * @return The current page URL as a String.
      * @throws WebDriverException If the URL cannot be retrieved.
@@ -250,6 +330,8 @@ public class BrowserHandler extends BasePage {
 
     /**
      * Retrieves the title of the current browser page.
+     * <p>This method fetches the title of the current browser page.
+     * If the title cannot be retrieved, a WebDriverException is thrown.</p>
      *
      * @return The current page title as a String.
      * @throws WebDriverException If the title cannot be retrieved.
