@@ -1,6 +1,6 @@
 package com.qa.stf.ohrm.pages;
 
-import com.qa.stf.helper.DropDownHelper;
+import com.qa.stf.helper.DropDownHandler;
 import com.qa.stf.helper.VerificationHandler;
 
 public class PageManager {
@@ -13,7 +13,7 @@ public class PageManager {
 
 	private VerificationHandler verificationHelper;
 
-	private DropDownHelper dropDownHelper;
+	private DropDownHandler dropDownHandler;
 
 	public LoginPage getLoginPage() {
 		return (loginPage == null) ? loginPage = new LoginPage() : loginPage;
@@ -31,8 +31,8 @@ public class PageManager {
 		return (verificationHelper == null) ? verificationHelper = new VerificationHandler() : verificationHelper;
 	}
 
-	public DropDownHelper getDropDownHelper() {
-		return (dropDownHelper == null) ? dropDownHelper = new DropDownHelper() : dropDownHelper;
+	public DropDownHandler getDropDownHandler() {
+		return (dropDownHandler == null) ? dropDownHandler = new DropDownHandler(new VerificationHandler()) : dropDownHandler;
 	}
 }
 

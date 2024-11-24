@@ -10,9 +10,9 @@ public class AdminPage extends AdminPageElement {
 
 		pageManager.getVerificationHelper().isElementDisplayed(getAdminHeader(), getAdminHeaderLabel());
 		typeElement(getAdminSearchUserName(), user, getAdminSearchUserNameLabel());
-		pageManager.getDropDownHelper().elementSelect(getAdminUserRoleDropDown(), getAdminUserRoleDropDownOptions(),
+		pageManager.getDropDownHandler().selectDropdownOption(getAdminUserRoleDropDown(), getAdminUserRoleDropDownOptions(),
 				user, getAdminUserRoleDropDownLabel());
-		pageManager.getDropDownHelper().elementSelect(getAdminUserStatusDropDown(), getAdminUserStatusDropDownOptions(),
+		pageManager.getDropDownHandler().selectDropdownOption(getAdminUserStatusDropDown(), getAdminUserStatusDropDownOptions(),
 				status, getAdminUserStatusDropDownLabel());
 		clickElement(getAdminSearch(), getAdminSearchLabel());
 		waitForElementVisible(getAdminSearchResultSection(), getAdminSearchResultSectionLabel());

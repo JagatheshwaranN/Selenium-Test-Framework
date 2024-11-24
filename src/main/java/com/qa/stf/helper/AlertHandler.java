@@ -13,8 +13,8 @@ import java.util.Optional;
 /**
  * The AlertHandler class provides utility methods for interacting with JavaScript
  * alerts, confirms, and prompts on a web page using Selenium WebDriver.
- * <p>
- * This class includes methods to:
+ *
+ * <p>Features:
  * <ul>
  *     <li>Retrieve the currently active alert on the page.</li>
  *     <li>Accept the active alert.</li>
@@ -22,19 +22,30 @@ import java.util.Optional;
  *     <li>Retrieve the text from the active alert.</li>
  *     <li>Send text to a prompt alert and accept it.</li>
  * </ul>
- * <p>
- * All methods handle scenarios where an alert may not be present and log appropriate
- * messages. In the case where an alert is not present, the
- * {@link BaseException.AlertNotFoundException} is thrown. The class leverages the
- * Selenium WebDriver's alert handling API, with built-in logging using
- * {@link org.apache.logging.log4j.Logger}.
- * </p>
- * <p>
- * Usage of this class is primarily for dealing with browser-based alerts that are
- * displayed during test automation.
- * This class helps to centralize alert management logic and enables reusability across
- * test scripts.
- * </p>
+ *
+ * <p>Exception Handling:
+ * <ul>
+ *   <li>Custom exceptions from the {@link com.qa.stf.handler.BaseException} class
+ *       are thrown for more descriptive error handling.</li>
+ *   <li>Detailed logging is provided for successful operations and error scenarios.</li>
+ * </ul>
+ *
+ * <p>Note:
+ * The class assumes proper WebDriver setup and configuration. Users must handle
+ * WebDriver initialization and termination separately.
+ *
+ * <p>Example:
+ * <pre>
+ * {@code
+ * AlertHandler alertHandler = new AlertHandler();
+ * alertHandler.getAlert();
+ * alertHandler.acceptAlert();
+ * alertHandler.dismissAlert();
+ * }
+ * </pre>
+ *
+ * @author Jagatheshwaran N
+ * @version 1.1
  */
 public class AlertHandler extends BasePage {
 
@@ -44,8 +55,7 @@ public class AlertHandler extends BasePage {
      * Retrieves the currently active alert on the page.
      * <p>
      * This method attempts to switch to the currently active alert and retrieve it.
-     * If no alert is found, it throws a
-     * custom exception (AlertNotFoundException).
+     * If no alert is found, it throws a custom exception (AlertNotFoundException).
      * </p>
      *
      * @return An Optional containing the Alert if present.
@@ -113,8 +123,8 @@ public class AlertHandler extends BasePage {
      * Sends the specified text to the alert (prompt) and accepts it.
      * <p>
      * This method checks if a prompt alert is present. If found, it sends the
-     * specified text to the prompt and accepts the alert.
-     * If no prompt alert is found, the method performs no action.
+     * specified text to the prompt and accepts the alert. If no prompt alert
+     * is found, the method performs no action.
      * </p>
      *
      * @param text The text to send to the alert prompt.

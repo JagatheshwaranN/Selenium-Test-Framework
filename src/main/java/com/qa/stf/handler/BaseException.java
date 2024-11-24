@@ -14,10 +14,19 @@ public class BaseException extends RuntimeException {
 
         public OptionNotFoundException(String value, String elementLabel) {
             super("Option '" + value + "' not found in the '" + elementLabel + "' dropdown.");
+
+        }
+
+        public OptionNotFoundException(String value, String elementLabel, Throwable throwable) {
+            super("Option '" + value + "' not found in the '" + elementLabel + "' dropdown.", throwable);
         }
     }
 
     public static class ElementNotFoundException extends BaseException {
+
+        public ElementNotFoundException(String elementLabel) {
+            super("Element '" + elementLabel + "' is not found / modified on the DOM.");
+        }
 
         public ElementNotFoundException(String elementLabel, Throwable throwable) {
             super("Element '" + elementLabel + "' is not found / modified on the DOM.", throwable);
