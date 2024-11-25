@@ -10,6 +10,8 @@ public class BaseException extends RuntimeException {
         super(message, cause);
     }
 
+
+
     public static class OptionNotFoundException extends BaseException {
 
         public OptionNotFoundException(String value, String elementLabel) {
@@ -20,6 +22,15 @@ public class BaseException extends RuntimeException {
         public OptionNotFoundException(String value, String elementLabel, Throwable throwable) {
             super("Option '" + value + "' not found in the '" + elementLabel + "' dropdown.", throwable);
         }
+    }
+
+    public static class DropDownException extends BaseException {
+
+        public DropDownException(String value) {
+            super(value);
+
+        }
+
     }
 
     public static class ElementNotFoundException extends BaseException {

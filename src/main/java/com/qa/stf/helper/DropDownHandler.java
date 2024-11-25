@@ -189,12 +189,17 @@ public class DropDownHandler extends BasePage {
      * @return The selected value from the dropdown.
      */
     public String getSelectedValue(WebElement dropdown, String elementLabel) {
-        String value = null;
-        if (verificationHandler.isElementDisplayed(dropdown, elementLabel)) {
-            value = new Select(dropdown).getFirstSelectedOption().getText();
+        if (!verificationHandler.isElementDisplayed(dropdown, elementLabel)) {
+            throw new BaseException.ElementNotFoundException(elementLabel);
         }
-        log.info("The '{}' option is selected in the '{}' dropdown", value, elementLabel);
-        return value;
+        try {
+            String value = new Select(dropdown).getFirstSelectedOption().getText();
+            log.info("The '{}' option is selected in the '{}' dropdown", value, elementLabel);
+            return value;
+        } catch (Exception ex) {
+            log.error("Exception occurred while get the selected option from the '{}' dropdown", elementLabel, ex);
+            throw new BaseException.DropDownException("Exception occurred while get the selected option from the " + elementLabel + " dropdown");
+        }
     }
 
     /**
@@ -213,11 +218,16 @@ public class DropDownHandler extends BasePage {
         if (!verificationHandler.isElementDisplayed(dropdown, elementLabel)) {
             throw new BaseException.ElementNotFoundException(elementLabel);
         }
-        Select select = new Select(dropdown);
-        return select.getOptions().stream()
-                .map(WebElement::getText)
-                .peek(option -> log.info("The '{}' dropdown has the option value '{}'", elementLabel, option))
-                .collect(Collectors.toList());
+        try {
+            Select select = new Select(dropdown);
+            return select.getOptions().stream()
+                    .map(WebElement::getText)
+                    .peek(option -> log.info("The '{}' dropdown has the option value '{}'", elementLabel, option))
+                    .collect(Collectors.toList());
+        } catch (Exception ex) {
+            log.error("Exception occurred while get the options from the '{}' dropdown", elementLabel, ex);
+            throw new BaseException.DropDownException("Exception occurred while get the options from the " + elementLabel + " dropdown");
+        }
     }
 
 }
