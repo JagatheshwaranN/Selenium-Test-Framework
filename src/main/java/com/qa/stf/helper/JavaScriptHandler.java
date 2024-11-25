@@ -1,6 +1,5 @@
 package com.qa.stf.helper;
 
-import com.qa.stf.handler.BaseException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -15,6 +14,19 @@ public class JavaScriptHandler extends BasePage implements WebPage {
 
     private static final Logger log = LogManager.getLogger(JavaScriptHandler.class);
 
+    protected final String CLICK_ELEMENT = "arguments[0].click();";
+    protected final String TYPE_INTO_ELEMENT = "arguments[0].value='";
+    protected final String CLEAR_ELEMENT = "arguments[0].value = '';";
+    protected final String SCROLL_TO_ELEMENT = "window.scrollTo(arguments[0],arguments[1])";
+    protected final String SCROLL_INTO_VIEW = "arguments[0].scrollIntoView()";
+    protected final String SCROLL_UP_VERTICAL = "window.scrollTo(0, -document.body.scrollHeight)";
+    protected final String SCROLL_DOWN_VERTICAL = "window.scrollTo(0, document.body.scrollHeight)";
+    protected final String SCROLL_UP_PIXEL = "window.scrollBy(0, -'";
+    protected final String SCROLL_DOWN_PIXEL = "window.scrollBy(0, '";
+    protected final String PAGE_ZOOM = "document.body.style.zoom='";
+    protected final String CLOSE_TYPE1 = "';";
+    protected final String CLOSE_TYPE2 = "')";
+
     JavascriptExecutor executor = (JavascriptExecutor) driverManager.getDriver();
 
     private final VerificationHandler verificationHandler;
@@ -27,12 +39,12 @@ public class JavaScriptHandler extends BasePage implements WebPage {
     public void clickElement(WebElement element, String elementLabel) {
         try {
             if (verificationHandler.isElementDisplayed(element, elementLabel)) {
-                executor.executeScript("arguments[0].click();", element);
-                log.info("The '{}' element is clicked by JSE", elementLabel);
+                executor.executeScript(CLICK_ELEMENT, element);
+                log.info("Clicked the '{}' element using JavaScriptExecutor", elementLabel);
             }
         } catch (Exception ex) {
-            log.error("Exception occurred while click {} using JSE", elementLabel, ex);
-            throw new JavascriptException("Exception occurred while click using JSE", ex);
+            log.error("Failed to click the '{}' element using JavaScriptExecutor", elementLabel, ex);
+            throw new JavascriptException("Exception occurred while clicking " + elementLabel + " element using JavaScriptExecutor", ex);
         }
     }
 
@@ -51,12 +63,12 @@ public class JavaScriptHandler extends BasePage implements WebPage {
                 element = generateElement(locatorToString, elementLabel);
             }
             if (verificationHandler.isElementDisplayed(element, elementLabel)) {
-                executor.executeScript("arguments[0].click();", element);
-                log.info("The '{}' element is clicked by JSE", elementLabel);
+                executor.executeScript(CLICK_ELEMENT, element);
+                log.info("Clicked the '{}' element using JavaScriptExecutor", elementLabel);
             }
         } catch (Exception ex) {
-            log.error("Exception occurred while click {} using JSE", elementLabel, ex);
-            throw new JavascriptException("Exception occurred while click using JSE", ex);
+            log.error("Failed to click the '{}' element using JavaScriptExecutor", elementLabel, ex);
+            throw new JavascriptException("Exception occurred while clicking " + elementLabel + " element using JavaScriptExecutor", ex);
         }
     }
 
@@ -64,12 +76,14 @@ public class JavaScriptHandler extends BasePage implements WebPage {
     public void typeElement(WebElement element, String text, String elementLabel) {
         try {
             if (verificationHandler.isElementDisplayed(element, elementLabel)) {
-                executor.executeScript("arguments[0].value='" + text + "';", element);
-                log.info("The text '{}' is entered into the '{}' element by JSE", text, elementLabel);
+                if(text != null) {
+                    executor.executeScript(TYPE_INTO_ELEMENT + text + CLOSE_TYPE1, element);
+                    log.info("Entered the '{}' text into the '{}' element using JavaScriptExecutor", text, elementLabel);
+                }
             }
         } catch (Exception ex) {
-            log.error("Exception occurred while type into {} using JSE", elementLabel, ex);
-            throw new JavascriptException("Exception occurred while type using JSE", ex);
+            log.error("Failed to type into the '{}' element using JavaScriptExecutor", elementLabel, ex);
+            throw new JavascriptException("Exception occurred while typing into " + elementLabel + " element using JavaScriptExecutor", ex);
         }
     }
 
@@ -77,24 +91,24 @@ public class JavaScriptHandler extends BasePage implements WebPage {
     public void clearElement(WebElement element, String elementLabel) {
         try {
             if (verificationHandler.isElementDisplayed(element, elementLabel)) {
-                executor.executeScript("arguments[0].value = '';", element);
-                log.info("The content of the '{}' element is cleared by JSE", elementLabel);
+                executor.executeScript(CLEAR_ELEMENT, element);
+                log.info("Cleared the content of '{}' element using JavaScriptExecutor", elementLabel);
             }
         } catch (Exception ex) {
-            log.error("Exception occurred while clear the content of {} using JSE", elementLabel, ex);
-            throw new JavascriptException("Exception occurred while clear the content using JSE", ex);
+            log.error("Failed to clear the content of '{}' element using JavaScriptExecutor", elementLabel, ex);
+            throw new JavascriptException("Exception occurred while clearing the content of " + elementLabel + " element using JavaScriptExecutor", ex);
         }
     }
 
     public void scrollToElement(WebElement element, String elementLabel) {
         try {
             if (verificationHandler.isElementDisplayed(element, elementLabel)) {
-                executor.executeScript("window.scrollTo(arguments[0],arguments[1])", element.getLocation().x, element.getLocation().y);
-                log.info("The control is scrolled to '{}' by JSE", elementLabel);
+                executor.executeScript(SCROLL_TO_ELEMENT, element.getLocation().x, element.getLocation().y);
+                log.info("Scrolled to the '{}' element using JavaScriptExecutor", elementLabel);
             }
         } catch (Exception ex) {
-            log.error("Exception occurred while scroll to {} using JSE", elementLabel, ex);
-            throw new JavascriptException("Exception occurred while scroll using JSE", ex);
+            log.error("Failed to scroll to the '{}' element using JavaScriptExecutor", elementLabel, ex);
+            throw new JavascriptException("Exception occurred while scrolling to " + elementLabel + " element using JavaScriptExecutor", ex);
         }
     }
 
@@ -102,24 +116,24 @@ public class JavaScriptHandler extends BasePage implements WebPage {
         try {
             if (verificationHandler.isElementDisplayed(element, elementLabel)) {
                 scrollToElement(element, elementLabel);
-                element.click();
-                log.info("The control is scrolled to '{}' and clicked by JSE", elementLabel);
+                clickElement(element, elementLabel);
+                log.info("Scrolled to the '{}' element and clicked using JavaScriptExecutor", elementLabel);
             }
         } catch (Exception ex) {
-            log.error("Exception occurred while scroll & click {} using JSE", elementLabel, ex);
-            throw new JavascriptException("Exception occurred while scroll & click using JSE", ex);
+            log.error("Failed to scroll to '{}' element & click using JavaScriptExecutor", elementLabel, ex);
+            throw new JavascriptException("Exception occurred while scrolling to " + elementLabel + " element and click using JavaScriptExecutor", ex);
         }
     }
 
     public void scrollIntoView(WebElement element, String elementLabel) {
         try {
             if (verificationHandler.isElementDisplayed(element, elementLabel)) {
-                executor.executeScript("arguments[0].scrollIntoView()", element);
-                log.info("The control is scrolled into view of '{}' by JSE", elementLabel);
+                executor.executeScript(SCROLL_INTO_VIEW, element);
+                log.info("Scrolled into view of '{}' element using JavaScriptExecutor", elementLabel);
             }
         } catch (Exception ex) {
-            log.error("Exception occurred while scroll into view of {} using JSE", elementLabel, ex);
-            throw new JavascriptException("Exception occurred while scroll into view using JSE", ex);
+            log.error("Failed to scroll into view of '{}' element using JavaScriptExecutor", elementLabel, ex);
+            throw new JavascriptException("Exception occurred while scrolling into view of " + elementLabel + " element using JavaScriptExecutor", ex);
         }
     }
 
@@ -127,62 +141,68 @@ public class JavaScriptHandler extends BasePage implements WebPage {
         try {
             if (verificationHandler.isElementDisplayed(element, elementLabel)) {
                 scrollIntoView(element, elementLabel);
-                element.click();
-                log.info("The control is scrolled into view of '{}' element and clicked by JSE", elementLabel);
+                clickElement(element, elementLabel);
+                log.info("Scrolled into view of '{}' element and clicked using JavaScriptExecutor", elementLabel);
             }
         } catch (Exception ex) {
-            log.error("Exception occurred while scroll into view & click of {} using JSE", elementLabel, ex);
-            throw new JavascriptException("Exception occurred while scroll into view & click using JSE", ex);
+            log.error("Failed to scroll into view of '{}' element and click using JavaScriptExecutor", elementLabel, ex);
+            throw new JavascriptException("Exception occurred while scrolling into view of " + elementLabel + " element and click using JavaScriptExecutor", ex);
         }
     }
 
     public void scrollUpVertical() {
         try {
-            executor.executeScript("window.scrollTo(0, -document.body.scrollHeight)");
-            log.info("The control is scrolled up vertically to top of the page by JSE");
+            executor.executeScript(SCROLL_UP_VERTICAL);
+            log.info("Scrolled up vertically to top of the page using JavaScriptExecutor");
         } catch (Exception ex) {
-            log.error("Exception occurred while scroll to top of page using JSE");
-            throw new JavascriptException("Exception occurred while scroll to top of page using JSE", ex);
+            log.error("Failed to scroll to top of the page using JavaScriptExecutor");
+            throw new JavascriptException("Exception occurred while scrolling to top of the page using JavaScriptExecutor", ex);
         }
     }
 
     public void scrollDownVertical() {
         try {
-            executor.executeScript("window.scrollTo(0, document.body.scrollHeight)");
-            log.info("The control is scrolled down vertically to top of the page by JSE");
+            executor.executeScript(SCROLL_DOWN_VERTICAL);
+            log.info("Scrolled down vertically to bottom of the page using JavaScriptExecutor");
         } catch (Exception ex) {
-            log.error("Exception occurred while scroll to down of page using JSE");
-            throw new JavascriptException("Exception occurred while scroll to down of page using JSE", ex);
+            log.error("Failed to scroll to bottom of the page using JavaScriptExecutor");
+            throw new JavascriptException("Exception occurred while scrolling to bottom of the page using JavaScriptExecutor", ex);
         }
     }
 
     public void scrollUpByPixel(String pixel) {
         try {
-            executor.executeScript("window.scrollBy(0, -'" + pixel + "')");
-            log.info("The page is scrolled up vertically by '{}' pixel by JSE", pixel);
+            if (pixel != null) {
+                executor.executeScript(SCROLL_UP_PIXEL + pixel + CLOSE_TYPE2);
+                log.info("Scrolled up vertically by '{}' pixel using JavaScriptExecutor", pixel);
+            }
         } catch (Exception ex) {
-            log.error("Exception occurred while scroll up using JSE");
-            throw new JavascriptException("Exception occurred while scroll up using JSE", ex);
+            log.error("Failed to scroll up using JavaScriptExecutor");
+            throw new JavascriptException("Exception occurred while scrolling up using JavaScriptExecutor", ex);
         }
     }
 
     public void scrollDownByPixel(String pixel) {
         try {
-            executor.executeScript("window.scrollBy(0, '" + pixel + "')");
-            log.info("The page is scrolled down vertically by '{}' pixel by JSE", pixel);
+            if (pixel != null) {
+                executor.executeScript(SCROLL_DOWN_PIXEL + pixel + CLOSE_TYPE2);
+                log.info("Scrolled down vertically by '{}' pixel using JavaScriptExecutor", pixel);
+            }
         } catch (Exception ex) {
-            log.error("Exception occurred while scroll down using JSE");
-            throw new JavascriptException("Exception occurred while scroll down using JSE", ex);
+            log.error("Failed to scroll down using JavaScriptExecutor");
+            throw new JavascriptException("Exception occurred while scrolling down using JavaScriptExecutor", ex);
         }
     }
 
     public void zoomInByPercentage(String percent) {
         try {
-            executor.executeScript("document.body.style.zoom='" + percent + "'");
-            log.info("The page is zoom in by '{}' percent by JSE", percent);
+            if (percent != null) {
+                executor.executeScript(PAGE_ZOOM + percent + CLOSE_TYPE1);
+                log.info("Page is zoomed in by '{}' percent using JavaScriptExecutor", percent);
+            }
         } catch (Exception ex) {
-            log.error("Exception occurred while zoom in page using JSE");
-            throw new JavascriptException("Exception occurred while zoom in page using JSE", ex);
+            log.error("Failed to zoom in page using JavaScriptExecutor");
+            throw new JavascriptException("Exception occurred while zooming into the page using JavaScriptExecutor", ex);
         }
     }
 
