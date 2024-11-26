@@ -2,6 +2,7 @@ package com.qa.stf.ohrm.objects;
 
 import java.util.List;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -47,5 +48,6 @@ public class AdminPageObject extends DashboardPageObject {
 	@FindBy(css = ".oxd-table-cell.oxd-padding-cell:nth-child(2)")
 	protected WebElement adminSearchResultData;
 	protected String adminSearchResultDataLabel = "AdminSearchResultData";
+
 }
 

@@ -85,4 +85,18 @@ public class BaseException extends RuntimeException {
             super(data, throwable);
         }
     }
+
+    public static class JavascriptExecutorException extends BaseException {
+
+        public JavascriptExecutorException(String message) {
+            super(message);
+        }
+
+        public JavascriptExecutorException(String message, Throwable cause) {
+            super(message, cause);
+        }
+    }
+
+
+
 }
