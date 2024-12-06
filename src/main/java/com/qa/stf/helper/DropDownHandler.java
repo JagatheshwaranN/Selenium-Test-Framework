@@ -51,7 +51,7 @@ import com.qa.stf.base.BasePage;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.1
+ * @version 1.2
  */
 public class DropDownHandler extends BasePage {
 
@@ -73,19 +73,12 @@ public class DropDownHandler extends BasePage {
      * @param dropdown     The WebElement representing the dropdown.
      * @param value        The value attribute of the option to be selected.
      * @param elementLabel The label for logging purposes.
-     * @throws BaseException.OptionNotFoundException If the specified value is not found
-     *                                               in the dropdown.
      */
     public void selectByValue(WebElement dropdown, String value, String elementLabel) {
-        try {
-            if (verificationHandler.isElementDisplayed(dropdown, elementLabel)) {
-                var select = new Select(dropdown);
-                select.selectByValue(value);
-                log.info("The value '{}' is selected from the '{}' dropdown", value, elementLabel);
-            }
-        } catch (Exception ex) {
-            log.error("Exception occurred while selecting value '{}' in the '{}' dropdown", value, elementLabel, ex);
-            throw new BaseException.OptionNotFoundException(value, elementLabel, ex);
+        if (verificationHandler.isElementDisplayed(dropdown, elementLabel)) {
+            Select select = new Select(dropdown);
+            select.selectByValue(value);
+            log.info("The value '{}' is selected from the '{}' dropdown", value, elementLabel);
         }
     }
 
@@ -99,19 +92,12 @@ public class DropDownHandler extends BasePage {
      * @param dropdown     The WebElement representing the dropdown.
      * @param index        The index of the option to be selected (0-based).
      * @param elementLabel The label for logging purposes.
-     * @throws BaseException.OptionNotFoundException If the specified index is not found
-     *                                               in the dropdown.
      */
     public void selectByIndex(WebElement dropdown, int index, String elementLabel) {
-        try {
-            if (verificationHandler.isElementDisplayed(dropdown, elementLabel)) {
-                var select = new Select(dropdown);
-                select.selectByIndex(index);
-                log.info("The value at index '{}' is selected from the '{}' dropdown", index, elementLabel);
-            }
-        } catch (Exception ex) {
-            log.error("Exception occurred while selecting index '{}' in the '{}' dropdown", index, elementLabel, ex);
-            throw new BaseException.OptionNotFoundException("Index " + index, elementLabel, ex);
+        if (verificationHandler.isElementDisplayed(dropdown, elementLabel)) {
+            Select select = new Select(dropdown);
+            select.selectByIndex(index);
+            log.info("The value at index '{}' is selected from the '{}' dropdown", index, elementLabel);
         }
     }
 
@@ -125,19 +111,14 @@ public class DropDownHandler extends BasePage {
      * @param dropdown     The WebElement representing the dropdown.
      * @param visibleText  The visible text of the option to be selected.
      * @param elementLabel The label for logging purposes.
-     * @throws BaseException.OptionNotFoundException If the specified visible text is not
-     *                                               found in the dropdown.
+     * @throws BaseException.ElementNotFoundException If the specified value is not found in
+     *                                                the dropdown options.
      */
     public void selectByVisibleText(WebElement dropdown, String visibleText, String elementLabel) {
-        try {
-            if (verificationHandler.isElementDisplayed(dropdown, elementLabel)) {
-                var select = new Select(dropdown);
-                select.selectByVisibleText(visibleText);
-                log.info("The visible text '{}' is selected from the '{}' dropdown", visibleText, elementLabel);
-            }
-        } catch (Exception ex) {
-            log.error("Exception occurred while selecting visible text '{}' in the '{}' dropdown", visibleText, elementLabel, ex);
-            throw new BaseException.OptionNotFoundException(visibleText, elementLabel, ex);
+        if (verificationHandler.isElementDisplayed(dropdown, elementLabel)) {
+            Select select = new Select(dropdown);
+            select.selectByVisibleText(visibleText);
+            log.info("The visible text '{}' is selected from the '{}' dropdown", visibleText, elementLabel);
         }
     }
 
@@ -157,10 +138,7 @@ public class DropDownHandler extends BasePage {
      *                                               the dropdown options.
      */
     public void selectDropdownOption(WebElement dropdown, List<WebElement> optionsList, String value, String elementLabel) {
-        if (!verificationHandler.isElementDisplayed(dropdown, elementLabel)) {
-            throw new BaseException.ElementNotFoundException(elementLabel);
-        }
-        try {
+        if (verificationHandler.isElementDisplayed(dropdown, elementLabel)) {
             dropdown.click();
             WebElement option = optionsList.stream()
                     .filter(opt -> opt.getText().equalsIgnoreCase(value))
@@ -171,9 +149,6 @@ public class DropDownHandler extends BasePage {
                     });
             option.click();
             log.info("The option '{}' is selected from the '{}' dropdown", value, elementLabel);
-        } catch (Exception ex) {
-            log.error("Exception occurred while selecting option '{}' in the '{}' dropdown", value, elementLabel, ex);
-            throw new BaseException.OptionNotFoundException(value, elementLabel, ex);
         }
     }
 
@@ -189,17 +164,12 @@ public class DropDownHandler extends BasePage {
      * @return The selected value from the dropdown.
      */
     public String getSelectedValue(WebElement dropdown, String elementLabel) {
-        if (!verificationHandler.isElementDisplayed(dropdown, elementLabel)) {
-            throw new BaseException.ElementNotFoundException(elementLabel);
-        }
-        try {
-            String value = new Select(dropdown).getFirstSelectedOption().getText();
+        String value = null;
+        if (verificationHandler.isElementDisplayed(dropdown, elementLabel)) {
+            value = new Select(dropdown).getFirstSelectedOption().getText();
             log.info("The '{}' option is selected in the '{}' dropdown", value, elementLabel);
-            return value;
-        } catch (Exception ex) {
-            log.error("Exception occurred while get the selected option from the '{}' dropdown", elementLabel, ex);
-            throw new BaseException.DropDownException("Exception occurred while get the selected option from the " + elementLabel + " dropdown");
         }
+        return value;
     }
 
     /**
@@ -212,22 +182,17 @@ public class DropDownHandler extends BasePage {
      * @param dropdown     The WebElement representing the dropdown.
      * @param elementLabel The label for logging purposes.
      * @return A list of all option values in the dropdown.
-     * @throws BaseException.ElementNotFoundException If the dropdown is not displayed.
      */
     public List<String> getAllDropdownValues(WebElement dropdown, String elementLabel) {
-        if (!verificationHandler.isElementDisplayed(dropdown, elementLabel)) {
-            throw new BaseException.ElementNotFoundException(elementLabel);
-        }
-        try {
+        List<String> optionsList = null;
+        if (verificationHandler.isElementDisplayed(dropdown, elementLabel)) {
             Select select = new Select(dropdown);
-            return select.getOptions().stream()
+            optionsList = select.getOptions().stream()
                     .map(WebElement::getText)
                     .peek(option -> log.info("The '{}' dropdown has the option value '{}'", elementLabel, option))
                     .collect(Collectors.toList());
-        } catch (Exception ex) {
-            log.error("Exception occurred while get the options from the '{}' dropdown", elementLabel, ex);
-            throw new BaseException.DropDownException("Exception occurred while get the options from the " + elementLabel + " dropdown");
         }
+        return optionsList;
     }
 
 }

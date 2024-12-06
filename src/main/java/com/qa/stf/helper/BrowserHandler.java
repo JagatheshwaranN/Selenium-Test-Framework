@@ -49,7 +49,7 @@ import org.openqa.selenium.*;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.1
+ * @version 1.2
  */
 public class BrowserHandler extends BasePage {
 
@@ -61,18 +61,10 @@ public class BrowserHandler extends BasePage {
      * This method attempts to navigate to the previous page in the browser's history.
      * If the navigation fails, a BaseException.NavigationException is thrown.
      * </p>
-     *
-     * @throws BaseException.NavigationException If navigation back fails due to
-     *                                           a WebDriver exception.
      */
     public void navigateBack() {
-        try {
-            driverManager.getDriver().navigate().back();
-            log.info("Navigated to the previous page in the browser.");
-        } catch (WebDriverException ex) {
-            log.error("Failed to navigate back. Exception: {}", ex.getMessage(), ex);
-            throw new BaseException.NavigationException("Error navigating back", ex);
-        }
+        driverManager.getDriver().navigate().back();
+        log.info("Navigated to the previous page in the browser.");
     }
 
     /**
@@ -81,18 +73,10 @@ public class BrowserHandler extends BasePage {
      * This method attempts to navigate to the next page in the browser's history.
      * If the navigation fails, a BaseException.NavigationException is thrown.
      * </p>
-     *
-     * @throws BaseException.NavigationException If navigation forward fails due to
-     *                                           a WebDriver exception.
      */
     public void navigateForward() {
-        try {
-            driverManager.getDriver().navigate().forward();
-            log.info("Navigated to the next page in the browser.");
-        } catch (WebDriverException ex) {
-            log.error("Failed to navigate forward. Exception: {}", ex.getMessage(), ex);
-            throw new BaseException.NavigationException("Error navigating forward", ex);
-        }
+        driverManager.getDriver().navigate().forward();
+        log.info("Navigated to the next page in the browser.");
     }
 
     /**
@@ -101,18 +85,10 @@ public class BrowserHandler extends BasePage {
      * This method attempts to refresh the current page. If the refresh fails, a
      * BaseException.NavigationException is thrown.
      * </p>
-     *
-     * @throws BaseException.NavigationException If the page refresh fails due to a
-     *                                           WebDriver exception.
      */
     public void refresh() {
-        try {
-            driverManager.getDriver().navigate().refresh();
-            log.info("The current page in the browser is refreshed.");
-        } catch (WebDriverException ex) {
-            log.error("Failed to refresh the current page. Exception: {}", ex.getMessage(), ex);
-            throw new BaseException.NavigationException("Error refreshing page", ex);
-        }
+        driverManager.getDriver().navigate().refresh();
+        log.info("The current page in the browser is refreshed.");
     }
 
     /**
@@ -124,18 +100,11 @@ public class BrowserHandler extends BasePage {
      * </p>
      *
      * @return The handle of the current browser window.
-     * @throws BaseException.WindowException If retrieving the window handle fails due to
-     *                                       a WebDriver exception.
      */
     public String getBrowserWindowHandle() {
-        try {
-            String handle = driverManager.getDriver().getWindowHandle();
-            log.info("Captured browser window handle :: {}", handle);
-            return handle;
-        } catch (WebDriverException ex) {
-            log.error("Failed to retrieve the current browser window handle. Exception: {}", ex.getMessage(), ex);
-            throw new BaseException.WindowException("Error retrieving current window handle", ex);
-        }
+        String handle = driverManager.getDriver().getWindowHandle();
+        log.info("Captured browser window handle :: {}", handle);
+        return handle;
     }
 
     /**
@@ -147,33 +116,25 @@ public class BrowserHandler extends BasePage {
      * </p>
      *
      * @return A set of handles for all open browser windows.
-     * @throws BaseException.WindowException If retrieving the window handles fails due to
-     *                                       a WebDriver exception.
      */
     public Set<String> getBrowserWindowHandles() {
-        try {
-            Set<String> handles = driverManager.getDriver().getWindowHandles();
-            log.info("Captured {} browser window handles :: {}", handles.size(), handles);
-            return handles;
-        } catch (WebDriverException ex) {
-            log.error("Failed to retrieve browser window handles. Exception: {}", ex.getMessage(), ex);
-            throw new BaseException.WindowException("Error retrieving all window handles", ex);
-        }
+        Set<String> handles = driverManager.getDriver().getWindowHandles();
+        log.info("Captured {} browser window handles :: {}", handles.size(), handles);
+        return handles;
     }
 
     /**
      * Switches to a browser window based on the specified index.
      * <p>
-     * This method switches the browser's context to a window at the specified index.
-     * If the provided index is out of bounds or there is an error during the switch, an
-     * IllegalArgumentException or BaseException.WindowException is thrown.
+     * This method retrieves the list of browser window handles and switches
+     * to the window at the specified index.
      * </p>
      *
-     * @param index The index of the window to switch to (0-based).
+     * @param index The index of the window to switch to.
      * @throws IllegalArgumentException      If the provided index is out of bounds.
      * @throws BaseException.WindowException If the window cannot be switched due to an exception.
      */
-    public void switchToWindow(int index) {
+    private void switchToWindowByIndex(int index) {
         var windowsId = new LinkedList<>(getBrowserWindowHandles());
         if (index < 0 || index >= windowsId.size()) {
             throw new IllegalArgumentException("Browser window handle has invalid index :: " + "'" + index + "'");
@@ -188,29 +149,28 @@ public class BrowserHandler extends BasePage {
     }
 
     /**
+     * Switches to a browser window based on the specified index.
+     * <p>
+     * Delegates to a helper method to switch the browser's context to
+     * the specified window index.
+     * </p>
+     *
+     * @param index The index of the window to switch to (0-based).
+     */
+    public void switchToWindow(int index) {
+        switchToWindowByIndex(index);
+    }
+
+    /**
      * Switches control to the parent browser window.
      * <p>
      * This method switches the browser's context to the first window in the list of
-     * open windows. If there are no windows available, an IllegalStateException is thrown.
-     * If there is an error during the switch, a BaseException.WindowException is thrown.
+     * open windows.
      * </p>
-     *
-     * @throws IllegalStateException         If there are no browser windows available to switch.
-     * @throws BaseException.WindowException If the parent window cannot be switched to due to
-     *                                       an exception.
      */
     public void switchToParentWindow() {
-        var windowsId = new LinkedList<>(getBrowserWindowHandles());
-        if (windowsId.isEmpty()) {
-            throw new IllegalStateException("No browser windows are available to switch.");
-        }
-        try {
-            driverManager.getDriver().switchTo().window(windowsId.getFirst());
-            log.info("Switched to the parent browser window with handle: '{}'", windowsId.getFirst());
-        } catch (NoSuchWindowException ex) {
-            log.error("Failed to switch to the parent window. Exception: {}", ex.getMessage(), ex);
-            throw new BaseException.WindowException("Failed to switch to the parent window", ex);
-        }
+        var windowsId = getWindowsList();
+        switchToWindowByIndex(Integer.parseInt(windowsId.getFirst())); // First window index is 0
     }
 
     /**
@@ -227,10 +187,7 @@ public class BrowserHandler extends BasePage {
      *                                       switching to the parent window.
      */
     public void switchToParentWithChildClose() {
-        var windowsId = new LinkedList<>(getBrowserWindowHandles());
-        if (windowsId.isEmpty()) {
-            throw new IllegalArgumentException("No browser windows are available.");
-        }
+        var windowsId = getWindowsList();
         log.info("Total windows before closing the children :: {}", windowsId.size());
         try {
             for (var i = 1; i < windowsId.size(); i++) {
@@ -247,82 +204,76 @@ public class BrowserHandler extends BasePage {
     }
 
     /**
-     * Switches to a frame using its name or ID.
+     * Retrieves a list of browser window handles as a linked list.
      * <p>
-     * This method switches the browser context to a frame identified by its name or ID.
-     * If the frame name or ID is null or empty, an IllegalArgumentException is thrown.
-     * If the frame is not found, a NoSuchFrameException is thrown.
+     * This method fetches the current browser's window handles and returns
+     * them as a {@link LinkedList}. If no window handles are available, an
+     * {@link IllegalArgumentException} is thrown.
      * </p>
      *
-     * @param frameNameOrId The name or ID of the frame.
-     * @throws IllegalArgumentException If the frame name or ID is null or empty.
-     * @throws NoSuchFrameException     If the frame with the given name or ID is not found.
+     * @return A {@link LinkedList} containing the browser window handles.
+     * @throws IllegalArgumentException If no browser windows are available.
      */
-    public void switchToFrame(String frameNameOrId) {
-        if (frameNameOrId == null || frameNameOrId.trim().isEmpty()) {
-            throw new IllegalArgumentException("Frame name or ID cannot be null or empty.");
+    private LinkedList<String> getWindowsList() {
+        var windowsId = new LinkedList<>(getBrowserWindowHandles());
+        if (windowsId.isEmpty()) {
+            throw new IllegalArgumentException("No browser windows are available.");
         }
-        try {
-            driverManager.getDriver().switchTo().frame(frameNameOrId);
-            log.info("The control is switched to the frame using name or ID :: '{}'", frameNameOrId);
-        } catch (NoSuchFrameException ex) {
-            log.error("Failed to switch to frame with name or ID '{}'. Exception: {}", frameNameOrId, ex.getMessage(), ex);
-            throw new BaseException.FrameException("Error switching to frame with name or ID", ex);
-        }
+        return windowsId;
     }
 
     /**
-     * Switches to a frame using its index.
+     * Switches to a frame based on the type of the provided input.
      * <p>
-     * This method switches the browser context to a frame identified by its index in the
-     * list of available frames. If the frame index is negative, an IllegalArgumentException
-     * is thrown. If the frame is not found, a NoSuchFrameException is thrown.
+     * This method determines the frame to switch to based on the type of the input:
+     * <ul>
+     *     <li>{@link String}: Switches to the frame using its name or ID.</li>
+     *     <li>{@link Integer}: Switches to the frame using its index.</li>
+     *     <li>{@link WebElement}: Switches to the frame using a WebElement reference.</li>
+     * </ul>
+     * If the input is null or invalid, an {@link IllegalArgumentException} is thrown.
+     * If switching fails, appropriate exceptions are thrown.
      * </p>
      *
-     * @param frameIndex The index of the frame.
-     * @throws IllegalArgumentException If the frame index is negative.
-     * @throws NoSuchFrameException     If the frame with the given index is not found.
-     */
-    public void switchToFrame(int frameIndex) {
-        if (frameIndex < 0) {
-            throw new IllegalArgumentException("Frame index cannot be negative.");
-        }
-        try {
-            driverManager.getDriver().switchTo().frame(frameIndex);
-            log.info("The control is switched to the frame using index :: '{}'", frameIndex);
-        } catch (NoSuchFrameException ex) {
-            log.error("Failed to switch to frame with index '{}'. Exception: {}", frameIndex, ex.getMessage(), ex);
-            throw new BaseException.FrameException("Error switching to frame with index", ex);
-        }
-    }
-
-    /**
-     * Switches to a frame using a WebElement reference.
-     * <p>
-     * This method switches the browser context to a frame identified by a WebElement.
-     * If the frame WebElement is null, an IllegalArgumentException is thrown. If the
-     * WebElement is stale or the frame is not found, a StaleElementReferenceException or
-     * NoSuchFrameException is thrown.
-     * </p>
-     *
-     * @param frameElement The WebElement of the frame.
-     * @throws IllegalArgumentException       If the frame WebElement is null.
-     * @throws StaleElementReferenceException If the frame WebElement is stale.
+     * @param frameIdentifier The frame to switch to (String, Integer, or WebElement).
+     * @throws IllegalArgumentException       If the input is null or invalid.
      * @throws NoSuchFrameException           If the frame is not found.
+     * @throws StaleElementReferenceException If the WebElement is stale.
+     * @throws BaseException.FrameException   If switching to the frame fails due to other reasons.
      */
-    public void switchToFrame(WebElement frameElement) {
-        if (frameElement == null) {
-            throw new IllegalArgumentException("Frame WebElement cannot be null.");
+    public void switchToFrame(Object frameIdentifier) {
+        if (frameIdentifier == null) {
+            throw new IllegalArgumentException("Frame identifier cannot be null.");
         }
         try {
-            driverManager.getDriver().switchTo().frame(frameElement);
-            log.info("The control is switched to the frame using WebElement :: '{}'", frameElement);
+            switch (frameIdentifier) {
+                case String frameNameOrId -> {
+                    if (frameNameOrId.trim().isEmpty()) {
+                        throw new IllegalArgumentException("Frame name or ID cannot be empty.");
+                    }
+                    driverManager.getDriver().switchTo().frame(frameNameOrId);
+                    log.info("The control is switched to the frame using name or ID :: '{}'", frameNameOrId);
+                }
+                case Integer frameIndex -> {
+                    if (frameIndex < 0) {
+                        throw new IllegalArgumentException("Frame index cannot be negative.");
+                    }
+                    driverManager.getDriver().switchTo().frame(frameIndex);
+                    log.info("The control is switched to the frame using index :: '{}'", frameIndex);
+                }
+                case WebElement frameElement -> {
+                    driverManager.getDriver().switchTo().frame(frameElement);
+                    log.info("The control is switched to the frame using WebElement :: '{}'", frameElement);
+                }
+                default ->
+                        throw new IllegalArgumentException("Unsupported frame identifier type: " + frameIdentifier.getClass().getName());
+            }
         } catch (StaleElementReferenceException ex) {
             log.error("Failed to switch to frame due to stale element reference. Exception: {}", ex.getMessage(), ex);
             throw new BaseException.FrameException("Error switching to frame due to stale element reference", ex);
         } catch (NoSuchFrameException ex) {
-            log.error("Failed to switch to frame using WebElement '{}'. Exception: {}", frameElement, ex.getMessage(), ex);
-            throw new BaseException.FrameException("Error switching to frame using WebElement", ex);
+            log.error("Failed to switch to frame. Exception: {}", ex.getMessage(), ex);
+            throw new BaseException.FrameException("Error switching to frame", ex);
         }
     }
 
@@ -334,17 +285,11 @@ public class BrowserHandler extends BasePage {
      * </p>
      *
      * @return The current page URL as a String.
-     * @throws WebDriverException If the URL cannot be retrieved.
      */
     public String getPageUrl() {
-        try {
-            String url = driverManager.getDriver().getCurrentUrl();
-            log.info("The browser page url is :: '{}'", url);
-            return url;
-        } catch (WebDriverException ex) {
-            log.error("Failed to retrieve the current page URL. Exception: {}", ex.getMessage(), ex);
-            throw new BaseException.NavigationException("Error retrieving the current page URL", ex);
-        }
+        String url = driverManager.getDriver().getCurrentUrl();
+        log.info("The browser page url is :: '{}'", url);
+        return url;
     }
 
     /**
@@ -355,17 +300,11 @@ public class BrowserHandler extends BasePage {
      * </p>
      *
      * @return The current page title as a String.
-     * @throws WebDriverException If the title cannot be retrieved.
      */
     public String getPageTitle() {
-        try {
-            String title = driverManager.getDriver().getTitle();
-            log.info("The browser page title is :: '{}'", title);
-            return title;
-        } catch (WebDriverException ex) {
-            log.error("Failed to retrieve the current page title. Exception: {}", ex.getMessage(), ex);
-            throw new BaseException.NavigationException("Error retrieving the current page title", ex);
-        }
+        String title = driverManager.getDriver().getTitle();
+        log.info("The browser page title is :: '{}'", title);
+        return title;
     }
 
 }
