@@ -4,6 +4,7 @@ import java.net.MalformedURLException;
 import java.net.URI;
 
 import com.qa.stf.constant.BrowserType;
+import com.qa.stf.listener.TestListener;
 import com.qa.stf.util.ExceptionUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -33,12 +34,14 @@ public class DriverManager extends BrowserManager {
     private FirefoxOptions ffOptions;
     private EdgeOptions meOptions;
     public static ThreadLocal<WebDriver> driverLocal = new ThreadLocal<>();
+    public static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
 
     public static ExcelReaderUtil excelReaderUtil = new ExcelReaderUtil(
             System.getProperty("user.dir") + TestConstants.EXCEL_FILE_PATH);
 
     public static ExtentReports report = ExtentUtil.getInstance();
-    public static ExtentTest test;
+
+//    public static ExtentTest test;
 
     public static BasePage page;
 
@@ -56,9 +59,22 @@ public class DriverManager extends BrowserManager {
         return driverLocal.get();
     }
 
+    public ExtentTest getExtentTest() {
+        return extentTest.get();
+    }
+
+    public void setExtentTest(ExtentTest extentTest) {
+        DriverManager.extentTest.set(extentTest);
+    }
+
+    public void closeExtentTest(){
+        extentTest.remove();
+    }
+
     public void launchBrowser() {
         driver = createDriver();
         setDriver(driver);
+        new TestListener(new DriverManager());
         page = new BasePage();
         driver.get(getDataFromPropFile(TestConstants.APP_URL));
     }

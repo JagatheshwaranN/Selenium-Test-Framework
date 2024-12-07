@@ -106,4 +106,16 @@ public class ExceptionUtil extends RuntimeException {
         }
     }
 
+    public static class ScreenshotException extends ExceptionUtil {
+
+        public ScreenshotException(String message) {
+            super(message);
+        }
+
+        public ScreenshotException(String message, Throwable cause) {
+            super(message, cause);
+        }
+    }
+
+
 }

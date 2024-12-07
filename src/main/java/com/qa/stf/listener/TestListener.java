@@ -4,8 +4,15 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.UUID;
 
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.qa.stf.report.ExtentReport;
+import com.qa.stf.util.ExceptionUtil;
 import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.testng.ISuite;
@@ -19,90 +26,108 @@ import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.qa.stf.base.DriverManager;
 import com.qa.stf.constant.TestConstants;
-import com.qa.stf.reuse.ReusableComponent;
 
 public class TestListener extends DriverManager implements ITestListener, ISuiteListener {
 
-	// private static String messageBody;
+    private static final Logger log = LogManager.getLogger(TestListener.class);
 
-	@Override
-	public void onStart(ISuite suite) {
-		ISuiteListener.super.onStart(suite);
-	}
+    DriverManager driverManager;
+    ExtentReports extentReports;
+    ExtentTest extentTest;
 
-	@Override
-	public void onFinish(ISuite suite) {
-		ISuiteListener.super.onFinish(suite);
-	}
+    // private static String messageBody;
+    private static final String REPORT_CONFIG_KEY = "org.uncommons.reportng.escape-output";
+    private static final String REPORT_CONFIG_VALUE = "false";
+    private static final String SNAPSHOT_PATH = System.getProperty("user.dir") + TestConstants.SNAPSHOT_PATH;
+    private static final String IMG_FORMAT = ".png";
 
-	@Override
-	public void onStart(ITestContext context) {
-		ITestListener.super.onStart(context);
-		test = report.createTest(context.getName());
-	}
+    public TestListener(DriverManager driverManager) {
+        this.driverManager = driverManager;
+    }
 
-	@Override
-	public void onFinish(ITestContext context) {
-		ITestListener.super.onFinish(context);
-		report.flush();
-	}
+    @Override
+    public void onStart(ISuite suite) {
+        log.info("Test Suite started: {}", suite.getName());
+    }
 
-	@Override
-	public void onTestStart(ITestResult result) {
-		test.log(Status.INFO, () -> result.getName().toUpperCase() + " Test Started");
-		Reporter.log(result.getName().toUpperCase() + " Test Started");
-	}
+    @Override
+    public void onFinish(ISuite suite) {
+        log.info("Test Suite finished: {}", suite.getName());
+    }
 
-	@Override
-	public void onTestSuccess(ITestResult result) {
-		ITestListener.super.onTestSuccess(result);
-		System.setProperty("org.uncommons.reportng.escape-output", "false");
-		ReusableComponent.waitForSomeTime();
-		var passTCBase64SnapShot = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BASE64);
-		test.pass(result.getName().toUpperCase() + " Test Passed",
-				MediaEntityBuilder.createScreenCaptureFromBase64String(passTCBase64SnapShot).build());
-		var snapToAttach = captureScreenShot();
-		testNGReporterUpdate(result.getName().toUpperCase() + " Test Passed", snapToAttach);
-	}
+    @Override
+    public void onStart(ITestContext context) {
+        extentReports = ExtentReport.setupExtentReport();
+        log.info("Test Context started: {}", context.getName());
+    }
 
-	@Override
-	public void onTestFailure(ITestResult result) {
-		ITestListener.super.onTestFailure(result);
-		System.setProperty("org.uncommons.reportng.escape-output", "false");
-		ReusableComponent.waitForSomeTime();
-		var failTCBase64SnapShot = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.BASE64);
-		test.fail(result.getName().toUpperCase() + " Test Failed",
-				MediaEntityBuilder.createScreenCaptureFromBase64String(failTCBase64SnapShot).build());
-		var snapToAttach = captureScreenShot();
-		testNGReporterUpdate(result.getName().toUpperCase() + " Test Failed", snapToAttach);
-	}
+    @Override
+    public void onFinish(ITestContext context) {
+        log.info("Test Context finished: {}", context.getName());
+        extentReports.flush();
+    }
 
-	@Override
-	public void onTestSkipped(ITestResult result) {
-		test.log(Status.SKIP, () -> result.getName().toUpperCase() + " Test Skipped. As the RUN MODE is set to N");
-	}
+    @Override
+    public void onTestStart(ITestResult result) {
+        extentTest = extentReports.createTest(result.getMethod().getMethodName());
+        driverManager.setExtentTest(extentTest);
+        driverManager.getExtentTest().log(Status.INFO, () -> result.getName().toUpperCase() + TestConstants.TEST_START);
+        Reporter.log(result.getName().toUpperCase() + TestConstants.TEST_START);
+    }
 
-	private String captureScreenShot() {
-		Calendar calendar = Calendar.getInstance();
-		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd_MM_YYYY_hh_mm_ss");
-		File source = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
-		File destination = new File(System.getProperty("user.dir") + TestConstants.SNAPSHOT_PATH
-				+ simpleDateFormat.format(calendar.getTime()) + ".png");
-		try {
-			FileUtils.copyFile(source, destination);
-		} catch (IOException ex) {
-			ex.printStackTrace();
-		}
-		return destination.getAbsolutePath();
-	}
+    @Override
+    public void onTestSuccess(ITestResult result) {
+        handleTestResult(result, Status.PASS, TestConstants.TEST_PASS);
+        log.warn("Test Passed: {}", result.getName());
+    }
 
-	private void testNGReporterUpdate(String testStatus, String screenShot) {
-		Reporter.log("<br>");
-		Reporter.log(testStatus);
-		Reporter.log("<br>");
-		Reporter.log("<a target='_blank' href='" + screenShot + "'><img src='" + screenShot
-				+ "' height='100' width='100' /></a>");
-	}
+    @Override
+    public void onTestFailure(ITestResult result) {
+        handleTestResult(result, Status.FAIL, TestConstants.TEST_FAIL);
+        log.warn("Test Failed: {}", result.getName());
+    }
+
+    @Override
+    public void onTestSkipped(ITestResult result) {
+        driverManager.getExtentTest().log(Status.SKIP, () -> result.getName().toUpperCase() + TestConstants.TEST_SKIP);
+        log.warn("Test Skipped: {}", result.getName());
+    }
+
+    private void handleTestResult(ITestResult result, Status status, String message) {
+        System.setProperty(REPORT_CONFIG_KEY, REPORT_CONFIG_VALUE);
+        String snapshotPath = captureScreenshot();
+        try {
+            String base64Snapshot = ((TakesScreenshot) driverManager.getDriver()).getScreenshotAs(OutputType.BASE64);
+            driverManager.getExtentTest().log(status, result.getName().toUpperCase() + message,
+                    MediaEntityBuilder.createScreenCaptureFromBase64String(base64Snapshot).build());
+        } catch (Exception ex) {
+            log.error("Failed to capture Base64 screenshot: {}", ex.getMessage(), ex);
+        }
+        testNGReporterUpdate(result.getName().toUpperCase() + message, snapshotPath);
+    }
+
+    private String captureScreenshot() {
+        String timestamp = new SimpleDateFormat(TestConstants.DATE_FORMAT).format(Calendar.getInstance().getTime());
+        String uniqueId = UUID.randomUUID().toString();
+        File source = ((TakesScreenshot) driverManager.getDriver()).getScreenshotAs(OutputType.FILE);
+        File destination = new File(SNAPSHOT_PATH + timestamp + "_" + uniqueId + IMG_FORMAT);
+        try {
+            FileUtils.copyFile(source, destination);
+            log.info("Screenshot saved: {}", destination.getAbsolutePath());
+        } catch (IOException ex) {
+            log.error("Failed to save screenshot: {}", ex.getMessage(), ex);
+            throw new ExceptionUtil.ScreenshotException("Failed to create the screenshot", ex);
+        }
+        return destination.getAbsolutePath();
+    }
+
+    private void testNGReporterUpdate(String testStatus, String screenshotPath) {
+        Reporter.log("<br>");
+        Reporter.log(testStatus);
+        Reporter.log("<br>");
+        Reporter.log("<a target='_blank' href='" + screenshotPath + "'><img src='" + screenshotPath
+                + "' height='100' width='100' /></a>");
+    }
 
 }
 
