@@ -1,6 +1,6 @@
-package com.qa.stf.helper;
+package com.qa.stf.handler;
 
-import com.qa.stf.handler.BaseException;
+import com.qa.stf.util.ExceptionUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Alert;
@@ -25,7 +25,7 @@ import java.util.Optional;
  *
  * <p>Exception Handling:
  * <ul>
- *   <li>Custom exceptions from the {@link com.qa.stf.handler.BaseException} class
+ *   <li>Custom exceptions from the {@link ExceptionUtil} class
  *       are thrown for more descriptive error handling.</li>
  *   <li>Detailed logging is provided for successful operations and error scenarios.</li>
  * </ul>
@@ -59,7 +59,7 @@ public class AlertHandler extends BasePage {
      * </p>
      *
      * @return An Optional containing the Alert if present.
-     * @throws BaseException.AlertNotFoundException If no alert is found on the page.
+     * @throws ExceptionUtil.AlertNotFoundException If no alert is found on the page.
      */
     public Optional<Alert> getAlert() {
         try {
@@ -68,7 +68,7 @@ public class AlertHandler extends BasePage {
             return Optional.of(alert);
         } catch (NoAlertPresentException ex) {
             log.error("No alert present on the page.");
-            throw new BaseException.AlertNotFoundException(ex);
+            throw new ExceptionUtil.AlertNotFoundException(ex);
         }
     }
 

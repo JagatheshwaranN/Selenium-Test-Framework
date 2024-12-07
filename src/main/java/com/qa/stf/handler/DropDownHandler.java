@@ -1,12 +1,11 @@
-package com.qa.stf.helper;
+package com.qa.stf.handler;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
-import com.qa.stf.handler.BaseException;
+import com.qa.stf.util.ExceptionUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -31,7 +30,7 @@ import com.qa.stf.base.BasePage;
  *
  * <p>Exception Handling:
  * <ul>
- *   <li>Custom exceptions from the {@link com.qa.stf.handler.BaseException} class
+ *   <li>Custom exceptions from the {@link ExceptionUtil} class
  *       are thrown for more descriptive error handling.</li>
  *   <li>Detailed logging is provided for successful operations and error scenarios.</li>
  * </ul>
@@ -113,7 +112,7 @@ public class DropDownHandler extends BasePage {
      * @param dropdown     The WebElement representing the dropdown.
      * @param visibleText  The visible text of the option to be selected.
      * @param elementLabel The label for logging purposes.
-     * @throws BaseException.ElementNotFoundException If the specified value is not found in
+     * @throws ExceptionUtil.ElementNotFoundException If the specified value is not found in
      *                                                the dropdown options.
      */
     public void selectOptionByVisibleText(WebElement dropdown, String visibleText, String elementLabel) {
@@ -136,9 +135,9 @@ public class DropDownHandler extends BasePage {
      * @param optionsList  A list of all available options in the dropdown.
      * @param value        The value of the option to be selected.
      * @param elementLabel The label for logging purposes.
-     * @throws BaseException.OptionNotFoundException If the specified value is not found in
+     * @throws ExceptionUtil.OptionNotFoundException If the specified value is not found in
      *                                               the dropdown options.
-     * @throws BaseException.DropDownException If the dropdown is not interactable.
+     * @throws ExceptionUtil.DropDownException If the dropdown is not interactable.
      */
     public void selectDropdownOption(WebElement dropdown, List<WebElement> optionsList, String value, String elementLabel) {
         try {
@@ -149,14 +148,14 @@ public class DropDownHandler extends BasePage {
                         .findFirst()
                         .orElseThrow(() -> {
                             log.error("'{}' option not found in the '{}' dropdown", value, elementLabel);
-                            return new BaseException.OptionNotFoundException(value, elementLabel);
+                            return new ExceptionUtil.OptionNotFoundException(value, elementLabel);
                         });
                 option.click();
                 log.info("The option '{}' is selected from the '{}' dropdown", value, elementLabel);
             }
         }catch (ElementNotInteractableException ex) {
             log.error("The dropdown is present but not interactable. Exception: {}", ex.getMessage(), ex);
-            throw new BaseException.DropDownException("Failed to interact with the dropdown due to its non-interactable state.", ex);
+            throw new ExceptionUtil.DropDownException("Failed to interact with the dropdown due to its non-interactable state.", ex);
         }
     }
 

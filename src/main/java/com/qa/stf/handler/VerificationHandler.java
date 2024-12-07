@@ -1,6 +1,6 @@
-package com.qa.stf.helper;
+package com.qa.stf.handler;
 
-import com.qa.stf.handler.BaseException;
+import com.qa.stf.util.ExceptionUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.NoSuchElementException;
@@ -28,7 +28,7 @@ import java.util.Objects;
  *
  * <p>Exception Handling:
  * <ul>
- *   <li>Custom exceptions from the {@link com.qa.stf.handler.BaseException} class
+ *   <li>Custom exceptions from the {@link ExceptionUtil} class
  *       are thrown for descriptive error handling in case of element-related failures.</li>
  *   <li>Detailed logging is provided for both successful operations and error scenarios.</li>
  * </ul>
@@ -70,18 +70,18 @@ public class VerificationHandler {
      * @param element      The WebElement to check.
      * @param elementLabel The label for logging purposes.
      * @return true if the element is displayed, false otherwise.
-     * @throws BaseException.ElementNotFoundException If the element is not found or
+     * @throws ExceptionUtil.ElementNotFoundException If the element is not found or
      *                                                inaccessible.
      */
     public boolean isElementDisplayed(WebElement element, String elementLabel) {
         if (!isElementNotNull(element, elementLabel)) {
-            throw new BaseException(elementLabel + " element is null.");
+            throw new ExceptionUtil(elementLabel + " element is null.");
         }
         try {
             return element.isDisplayed();
         } catch (NoSuchElementException | StaleElementReferenceException ex) {
             log.error("Error occurred while checking the presence of the '{}' element. Exception: {}", elementLabel, ex.getMessage(), ex);
-            throw new BaseException.ElementNotFoundException(elementLabel, ex);
+            throw new ExceptionUtil.ElementNotFoundException(elementLabel, ex);
         }
     }
 

@@ -1,12 +1,11 @@
-package com.qa.stf.helper;
+package com.qa.stf.handler;
 
 import com.qa.stf.base.WebPage;
-import com.qa.stf.handler.BaseException;
+import com.qa.stf.util.ExceptionUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
@@ -38,7 +37,7 @@ import java.util.Collections;
  *
  * <p>Exception Handling:
  * <ul>
- *   <li>Custom exceptions from the {@link com.qa.stf.handler.BaseException} class
+ *   <li>Custom exceptions from the {@link ExceptionUtil} class
  *       are thrown for descriptive error handling during interaction failures.</li>
  *   <li>Detailed logging is provided for successful interactions and error scenarios
  *       to facilitate debugging and traceability.</li>
@@ -104,7 +103,7 @@ public class InteractionHandler extends BasePage implements WebPage {
      * @param locator      The dynamic locator for the element.
      * @param value        The value to substitute in the locator.
      * @param elementLabel The label describing the element.
-     * @throws BaseException.InteractionException If an error occurs while click on an
+     * @throws ExceptionUtil.InteractionException If an error occurs while click on an
      *                                            element.
      */
     @Override
@@ -117,7 +116,7 @@ public class InteractionHandler extends BasePage implements WebPage {
             }
         } catch (ElementClickInterceptedException ex) {
             log.error("Failed to click the '{}' element using Actions", elementLabel, ex);
-            throw new BaseException.InteractionException("Exception occurred while clicking " + elementLabel + " element using JavaScriptExecutor", ex);
+            throw new ExceptionUtil.InteractionException("Exception occurred while clicking " + elementLabel + " element using JavaScriptExecutor", ex);
         }
     }
 

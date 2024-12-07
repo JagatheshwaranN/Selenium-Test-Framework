@@ -2,7 +2,7 @@ package com.qa.stf.base;
 
 import com.qa.stf.constant.BrowserType;
 import com.qa.stf.constant.TestConstants;
-import com.qa.stf.handler.BaseException;
+import com.qa.stf.util.ExceptionUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -39,7 +39,7 @@ public class BrowserManager extends FileReaderUtil {
                 yield BrowserType.EDGE;
             }
             default ->
-                    throw new BaseException.ConfigTypeException(getBrowser());
+                    throw new ExceptionUtil.ConfigTypeException(getBrowser());
         };
     }
 

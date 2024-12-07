@@ -1,9 +1,9 @@
-package com.qa.stf.helper;
+package com.qa.stf.handler;
 
 import java.util.LinkedList;
 import java.util.Set;
 
-import com.qa.stf.handler.BaseException;
+import com.qa.stf.util.ExceptionUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -29,7 +29,7 @@ import org.openqa.selenium.*;
  *
  * <p>Exception Handling:
  * <ul>
- *   <li>Custom exceptions from the {@link com.qa.stf.handler.BaseException} class
+ *   <li>Custom exceptions from the {@link ExceptionUtil} class
  *       are thrown for more descriptive error handling.</li>
  *   <li>Detailed logging is provided for successful operations and error scenarios.</li>
  * </ul>
@@ -157,7 +157,7 @@ public class BrowserHandler extends BasePage {
      *
      * @param index The index of the window to switch to.
      * @throws IllegalArgumentException      If the provided index is out of bounds.
-     * @throws BaseException.WindowException If the window cannot be switched due to an exception.
+     * @throws ExceptionUtil.WindowException If the window cannot be switched due to an exception.
      */
     private void switchToWindowByIndex(int index) {
         var windowsId = new LinkedList<>(getBrowserWindowHandles());
@@ -169,7 +169,7 @@ public class BrowserHandler extends BasePage {
             log.info("Switched to browser window at index :: '{}'", index);
         } catch (NoSuchWindowException ex) {
             log.error("Failed to switch to window at index '{}'. Exception: {}", index, ex.getMessage(), ex);
-            throw new BaseException.WindowException("Failed to switch to window", ex);
+            throw new ExceptionUtil.WindowException("Failed to switch to window", ex);
         }
     }
 
@@ -183,7 +183,7 @@ public class BrowserHandler extends BasePage {
      * </p>
      *
      * @throws IllegalArgumentException      If there are no browser windows available to close.
-     * @throws BaseException.WindowException If there is an error closing child windows or
+     * @throws ExceptionUtil.WindowException If there is an error closing child windows or
      *                                       switching to the parent window.
      */
     public void switchToParentWithChildClose() {
@@ -199,7 +199,7 @@ public class BrowserHandler extends BasePage {
             log.info("Switched back to the parent browser window with handle: '{}'", windowsId.getFirst());
         } catch (NoSuchWindowException ex) {
             log.error("Error closing child windows or switching to parent window. Exception: {}", ex.getMessage(), ex);
-            throw new BaseException.WindowException("Error closing child windows or switching to parent window", ex);
+            throw new ExceptionUtil.WindowException("Error closing child windows or switching to parent window", ex);
         }
     }
 
@@ -239,7 +239,7 @@ public class BrowserHandler extends BasePage {
      * @throws IllegalArgumentException       If the input is null or invalid.
      * @throws NoSuchFrameException           If the frame is not found.
      * @throws StaleElementReferenceException If the WebElement is stale.
-     * @throws BaseException.FrameException   If switching to the frame fails due to other reasons.
+     * @throws ExceptionUtil.FrameException   If switching to the frame fails due to other reasons.
      */
     public void switchToFrame(Object frameIdentifier) {
         if (frameIdentifier == null) {
@@ -270,10 +270,10 @@ public class BrowserHandler extends BasePage {
             }
         } catch (StaleElementReferenceException ex) {
             log.error("Failed to switch to frame due to stale element reference. Exception: {}", ex.getMessage(), ex);
-            throw new BaseException.FrameException("Error switching to frame due to stale element reference", ex);
+            throw new ExceptionUtil.FrameException("Error switching to frame due to stale element reference", ex);
         } catch (NoSuchFrameException ex) {
             log.error("Failed to switch to frame. Exception: {}", ex.getMessage(), ex);
-            throw new BaseException.FrameException("Error switching to frame", ex);
+            throw new ExceptionUtil.FrameException("Error switching to frame", ex);
         }
     }
 

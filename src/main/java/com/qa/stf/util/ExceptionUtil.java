@@ -1,18 +1,16 @@
-package com.qa.stf.handler;
+package com.qa.stf.util;
 
-public class BaseException extends RuntimeException {
+public class ExceptionUtil extends RuntimeException {
 
-    public BaseException(String message) {
+    public ExceptionUtil(String message) {
         super(message);
     }
 
-    public BaseException(String message, Throwable cause) {
+    public ExceptionUtil(String message, Throwable cause) {
         super(message, cause);
     }
 
-
-
-    public static class OptionNotFoundException extends BaseException {
+    public static class OptionNotFoundException extends ExceptionUtil {
 
         public OptionNotFoundException(String value, String elementLabel) {
             super("Option '" + value + "' not found in the '" + elementLabel + "' dropdown.");
@@ -24,7 +22,7 @@ public class BaseException extends RuntimeException {
         }
     }
 
-    public static class DropDownException extends BaseException {
+    public static class DropDownException extends ExceptionUtil {
 
         public DropDownException(String value, Throwable cause) {
             super(value, cause);
@@ -33,7 +31,7 @@ public class BaseException extends RuntimeException {
 
     }
 
-    public static class ElementNotFoundException extends BaseException {
+    public static class ElementNotFoundException extends ExceptionUtil {
 
         public ElementNotFoundException(String elementLabel) {
             super("Element '" + elementLabel + "' is not found / modified on the DOM.");
@@ -44,49 +42,49 @@ public class BaseException extends RuntimeException {
         }
     }
 
-    public static class ConfigTypeException extends BaseException {
+    public static class ConfigTypeException extends ExceptionUtil {
 
         public ConfigTypeException(String config) {
             super("The '" + config + "' config type is not valid. Please check the configuration.");
         }
     }
 
-    public static class InvalidDataException extends BaseException {
+    public static class InvalidDataException extends ExceptionUtil {
 
         public InvalidDataException(String data) {
             super("The '" + data + "' value is not valid. Please check the data.");
         }
     }
 
-    public static class AlertNotFoundException extends BaseException {
+    public static class AlertNotFoundException extends ExceptionUtil {
 
         public AlertNotFoundException(Throwable throwable) {
             super("Alert was not present on the page.", throwable);
         }
     }
 
-    public static class NavigationException extends BaseException {
+    public static class NavigationException extends ExceptionUtil {
 
         public NavigationException(String data, Throwable throwable) {
             super(data, throwable);
         }
     }
 
-    public static class WindowException extends BaseException {
+    public static class WindowException extends ExceptionUtil {
 
         public WindowException(String data, Throwable throwable) {
             super(data, throwable);
         }
     }
 
-    public static class FrameException extends BaseException {
+    public static class FrameException extends ExceptionUtil {
 
         public FrameException(String data, Throwable throwable) {
             super(data, throwable);
         }
     }
 
-    public static class JavascriptExecutorException extends BaseException {
+    public static class JavascriptExecutorException extends ExceptionUtil {
 
         public JavascriptExecutorException(String message) {
             super(message);
@@ -97,7 +95,7 @@ public class BaseException extends RuntimeException {
         }
     }
 
-    public static class InteractionException extends BaseException {
+    public static class InteractionException extends ExceptionUtil {
 
         public InteractionException(String message) {
             super(message);
@@ -107,7 +105,5 @@ public class BaseException extends RuntimeException {
             super(message, cause);
         }
     }
-
-
 
 }

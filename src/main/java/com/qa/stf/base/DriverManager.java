@@ -4,7 +4,7 @@ import java.net.MalformedURLException;
 import java.net.URI;
 
 import com.qa.stf.constant.BrowserType;
-import com.qa.stf.handler.BaseException;
+import com.qa.stf.util.ExceptionUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Platform;
@@ -73,7 +73,7 @@ public class DriverManager extends BrowserManager {
                     throw new RuntimeException(e);
                 }
             }
-            default -> throw new BaseException.InvalidDataException(environmentManager.getEnvType().toString());
+            default -> throw new ExceptionUtil.InvalidDataException(environmentManager.getEnvType().toString());
         };
     }
 
@@ -99,7 +99,7 @@ public class DriverManager extends BrowserManager {
                 meOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
                 yield new EdgeDriver(meOptions);
             }
-            default -> throw new BaseException.InvalidDataException(getBrowserType().toString());
+            default -> throw new ExceptionUtil.InvalidDataException(getBrowserType().toString());
         };
     }
 
@@ -127,7 +127,7 @@ public class DriverManager extends BrowserManager {
                 meOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
                 yield new RemoteWebDriver(URI.create(getDataFromPropFile("RemoteUrl")).toURL(), meOptions);
             }
-            default -> throw new BaseException.InvalidDataException(getBrowserType().toString());
+            default -> throw new ExceptionUtil.InvalidDataException(getBrowserType().toString());
         };
     }
 

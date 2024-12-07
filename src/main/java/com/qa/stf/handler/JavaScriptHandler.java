@@ -1,6 +1,6 @@
-package com.qa.stf.helper;
+package com.qa.stf.handler;
 
-import com.qa.stf.handler.BaseException;
+import com.qa.stf.util.ExceptionUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -30,7 +30,7 @@ import com.qa.stf.base.WebPage;
  *
  * <p>Exception Handling:
  * <ul>
- *   <li>Custom exceptions from the {@link com.qa.stf.handler.BaseException} class
+ *   <li>Custom exceptions from the {@link ExceptionUtil} class
  *       are thrown for descriptive error handling in case of JavaScript execution failures.</li>
  *   <li>Detailed logging is provided for both successful script executions and error scenarios.</li>
  * </ul>
@@ -102,7 +102,7 @@ public class JavaScriptHandler extends BasePage implements WebPage {
      * @param locator      The dynamic locator for the element.
      * @param value        The value to substitute in the locator.
      * @param elementLabel The label describing the element.
-     * @throws BaseException.JavascriptExecutorException If an error occurs while click on an
+     * @throws ExceptionUtil.JavascriptExecutorException If an error occurs while click on an
      *                                                   element.
      */
     @Override
@@ -115,7 +115,7 @@ public class JavaScriptHandler extends BasePage implements WebPage {
             }
         } catch (ElementClickInterceptedException ex) {
             log.error("Failed to click the '{}' element using JavaScriptExecutor", elementLabel, ex);
-            throw new BaseException.JavascriptExecutorException("Exception occurred while clicking " + elementLabel + " element using JavaScriptExecutor", ex);
+            throw new ExceptionUtil.JavascriptExecutorException("Exception occurred while clicking " + elementLabel + " element using JavaScriptExecutor", ex);
         }
     }
 

@@ -1,7 +1,7 @@
 package com.qa.stf.ohrm.pages;
 
-import com.qa.stf.helper.DropDownHandler;
-import com.qa.stf.helper.VerificationHandler;
+import com.qa.stf.handler.DropDownHandler;
+import com.qa.stf.handler.VerificationHandler;
 
 public class PageManager {
 

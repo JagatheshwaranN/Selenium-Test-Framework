@@ -1,7 +1,7 @@
 package com.qa.stf.base;
 
 import com.qa.stf.constant.EnvType;
-import com.qa.stf.handler.BaseException;
+import com.qa.stf.util.ExceptionUtil;
 import com.qa.stf.util.FileReaderUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -30,7 +30,7 @@ public class EnvironmentManager extends FileReaderUtil  {
             log.info("Remote Environment is opted for test execution");
             return EnvType.REMOTE;
         } else
-            throw new BaseException.ConfigTypeException(getEnv());
+            throw new ExceptionUtil.ConfigTypeException(getEnv());
     }
 
     private String getValue(String key) {
