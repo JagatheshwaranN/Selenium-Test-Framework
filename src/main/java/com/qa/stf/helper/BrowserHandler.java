@@ -126,31 +126,6 @@ public class BrowserHandler extends BasePage {
     /**
      * Switches to a browser window based on the specified index.
      * <p>
-     * This method retrieves the list of browser window handles and switches
-     * to the window at the specified index.
-     * </p>
-     *
-     * @param index The index of the window to switch to.
-     * @throws IllegalArgumentException      If the provided index is out of bounds.
-     * @throws BaseException.WindowException If the window cannot be switched due to an exception.
-     */
-    private void switchToWindowByIndex(int index) {
-        var windowsId = new LinkedList<>(getBrowserWindowHandles());
-        if (index < 0 || index >= windowsId.size()) {
-            throw new IllegalArgumentException("Browser window handle has invalid index :: " + "'" + index + "'");
-        }
-        try {
-            driverManager.getDriver().switchTo().window(windowsId.get(index));
-            log.info("Switched to browser window at index :: '{}'", index);
-        } catch (NoSuchWindowException ex) {
-            log.error("Failed to switch to window at index '{}'. Exception: {}", index, ex.getMessage(), ex);
-            throw new BaseException.WindowException("Failed to switch to window", ex);
-        }
-    }
-
-    /**
-     * Switches to a browser window based on the specified index.
-     * <p>
      * Delegates to a helper method to switch the browser's context to
      * the specified window index.
      * </p>
@@ -171,6 +146,31 @@ public class BrowserHandler extends BasePage {
     public void switchToParentWindow() {
         var windowsId = getWindowsList();
         switchToWindowByIndex(Integer.parseInt(windowsId.getFirst())); // First window index is 0
+    }
+
+    /**
+     * Switches to a browser window based on the specified index.
+     * <p>
+     * This method retrieves the list of browser window handles and switches
+     * to the window at the specified index.
+     * </p>
+     *
+     * @param index The index of the window to switch to.
+     * @throws IllegalArgumentException      If the provided index is out of bounds.
+     * @throws BaseException.WindowException If the window cannot be switched due to an exception.
+     */
+    private void switchToWindowByIndex(int index) {
+        var windowsId = new LinkedList<>(getBrowserWindowHandles());
+        if (index < 0 || index >= windowsId.size()) {
+            throw new IllegalArgumentException("Browser window handle has invalid index :: " + "'" + index + "'");
+        }
+        try {
+            driverManager.getDriver().switchTo().window(windowsId.get(index));
+            log.info("Switched to browser window at index :: '{}'", index);
+        } catch (NoSuchWindowException ex) {
+            log.error("Failed to switch to window at index '{}'. Exception: {}", index, ex.getMessage(), ex);
+            throw new BaseException.WindowException("Failed to switch to window", ex);
+        }
     }
 
     /**

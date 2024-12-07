@@ -26,8 +26,8 @@ public class BaseException extends RuntimeException {
 
     public static class DropDownException extends BaseException {
 
-        public DropDownException(String value) {
-            super(value);
+        public DropDownException(String value, Throwable cause) {
+            super(value, cause);
 
         }
 

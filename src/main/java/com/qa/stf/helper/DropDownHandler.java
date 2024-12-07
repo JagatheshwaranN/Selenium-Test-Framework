@@ -6,6 +6,8 @@ import java.util.stream.Collectors;
 import com.qa.stf.handler.BaseException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
@@ -74,7 +76,7 @@ public class DropDownHandler extends BasePage {
      * @param value        The value attribute of the option to be selected.
      * @param elementLabel The label for logging purposes.
      */
-    public void selectByValue(WebElement dropdown, String value, String elementLabel) {
+    public void selectOptionByValue(WebElement dropdown, String value, String elementLabel) {
         if (verificationHandler.isElementDisplayed(dropdown, elementLabel)) {
             Select select = new Select(dropdown);
             select.selectByValue(value);
@@ -93,7 +95,7 @@ public class DropDownHandler extends BasePage {
      * @param index        The index of the option to be selected (0-based).
      * @param elementLabel The label for logging purposes.
      */
-    public void selectByIndex(WebElement dropdown, int index, String elementLabel) {
+    public void selectOptionByIndex(WebElement dropdown, int index, String elementLabel) {
         if (verificationHandler.isElementDisplayed(dropdown, elementLabel)) {
             Select select = new Select(dropdown);
             select.selectByIndex(index);
@@ -114,7 +116,7 @@ public class DropDownHandler extends BasePage {
      * @throws BaseException.ElementNotFoundException If the specified value is not found in
      *                                                the dropdown options.
      */
-    public void selectByVisibleText(WebElement dropdown, String visibleText, String elementLabel) {
+    public void selectOptionByVisibleText(WebElement dropdown, String visibleText, String elementLabel) {
         if (verificationHandler.isElementDisplayed(dropdown, elementLabel)) {
             Select select = new Select(dropdown);
             select.selectByVisibleText(visibleText);
@@ -136,19 +138,25 @@ public class DropDownHandler extends BasePage {
      * @param elementLabel The label for logging purposes.
      * @throws BaseException.OptionNotFoundException If the specified value is not found in
      *                                               the dropdown options.
+     * @throws BaseException.DropDownException If the dropdown is not interactable.
      */
     public void selectDropdownOption(WebElement dropdown, List<WebElement> optionsList, String value, String elementLabel) {
-        if (verificationHandler.isElementDisplayed(dropdown, elementLabel)) {
-            dropdown.click();
-            WebElement option = optionsList.stream()
-                    .filter(opt -> opt.getText().equalsIgnoreCase(value))
-                    .findFirst()
-                    .orElseThrow(() -> {
-                        log.error("'{}' option not found in the '{}' dropdown", value, elementLabel);
-                        return new BaseException.OptionNotFoundException(value, elementLabel);
-                    });
-            option.click();
-            log.info("The option '{}' is selected from the '{}' dropdown", value, elementLabel);
+        try {
+            if (verificationHandler.isElementDisplayed(dropdown, elementLabel)) {
+                dropdown.click();
+                WebElement option = optionsList.stream()
+                        .filter(opt -> opt.getText().equalsIgnoreCase(value))
+                        .findFirst()
+                        .orElseThrow(() -> {
+                            log.error("'{}' option not found in the '{}' dropdown", value, elementLabel);
+                            return new BaseException.OptionNotFoundException(value, elementLabel);
+                        });
+                option.click();
+                log.info("The option '{}' is selected from the '{}' dropdown", value, elementLabel);
+            }
+        }catch (ElementNotInteractableException ex) {
+            log.error("The dropdown is present but not interactable. Exception: {}", ex.getMessage(), ex);
+            throw new BaseException.DropDownException("Failed to interact with the dropdown due to its non-interactable state.", ex);
         }
     }
 

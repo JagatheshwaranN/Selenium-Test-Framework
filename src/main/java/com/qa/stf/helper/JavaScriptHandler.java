@@ -4,6 +4,7 @@ import com.qa.stf.handler.BaseException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
@@ -50,7 +51,7 @@ import com.qa.stf.base.WebPage;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.1
+ * @version 1.2
  */
 public class JavaScriptHandler extends BasePage implements WebPage {
 
@@ -83,18 +84,12 @@ public class JavaScriptHandler extends BasePage implements WebPage {
      *
      * @param element      The WebElement to be clicked.
      * @param elementLabel The label describing the element.
-     * @throws BaseException.JavascriptExecutorException If an error occurs during execution.
      */
     @Override
     public void clickElement(WebElement element, String elementLabel) {
-        try {
-            if (verificationHandler.isElementDisplayed(element, elementLabel)) {
-                executor.executeScript(CLICK_ELEMENT, element);
-                log.info("Clicked the '{}' element using JavaScriptExecutor", elementLabel);
-            }
-        } catch (Exception ex) {
-            log.error("Failed to click the '{}' element using JavaScriptExecutor", elementLabel, ex);
-            throw new BaseException.JavascriptExecutorException("Exception occurred while clicking " + elementLabel + " element using JavaScriptExecutor", ex);
+        if (verificationHandler.isElementDisplayed(element, elementLabel)) {
+            executor.executeScript(CLICK_ELEMENT, element);
+            log.info("Clicked the '{}' element using JavaScriptExecutor", elementLabel);
         }
     }
 
@@ -108,7 +103,8 @@ public class JavaScriptHandler extends BasePage implements WebPage {
      * @param locator      The dynamic locator for the element.
      * @param value        The value to substitute in the locator.
      * @param elementLabel The label describing the element.
-     * @throws BaseException.JavascriptExecutorException If an error occurs during execution.
+     * @throws BaseException.JavascriptExecutorException If an error occurs while click on an
+     *                                                   element.
      */
     @Override
     public void clickElement(By locator, String value, String elementLabel) {
@@ -118,7 +114,7 @@ public class JavaScriptHandler extends BasePage implements WebPage {
                 executor.executeScript(CLICK_ELEMENT, element);
                 log.info("Clicked the '{}' element using JavaScriptExecutor", elementLabel);
             }
-        } catch (Exception ex) {
+        } catch (ElementClickInterceptedException ex) {
             log.error("Failed to click the '{}' element using JavaScriptExecutor", elementLabel, ex);
             throw new BaseException.JavascriptExecutorException("Exception occurred while clicking " + elementLabel + " element using JavaScriptExecutor", ex);
         }
@@ -134,20 +130,14 @@ public class JavaScriptHandler extends BasePage implements WebPage {
      * @param element      The WebElement to enter text into.
      * @param text         The text to be entered.
      * @param elementLabel The label describing the element.
-     * @throws BaseException.JavascriptExecutorException If an error occurs during execution.
      */
     @Override
     public void typeElement(WebElement element, String text, String elementLabel) {
-        try {
-            if (verificationHandler.isElementDisplayed(element, elementLabel)) {
-                if (text != null) {
-                    executor.executeScript(String.format(TYPE_INTO_ELEMENT, text), element);
-                    log.info("Entered '{}' text into the '{}' element using JavaScriptExecutor", text, elementLabel);
-                }
+        if (verificationHandler.isElementDisplayed(element, elementLabel)) {
+            if (text != null) {
+                executor.executeScript(String.format(TYPE_INTO_ELEMENT, text), element);
+                log.info("Entered '{}' text into the '{}' element using JavaScriptExecutor", text, elementLabel);
             }
-        } catch (Exception ex) {
-            log.error("Failed to type into the '{}' element using JavaScriptExecutor", elementLabel, ex);
-            throw new BaseException.JavascriptExecutorException("Exception occurred while typing into " + elementLabel + " element using JavaScriptExecutor", ex);
         }
     }
 
@@ -160,18 +150,12 @@ public class JavaScriptHandler extends BasePage implements WebPage {
      *
      * @param element      The WebElement to clear.
      * @param elementLabel The label describing the element.
-     * @throws BaseException.JavascriptExecutorException If an error occurs during execution.
      */
     @Override
     public void clearElement(WebElement element, String elementLabel) {
-        try {
-            if (verificationHandler.isElementDisplayed(element, elementLabel)) {
-                executor.executeScript(CLEAR_ELEMENT, element);
-                log.info("Cleared the content of '{}' element using JavaScriptExecutor", elementLabel);
-            }
-        } catch (Exception ex) {
-            log.error("Failed to clear the content of '{}' element using JavaScriptExecutor", elementLabel, ex);
-            throw new BaseException.JavascriptExecutorException("Exception occurred while clearing the content of " + elementLabel + " element using JavaScriptExecutor", ex);
+        if (verificationHandler.isElementDisplayed(element, elementLabel)) {
+            executor.executeScript(CLEAR_ELEMENT, element);
+            log.info("Cleared the content of '{}' element using JavaScriptExecutor", elementLabel);
         }
     }
 
@@ -184,17 +168,11 @@ public class JavaScriptHandler extends BasePage implements WebPage {
      *
      * @param element      The WebElement to scroll to.
      * @param elementLabel A descriptive label for the element (used for logging).
-     * @throws BaseException.JavascriptExecutorException If an error occurs during execution.
      */
     public void scrollToElement(WebElement element, String elementLabel) {
-        try {
-            if (verificationHandler.isElementDisplayed(element, elementLabel)) {
-                executor.executeScript(SCROLL_TO_ELEMENT, element.getLocation().x, element.getLocation().y);
-                log.info("Scrolled to the '{}' element using JavaScriptExecutor", elementLabel);
-            }
-        } catch (Exception ex) {
-            log.error("Failed to scroll to the '{}' element using JavaScriptExecutor", elementLabel, ex);
-            throw new BaseException.JavascriptExecutorException("Exception occurred while scrolling to " + elementLabel + " element using JavaScriptExecutor", ex);
+        if (verificationHandler.isElementDisplayed(element, elementLabel)) {
+            executor.executeScript(SCROLL_TO_ELEMENT, element.getLocation().x, element.getLocation().y);
+            log.info("Scrolled to the '{}' element using JavaScriptExecutor", elementLabel);
         }
     }
 
@@ -207,18 +185,12 @@ public class JavaScriptHandler extends BasePage implements WebPage {
      *
      * @param element      The WebElement to scroll to and click.
      * @param elementLabel A descriptive label for the element (used for logging).
-     * @throws BaseException.JavascriptExecutorException If an error occurs during execution.
      */
     public void scrollToElementAndClick(WebElement element, String elementLabel) {
-        try {
-            if (verificationHandler.isElementDisplayed(element, elementLabel)) {
-                scrollToElement(element, elementLabel);
-                clickElement(element, elementLabel);
-                log.info("Scrolled to the '{}' element and clicked using JavaScriptExecutor", elementLabel);
-            }
-        } catch (Exception ex) {
-            log.error("Failed to scroll to '{}' element & click using JavaScriptExecutor", elementLabel, ex);
-            throw new BaseException.JavascriptExecutorException("Exception occurred while scrolling to " + elementLabel + " element and click using JavaScriptExecutor", ex);
+        if (verificationHandler.isElementDisplayed(element, elementLabel)) {
+            scrollToElement(element, elementLabel);
+            clickElement(element, elementLabel);
+            log.info("Scrolled to the '{}' element and clicked using JavaScriptExecutor", elementLabel);
         }
     }
 
@@ -231,17 +203,11 @@ public class JavaScriptHandler extends BasePage implements WebPage {
      *
      * @param element      The WebElement to scroll into view.
      * @param elementLabel A descriptive label for the element (used for logging).
-     * @throws BaseException.JavascriptExecutorException If an error occurs during execution.
      */
     public void scrollIntoView(WebElement element, String elementLabel) {
-        try {
-            if (verificationHandler.isElementDisplayed(element, elementLabel)) {
-                executor.executeScript(SCROLL_INTO_VIEW, element);
-                log.info("Scrolled into view of '{}' element using JavaScriptExecutor", elementLabel);
-            }
-        } catch (Exception ex) {
-            log.error("Failed to scroll into view of '{}' element using JavaScriptExecutor", elementLabel, ex);
-            throw new BaseException.JavascriptExecutorException("Exception occurred while scrolling into view of " + elementLabel + " element using JavaScriptExecutor", ex);
+        if (verificationHandler.isElementDisplayed(element, elementLabel)) {
+            executor.executeScript(SCROLL_INTO_VIEW, element);
+            log.info("Scrolled into view of '{}' element using JavaScriptExecutor", elementLabel);
         }
     }
 
@@ -254,18 +220,12 @@ public class JavaScriptHandler extends BasePage implements WebPage {
      *
      * @param element      The WebElement to scroll into view and click.
      * @param elementLabel A descriptive label for the element (used for logging).
-     * @throws BaseException.JavascriptExecutorException If an error occurs during execution.
      */
     public void scrollIntoViewAndClick(WebElement element, String elementLabel) {
-        try {
-            if (verificationHandler.isElementDisplayed(element, elementLabel)) {
-                scrollIntoView(element, elementLabel);
-                clickElement(element, elementLabel);
-                log.info("Scrolled into view of '{}' element and clicked using JavaScriptExecutor", elementLabel);
-            }
-        } catch (Exception ex) {
-            log.error("Failed to scroll into view of '{}' element and click using JavaScriptExecutor", elementLabel, ex);
-            throw new BaseException.JavascriptExecutorException("Exception occurred while scrolling into view of " + elementLabel + " element and click using JavaScriptExecutor", ex);
+        if (verificationHandler.isElementDisplayed(element, elementLabel)) {
+            scrollIntoView(element, elementLabel);
+            clickElement(element, elementLabel);
+            log.info("Scrolled into view of '{}' element and clicked using JavaScriptExecutor", elementLabel);
         }
     }
 
@@ -275,17 +235,10 @@ public class JavaScriptHandler extends BasePage implements WebPage {
      * Uses JavaScriptExecutor to perform a vertical scroll to the top of the page.
      * Throws an exception if the operation fails.
      * </p>
-     *
-     * @throws BaseException.JavascriptExecutorException If an error occurs during execution.
      */
     public void scrollToTop() {
-        try {
-            executor.executeScript(SCROLL_UP_VERTICAL);
-            log.info("Scrolled up vertically to top of the page using JavaScriptExecutor");
-        } catch (Exception ex) {
-            log.error("Failed to scroll to top of the page using JavaScriptExecutor", ex);
-            throw new BaseException.JavascriptExecutorException("Exception occurred while scrolling to top of the page using JavaScriptExecutor", ex);
-        }
+        executor.executeScript(SCROLL_UP_VERTICAL);
+        log.info("Scrolled up vertically to top of the page using JavaScriptExecutor");
     }
 
     /**
@@ -294,17 +247,10 @@ public class JavaScriptHandler extends BasePage implements WebPage {
      * Uses JavaScriptExecutor to perform a vertical scroll to the bottom of the page.
      * Throws an exception if the operation fails.
      * </p>
-     *
-     * @throws BaseException.JavascriptExecutorException If an error occurs during execution.
      */
     public void scrollToBottom() {
-        try {
-            executor.executeScript(SCROLL_DOWN_VERTICAL);
-            log.info("Scrolled down vertically to bottom of the page using JavaScriptExecutor");
-        } catch (Exception ex) {
-            log.error("Failed to scroll to bottom of the page using JavaScriptExecutor", ex);
-            throw new BaseException.JavascriptExecutorException("Exception occurred while scrolling to bottom of the page using JavaScriptExecutor", ex);
-        }
+        executor.executeScript(SCROLL_DOWN_VERTICAL);
+        log.info("Scrolled down vertically to bottom of the page using JavaScriptExecutor");
     }
 
     /**
@@ -315,17 +261,11 @@ public class JavaScriptHandler extends BasePage implements WebPage {
      * </p>
      *
      * @param pixels The number of pixels to scroll (positive for down, negative for up).
-     * @throws BaseException.JavascriptExecutorException If an error occurs during execution.
      */
     public void scrollByPixel(int pixels) {
-        try {
-            String direction = pixels > 0 ? "down" : "up";
-            executor.executeScript(String.format(SCROLL_VERTICAL_PIXEL, pixels));
-            log.info("Scrolled {} vertically by '{}' pixels using JavaScriptExecutor", direction, Math.abs(pixels));
-        } catch (Exception ex) {
-            log.error("Failed to scroll using JavaScriptExecutor", ex);
-            throw new BaseException.JavascriptExecutorException("Exception occurred while scrolling using JavaScriptExecutor", ex);
-        }
+        String direction = pixels > 0 ? "down" : "up";
+        executor.executeScript(String.format(SCROLL_VERTICAL_PIXEL, pixels));
+        log.info("Scrolled {} vertically by '{}' pixels using JavaScriptExecutor", direction, Math.abs(pixels));
     }
 
     /**
@@ -335,16 +275,10 @@ public class JavaScriptHandler extends BasePage implements WebPage {
      * </p>
      *
      * @param zoomPercentage The zoom percentage to set (e.g., 150 for 150%).
-     * @throws BaseException.JavascriptExecutorException If an error occurs during execution.
      */
     public void zoomInByPercentage(double zoomPercentage) {
-        try {
-            executor.executeScript(String.format(PAGE_ZOOM, zoomPercentage + "%"));
-            log.info("Page zoomed to '{}' percent using JavaScriptExecutor", zoomPercentage);
-        } catch (Exception ex) {
-            log.error("Failed to zoom in page using JavaScriptExecutor", ex);
-            throw new BaseException.JavascriptExecutorException("Exception occurred while zooming into the page using JavaScriptExecutor", ex);
-        }
+        executor.executeScript(String.format(PAGE_ZOOM, zoomPercentage + "%"));
+        log.info("Page zoomed to '{}' percent using JavaScriptExecutor", zoomPercentage);
     }
 
 }
@@ -372,5 +306,3 @@ public class JavaScriptHandler extends BasePage implements WebPage {
         };
     }
 */
-
-

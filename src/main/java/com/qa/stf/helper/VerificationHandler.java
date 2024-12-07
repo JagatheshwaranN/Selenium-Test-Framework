@@ -52,7 +52,7 @@ import java.util.Objects;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.1
+ * @version 1.2
  */
 public class VerificationHandler {
 
@@ -82,9 +82,6 @@ public class VerificationHandler {
         } catch (NoSuchElementException | StaleElementReferenceException ex) {
             log.error("Error occurred while checking the presence of the '{}' element. Exception: {}", elementLabel, ex.getMessage(), ex);
             throw new BaseException.ElementNotFoundException(elementLabel, ex);
-        } catch (Exception ex) {
-            log.error("An unexpected error occurred while checking the presence of the '{}' element", elementLabel, ex);
-            throw ex;
         }
     }
 
@@ -101,25 +98,17 @@ public class VerificationHandler {
      * @param expectedText The expected text.
      * @param elementLabel The label for logging purposes.
      * @return true if the text matches, false otherwise.
-     * @throws BaseException.ElementNotFoundException If the element is not found or
-     *                                                inaccessible.
      */
     public boolean isTextEqualTo(WebElement element, String expectedText, String elementLabel) {
-        if (!isElementValid(element, elementLabel)) return false;
-        try {
-            String actualText = element.getText();
+        String actualText = null;
+        if (isElementDisplayed(element, elementLabel)) {
+            actualText = element.getText();
             if (actualText.isEmpty()) {
                 log.error("The '{}' element's text is empty, expected text: '{}'", elementLabel, expectedText);
                 return false;
             }
-            return Objects.equals(actualText, expectedText);
-        } catch (NoSuchElementException | StaleElementReferenceException ex) {
-            log.error("Error checking text for '{}' element. Exception: {}", elementLabel, ex.getMessage(), ex);
-            throw new BaseException.ElementNotFoundException(elementLabel, ex);
-        } catch (Exception ex) {
-            log.error("Unexpected error verifying text of '{}' element", elementLabel, ex);
-            throw ex;
         }
+        return Objects.equals(actualText, expectedText);
     }
 
     /**
@@ -134,9 +123,11 @@ public class VerificationHandler {
      * @return The text of the element, or null if the element is invalid.
      */
     public String readTextValueFromElement(WebElement element, String elementLabel) {
-        if (!isElementValid(element, elementLabel)) return null;
-        String text = element.getText();
-        log.info("The '{}' element's text is :: '{}'", elementLabel, text);
+        String text = null;
+        if (isElementDisplayed(element, elementLabel)) {
+            text = element.getText();
+            log.info("The '{}' element's text is :: '{}'", elementLabel, text);
+        }
         return text;
     }
 
@@ -153,12 +144,14 @@ public class VerificationHandler {
      * @return The value of the input element, or null if the element is invalid.
      */
     public String readValueFromInput(WebElement element, String elementLabel) {
-        if (!isElementValid(element, elementLabel)) return null;
-        String value = element.getAttribute("value");
-        if (value == null || value.isEmpty()) {
-            log.info("The '{}' element has no value or is empty.", elementLabel);
-        } else {
-            log.info("The '{}' element's value is :: '{}'", elementLabel, value);
+        String value = null;
+        if (isElementDisplayed(element, elementLabel)) {
+            value = element.getAttribute("value");
+            if (value == null || value.isEmpty()) {
+                log.info("The '{}' element has no value or is empty.", elementLabel);
+            } else {
+                log.info("The '{}' element's value is :: '{}'", elementLabel, value);
+            }
         }
         return value;
     }
@@ -178,27 +171,6 @@ public class VerificationHandler {
     private boolean isElementNotNull(WebElement element, String elementLabel) {
         if (element == null) {
             log.error("The '{}' element is null.", elementLabel);
-            return false;
-        }
-        return true;
-    }
-
-    /**
-     * Validates that the element is displayed.
-     * <p>
-     * This method ensures that a given web element is valid, meaning it is not null
-     * and is displayed on the page. If condition fails, it logs a warning or error
-     * and returns false.
-     * </p>
-     *
-     * @param element      The WebElement to validate.
-     * @param elementLabel The label for logging purposes.
-     * @return true if the element is valid and displayed, false otherwise.
-     */
-    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
-    private boolean isElementValid(WebElement element, String elementLabel) {
-        if (!isElementDisplayed(element, elementLabel)) {
-            log.warn("The '{}' element is not displayed.", elementLabel);
             return false;
         }
         return true;
