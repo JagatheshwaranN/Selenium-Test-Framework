@@ -51,7 +51,7 @@ import com.qa.stf.base.WebPage;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.2
+ * @version 1.3
  */
 public class JavaScriptHandler extends BasePage implements WebPage {
 
@@ -79,7 +79,6 @@ public class JavaScriptHandler extends BasePage implements WebPage {
      * Clicks on the specified WebElement using JavaScriptExecutor.
      * <p>
      * Verifies the visibility of the element before performing the click operation.
-     * Throws an exception if the operation fails.
      * </p>
      *
      * @param element      The WebElement to be clicked.
@@ -124,7 +123,6 @@ public class JavaScriptHandler extends BasePage implements WebPage {
      * Types text into the specified WebElement using JavaScriptExecutor.
      * <p>
      * Verifies the visibility of the element before performing the type operation.
-     * Throws an exception if the operation fails.
      * </p>
      *
      * @param element      The WebElement to enter text into.
@@ -145,7 +143,6 @@ public class JavaScriptHandler extends BasePage implements WebPage {
      * Clears the content of the specified WebElement using JavaScriptExecutor.
      * <p>
      * Verifies the visibility of the element before clearing its content.
-     * Throws an exception if the operation fails.
      * </p>
      *
      * @param element      The WebElement to clear.
@@ -163,7 +160,6 @@ public class JavaScriptHandler extends BasePage implements WebPage {
      * Scrolls to a specific web element using its x and y coordinates.
      * <p>
      * Verifies the visibility of the element before scrolling to it.
-     * Throws an exception if the operation fails.
      * </p>
      *
      * @param element      The WebElement to scroll to.
@@ -180,7 +176,6 @@ public class JavaScriptHandler extends BasePage implements WebPage {
      * Scrolls to a specific web element and clicks on it.
      * <p>
      * Verifies the visibility of the element before scrolling and clicking.
-     * Throws an exception if the operation fails.
      * </p>
      *
      * @param element      The WebElement to scroll to and click.
@@ -198,7 +193,6 @@ public class JavaScriptHandler extends BasePage implements WebPage {
      * Scrolls a specific web element into the viewport using JavaScriptExecutor.
      * <p>
      * Verifies the visibility of the element before scrolling it into view.
-     * Throws an exception if the operation fails.
      * </p>
      *
      * @param element      The WebElement to scroll into view.
@@ -215,7 +209,6 @@ public class JavaScriptHandler extends BasePage implements WebPage {
      * Scrolls a specific web element into the viewport and clicks on it.
      * <p>
      * Verifies the visibility of the element before scrolling and clicking.
-     * Throws an exception if the operation fails.
      * </p>
      *
      * @param element      The WebElement to scroll into view and click.
@@ -233,7 +226,6 @@ public class JavaScriptHandler extends BasePage implements WebPage {
      * Scrolls to the top of the web page.
      * <p>
      * Uses JavaScriptExecutor to perform a vertical scroll to the top of the page.
-     * Throws an exception if the operation fails.
      * </p>
      */
     public void scrollToTop() {
@@ -245,7 +237,6 @@ public class JavaScriptHandler extends BasePage implements WebPage {
      * Scrolls to the bottom of the web page.
      * <p>
      * Uses JavaScriptExecutor to perform a vertical scroll to the bottom of the page.
-     * Throws an exception if the operation fails.
      * </p>
      */
     public void scrollToBottom() {
@@ -257,7 +248,6 @@ public class JavaScriptHandler extends BasePage implements WebPage {
      * Scrolls the page by a specified number of pixels vertically.
      * <p>
      * Positive values scroll down, while negative values scroll up.
-     * Throws an exception if the operation fails.
      * </p>
      *
      * @param pixels The number of pixels to scroll (positive for down, negative for up).
@@ -269,16 +259,46 @@ public class JavaScriptHandler extends BasePage implements WebPage {
     }
 
     /**
-     * Zooms the page to a specified percentage using JavaScriptExecutor.
+     * Zooms the page by the specified percentage.
      * <p>
-     * Throws an exception if the operation fails.
+     * This method uses JavaScriptExecutor to zoom in or out the page by the provided
+     * zoom percentage.
      * </p>
      *
-     * @param zoomPercentage The zoom percentage to set (e.g., 150 for 150%).
+     * @param zoomPercentage The percentage to zoom the page (e.g., 110 for 110% zoom).
      */
     public void zoomInByPercentage(double zoomPercentage) {
         executor.executeScript(String.format(PAGE_ZOOM, zoomPercentage + "%"));
         log.info("Page zoomed to '{}' percent using JavaScriptExecutor", zoomPercentage);
+    }
+
+    /**
+     * Checks if the specified WebElement is within the viewport.
+     * <p>
+     * This method calculates the cumulative position of the element and its ancestors,
+     * then compares these positions to the viewport's boundaries to determine if the element
+     * is visible within the viewport.
+     * </p>
+     *
+     * @param element The WebElement to check for visibility in the viewport.
+     * @return {@code true} if the element is within the viewport; {@code false} otherwise.
+     */
+    public boolean inViewport(WebElement element) {
+        String script = """
+        // Calculate the cumulative offset positions of the element and its ancestors
+        for (var e = arguments[0], f = e.offsetTop, t = e.offsetLeft, o = e.offsetWidth, n = e.offsetHeight;
+            e.offsetParent;) {
+            f += (e = e.offsetParent).offsetTop;
+            t += e.offsetLeft;
+        }
+
+        // Check if the element's top and left positions are within the viewport's boundaries
+        return f < window.pageYOffset + window.innerHeight &&
+            t < window.pageXOffset + window.innerWidth &&
+            f + n > window.pageYOffset &&
+            t + o > window.pageXOffset;
+    """;
+        return Boolean.TRUE.equals(executor.executeScript(script, element));
     }
 
 }

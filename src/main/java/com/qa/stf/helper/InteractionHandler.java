@@ -6,20 +6,68 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
-import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
 import com.qa.stf.base.BasePage;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
+import org.openqa.selenium.interactions.WheelInput;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import java.util.Collections;
 
+/**
+ * The InteractionHandler class provides utility methods for performing advanced
+ * interactions with web elements using Selenium WebDriver. These interactions
+ * extend beyond basic WebDriver capabilities to include actions like mouse
+ * hover, drag-and-drop, and keyboard events.
+ *
+ * <p>Features:
+ * <ul>
+ *   <li>Mouse Interactions: Methods for simulating mouse actions, such as hover,
+ *       right-click, and drag-and-drop.</li>
+ *   <li>Keyboard Actions: Utility methods to perform keyboard-based interactions,
+ *       such as sending special keys or simulating key press events.</li>
+ *   <li>Multi-action Support: Support for complex interactions that involve
+ *       multiple actions performed sequentially or simultaneously.</li>
+ *   <li>Custom Interaction Flows: Capability to create and execute custom
+ *       interaction sequences tailored to specific test scenarios.</li>
+ * </ul>
+ *
+ * <p>Exception Handling:
+ * <ul>
+ *   <li>Custom exceptions from the {@link com.qa.stf.handler.BaseException} class
+ *       are thrown for descriptive error handling during interaction failures.</li>
+ *   <li>Detailed logging is provided for successful interactions and error scenarios
+ *       to facilitate debugging and traceability.</li>
+ * </ul>
+ *
+ * <p>Note:
+ * This class assumes that the WebDriver instance is properly initialized and the
+ * required elements are available in the current browser context. Ensure that the
+ * browser and WebDriver versions are compatible to perform advanced interactions.
+ *
+ * <p>Example:
+ * <pre>
+ * {@code
+ * InteractionHandler interactionHandler = new InteractionHandler();
+ * WebElement sourceElement = driver.findElement(By.id("source"));
+ * WebElement targetElement = driver.findElement(By.id("target"));
+ * interactionHandler.dragAndDrop(sourceElement, targetElement);
+ * interactionHandler.hoverOverElement(driver.findElement(By.id("menu")));
+ * }
+ * </pre>
+ *
+ * @author Jagatheshwaran N
+ * @version 1.1
+ */
 public class InteractionHandler extends BasePage implements WebPage {
 
     private static final Logger log = LogManager.getLogger(InteractionHandler.class);
+
+    protected static final String CLEAR_ELEMENT = "Keys.CONTROL + 'a', Keys.DELETE";
 
     private final Actions builder;
     private final VerificationHandler verificationHandler;
@@ -105,40 +153,86 @@ public class InteractionHandler extends BasePage implements WebPage {
     @Override
     public void clearElement(WebElement element, String elementLabel) {
         if (verificationHandler.isElementDisplayed(element, elementLabel)) {
+            element.sendKeys(CLEAR_ELEMENT);
             log.info("Cleared the content of '{}' element using Actions", elementLabel);
         }
     }
 
-    public void mouseHover(WebElement element, String elementLabel) {
+    /**
+     * Hovers the mouse over the specified element.
+     * <p>
+     * Verifies the visibility of the element before performing the hover action.
+     * </p>
+     *
+     * @param element      The WebElement to hover over.
+     * @param elementLabel The label describing the element.
+     */
+    public void hoverOverElement(WebElement element, String elementLabel) {
         if (verificationHandler.isElementDisplayed(element, elementLabel)) {
             builder.moveToElement(element).perform();
             log.info("The mouse hovered and clicked on the '{}' element", elementLabel);
         }
     }
 
-    public void mouseRightClick(WebElement element, String elementLabel) {
+    /**
+     * Performs a right-click (context click) on the specified element.
+     * <p>
+     * Verifies the visibility of the element before performing the right-click action.
+     * </p>
+     *
+     * @param element      The WebElement to right-click on.
+     * @param elementLabel The label describing the element.
+     */
+    public void performRightClickOnElement(WebElement element, String elementLabel) {
         if (verificationHandler.isElementDisplayed(element, elementLabel)) {
             builder.contextClick(element).perform();
             log.info("The mouse right clicked on the '{}' element", elementLabel);
         }
     }
 
-    public void mouseDoubleClick(WebElement element, String elementLabel) {
+    /**
+     * Performs a double click on the specified element.
+     * <p>
+     * Verifies the visibility of the element before performing the double-click action.
+     * </p>
+     *
+     * @param element      The WebElement to double-click on.
+     * @param elementLabel The label describing the element.
+     */
+    public void performDoubleClickOnElement(WebElement element, String elementLabel) {
         if (verificationHandler.isElementDisplayed(element, elementLabel)) {
             builder.doubleClick(element).perform();
             log.info("The mouse double clicked on the '{}' element", elementLabel);
         }
     }
 
-    public void mouseHoverAndClick(WebElement element, String elementLabel) {
+    /**
+     * Hovers the mouse over and then clicks the specified element.
+     * <p>
+     * Verifies the visibility of the element before performing the hover and click actions.
+     * </p>
+     *
+     * @param element      The WebElement to hover over and click.
+     * @param elementLabel The label describing the element.
+     */
+    public void hoverOverElementAndClick(WebElement element, String elementLabel) {
         if (verificationHandler.isElementDisplayed(element, elementLabel)) {
-            mouseHover(element, elementLabel);
+            hoverOverElement(element, elementLabel);
             builder.click(element).perform();
             log.info("The mouse hovered and clicked on the '{}' element", elementLabel);
         }
     }
 
-    public void mouseClickAndRelease(WebElement element, String elementLabel) {
+    /**
+     * Clicks on the specified element and then releases the mouse.
+     * <p>
+     * Verifies the visibility of the element before performing the click and release actions.
+     * </p>
+     *
+     * @param element      The WebElement to click and release.
+     * @param elementLabel The label describing the element.
+     */
+    public void clickAndReleaseElement(WebElement element, String elementLabel) {
         if (verificationHandler.isElementDisplayed(element, elementLabel)) {
             builder.click(element)
                     .release(element)
@@ -147,13 +241,34 @@ public class InteractionHandler extends BasePage implements WebPage {
         }
     }
 
-    public void mouseClickAndHold(WebElement element, String elementLabel) {
+    /**
+     * Clicks and holds the mouse on the specified element.
+     * <p>
+     * Verifies the visibility of the element before performing the click and hold action.
+     * </p>
+     *
+     * @param element      The WebElement to click and hold.
+     * @param elementLabel The label describing the element.
+     */
+    public void clickAndHoldElement(WebElement element, String elementLabel) {
         if (verificationHandler.isElementDisplayed(element, elementLabel)) {
             builder.clickAndHold(element).perform();
-            log.info("The mouse clicked and hold on the '{}' element", elementLabel);
+            log.info("The mouse clicked and held on the '{}' element", elementLabel);
         }
     }
 
+    /**
+     * Drags the specified element and drops it onto another element.
+     * <p>
+     * Verifies the visibility of both the draggable and droppable elements before
+     * performing the drag and drop actions.
+     * </p>
+     *
+     * @param draggableElement The WebElement to drag.
+     * @param droppableElement The WebElement to drop onto.
+     * @param elementLabel1    The label describing the draggable element.
+     * @param elementLabel2    The label describing the droppable element.
+     */
     public void dragAndDropElement(WebElement draggableElement, WebElement droppableElement, String elementLabel1, String elementLabel2) {
         if (verificationHandler.isElementDisplayed(draggableElement, elementLabel1) && verificationHandler.isElementDisplayed(droppableElement, elementLabel2)) {
             builder.clickAndHold(draggableElement)
@@ -164,14 +279,33 @@ public class InteractionHandler extends BasePage implements WebPage {
         }
     }
 
-    public void dragAndDropElementUsingBuiltin(WebElement draggableElement, WebElement droppableElement, String elementLabel1, String elementLabel2) {
+    /**
+     * Drags the specified element and drops it onto another element using the built-in
+     * dragAndDrop method.
+     * <p>
+     * Verifies the visibility of both the draggable and droppable elements before
+     * performing the drag and drop actions.
+     * </p>
+     *
+     * @param draggableElement The WebElement to drag.
+     * @param droppableElement The WebElement to drop onto.
+     * @param elementLabel1    The label describing the draggable element.
+     * @param elementLabel2    The label describing the droppable element.
+     */
+    public void performDragAndDropUsingActions(WebElement draggableElement, WebElement droppableElement, String elementLabel1, String elementLabel2) {
         if (verificationHandler.isElementDisplayed(draggableElement, elementLabel1) && verificationHandler.isElementDisplayed(droppableElement, elementLabel2)) {
             builder.dragAndDrop(draggableElement, droppableElement).perform();
             log.info("The '{}' element is drag and dropped on the '{}' element", elementLabel1, elementLabel2);
         }
     }
 
-    public void mouseBackClick() {
+    /**
+     * Simulates a mouse back button click using pointer input.
+     * <p>
+     * This action mimics the user clicking the back button on the browser.
+     * </p>
+     */
+    public void performBrowserBackAction() {
         PointerInput mouse = new PointerInput(PointerInput.Kind.MOUSE, "Default Mouse");
         Sequence sequence = new Sequence(mouse, 0)
                 .addAction(mouse.createPointerDown(PointerInput.MouseButton.BACK.asArg()))
@@ -180,7 +314,13 @@ public class InteractionHandler extends BasePage implements WebPage {
         log.info("The mouse clicked on the back button");
     }
 
-    public void mouseForwardClick() {
+    /**
+     * Simulates a mouse forward button click using pointer input.
+     * <p>
+     * This action mimics the user clicking the forward button on the browser.
+     * </p>
+     */
+    public void performBrowserForwardAction() {
         PointerInput mouse = new PointerInput(PointerInput.Kind.MOUSE, "Default Mouse");
         Sequence sequence = new Sequence(mouse, 0)
                 .addAction(mouse.createPointerDown(PointerInput.MouseButton.FORWARD.asArg()))
@@ -189,5 +329,61 @@ public class InteractionHandler extends BasePage implements WebPage {
         log.info("The mouse clicked on the forward button");
     }
 
-}
+    /**
+     * Scrolls the page to the specified element.
+     * <p>
+     * Verifies the visibility of the element before performing the scroll action.
+     * </p>
+     *
+     * @param element      The WebElement to scroll to.
+     * @param elementLabel The label describing the element.
+     */
+    public void scrollToElement(WebElement element, String elementLabel) {
+        if (verificationHandler.isElementDisplayed(element, elementLabel)) {
+            builder.scrollToElement(element).perform();
+            log.info("Scrolled to the '{}' element using Actions", elementLabel);
+        }
+    }
 
+    /**
+     * Scrolls to the specified element by its pixel position.
+     * <p>
+     * Verifies the visibility of the element before performing the scroll action.
+     * The scroll is performed by calculating the Y-axis position of the element and
+     * scrolling to that position.
+     * </p>
+     *
+     * @param element      The WebElement to scroll to.
+     * @param elementLabel The label describing the element.
+     */
+    public void scrollToElementByPixel(WebElement element, String elementLabel) {
+        if (verificationHandler.isElementDisplayed(element, elementLabel)) {
+            int xAxis = 0;
+            int yAxis = element.getRect().y;
+            builder.scrollByAmount(xAxis, yAxis).perform();
+            log.info("Scrolled to the '{}' element using Actions", elementLabel);
+        }
+    }
+
+    /**
+     * Scrolls from the specified element by a given number of pixels.
+     * <p>
+     * Verifies the visibility of the element before performing the scroll action.
+     * The scroll is performed starting from the element's position and moving by the
+     * specified X and Y pixel values.
+     * </p>
+     *
+     * @param element      The WebElement to scroll from.
+     * @param elementLabel The label describing the element.
+     * @param xAxis        The number of pixels to scroll horizontally.
+     * @param yAxis        The number of pixels to scroll vertically.
+     */
+    public void scrollFromElementByPixel(WebElement element, String elementLabel, int xAxis, int yAxis) {
+        if (verificationHandler.isElementDisplayed(element, elementLabel)) {
+            WheelInput.ScrollOrigin scrollOrigin = WheelInput.ScrollOrigin.fromElement(element);
+            builder.scrollFromOrigin(scrollOrigin, xAxis, yAxis).perform();
+            log.info("Scrolled from the '{}' element using Actions", elementLabel);
+        }
+    }
+
+}
