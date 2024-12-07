@@ -97,6 +97,17 @@ public class BaseException extends RuntimeException {
         }
     }
 
+    public static class InteractionException extends BaseException {
+
+        public InteractionException(String message) {
+            super(message);
+        }
+
+        public InteractionException(String message, Throwable cause) {
+            super(message, cause);
+        }
+    }
+
 
 
 }
