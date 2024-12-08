@@ -10,18 +10,18 @@ import org.testng.annotations.Test;
 import com.qa.stf.ohrm.base.BaseTest;
 import com.qa.stf.base.DriverManager;
 import com.qa.stf.ohrm.pages.PageManager;
-import com.qa.stf.util.TestDataUtil;
+import com.qa.stf.util.DataSupplier;
 
 public class AdminPageTest extends BaseTest {
 
 	PageManager pageManager;
 
-	@Test(dataProviderClass = TestDataUtil.class, dataProvider = "fetchData")
+	@Test(dataProviderClass = DataSupplier.class, dataProvider = "fetchData")
 	public void adminPageTest(Hashtable<String, String> data) throws InterruptedException {
 
 		var classObject = AdminPageTest.class;
 		Method[] methods = classObject.getMethods();
-		if (!TestDataUtil.isTestRunnable(methods[0].getName(), DriverManager.excelReaderUtil)) {
+		if (DataSupplier.isTestRunnable(methods[0].getName(), DriverManager.excelReaderUtil)) {
 			throw new SkipException("Skipping the Test - " + StringUtils.capitalize(methods[0].getName())
 					+ " as the RunMode is set to N");
 		}

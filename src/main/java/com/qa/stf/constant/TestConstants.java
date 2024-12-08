@@ -17,6 +17,8 @@ public class TestConstants {
 	public static final String TEST_SUITE_NAME = "TestSuite";
 	public static final String TEST_CASE_NAME = "TestCaseName";
 	public static final String TEST_RUN_MODE = "RunMode";
+	public static final String RUN_MODE_YES = "Y";
+	public static final String RUN_MODE_NO = "N";
 
 	// Browser Details
 	public static final String CHROME = "Chrome";

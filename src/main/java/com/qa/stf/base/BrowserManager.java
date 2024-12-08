@@ -6,9 +6,9 @@ import com.qa.stf.util.ExceptionUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.qa.stf.util.FileReaderUtil;
+import com.qa.stf.util.FileReader;
 
-public class BrowserManager extends FileReaderUtil {
+public class BrowserManager extends FileReader {
 
     private static final Logger log = LogManager.getFormatterLogger(BrowserManager.class);
 

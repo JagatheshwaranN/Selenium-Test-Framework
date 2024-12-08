@@ -5,7 +5,7 @@ import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.qa.stf.constant.TestConstants;
 import com.qa.stf.util.ExceptionUtil;
-import com.qa.stf.util.FileReaderUtil;
+import com.qa.stf.util.FileReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -96,7 +96,7 @@ public class ExtentReport {
 
             extentReports.setSystemInfo(TestConstants.EXTENT_REPORT_OS_INFO, System.getProperty("os.name"));
             extentReports.setSystemInfo(TestConstants.EXTENT_REPORT_USER_INFO, System.getProperty("user.name"));
-            String browserInfo = FileReaderUtil.getDataFromPropFile("Browser");
+            String browserInfo = FileReader.getDataFromPropFile("Browser");
             extentReports.setSystemInfo(TestConstants.EXTENT_REPORT_BROWSER_INFO,
                     browserInfo != null ? browserInfo : "Unknown");
             log.info("System information added to the report.");

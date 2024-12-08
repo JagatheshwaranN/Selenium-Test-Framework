@@ -2,11 +2,11 @@ package com.qa.stf.base;
 
 import com.qa.stf.constant.EnvType;
 import com.qa.stf.util.ExceptionUtil;
-import com.qa.stf.util.FileReaderUtil;
+import com.qa.stf.util.FileReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-public class EnvironmentManager extends FileReaderUtil  {
+public class EnvironmentManager extends FileReader {
 
     private static final Logger log = LogManager.getFormatterLogger(BrowserManager.class);
 
