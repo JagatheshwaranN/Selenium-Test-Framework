@@ -1,16 +1,15 @@
 package com.qa.stf.ohrm.objects;
 
+import com.qa.stf.base.BasePage;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-import com.qa.stf.reuse.ReusableComponent;
-
-public class LoginPageObject extends ReusableComponent {
+public class LoginPageObject  extends BasePage {
 
 	public LoginPageObject() {
-		PageFactory.initElements(driverManager.getDriver(), this);
+        PageFactory.initElements(driverManager.getDriver(), this);
 	}
 
 	@FindBy(xpath = "//input[@name='username']")
