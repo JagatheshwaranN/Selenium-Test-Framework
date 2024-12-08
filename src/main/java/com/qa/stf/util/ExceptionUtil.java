@@ -117,5 +117,16 @@ public class ExceptionUtil extends RuntimeException {
         }
     }
 
+    public static class ExtentException extends ExceptionUtil {
+
+        public ExtentException(String message) {
+            super(message);
+        }
+
+        public ExtentException(String message, Throwable cause) {
+            super(message, cause);
+        }
+    }
+
 
 }
