@@ -291,4 +291,28 @@ public class ExceptionUtil extends RuntimeException {
         }
     }
 
+    public static class ExcelException extends ExceptionUtil {
+
+        /**
+         * Constructs the exception with a message indicating that the specified Excel
+         * operation is not valid and needs to be checked.
+         *
+         * @param message The error message detailing the issue during Excel operation.
+         */
+        public ExcelException(String message) {
+            super(message);
+        }
+
+        /**
+         * Constructs the exception with a message explaining the Excel operation error
+         * and includes the underlying cause of the failure.
+         *
+         * @param message The error message detailing the issue during Excel operation.
+         * @param cause   The underlying cause of the exception.
+         */
+        public ExcelException(String message, Throwable cause) {
+            super(message, cause);
+        }
+    }
+
 }

@@ -32,7 +32,7 @@ import com.qa.stf.constant.TestConstants;
  *
  * <p>Dependencies:
  * <ul>
- *   <li>Relies on the {@link ExcelReaderUtil} class to fetch data from the Excel file.</li>
+ *   <li>Relies on the {@link ExcelReader} class to fetch data from the Excel file.</li>
  *   <li>Requires the test method name to match the sheet name for fetching test data.</li>
  *   <li>Depends on constants defined in the {@link TestConstants} class for sheet and
  *   	column names.</li>
@@ -74,8 +74,8 @@ public class DataSupplier extends DriverManager {
 	@DataProvider(name = "fetchData")
 	public static Object[][] fetchDataFromExcel(Method method) {
 		var sheetName = method.getName();
-		var totalRows = excelReaderUtil.getRowCount(sheetName);
-		var totalColumns = excelReaderUtil.getColumnCount(sheetName);
+		var totalRows = excelReader.getRowCount(sheetName);
+		var totalColumns = excelReader.getColumnCount(sheetName);
 		if (totalRows < 2 || totalColumns == 0) {
 			log.warn("The sheet '{}' does not contain enough data to fetch. Returning empty data.", sheetName);
 			return new Object[0][0];
@@ -85,8 +85,8 @@ public class DataSupplier extends DriverManager {
 			Hashtable<String, String> table = new Hashtable<>();
 			for (var col = 0; col < totalColumns; col++) {
 				table.put(
-						excelReaderUtil.getCellData(sheetName, col, 1), // Column header
-						excelReaderUtil.getCellData(sheetName, col, row) // Cell value
+						excelReader.getCellData(sheetName, col, 1), // Column header
+						excelReader.getCellData(sheetName, col, row) // Cell value
 				);
 			}
 			data[row - 2][0] = table;
@@ -107,18 +107,18 @@ public class DataSupplier extends DriverManager {
 	 * </p>
 	 *
 	 * @param testName       The name of the test case to check.
-	 * @param excelReaderUtil Utility to read data from the Excel file.
+	 * @param excelReader Utility to read data from the Excel file.
 	 * @return {@code true} if the test is runnable (run mode is "Y"); otherwise, {@code false}.
 	 */
-	public static boolean isTestRunnable(String testName, ExcelReaderUtil excelReaderUtil) {
+	public static boolean isTestRunnable(String testName, ExcelReader excelReader) {
 		var sheetName = TestConstants.TEST_SUITE_NAME;
 		var testCaseColumn = TestConstants.TEST_CASE_NAME;
 		var runModeColumn = TestConstants.TEST_RUN_MODE;
-		var rows = excelReaderUtil.getRowCount(sheetName);
+		var rows = excelReader.getRowCount(sheetName);
 		for (var row = 2; row <= rows; row++) {
-			var testCase = excelReaderUtil.getCellData(sheetName, testCaseColumn, row);
+			var testCase = excelReader.getCellData(sheetName, testCaseColumn, row);
 			if (testCase != null && testCase.equalsIgnoreCase(testName)) {
-				var runMode = excelReaderUtil.getCellData(sheetName, runModeColumn, row);
+				var runMode = excelReader.getCellData(sheetName, runModeColumn, row);
 				if (TestConstants.RUN_MODE_YES.equalsIgnoreCase(runMode)) {
 					log.info("The '{}' test case is runnable. Sheet: '{}', Run Mode: '{}'", testName, sheetName, runMode);
 					return true;

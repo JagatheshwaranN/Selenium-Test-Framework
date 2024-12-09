@@ -5,6 +5,7 @@ import java.net.URI;
 
 import com.qa.stf.constant.BrowserType;
 import com.qa.stf.listener.TestListener;
+import com.qa.stf.util.ExcelReader;
 import com.qa.stf.util.ExceptionUtil;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -22,7 +23,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.qa.stf.constant.TestConstants;
-import com.qa.stf.util.ExcelReaderUtil;
+
 import com.qa.stf.util.ExtentUtil;
 
 public class DriverManager extends BrowserManager {
@@ -36,10 +37,10 @@ public class DriverManager extends BrowserManager {
     public static ThreadLocal<WebDriver> driverLocal = new ThreadLocal<>();
     public static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
 
-    public static ExcelReaderUtil excelReaderUtil = new ExcelReaderUtil(
+    public static ExcelReader excelReader = new ExcelReader(
             System.getProperty("user.dir") + TestConstants.EXCEL_FILE_PATH);
 
-    public static ExtentReports report = ExtentUtil.getInstance();
+//    public static ExtentReports report = ExtentUtil.getInstance();
 
 //    public static ExtentTest test;
 
