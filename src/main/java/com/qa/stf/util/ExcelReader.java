@@ -20,6 +20,43 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
+/**
+ * The ExcelReader class provides utility methods for reading data from Excel files
+ * and converting it into a format that can be easily used in Java applications.
+ *
+ * <p>Features:
+ * <ul>
+ *     <li>Read data from an Excel file in `.xlsx` or `.xls` format.</li>
+ *     <li>Retrieve data from specific rows, columns, or entire sheets.</li>
+ *     <li>Support for custom cell types, including strings, numbers, and dates.</li>
+ *     <li>Option to handle missing or null values gracefully.</li>
+ * </ul>
+ *
+ * <p>Exception Handling:
+ * <ul>
+ *   <li>Custom exceptions are thrown in case of invalid file paths, unsupported file
+ *      formats, or errors while reading the data.</li>
+ *   <li>Detailed logging is provided for successful data extraction and error
+ *      scenarios.</li>
+ * </ul>
+ *
+ * <p>Note:
+ * The class assumes that the Apache POI library is included in the project for handling
+ * Excel files. Users must ensure proper setup of the Apache POI dependencies and error
+ * handling for file operations.
+ *
+ * <p>Example:
+ * <pre>
+ * {@code
+ * ExcelReader excelReader = new ExcelReader("path/to/excel/file.xlsx");
+ * List<String> data = excelReader.readColumn("Sheet1", 0); // Read first column from Sheet1
+ * System.out.println(data);
+ * }
+ * </pre>
+ *
+ * @author Jagatheshwaran N
+ * @version 1.1
+ */
 public class ExcelReader {
 
     private static final Logger log = LogManager.getLogger(ExcelReader.class);

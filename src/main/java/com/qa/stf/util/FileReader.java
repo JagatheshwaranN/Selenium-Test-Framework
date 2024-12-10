@@ -11,7 +11,48 @@ import org.apache.logging.log4j.Logger;
 
 import com.qa.stf.constant.TestConstants;
 
-
+/**
+ * The FileReader class provides utility methods for reading and managing properties
+ * from a configuration file in a Java application.
+ *
+ * <p>Features:
+ * <ul>
+ *     <li>Load a properties file from a specified path into a {@code Properties}
+ *      object.</li>
+ *     <li>Retrieve configuration values associated with specific keys from the
+ *      properties file.</li>
+ *     <li>Handle exceptions related to file reading and key retrieval with custom
+ *      exception handling.</li>
+ *     <li>Support logging for successful file loading and error scenarios using
+ *      Apache Log4j.</li>
+ * </ul>
+ *
+ * <p>Exception Handling:
+ * <ul>
+ *   <li>Custom exceptions, such as {@link ExceptionHub.ConfigTypeException} and
+ *       {@link ExceptionHub.InvalidDataException}, are thrown for missing files or
+ *       missing keys with detailed error information.</li>
+ *   <li>Errors during file reading and key retrieval are logged with error messages
+ *      for troubleshooting.</li>
+ * </ul>
+ *
+ * <p>Note:
+ * This class relies on the {@link TestConstants} class for file path and configuration
+ * details. Ensure that the correct configuration file path is provided and that the
+ * Apache Log4j library is properly set up for logging.
+ *
+ * <p>Example:
+ * <pre>
+ * {@code
+ * FileReader.loadPropertyFile(); // Load properties file
+ * String apiUrl = FileReader.getDataFromPropFile("api.url"); // Get value for key 'api.url'
+ * System.out.println(apiUrl);
+ * }
+ * </pre>
+ *
+ * @author Jagatheshwaran N
+ * @version 1.1
+ */
 public class FileReader {
 
     private static final Logger log = LogManager.getLogger(FileReader.class);
