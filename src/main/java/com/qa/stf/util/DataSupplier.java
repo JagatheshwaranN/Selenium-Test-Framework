@@ -24,7 +24,7 @@ import com.qa.stf.constant.TestConstants;
  *
  * <p>Exception Handling:
  * <ul>
- *   <li>Custom exceptions from the {@link ExceptionUtil} class are used for handling
+ *   <li>Custom exceptions from the {@link ExceptionHub} class are used for handling
  *   	data retrieval errors.</li>
  *   <li>Comprehensive logging ensures detailed tracking of data loading and test run
  *   	checks.</li>

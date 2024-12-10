@@ -1,7 +1,7 @@
 package com.qa.stf.handler;
 
 import com.qa.stf.base.WebPage;
-import com.qa.stf.util.ExceptionUtil;
+import com.qa.stf.util.ExceptionHub;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -37,7 +37,7 @@ import java.util.Collections;
  *
  * <p>Exception Handling:
  * <ul>
- *   <li>Custom exceptions from the {@link ExceptionUtil} class
+ *   <li>Custom exceptions from the {@link ExceptionHub} class
  *       are thrown for descriptive error handling during interaction failures.</li>
  *   <li>Detailed logging is provided for successful interactions and error scenarios
  *       to facilitate debugging and traceability.</li>
@@ -103,7 +103,7 @@ public class InteractionHandler extends BasePage implements WebPage {
      * @param locator      The dynamic locator for the element.
      * @param value        The value to substitute in the locator.
      * @param elementLabel The label describing the element.
-     * @throws ExceptionUtil.InteractionException If an error occurs while click on an
+     * @throws ExceptionHub.InteractionException If an error occurs while click on an
      *                                            element.
      */
     @Override
@@ -116,7 +116,7 @@ public class InteractionHandler extends BasePage implements WebPage {
             }
         } catch (ElementClickInterceptedException ex) {
             log.error("Failed to click the '{}' element using Actions", elementLabel, ex);
-            throw new ExceptionUtil.InteractionException("Exception occurred while clicking " + elementLabel + " element using JavaScriptExecutor", ex);
+            throw new ExceptionHub.InteractionException("Exception occurred while clicking " + elementLabel + " element using JavaScriptExecutor", ex);
         }
     }
 

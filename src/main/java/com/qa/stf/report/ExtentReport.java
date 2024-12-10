@@ -4,7 +4,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.qa.stf.constant.TestConstants;
-import com.qa.stf.util.ExceptionUtil;
+import com.qa.stf.util.ExceptionHub;
 import com.qa.stf.util.FileReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -32,7 +32,7 @@ import java.util.Date;
  *
  * <p>Exception Handling:
  * <ul>
- *   <li>Custom exceptions from the {@link ExceptionUtil} class
+ *   <li>Custom exceptions from the {@link ExceptionHub} class
  *       are thrown for descriptive error handling during setup failures.</li>
  *   <li>Comprehensive logging is provided for setup success and errors, using Log4j2.</li>
  * </ul>
@@ -72,7 +72,7 @@ public class ExtentReport {
      * is also included in the report metadata.</p>
      *
      * @return Initialized {@link ExtentReports} instance.
-     * @throws ExceptionUtil.ExtentException If there is an error during setup.
+     * @throws ExceptionHub.ExtentException If there is an error during setup.
      */
     public static ExtentReports setupExtentReport() {
         try {
@@ -106,7 +106,7 @@ public class ExtentReport {
 
         } catch (IOException ex) {
             log.error("Error occurred during Extent Report setup: {}", ex.getMessage(), ex);
-            throw new ExceptionUtil.ExtentException("Error setting up Extent Report: " + ex.getMessage(), ex);
+            throw new ExceptionHub.ExtentException("Error setting up Extent Report: " + ex.getMessage(), ex);
         }
     }
 

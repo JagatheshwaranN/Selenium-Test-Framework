@@ -9,7 +9,7 @@ import java.util.UUID;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.qa.stf.report.ExtentReport;
-import com.qa.stf.util.ExceptionUtil;
+import com.qa.stf.util.ExceptionHub;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -43,7 +43,7 @@ import com.qa.stf.constant.TestConstants;
  *
  * <p>Exception Handling:
  * <ul>
- *   <li>Uses the {@link ExceptionUtil} class for handling exceptions during screenshot
+ *   <li>Uses the {@link ExceptionHub} class for handling exceptions during screenshot
  *   capture.</li>
  *   <li>Provides detailed logging for unexpected behaviors or failures.</li>
  * </ul>
@@ -198,6 +198,7 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
                     MediaEntityBuilder.createScreenCaptureFromBase64String(base64Snapshot).build());
         } catch (Exception ex) {
             log.error("Failed to capture Base64 screenshot: {}", ex.getMessage(), ex);
+            throw new ExceptionHub.ScreenshotException("Failed to create the Base64 screenshot", ex);
         }
         testNGReporterUpdate(result.getName().toUpperCase() + message, snapshotPath);
     }
@@ -206,7 +207,7 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
      * Captures a screenshot and saves it to the predefined snapshot path.
      *
      * @return The absolute path of the saved screenshot.
-     * @throws ExceptionUtil.ScreenshotException If the screenshot cannot be saved.
+     * @throws ExceptionHub.ScreenshotException If the screenshot cannot be saved.
      */
     private String captureScreenshot() {
         String timestamp = new SimpleDateFormat(TestConstants.DATE_FORMAT).format(Calendar.getInstance().getTime());
@@ -218,7 +219,7 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
             log.info("Screenshot saved: {}", destination.getAbsolutePath());
         } catch (IOException ex) {
             log.error("Failed to save screenshot: {}", ex.getMessage(), ex);
-            throw new ExceptionUtil.ScreenshotException("Failed to create the screenshot", ex);
+            throw new ExceptionHub.ScreenshotException("Failed to create the screenshot", ex);
         }
         return destination.getAbsolutePath();
     }

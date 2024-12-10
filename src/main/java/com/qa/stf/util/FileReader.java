@@ -27,7 +27,7 @@ public class FileReader {
      * with relevant details.
      * </p>
      *
-     * @throws ExceptionUtil.ConfigTypeException If the file is not found or an error
+     * @throws ExceptionHub.ConfigTypeException If the file is not found or an error
      *                                           occurs while loading it.
      */
     public static void loadPropertyFile() {
@@ -36,10 +36,10 @@ public class FileReader {
             log.info("The configuration file is loaded!!");
         } catch (FileNotFoundException ex) {
             log.error("The configuration file not found on the given path " + TestConstants.CONFIG_FILE_PATH, ex);
-            throw new ExceptionUtil.ConfigTypeException(TestConstants.CONFIG_FILE_PATH, ex);
+            throw new ExceptionHub.ConfigTypeException(TestConstants.CONFIG_FILE_PATH, ex);
         } catch (IOException ex) {
             log.error("Error occurred while loading the configuration file", ex);
-            throw new ExceptionUtil.ConfigTypeException("Error occurred while loading configuration file", ex);
+            throw new ExceptionHub.ConfigTypeException("Error occurred while loading configuration file", ex);
         }
     }
 
@@ -53,7 +53,7 @@ public class FileReader {
      *
      * @param key The key to search for in the property file.
      * @return The stripped value associated with the key, or {@code null} if the key is not provided.
-     * @throws ExceptionUtil.InvalidDataException If the key is not found in the property file.
+     * @throws ExceptionHub.InvalidDataException If the key is not found in the property file.
      */
     public static String getDataFromPropFile(String key) {
         String data = null;
@@ -64,7 +64,7 @@ public class FileReader {
                 log.info("The '{}' data fetched from the configuration file", data);
             } else {
                 log.error("The key '{}' is not present in the configuration file", key);
-                throw new ExceptionUtil.InvalidDataException(key, new NullPointerException());
+                throw new ExceptionHub.InvalidDataException(key, new NullPointerException());
             }
         }
         return data;

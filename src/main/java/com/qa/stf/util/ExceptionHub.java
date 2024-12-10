@@ -1,7 +1,7 @@
 package com.qa.stf.util;
 
 /**
- * The {@code ExceptionUtil} class provides custom exception handling for various errors
+ * The {@code ExceptionHub} class provides custom exception handling for various errors
  * that occur during Selenium-based automation and interaction with web elements.
  * <p>
  * This class extends {@link RuntimeException} and defines several static inner exception
@@ -42,7 +42,7 @@ package com.qa.stf.util;
  * <ul>
  *     <li>Each exception includes a detailed error message and, where applicable, an
  *      underlying cause.</li>
- *     <li>All exception classes extend the {@link ExceptionUtil} base class to inherit
+ *     <li>All exception classes extend the {@link ExceptionHub} base class to inherit
  *      common functionality.</li>
  * </ul>
  *
@@ -60,28 +60,28 @@ package com.qa.stf.util;
  * @author Jagatheshwaran N
  * @version 1.1
  */
-public class ExceptionUtil extends RuntimeException {
+public class ExceptionHub extends RuntimeException {
 
     /**
-     * Constructs a new ExceptionUtil with the specified detail message.
+     * Constructs a new ExceptionHub with the specified detail message.
      *
      * @param message the detail message.
      */
-    public ExceptionUtil(String message) {
+    public ExceptionHub(String message) {
         super(message);
     }
 
     /**
-     * Constructs a new ExceptionUtil with the specified detail message and cause.
+     * Constructs a new ExceptionHub with the specified detail message and cause.
      *
      * @param message the detail message.
      * @param cause   the cause of the exception.
      */
-    public ExceptionUtil(String message, Throwable cause) {
+    public ExceptionHub(String message, Throwable cause) {
         super(message, cause);
     }
 
-    public static class OptionNotFoundException extends ExceptionUtil {
+    public static class OptionNotFoundException extends ExceptionHub {
 
         /**
          * Constructs the exception with a message indicating that the specified
@@ -108,7 +108,7 @@ public class ExceptionUtil extends RuntimeException {
         }
     }
 
-    public static class DropDownException extends ExceptionUtil {
+    public static class DropDownException extends ExceptionHub {
 
         /**
          * Constructs the exception with a message indicating an error related to a dropdown
@@ -122,7 +122,7 @@ public class ExceptionUtil extends RuntimeException {
         }
     }
 
-    public static class ElementNotFoundException extends ExceptionUtil {
+    public static class ElementNotFoundException extends ExceptionHub {
 
         /**
          * Constructs the exception with a message indicating that the specified element
@@ -146,7 +146,7 @@ public class ExceptionUtil extends RuntimeException {
         }
     }
 
-    public static class ConfigTypeException extends ExceptionUtil {
+    public static class ConfigTypeException extends ExceptionHub {
 
         /**
          * Constructs the exception with a message indicating that the specified configuration type
@@ -170,7 +170,7 @@ public class ExceptionUtil extends RuntimeException {
         }
     }
 
-    public static class InvalidDataException extends ExceptionUtil {
+    public static class InvalidDataException extends ExceptionHub {
 
         /**
          * Constructs the exception with a message indicating that the specified data value
@@ -194,7 +194,7 @@ public class ExceptionUtil extends RuntimeException {
         }
     }
 
-    public static class AlertNotFoundException extends ExceptionUtil {
+    public static class AlertNotFoundException extends ExceptionHub {
 
         /**
          * Constructs the exception with a message indicating that the alert was not present on the page,
@@ -207,7 +207,7 @@ public class ExceptionUtil extends RuntimeException {
         }
     }
 
-    public static class WindowException extends ExceptionUtil {
+    public static class WindowException extends ExceptionHub {
 
         /**
          * Constructs the exception with a message describing the window handling issue,
@@ -221,7 +221,7 @@ public class ExceptionUtil extends RuntimeException {
         }
     }
 
-    public static class FrameException extends ExceptionUtil {
+    public static class FrameException extends ExceptionHub {
 
         /**
          * Constructs the exception with a message describing the frame handling issue,
@@ -235,7 +235,7 @@ public class ExceptionUtil extends RuntimeException {
         }
     }
 
-    public static class JavascriptExecutorException extends ExceptionUtil {
+    public static class JavascriptExecutorException extends ExceptionHub {
 
         /**
          * Constructs the exception with a message detailing the JavaScript execution issue,
@@ -249,7 +249,7 @@ public class ExceptionUtil extends RuntimeException {
         }
     }
 
-    public static class InteractionException extends ExceptionUtil {
+    public static class InteractionException extends ExceptionHub {
 
         /**
          * Constructs the exception with a message describing the interaction error,
@@ -263,7 +263,7 @@ public class ExceptionUtil extends RuntimeException {
         }
     }
 
-    public static class ScreenshotException extends ExceptionUtil {
+    public static class ScreenshotException extends ExceptionHub {
 
         /**
          * Constructs the exception with a message explaining the screenshot error
@@ -277,7 +277,7 @@ public class ExceptionUtil extends RuntimeException {
         }
     }
 
-    public static class ExtentException extends ExceptionUtil {
+    public static class ExtentException extends ExceptionHub {
 
         /**
          * Constructs the exception with a message explaining the report generation error
@@ -291,7 +291,7 @@ public class ExceptionUtil extends RuntimeException {
         }
     }
 
-    public static class ExcelException extends ExceptionUtil {
+    public static class ExcelException extends ExceptionHub {
 
         /**
          * Constructs the exception with a message indicating that the specified Excel

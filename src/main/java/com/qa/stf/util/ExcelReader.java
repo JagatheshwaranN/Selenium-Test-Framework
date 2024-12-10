@@ -32,6 +32,18 @@ public class ExcelReader {
     private XSSFRow row = null;
     private XSSFCell cell = null;
 
+    /**
+     * Initializes an instance of ExcelReader to read data from an Excel file.
+     * <p>
+     * This constructor loads the specified Excel file, defaults to the first sheet,
+     * and initializes the workbook and sheet objects. It uses try-with-resources
+     * to ensure the file input stream is properly closed.
+     * </p>
+     *
+     * @param path The file path of the Excel workbook to load.
+     * @throws ExceptionHub.ConfigTypeException If the file is not found or cannot
+     *                                           be loaded.
+     */
     public ExcelReader(String path) {
         this.path = path;
         try (FileInputStream fis = new FileInputStream(path)) { // Use try-with-resources
@@ -39,14 +51,25 @@ public class ExcelReader {
             sheet = workbook.getSheetAt(0); // Default to the first sheet
         } catch (FileNotFoundException ex) {
             log.error("The excel file was not found at the given path: {}", path, ex);
-            throw new ExceptionUtil.ConfigTypeException("File not found at path: " + path, ex);
+            throw new ExceptionHub.ConfigTypeException("File not found at path: " + path, ex);
         } catch (IOException ex) {
             log.error("Error occurred while loading the excel file from path: {}", path, ex);
-            throw new ExceptionUtil.ConfigTypeException("Error occurred while loading excel file from path: " + path, ex);
+            throw new ExceptionHub.ConfigTypeException("Error occurred while loading excel file from path: " + path, ex);
         }
     }
 
-    // Returns the row count in a sheet
+    /**
+     * Retrieves the row count in a specified sheet.
+     * <p>
+     * This method fetches the total number of rows in the given sheet of the workbook.
+     * If the sheet does not exist, it logs a warning and returns 0. The row count includes
+     * all rows, even if some are empty.
+     * </p>
+     *
+     * @param sheetName The name of the sheet for which to retrieve the row count.
+     * @return The number of rows in the sheet (1-based index).
+     * @throws ExceptionHub.InvalidDataException If an error occurs while accessing the sheet.
+     */
     public int getRowCount(String sheetName) {
         try {
             XSSFSheet sheet = workbook.getSheet(sheetName); // Get sheet by name
@@ -57,12 +80,27 @@ public class ExcelReader {
             return sheet.getLastRowNum() + 1; // LastRowNum is zero-based
         } catch (Exception ex) {
             log.error("Error occurred while fetching row count for sheet '{}'", sheetName, ex);
-            throw new ExceptionUtil.InvalidDataException(
+            throw new ExceptionHub.InvalidDataException(
                     String.format("Error fetching row count for sheet '%s'", sheetName), ex);
         }
     }
 
-    // Returns the data from a cell
+    /**
+     * Retrieves data from a specific cell in the sheet by column name and row number.
+     * <p>
+     * This method finds the column index based on the column name and retrieves the
+     * corresponding cell value in the specified row. If the row number is invalid, the
+     * column or sheet does not exist, or any other issue occurs, appropriate warnings
+     * are logged and an empty string is returned.
+     * </p>
+     *
+     * @param sheetName The name of the sheet containing the cell.
+     * @param colName   The name of the column containing the cell.
+     * @param rowNum    The 1-based row number containing the cell.
+     * @return The cell data as a string, or an empty string if the cell is empty or not found.
+     * @throws ExceptionHub.InvalidDataException If an error occurs while retrieving the cell
+     *                                            data.
+     */
     public String getCellData(String sheetName, String colName, int rowNum) {
         try {
             if (rowNum <= 0) {
@@ -98,12 +136,23 @@ public class ExcelReader {
 
         } catch (Exception ex) {
             log.error("Error reading cell data for sheet '{}', column '{}', row {}", sheetName, colName, rowNum, ex);
-            throw new ExceptionUtil.InvalidDataException(
+            throw new ExceptionHub.InvalidDataException(
                     String.format("Error reading cell data in sheet '%s', column '%s', row '%s'", sheetName, colName, rowNum), ex);
         }
     }
 
-    // Helper to find the column index by name
+    /**
+     * Finds the index of a column in the header row by column name.
+     * <p>
+     * This method iterates over the cells in the header row and checks if any cell
+     * matches the specified column name (case-insensitive). If no match is found,
+     * it returns -1.
+     * </p>
+     *
+     * @param headerRow The header row to search.
+     * @param colName   The name of the column to locate.
+     * @return The zero-based index of the column, or -1 if the column is not found.
+     */
     private int findColumnIndex(XSSFRow headerRow, String colName) {
         for (int i = 0; i < headerRow.getLastCellNum(); i++) {
             if (headerRow.getCell(i).getStringCellValue().trim().equalsIgnoreCase(colName.trim())) {
@@ -113,7 +162,22 @@ public class ExcelReader {
         return -1; // Column not found
     }
 
-    // Returns the data from a cell given the sheet name, column number, and row number
+    /**
+     * Retrieves data from a specific cell in the sheet by column index and row number.
+     * <p>
+     * This method retrieves the cell value based on the specified zero-based column index
+     * and 1-based row number. If the row number is invalid, the column or sheet does not
+     * exist, or any other issue occurs, appropriate warnings are logged and an empty string
+     * is returned.
+     * </p>
+     *
+     * @param sheetName The name of the sheet containing the cell.
+     * @param colNum    The zero-based column index containing the cell.
+     * @param rowNum    The 1-based row number containing the cell.
+     * @return The cell data as a string, or an empty string if the cell is empty or not found.
+     * @throws ExceptionHub.InvalidDataException If an error occurs while retrieving the cell
+     *                                            data.
+     */
     public String getCellData(String sheetName, int colNum, int rowNum) {
         try {
             if (rowNum <= 0) {
@@ -137,12 +201,25 @@ public class ExcelReader {
 
         } catch (Exception ex) {
             log.error("Error reading cell data for sheet '{}', column '{}', row {}", sheetName, colNum, rowNum, ex);
-            throw new ExceptionUtil.InvalidDataException(
+            throw new ExceptionHub.InvalidDataException(
                     String.format("Error reading cell data in sheet '%s', column '%d', row '%d'", sheetName, colNum, rowNum), ex);
         }
     }
 
-    // Helper to get cell value as a string
+    /**
+     * Converts a cell value to a string representation.
+     * <p>
+     * This method determines the type of the cell and converts its value to a string
+     * accordingly. It handles different cell types such as STRING, NUMERIC, FORMULA,
+     * BOOLEAN, and defaults to an empty string for unsupported or null cells.
+     * If the cell contains a date, it is formatted as a string using the helper method
+     * {@link #formatDateCell(double)}.
+     * </p>
+     *
+     * @param cell The {@link XSSFCell} object representing the cell.
+     * @return A string representation of the cell value, or an empty string if the cell
+     * is null or unsupported.
+     */
     private String getCellValueAsString(XSSFCell cell) {
         if (cell == null) return "";
         return switch (cell.getCellType()) {
@@ -159,7 +236,17 @@ public class ExcelReader {
         };
     }
 
-    // Helper to format date cells
+    /**
+     * Formats a numeric value representing a date into a string representation.
+     * <p>
+     * This method converts a numeric value obtained from a date-formatted cell
+     * into a Java {@link Calendar} object and formats it as a string in the
+     * format "DD/MM/YYYY".
+     * </p>
+     *
+     * @param numericValue The numeric value representing the date.
+     * @return A string representation of the date in "DD/MM/YYYY" format.
+     */
     private String formatDateCell(double numericValue) {
         Calendar cal = Calendar.getInstance();
         cal.setTime(DateUtil.getJavaDate(numericValue));
@@ -169,7 +256,24 @@ public class ExcelReader {
                 cal.get(Calendar.YEAR));
     }
 
-    // Updates the cell data in the specified sheet, column, and row
+    /**
+     * Updates the cell data in the specified sheet, column, and row.
+     * <p>
+     * This method updates the value of a cell identified by its sheet name,
+     * column name, and row number in the Excel workbook. If the row or cell
+     * does not exist, it creates them. After updating, the changes are written
+     * back to the file.
+     * </p>
+     *
+     * @param sheetName The name of the sheet where the cell resides.
+     * @param colName   The name of the column where the cell resides.
+     * @param rowNum    The row number (1-based index) where the cell resides.
+     * @param data      The data to set in the cell.
+     * @return {@code true} if the cell data was successfully updated, {@code false}
+     * otherwise.
+     * @throws ExceptionHub.ExcelException If an error occurs while updating the
+     *                                      Excel sheet.
+     */
     public boolean setCellData(String sheetName, String colName, int rowNum, String data) {
         if (rowNum <= 0) {
             log.warn("Row number must be greater than 0. Provided: {}", rowNum);
@@ -212,15 +316,32 @@ public class ExcelReader {
 
         } catch (IOException ex) {
             log.error("Error occurred while updating the Excel sheet", ex);
-            throw new ExceptionUtil.ExcelException("Error occurred while updating the Excel sheet", ex);
+            throw new ExceptionHub.ExcelException("Error occurred while updating the Excel sheet", ex);
         }
     }
 
-    // Updates the cell data in the specified sheet, column, and row with a hyperlink
-    public boolean setCellData(String sheetName, String colName, int rowNum, String data, String url) {
+    /**
+     * Updates the cell data in the specified sheet, column, and row with a hyperlink.
+     * <p>
+     * This method updates the value of a cell identified by its sheet name,
+     * column name, and row number in the Excel workbook. If the row or cell
+     * does not exist, it creates them. A hyperlink is added to the cell if a URL
+     * is provided. After updating, the changes are written back to the file.
+     * </p>
+     *
+     * @param sheetName The name of the sheet where the cell resides.
+     * @param colName   The name of the column where the cell resides.
+     * @param rowNum    The row number (1-based index) where the cell resides.
+     * @param data      The data to set in the cell.
+     * @param url       The URL to hyperlink the cell, or {@code null} if no hyperlink
+     *                  is required.
+     * @throws ExceptionHub.ExcelException If an error occurs while updating the
+     *                                      Excel sheet.
+     */
+    public void setCellData(String sheetName, String colName, int rowNum, String data, String url) {
         if (rowNum <= 0) {
             log.warn("Row number must be greater than 0. Provided: {}", rowNum);
-            return false;
+            return;
         }
 
         try (FileInputStream fis = new FileInputStream(path);
@@ -231,14 +352,14 @@ public class ExcelReader {
 
             if (sheet == null) {
                 log.warn("Sheet '{}' does not exist in the workbook", sheetName);
-                return false;
+                return;
             }
 
             // Get the column index for the specified column name
             int colNum = getColumnIndex(sheet, colName);
             if (colNum == -1) {
                 log.warn("Column '{}' does not exist in sheet '{}'", colName, sheetName);
-                return false;
+                return;
             }
 
             // Auto-size the column and get/create the row
@@ -259,15 +380,25 @@ public class ExcelReader {
             // Write changes back to the file
             workbook.write(fileOut);
             log.info("Data successfully updated in sheet '{}', column '{}', row {}", sheetName, colName, rowNum);
-            return true;
 
         } catch (IOException ex) {
             log.error("Error occurred while updating the Excel sheet", ex);
-            throw new ExceptionUtil.ExcelException("Error occurred while updating the Excel sheet", ex);
+            throw new ExceptionHub.ExcelException("Error occurred while updating the Excel sheet", ex);
         }
     }
 
-    // Helper to get column index by column name
+    /**
+     * Retrieves the index of a column by its name in the specified sheet.
+     * <p>
+     * This method searches the header row (first row) of the sheet for a column
+     * with the specified name and returns its zero-based index. If the column
+     * is not found, it returns {@code -1}.
+     * </p>
+     *
+     * @param sheet   The sheet where the column is to be searched.
+     * @param colName The name of the column to find.
+     * @return The zero-based index of the column, or {@code -1} if not found.
+     */
     private int getColumnIndex(XSSFSheet sheet, String colName) {
         XSSFRow headerRow = sheet.getRow(0);
         if (headerRow == null) {
@@ -285,7 +416,17 @@ public class ExcelReader {
         return -1;
     }
 
-    // Helper to add a hyperlink to a cell
+    /**
+     * Adds a hyperlink to the specified cell.
+     * <p>
+     * This method sets a hyperlink pointing to the provided URL for the specified
+     * cell. It also applies a hyperlink style (blue and underlined text) to the
+     * cell.
+     * </p>
+     *
+     * @param cell The cell to which the hyperlink will be added.
+     * @param url  The URL to set as the hyperlink.
+     */
     private void addHyperlink(XSSFCell cell, String url) {
         XSSFCreationHelper createHelper = workbook.getCreationHelper();
         XSSFHyperlink hyperlink = createHelper.createHyperlink(HyperlinkType.FILE);
@@ -301,7 +442,20 @@ public class ExcelReader {
         cell.setCellStyle(linkStyle);
     }
 
-    // Adds a new sheet to the workbook and returns true if successful, else false
+    /**
+     * Adds a new sheet to the workbook.
+     * <p>
+     * This method creates a new sheet with the specified name in the Excel workbook.
+     * If a sheet with the given name already exists, it logs a warning and returns
+     * {@code false}. The method writes the updated workbook back to the file after
+     * successfully adding the sheet.
+     * </p>
+     *
+     * @param sheetName The name of the new sheet to be created.
+     * @return {@code true} if the sheet was successfully added, {@code false} otherwise.
+     * @throws ExceptionHub.ExcelException If an error occurs while adding the sheet or
+     *                                      saving the workbook.
+     */
     public boolean addSheet(String sheetName) {
         if (sheetName == null || sheetName.trim().isEmpty()) {
             log.warn("Sheet name is null or empty. Cannot create sheet.");
@@ -321,12 +475,26 @@ public class ExcelReader {
 
         } catch (IOException ex) {
             log.error("Error occurred while adding a new sheet '{}' to the workbook.", sheetName, ex);
-            throw new ExceptionUtil.ExcelException(
+            throw new ExceptionHub.ExcelException(
                     String.format("Error occurred while adding a new sheet '%s' to the workbook.", sheetName), ex);
         }
     }
 
-    // Removes a sheet from the workbook and returns true if successful, else false
+    /**
+     * Removes a sheet from the workbook.
+     * <p>
+     * This method removes a sheet with the specified name from the Excel workbook.
+     * If the sheet does not exist or the name is invalid, it logs a warning and
+     * returns {@code false}. The updated workbook is saved back to the file after
+     * removing the sheet.
+     * </p>
+     *
+     * @param sheetName The name of the sheet to remove.
+     * @return {@code true} if the sheet was successfully removed, {@code false}
+     * otherwise.
+     * @throws ExceptionHub.ExcelException If an error occurs while removing the
+     *                                      sheet or saving the workbook.
+     */
     public boolean removeSheet(String sheetName) {
         if (sheetName == null || sheetName.trim().isEmpty()) {
             log.warn("Sheet name is null or empty. Cannot remove sheet.");
@@ -347,12 +515,27 @@ public class ExcelReader {
 
         } catch (IOException ex) {
             log.error("Error occurred while removing sheet '{}' from the workbook.", sheetName, ex);
-            throw new ExceptionUtil.ExcelException(
+            throw new ExceptionHub.ExcelException(
                     String.format("Error occurred while removing sheet '%s' from the workbook.", sheetName), ex);
         }
     }
 
-    // Adds a column to the specified sheet with the given column name
+    /**
+     * Adds a new column to the specified sheet.
+     * <p>
+     * This method adds a new column with the given name to the header row of the
+     * specified sheet.
+     * If the sheet does not exist or the column name is invalid, it logs a warning
+     * and returns {@code false}. The updated workbook is saved back to the file after
+     * adding the column. The new column header cell is styled with a grey background.
+     * </p>
+     *
+     * @param sheetName The name of the sheet where the column is to be added.
+     * @param colName   The name of the new column to add.
+     * @return {@code true} if the column was successfully added, {@code false} otherwise.
+     * @throws ExceptionHub.ExcelException If an error occurs while adding the column or
+     *                                      saving the workbook.
+     */
     public boolean addColumn(String sheetName, String colName) {
         if (sheetName == null || sheetName.trim().isEmpty()) {
             log.warn("Sheet name is null or empty. Cannot add column.");
@@ -402,12 +585,27 @@ public class ExcelReader {
 
         } catch (IOException ex) {
             log.error("Error occurred while adding column '{}' to sheet '{}'.", colName, sheetName, ex);
-            throw new ExceptionUtil.ExcelException(
+            throw new ExceptionHub.ExcelException(
                     String.format("Error occurred while adding column '%s' to sheet '%s'.", colName, sheetName), ex);
         }
     }
 
-    // Removes a column from the specified sheet by column index
+    /**
+     * Removes a column from the specified sheet by its column index.
+     * <p>
+     * This method removes all cells in the specified column from each row of the
+     * given sheet. If the sheet or column index is invalid, it logs a warning and
+     * returns {@code false}. The updated workbook is saved back to the file after
+     * removing the column.
+     * </p>
+     *
+     * @param sheetName The name of the sheet where the column is to be removed.
+     * @param colNum    The index of the column to remove (0-based index).
+     * @return {@code true} if the column was successfully removed, {@code false}
+     * otherwise.
+     * @throws ExceptionHub.ExcelException If an error occurs while removing the
+     *                                      column or saving the workbook.
+     */
     public boolean removeColumn(String sheetName, int colNum) {
         if (sheetName == null || sheetName.trim().isEmpty()) {
             log.warn("Sheet name is null or empty. Cannot remove column.");
@@ -458,14 +656,26 @@ public class ExcelReader {
 
         } catch (IOException ex) {
             log.error("Error occurred while removing column {} from sheet '{}'.", colNum, sheetName, ex);
-            throw new ExceptionUtil.ExcelException(
+            throw new ExceptionHub.ExcelException(
                     String.format("Error occurred while removing column %d from sheet '%s'.", colNum, sheetName), ex);
         }
     }
 
 
-    // find whether sheets exists
-    // Checks if the sheet exists in the workbook (case-insensitive search)
+    /**
+     * Checks if a sheet exists in the workbook (case-insensitive search).
+     * <p>
+     * This method verifies the existence of a sheet in the workbook by its name. It
+     * performs both case-sensitive and case-insensitive searches. If the sheet does
+     * not exist, it logs a warning and throws an exception. This method can also
+     * handle empty or null sheet names.
+     * </p>
+     *
+     * @param sheetName The name of the sheet to check.
+     * @return {@code true} if the sheet exists in the workbook, {@code false} otherwise.
+     * @throws ExceptionHub.ExcelException If an error occurs during the sheet existence
+     *                                      check.
+     */
     public boolean isSheetExist(String sheetName) {
         if (sheetName == null || sheetName.trim().isEmpty()) {
             log.warn("Sheet name is null or empty. Cannot check for sheet existence.");
@@ -480,7 +690,7 @@ public class ExcelReader {
                 index = workbook.getSheetIndex(sheetName.toUpperCase());
                 if (index == -1) {
                     log.warn("Sheet '{}' does not exist in the workbook.", sheetName);
-                    throw new ExceptionUtil.ExcelException(String.format("Sheet '%s' does not exist in the excel workbook", sheetName));
+                    throw new ExceptionHub.ExcelException(String.format("Sheet '%s' does not exist in the excel workbook", sheetName));
                 }
             }
 
@@ -489,11 +699,24 @@ public class ExcelReader {
 
         } catch (Exception ex) {
             log.error("Error occurred while checking if sheet '{}' exists in the workbook.", sheetName, ex);
-            throw new ExceptionUtil.ExcelException(String.format("Error occurred while checking if sheet '%s' exists in the workbook", sheetName), ex);
+            throw new ExceptionHub.ExcelException(String.format("Error occurred while checking if sheet '%s' exists in the workbook", sheetName), ex);
         }
     }
 
-    // Returns the number of columns in the specified sheet
+    /**
+     * Retrieves the number of columns in the specified sheet.
+     * <p>
+     * This method checks if the sheet exists and retrieves the count of columns in
+     * the first row.
+     * If the first row is empty or the sheet does not exist, it returns -1.
+     * </p>
+     *
+     * @param sheetName The name of the sheet to get the column count from.
+     * @return The number of columns in the first row of the sheet, or -1 if the sheet
+     * or row is empty.
+     * @throws ExceptionHub.ExcelException If an error occurs while retrieving the
+     *                                      column count.
+     */
     public int getColumnCount(String sheetName) {
         try {
             // Check if the sheet exists
@@ -519,11 +742,26 @@ public class ExcelReader {
 
         } catch (Exception ex) {
             log.error("Error occurred while getting the column count for sheet '{}'.", sheetName, ex);
-            throw new ExceptionUtil.ExcelException("Error occurred while getting the column count for the sheet", ex);
+            throw new ExceptionHub.ExcelException("Error occurred while getting the column count for the sheet", ex);
         }
     }
 
-    // Adds a hyperlink in the specified sheet, associating it with a test case and screenshot column.
+    /**
+     * Adds a hyperlink to a specified test case in the given sheet.
+     * <p>
+     * This method searches for a test case name in the specified sheet and adds a hyperlink
+     * to a given column, associating it with a screenshot URL and message.
+     * </p>
+     *
+     * @param sheetName        The name of the sheet where the hyperlink is to be added.
+     * @param screenShotColName The name of the column to which the hyperlink will be added.
+     * @param testCaseName      The test case name to search for.
+     * @param index             An offset index to adjust the row position.
+     * @param url               The URL to be added as the hyperlink.
+     * @param message           The message to be displayed for the hyperlink.
+     * @return {@code true} if the hyperlink was successfully added, {@code false} otherwise.
+     * @throws ExceptionHub.ExcelException If an error occurs while adding the hyperlink.
+     */
     public boolean addHyperLink(String sheetName, String screenShotColName, String testCaseName, int index, String url, String message) {
         try {
             // Normalize the URL by replacing backslashes with forward slashes
@@ -549,11 +787,25 @@ public class ExcelReader {
             return true;
         } catch (Exception ex) {
             log.error("Error occurred while adding hyperlink for test case '{}' in sheet '{}'.", testCaseName, sheetName, ex);
-            throw new ExceptionUtil.ExcelException("Error occurred while adding hyperlink for the test case", ex);
+            throw new ExceptionHub.ExcelException("Error occurred while adding hyperlink for the test case", ex);
         }
     }
 
-    // Returns the row number where the specified cell value is found in the given column.
+    /**
+     * Finds the row number of a cell in the specified column with a given value.
+     * <p>
+     * This method searches for a cell with the specified value in the given column of
+     * the specified sheet. If a match is found, it returns the row number. If the sheet
+     * does not exist or no match is found, it returns -1.
+     * </p>
+     *
+     * @param sheetName The name of the sheet to search in.
+     * @param colName   The name of the column to search for the cell value.
+     * @param cellValue The value to search for in the column.
+     * @return The row number of the cell with the specified value, or -1 if not found.
+     * @throws ExceptionHub.ExcelException If an error occurs while searching for the
+     *                                      cell value.
+     */
     public int getCellRowNum(String sheetName, String colName, String cellValue) {
         try {
             // Check if the sheet exists
@@ -576,7 +828,7 @@ public class ExcelReader {
             return -1;
         } catch (Exception ex) {
             log.error("Error occurred while searching for cell value '{}' in column '{}' of sheet '{}'.", cellValue, colName, sheetName, ex);
-            throw new ExceptionUtil.ExcelException("Error occurred while searching for cell value in the excel sheet", ex);
+            throw new ExceptionHub.ExcelException("Error occurred while searching for cell value in the excel sheet", ex);
         }
     }
 

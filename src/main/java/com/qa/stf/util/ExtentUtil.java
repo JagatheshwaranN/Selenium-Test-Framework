@@ -33,7 +33,7 @@ public class ExtentUtil {
             return extentReports;
         } catch (IOException ex) {
             log.error("Error occurred during Extent Report setup: {}", ex.getMessage(), ex);
-            throw new ExceptionUtil.ExtentException("Error setting up Extent Report: " + ex.getMessage(), ex);
+            throw new ExceptionHub.ExtentException("Error setting up Extent Report: " + ex.getMessage(), ex);
         }
     }
 

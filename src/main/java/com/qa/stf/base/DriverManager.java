@@ -6,7 +6,7 @@ import java.net.URI;
 import com.qa.stf.constant.BrowserType;
 import com.qa.stf.listener.TestListener;
 import com.qa.stf.util.ExcelReader;
-import com.qa.stf.util.ExceptionUtil;
+import com.qa.stf.util.ExceptionHub;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.Platform;
@@ -20,11 +20,8 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.qa.stf.constant.TestConstants;
-
-import com.qa.stf.util.ExtentUtil;
 
 public class DriverManager extends BrowserManager {
 
@@ -90,7 +87,7 @@ public class DriverManager extends BrowserManager {
                     throw new RuntimeException(e);
                 }
             }
-            default -> throw new ExceptionUtil.InvalidDataException(environmentManager.getEnvType().toString());
+            default -> throw new ExceptionHub.InvalidDataException(environmentManager.getEnvType().toString());
         };
     }
 
@@ -116,7 +113,7 @@ public class DriverManager extends BrowserManager {
                 meOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
                 yield new EdgeDriver(meOptions);
             }
-            default -> throw new ExceptionUtil.InvalidDataException(getBrowserType().toString());
+            default -> throw new ExceptionHub.InvalidDataException(getBrowserType().toString());
         };
     }
 
@@ -144,7 +141,7 @@ public class DriverManager extends BrowserManager {
                 meOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
                 yield new RemoteWebDriver(URI.create(getDataFromPropFile("RemoteUrl")).toURL(), meOptions);
             }
-            default -> throw new ExceptionUtil.InvalidDataException(getBrowserType().toString());
+            default -> throw new ExceptionHub.InvalidDataException(getBrowserType().toString());
         };
     }
 

@@ -2,7 +2,7 @@ package com.qa.stf.reuse;
 
 import com.google.common.util.concurrent.Uninterruptibles;
 import com.qa.stf.handler.VerificationHandler;
-import com.qa.stf.util.ExceptionUtil;
+import com.qa.stf.util.ExceptionHub;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -27,7 +27,7 @@ import java.util.concurrent.TimeUnit;
  * <p>Exception Handling:
  * <ul>
  *   <li>Handles {@link ElementClickInterceptedException} for element click failures.</li>
- *   <li>Uses custom exceptions from the {@link ExceptionUtil} class for error handling
+ *   <li>Uses custom exceptions from the {@link ExceptionHub} class for error handling
  *       when interacting with elements.</li>
  *   <li>Detailed logging is provided for all operations, including successes and
  *      failures.</li>
@@ -114,7 +114,7 @@ public class Component extends BasePage implements WebPage {
      * @param value        The value to be used with the locator for locating the
      *                     element.
      * @param elementLabel The label or description of the element.
-     * @throws ExceptionUtil.InteractionException If an error occurs while clicking
+     * @throws ExceptionHub.InteractionException If an error occurs while clicking
      *                                            the element.
      */
     @Override
@@ -127,7 +127,7 @@ public class Component extends BasePage implements WebPage {
             }
         } catch (ElementClickInterceptedException ex) {
             log.error("Failed to click the '{}' element", elementLabel, ex);
-            throw new ExceptionUtil.InteractionException("Exception occurred while clicking '" + elementLabel + "' element", ex);
+            throw new ExceptionHub.InteractionException("Exception occurred while clicking '" + elementLabel + "' element", ex);
         }
     }
 

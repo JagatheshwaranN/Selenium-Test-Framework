@@ -2,7 +2,7 @@ package com.qa.stf.base;
 
 import java.time.Duration;
 
-import com.qa.stf.util.ExceptionUtil;
+import com.qa.stf.util.ExceptionHub;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
@@ -32,7 +32,7 @@ public class BasePage extends Page {
         try {
             wait.until(ExpectedConditions.visibilityOf(element));
         } catch (NoSuchElementException ex) {
-            throw new ExceptionUtil.ElementNotFoundException(elementLabel, ex);
+            throw new ExceptionHub.ElementNotFoundException(elementLabel, ex);
         }
     }
 
