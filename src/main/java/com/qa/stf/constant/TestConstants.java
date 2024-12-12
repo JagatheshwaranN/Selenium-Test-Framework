@@ -25,6 +25,10 @@ public class TestConstants {
 	public static final String FIREFOX = "Firefox";
 	public static final String EDGE = "MicrosoftEdge";
 
+	// Env Details
+	public static final String LOCAL = "LOCAL";
+	public static final String REMOTE = "REMOTE";
+
 	// Browser Option Details
 	public static final String CHROME_REMOTE_ORIGIN = "--remote-allow-origins=*";
 	public static final String BROWSER_MAXIMIZE = "--start-maximized";

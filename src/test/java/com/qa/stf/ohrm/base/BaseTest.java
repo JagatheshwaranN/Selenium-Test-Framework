@@ -11,7 +11,7 @@ public class BaseTest extends DriverManager {
 	@BeforeMethod
 	public void testStartUp() {
 		FileReader.loadPropertyFile();
-		launchBrowser();
+		initializeDriver();
 	}
 
 	@AfterMethod

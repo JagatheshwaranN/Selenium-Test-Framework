@@ -23,94 +23,232 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import com.aventstack.extentreports.ExtentTest;
 import com.qa.stf.constant.TestConstants;
 
+/**
+ * The DriverManager class manages the WebDriver instances for various browsers
+ * and environments (local or remote). It provides methods for initializing,
+ * retrieving, and closing WebDriver instances, as well as managing thread-local
+ * storage for WebDriver and ExtentTest instances.
+ *
+ * <p>Features:
+ * <ul>
+ *     <li>Creates and manages WebDriver instances for Chrome, Firefox, and Edge
+ *         browsers.</li>
+ *     <li>Supports local and remote WebDriver execution based on environment
+ *         configuration.</li>
+ *     <li>Provides thread-safe WebDriver and ExtentTest instances using thread-local
+ *         storage.</li>
+ *     <li>Supports integration with ExtentReports for logging test results.</li>
+ *     <li>Handles initialization and closing of WebDriver instances in multi-threaded
+ *         test environments.</li>
+ * </ul>
+ *
+ * <p>Exception Handling:
+ * <ul>
+ *   <li>Custom exceptions from the {@link ExceptionHub} class are thrown for invalid
+ *       data and environmental configurations.</li>
+ *   <li>Detailed logging is provided for the initialization and closure of WebDriver
+ *       instances.</li>
+ *   <li>Malformed URL errors are caught and logged when creating remote WebDriver
+ *       instances.</li>
+ * </ul>
+ *
+ * <p>Note:
+ * This class assumes proper WebDriver setup and configuration. The users must ensure
+ * that the WebDriver executable and environment configurations are correctly set up
+ * before invoking the methods. Additionally, WebDriver initialization and termination
+ * must be managed separately using the provided methods.
+ *
+ * <p>Example:
+ * <pre>
+ * {@code
+ * DriverManager driverManager = DriverManager.getInstance();
+ * driverManager.initializeDriver();
+ * WebDriver driver = driverManager.getDriver();
+ * driverManager.closeDriver();
+ * }
+ * </pre>
+ *
+ * @author Jagatheshwaran N
+ * @version 1.2
+ */
 public class DriverManager extends BrowserManager {
 
-    private static final Logger log = LogManager.getFormatterLogger(DriverManager.class);
+    private static final Logger log = LogManager.getLogger(DriverManager.class);
 
-    private WebDriver driver;
     private ChromeOptions gcOptions;
     private FirefoxOptions ffOptions;
     private EdgeOptions meOptions;
-    public static ThreadLocal<WebDriver> driverLocal = new ThreadLocal<>();
-    public static ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
-
-    public static ExcelReader excelReader = new ExcelReader(
-            System.getProperty("user.dir") + TestConstants.EXCEL_FILE_PATH);
-
-//    public static ExtentReports report = ExtentUtil.getInstance();
-
-//    public static ExtentTest test;
-
-    public static BasePage page;
+    private static final ThreadLocal<WebDriver> driverLocal = new ThreadLocal<>();
+    private static final ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
 
     private final EnvironmentManager environmentManager;
 
+    public static ExcelReader excelReader;
+
     public DriverManager() {
         this.environmentManager = new EnvironmentManager();
+        excelReader = new ExcelReader(TestConstants.CWD + TestConstants.EXCEL_FILE_PATH);
     }
 
+    /**
+     * Singleton instance holder for the DriverManager class.
+     * <p>
+     * This inner static class is used to implement the Singleton design pattern
+     * in a thread-safe manner. The DriverManager instance is created lazily when
+     * the `getInstance()` method is called for the first time.
+     * </p>
+     */
+    private static final class InstanceHolder {
+        private static final DriverManager instance = new DriverManager();
+    }
+
+    /**
+     * Retrieves the singleton instance of the DriverManager class.
+     * <p>
+     * This method provides a thread-safe way to access the single instance of
+     * DriverManager, ensuring that only one instance exists throughout the
+     * application lifecycle.
+     * </p>
+     *
+     * @return The singleton instance of DriverManager.
+     */
+    public static DriverManager getInstance() {
+        return InstanceHolder.instance;
+    }
+
+    /**
+     * Sets the WebDriver instance for the current thread.
+     * <p>
+     * This method stores the WebDriver instance in a thread-local variable
+     * to ensure that each thread gets its own instance of WebDriver,
+     * avoiding concurrency issues in a multi-threaded test environment.
+     * </p>
+     *
+     * @param driver The WebDriver instance to be set for the current thread.
+     */
     public void setDriver(WebDriver driver) {
         driverLocal.set(driver);
     }
 
+    /**
+     * Retrieves the WebDriver instance for the current thread.
+     * <p>
+     * This method fetches the WebDriver instance stored in the thread-local
+     * variable for the current thread. Each thread maintains its own
+     * WebDriver instance, ensuring thread safety.
+     * </p>
+     *
+     * @return The WebDriver instance for the current thread.
+     */
     public WebDriver getDriver() {
         return driverLocal.get();
     }
 
+    /**
+     * Retrieves the ExtentTest instance for the current thread.
+     * <p>
+     * This method returns the ExtentTest instance associated with the current thread.
+     * The ExtentTest is used for logging test results in ExtentReports.
+     * </p>
+     *
+     * @return The ExtentTest instance for the current thread.
+     */
     public ExtentTest getExtentTest() {
         return extentTest.get();
     }
 
+    /**
+     * Sets the ExtentTest instance for the current thread.
+     * <p>
+     * This method stores the ExtentTest instance in a thread-local variable
+     * to ensure each thread has its own ExtentTest for logging test results.
+     * </p>
+     *
+     * @param extentTest The ExtentTest instance to be set for the current thread.
+     */
     public void setExtentTest(ExtentTest extentTest) {
         DriverManager.extentTest.set(extentTest);
     }
 
-    public void closeExtentTest(){
+    /**
+     * Closes the current ExtentTest instance by removing it from the thread-local
+     * storage.
+     * <p>
+     * This method removes the ExtentTest instance associated with the current thread,
+     * marking the end of the current test logging.
+     * </p>
+     */
+    public void closeExtentTest() {
         extentTest.remove();
     }
 
-    private static DriverManager instance;
-
-    public void launchBrowser() {
-        driver = createDriver();
+    /**
+     * Initializes the WebDriver by creating a new driver instance and setting it for
+     * the current thread.
+     * <p>
+     * This method initializes the WebDriver instance based on the environment type
+     * (local or remote) and opens the application URL. It also creates a new TestListener
+     * and a BasePage instance.
+     * </p>
+     *
+     * @throws RuntimeException If any error occurs while creating the WebDriver instance.
+     */
+    public void initializeDriver() {
+        WebDriver driver = createDriver();
         setDriver(driver);
         new TestListener(DriverManager.getInstance());
-        page = new BasePage(DriverManager.getInstance());
+        new BasePage(DriverManager.getInstance());
         driver.get(getDataFromPropFile(TestConstants.APP_URL));
     }
 
+    /**
+     * Creates a WebDriver instance based on the environment type (local or remote).
+     * <p>
+     * This method determines whether to create a local or remote WebDriver instance
+     * based on the environment type (LOCAL or REMOTE) and calls the appropriate
+     * method to create the driver.
+     * </p>
+     *
+     * @return The created WebDriver instance (either local or remote).
+     * @throws ExceptionHub.InvalidDataException If the environment type is not
+     *                                           recognized.
+     */
     private WebDriver createDriver() {
-        return driver = switch (environmentManager.getEnvType().toString()) {
-            case "LOCAL" -> createLocalDriver();
-            case "REMOTE" -> {
-                try {
-                    yield createRemoteDriver();
-                } catch (MalformedURLException e) {
-                    throw new RuntimeException(e);
-                }
-            }
+        return switch (environmentManager.getEnvType()) {
+            case LOCAL -> createLocalDriver();
+            case REMOTE -> createRemoteDriver();
             default -> throw new ExceptionHub.InvalidDataException(environmentManager.getEnvType().toString());
         };
     }
 
+    /**
+     * Creates a local WebDriver instance based on the specified browser type.
+     * <p>
+     * This method initializes and returns a WebDriver for local execution based
+     * on the browser type. It handles Chrome, Firefox, and Edge browsers by
+     * setting appropriate options and creating the respective driver instances.
+     * </p>
+     *
+     * @return A WebDriver instance for the specified browser type (Chrome, Firefox,
+     * or Edge).
+     * @throws ExceptionHub.InvalidDataException If the browser type is not recognized.
+     */
     private WebDriver createLocalDriver() {
-
-        return driver = switch (getBrowserType().toString()) {
-            case "CHROME" -> {
-                log.info("Chrome driver is initialized for local test execution");
+        return switch (getBrowserType()) {
+            case CHROME -> {
+                log.info("Initializing Chrome driver for local execution.");
                 gcOptions = new ChromeOptions();
-                //gcOptions.addArguments(ConstantUtil.CHROME_REMOTE_ORIGIN);
                 gcOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
                 yield new ChromeDriver(gcOptions);
             }
-            case "FIREFOX" -> {
-                log.info("Firefox driver is initialized for local test execution");
+            case FIREFOX -> {
+                log.info("Initializing Firefox driver for local execution.");
                 ffOptions = new FirefoxOptions();
                 ffOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
                 yield new FirefoxDriver(ffOptions);
             }
-            case "EDGE" -> {
-                log.info("Edge driver is initialized for local test execution");
+            case EDGE -> {
+                log.info("Initializing Edge driver for local execution.");
                 meOptions = new EdgeOptions();
                 meOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
                 yield new EdgeDriver(meOptions);
@@ -119,39 +257,81 @@ public class DriverManager extends BrowserManager {
         };
     }
 
-    private WebDriver createRemoteDriver() throws MalformedURLException {
-
-        return driver = switch (getBrowserType().toString()) {
-            case "Chrome" -> {
-                gcOptions = new ChromeOptions();
-                gcOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.ANY);
-                gcOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME.getName());
-                gcOptions.addArguments(TestConstants.CHROME_REMOTE_ORIGIN);
-                gcOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
-                yield new RemoteWebDriver(URI.create(getDataFromPropFile("RemoteUrl")).toURL(), gcOptions);
-            }
-            case "Firefox" -> {
-                ffOptions = new FirefoxOptions();
-                ffOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.ANY);
-                ffOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.FIREFOX.getName());
-                yield new RemoteWebDriver(URI.create(getDataFromPropFile("RemoteUrl")).toURL(), ffOptions);
-            }
-            case "MicrosoftEdge" -> {
-                meOptions = new EdgeOptions();
-                meOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.ANY);
-                meOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.EDGE.getName());
-                meOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
-                yield new RemoteWebDriver(URI.create(getDataFromPropFile("RemoteUrl")).toURL(), meOptions);
-            }
-            default -> throw new ExceptionHub.InvalidDataException(getBrowserType().toString());
-        };
+    /**
+     * Creates a remote WebDriver instance based on the specified browser type.
+     * <p>
+     * This method initializes and returns a remote WebDriver for remote execution
+     * based on the browser type. It sets the required capabilities and connects
+     * to the remote WebDriver server using the remote URL.
+     * </p>
+     *
+     * @return A RemoteWebDriver instance for the specified browser type (Chrome, Firefox,
+     * or Edge).
+     * @throws RuntimeException If a MalformedURLException is encountered while connecting
+     *                          to the remote WebDriver.
+     * @throws ExceptionHub.InvalidDataException If the browser type is not recognized.
+     */
+    private WebDriver createRemoteDriver() {
+        try {
+            return switch (getBrowserType()) {
+                case CHROME -> {
+                    gcOptions = new ChromeOptions();
+                    gcOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.ANY);
+                    gcOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME.getName());
+                    gcOptions.addArguments(TestConstants.CHROME_REMOTE_ORIGIN);
+                    gcOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
+                    yield new RemoteWebDriver(URI.create(getDataFromPropFile("RemoteUrl")).toURL(), gcOptions);
+                }
+                case FIREFOX -> {
+                    ffOptions = new FirefoxOptions();
+                    ffOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.ANY);
+                    ffOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.FIREFOX.getName());
+                    yield new RemoteWebDriver(URI.create(getDataFromPropFile("RemoteUrl")).toURL(), ffOptions);
+                }
+                case EDGE -> {
+                    meOptions = new EdgeOptions();
+                    meOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.ANY);
+                    meOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.EDGE.getName());
+                    meOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
+                    yield new RemoteWebDriver(URI.create(getDataFromPropFile("RemoteUrl")).toURL(), meOptions);
+                }
+                default -> throw new ExceptionHub.InvalidDataException(getBrowserType().toString());
+            };
+        } catch (MalformedURLException ex) {
+            log.error("Malformed URL for Remote WebDriver: {}", ex.getMessage());
+            throw new RuntimeException("Invalid URL for Remote WebDriver.", ex);
+        }
     }
 
-    public static DriverManager getInstance() {
-        if (instance == null) {
-            instance = new DriverManager();
+    /**
+     * Closes the currently active WebDriver and removes it from the thread-local
+     * storage.
+     * <p>
+     * This method safely quits the WebDriver instance if it's active, ensuring that
+     * the browser is closed properly. It also removes the WebDriver instance from the
+     * thread-local storage to avoid memory leaks and maintain proper resource management.
+     * </p>
+     */
+    public void closeDriver() {
+        if (getDriver() != null) {
+            getDriver().quit();
+            driverLocal.remove();
         }
-        return instance;
+    }
+
+    /**
+     * Retrieves the system property value for the given key.
+     * <p>
+     * This method fetches the value of the system property specified by the given key.
+     * If the property is not found, it returns a default value ("default_value").
+     * </p>
+     *
+     * @param key The name of the system property to retrieve.
+     * @return The value of the system property, or "default_value" if the property is
+     * not found.
+     */
+    public static String getSystemProperty(String key) {
+        return System.getProperty(key, "default_value");
     }
 
 }

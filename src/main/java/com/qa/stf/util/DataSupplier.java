@@ -10,6 +10,8 @@ import org.testng.annotations.DataProvider;
 import com.qa.stf.base.DriverManager;
 import com.qa.stf.constant.TestConstants;
 
+import static com.qa.stf.base.DriverManager.excelReader;
+
 /**
  * The DataSupplier class provides utility methods for supplying test data to TestNG
  * test methods and determining test run based on configurations in an Excel file.
@@ -53,7 +55,7 @@ import com.qa.stf.constant.TestConstants;
  * @author Jagatheshwaran N
  * @version 1.1
  */
-public class DataSupplier extends DriverManager {
+public class DataSupplier {
 
 	private static final Logger log = LogManager.getLogger(DataSupplier.class);
 
@@ -74,8 +76,8 @@ public class DataSupplier extends DriverManager {
 	@DataProvider(name = "fetchData")
 	public static Object[][] fetchDataFromExcel(Method method) {
 		var sheetName = method.getName();
-		var totalRows = excelReader.getRowCount(sheetName);
-		var totalColumns = excelReader.getColumnCount(sheetName);
+		var totalRows = DriverManager.excelReader.getRowCount(sheetName);
+		var totalColumns = DriverManager.excelReader.getColumnCount(sheetName);
 		if (totalRows < 2 || totalColumns == 0) {
 			log.warn("The sheet '{}' does not contain enough data to fetch. Returning empty data.", sheetName);
 			return new Object[0][0];
