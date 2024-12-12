@@ -8,7 +8,7 @@ import org.openqa.selenium.WebElement;
  * It provides methods to perform common actions such as clearing, clicking,
  * and typing into web elements.
  */
-public interface WebElementActions {
+public interface ElementActions {
 
     /**
      * Clears the content of the specified web element.

@@ -9,8 +9,7 @@ import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
-import com.qa.stf.base.BasePage;
-import com.qa.stf.base.WebElementActions;
+import com.qa.stf.base.ElementActions;
 
 /**
  * The JavaScriptHandler class provides utility methods for executing JavaScript
@@ -54,7 +53,7 @@ import com.qa.stf.base.WebElementActions;
  * @author Jagatheshwaran N
  * @version 1.3
  */
-public class JavaScriptHandler implements WebElementActions {
+public class JavaScriptHandler implements ElementActions {
 
     private static final Logger log = LogManager.getLogger(JavaScriptHandler.class);
 

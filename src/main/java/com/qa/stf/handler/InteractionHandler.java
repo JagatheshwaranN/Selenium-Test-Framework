@@ -1,7 +1,7 @@
 package com.qa.stf.handler;
 
 import com.qa.stf.base.DriverManager;
-import com.qa.stf.base.WebElementActions;
+import com.qa.stf.base.ElementActions;
 import com.qa.stf.util.ExceptionHub;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,7 +10,6 @@ import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
-import com.qa.stf.base.BasePage;
 import org.openqa.selenium.interactions.PointerInput;
 import org.openqa.selenium.interactions.Sequence;
 import org.openqa.selenium.interactions.WheelInput;
@@ -63,7 +62,7 @@ import java.util.Collections;
  * @author Jagatheshwaran N
  * @version 1.1
  */
-public class InteractionHandler implements WebElementActions {
+public class InteractionHandler implements ElementActions {
 
     private static final Logger log = LogManager.getLogger(InteractionHandler.class);
 

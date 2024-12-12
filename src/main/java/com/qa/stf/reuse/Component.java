@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebElement;
-import com.qa.stf.base.WebElementActions;
+import com.qa.stf.base.ElementActions;
 
 import java.util.concurrent.TimeUnit;
 
@@ -55,7 +55,7 @@ import java.util.concurrent.TimeUnit;
  * @author Jagatheshwaran N
  * @version 1.1
  */
-public class Component implements WebElementActions {
+public class Component implements ElementActions {
 
     private static final Logger log = LogManager.getLogger(Component.class);
 

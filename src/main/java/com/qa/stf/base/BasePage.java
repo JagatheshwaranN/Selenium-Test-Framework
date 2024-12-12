@@ -4,7 +4,6 @@ import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import com.google.common.util.concurrent.Uninterruptibles;
-import com.qa.stf.reuse.Component;
 import com.qa.stf.util.ExceptionHub;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,7 +16,52 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.qa.stf.constant.TestConstants;
 
-public class BasePage extends Page implements WebElementActions {
+/**
+ * The BasePage class serves as a foundational class for interacting with
+ * web pages using Selenium WebDriver. It provides utility methods for common
+ * page-level actions such as retrieving page titles, URLs, headers, and
+ * interacting with page elements like clicking, typing, and waiting for
+ * elements to be visible.
+ *
+ * <p>Features:
+ * <ul>
+ *     <li>Retrieve the title and URL of the current page.</li>
+ *     <li>Retrieve and log the header text of a given element on the page.</li>
+ *     <li>Wait for elements to become visible on the page.</li>
+ *     <li>Generate WebElements using various locators (By, XPath).</li>
+ *     <li>Clear, click, and type text into elements.</li>
+ *     <li>Handle element click interception with proper exception handling.</li>
+ *     <li>Pause execution for a specified duration.</li>
+ * </ul>
+ *
+ * <p>Exception Handling:
+ * <ul>
+ *   <li>Custom exceptions from the {@link ExceptionHub} class
+ *       are thrown for specific error scenarios such as element not found or
+ *       interaction failures.</li>
+ *   <li>Detailed logging is provided for every action, including success and
+ *      failure cases.</li>
+ * </ul>
+ *
+ * <p>Note:
+ * This class assumes that the WebDriver has been properly set up and initialized
+ * through the {@link DriverManager}. The page operations are designed to interact
+ * with standard web pages but may require customization for specific page structures.
+ *
+ * <p>Example:
+ * <pre>
+ * {@code
+ * BasePage basePage = new BasePage(driverManager);
+ * basePage.getPageTitle();
+ * basePage.waitForElementVisible(element, "Sample Element");
+ * basePage.clickElement(element, "Submit Button");
+ * }
+ * </pre>
+ *
+ * @author Jagatheshwaran N
+ * @version 1.1
+ */
+public class BasePage extends Page implements ElementActions {
 
     private static final Logger log = LogManager.getLogger(BasePage.class);
 
@@ -26,28 +70,78 @@ public class BasePage extends Page implements WebElementActions {
     protected WebDriverWait wait;
 
     public BasePage(DriverManager driverManager) {
+        if (driverManager == null) {
+            throw new IllegalArgumentException("DriverManager cannot be null.");
+        }
         this.driverManager = driverManager;
-        wait = new WebDriverWait(driverManager.getDriver(),
+        this.wait = new WebDriverWait(driverManager.getDriver(),
                 Duration.ofSeconds(TestConstants.EXPLICIT_WAIT_TIME));
-
     }
 
+    /**
+     * Retrieves the title of the current page.
+     * <p>
+     * This method fetches the title of the page currently displayed in the
+     * browser and logs it for informational purposes.
+     * </p>
+     *
+     * @return The title of the current page.
+     */
     @Override
     public String getPageTitle() {
-        return driverManager.getDriver().getTitle();
+        String title = driverManager.getDriver().getTitle();
+        log.info("Page title retrieved: {}", title);
+        return title;
     }
 
+    /**
+     * Retrieves the URL of the current page.
+     * <p>
+     * This method fetches the URL of the page currently displayed in the
+     * browser and logs it for informational purposes.
+     * </p>
+     *
+     * @return The URL of the current page.
+     */
     @Override
     public String getPageUrl() {
-        return driverManager.getDriver().getCurrentUrl();
+        String url = driverManager.getDriver().getCurrentUrl();
+        log.info("Page URL retrieved: {}", url);
+        return url;
     }
 
+    /**
+     * Retrieves the header text of a given element on the page.
+     * <p>
+     * This method waits for the given element to become visible, then fetches
+     * the text of the element. The retrieved text is logged for informational
+     * purposes.
+     * </p>
+     *
+     * @param element      The WebElement representing the header.
+     * @param elementLabel The label or description of the element.
+     * @return The text content of the header element.
+     */
     @Override
     public String getPageHeader(WebElement element, String elementLabel) {
         waitForElementVisible(element, elementLabel);
-        return element.getText();
+        String headerText = element.getText();
+        log.info("Page header retrieved for {}: {}", elementLabel, headerText);
+        return headerText;
     }
 
+    /**
+     * Waits for the specified element to be visible on the page.
+     * <p>
+     * This method waits until the given element becomes visible. If the element
+     * is not visible within the specified timeout, an exception is thrown.
+     * </p>
+     *
+     * @param element      The WebElement to wait for.
+     * @param elementLabel The label or description of the element.
+     * @throws ExceptionHub.ElementNotFoundException if the element is not found
+     *                                               within the timeout.
+     */
     @Override
     public void waitForElementVisible(WebElement element, String elementLabel) {
         if (!isElementNotNull(element, elementLabel)) {
@@ -55,24 +149,72 @@ public class BasePage extends Page implements WebElementActions {
         }
         try {
             wait.until(ExpectedConditions.visibilityOf(element));
+            log.info("Element is visible: {}", elementLabel);
         } catch (NoSuchElementException ex) {
+            log.error("Element not found: {}", elementLabel, ex);
             throw new ExceptionHub.ElementNotFoundException(elementLabel, ex);
         }
     }
 
+    /**
+     * Waits for the page title to contain the specified string.
+     * <p>
+     * This method waits until the title of the page contains the specified
+     * string. The page title is logged for informational purposes.
+     * </p>
+     *
+     * @param title The title or part of the title to wait for.
+     */
     @Override
     public void waitForPageTitle(String title) {
         wait.until(ExpectedConditions.titleContains(title));
+        log.info("Page title contains: {}", title);
     }
 
+    /**
+     * Generates a WebElement using the specified By locator.
+     * <p>
+     * This method retrieves the element based on the provided locator and
+     * logs the action. If the locator is null, an IllegalArgumentException
+     * is thrown.
+     * </p>
+     *
+     * @param locator      The By locator to locate the element.
+     * @param locatorLabel The label or description of the locator.
+     * @return The located WebElement.
+     * @throws IllegalArgumentException if the locator is null.
+     */
     @Override
     public WebElement generateElement(By locator, String locatorLabel) {
-        return driverManager.getDriver().findElement(locator);
+        if (locator == null) {
+            throw new IllegalArgumentException("Locator cannot be null for: " + locatorLabel);
+        }
+        WebElement element = driverManager.getDriver().findElement(locator);
+        log.debug("Element generated for {} using locator: {}", locatorLabel, locator);
+        return element;
     }
 
+    /**
+     * Generates a WebElement using the specified XPath locator.
+     * <p>
+     * This method retrieves the element based on the provided XPath locator and
+     * logs the action. If the locator is null or blank, an IllegalArgumentException
+     * is thrown.
+     * </p>
+     *
+     * @param locator      The XPath locator to locate the element.
+     * @param locatorLabel The label or description of the locator.
+     * @return The located WebElement.
+     * @throws IllegalArgumentException if the locator is null or blank.
+     */
     @Override
     public WebElement generateElement(String locator, String locatorLabel) {
-        return driverManager.getDriver().findElement(By.xpath(locator));
+        if (locator == null || locator.isBlank()) {
+            throw new IllegalArgumentException("Locator cannot be null or blank for: " + locatorLabel);
+        }
+        WebElement element = driverManager.getDriver().findElement(By.xpath(locator));
+        log.debug("Element generated for {} using XPath: {}", locatorLabel, locator);
+        return element;
     }
 
     /**
@@ -88,8 +230,8 @@ public class BasePage extends Page implements WebElementActions {
      */
     @Override
     public void clearElement(WebElement element, String elementLabel) {
-            element.clear();
-            log.info("Cleared the content of '{}' element", elementLabel);
+        element.clear();
+        log.info("Cleared the content of '{}' element", elementLabel);
     }
 
     /**
@@ -104,8 +246,8 @@ public class BasePage extends Page implements WebElementActions {
      */
     @Override
     public void clickElement(WebElement element, String elementLabel) {
-            element.click();
-            log.info("Clicked the '{}' element", elementLabel);
+        element.click();
+        log.info("Clicked the '{}' element", elementLabel);
     }
 
     /**
@@ -122,14 +264,14 @@ public class BasePage extends Page implements WebElementActions {
      *                     element.
      * @param elementLabel The label or description of the element.
      * @throws ExceptionHub.InteractionException If an error occurs while clicking
-     *                                            the element.
+     *                                           the element.
      */
     @Override
     public void clickElement(By locator, String value, String elementLabel) {
         try {
             WebElement element = driverManager.getDriver().findElement(By.xpath(String.format(locator.toString().replace("By.xpath: ", ""), value)));
-                element.click();
-                log.info("Clicked the '{}' element", elementLabel);
+            element.click();
+            log.info("Clicked the '{}' element", elementLabel);
         } catch (ElementClickInterceptedException ex) {
             log.error("Failed to click the '{}' element", elementLabel, ex);
             throw new ExceptionHub.InteractionException("Exception occurred while clicking '" + elementLabel + "' element", ex);
@@ -150,21 +292,10 @@ public class BasePage extends Page implements WebElementActions {
      */
     @Override
     public void typeText(WebElement element, String text, String elementLabel) {
-            if (text != null) {
-                element.sendKeys(text);
-                log.info("Entered '{}' text into the '{}' element", text, elementLabel);
+        if (text != null) {
+            element.sendKeys(text);
+            log.info("Entered '{}' text into the '{}' element", text, elementLabel);
         }
-    }
-
-    /**
-     * Pauses the execution for 2 seconds.
-     * <p>
-     * This method uses the Uninterruptibles.sleepUninterruptibly method to make the
-     * current thread sleep for 2 seconds without being interrupted.
-     * </p>
-     */
-    public static void waitForSeconds() {
-        Uninterruptibles.sleepUninterruptibly(2, TimeUnit.SECONDS);
     }
 
     /**
@@ -187,6 +318,16 @@ public class BasePage extends Page implements WebElementActions {
         return true;
     }
 
+    /**
+     * Pauses the execution for 2 seconds.
+     * <p>
+     * This method uses the Uninterruptibles.sleepUninterruptibly method to make the
+     * current thread sleep for 2 seconds without being interrupted.
+     * </p>
+     */
+    public static void waitForSeconds() {
+        Uninterruptibles.sleepUninterruptibly(2, TimeUnit.SECONDS);
+    }
 
 }
 
