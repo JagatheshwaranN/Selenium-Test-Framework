@@ -10,18 +10,18 @@ public class DashboardPage extends DashboardPageElement {
 	PageManager pageManager = new PageManager();
 
 	public void userDropDown() {
-		clickElement(getUserDropDown(), getUserDropDownLabel());
+		pageManager.getComponent().clickElement(getUserDropDown(), getUserDropDownLabel());
 		pageManager.getVerificationHelper().isElementDisplayed(getUserDropDownMenu(), getUserDropDownMenuLabel());
 	}
 
 	public void pfDoLogout() {
 		userDropDown();
-		clickElement(getLogout(), getLogoutLabel());
+		pageManager.getComponent().clickElement(getLogout(), getLogoutLabel());
 	}
 
 	public AdminPage navigateToAdminPage() {
-		clickElement(getAdminSection(), getAdminSectionLabel());
-		return new AdminPage();
+		pageManager.getComponent().clickElement(getAdminSection(), getAdminSectionLabel());
+		return pageManager.getAdminPage();
 	}
 
 	public List<WebElement> getQuickLaunchCards() {

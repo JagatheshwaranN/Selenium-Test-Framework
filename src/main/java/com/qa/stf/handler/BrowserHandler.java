@@ -3,6 +3,7 @@ package com.qa.stf.handler;
 import java.util.LinkedList;
 import java.util.Set;
 
+import com.qa.stf.base.DriverManager;
 import com.qa.stf.util.ExceptionHub;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -24,7 +25,6 @@ import org.openqa.selenium.*;
  *   handles.</li>
  *   <li>Frame Handling: Methods to switch to frames using name, index, or WebElement
  *   reference.</li>
- *   <li>Page Information: Methods to retrieve the current page URL and title.</li>
  * </ul>
  *
  * <p>Exception Handling:
@@ -43,17 +43,26 @@ import org.openqa.selenium.*;
  * {@code
  * BrowserHandler browserHandler = new BrowserHandler();
  * browserHandler.navigateBack();
- * String pageUrl = browserHandler.getPageUrl();
  * browserHandler.switchToFrame("frameName");
  * }
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.2
+ * @version 1.3
  */
-public class BrowserHandler extends BasePage {
+public class BrowserHandler {
 
     private static final Logger log = LogManager.getLogger(BrowserHandler.class);
+
+    /**
+     * Manages WebDriver instances for interacting with web pages.
+     */
+    protected DriverManager driverManager;
+
+
+    public BrowserHandler(DriverManager driverManager) {
+        this.driverManager = driverManager;
+    }
 
     /**
      * Navigates the browser back to the previous page in the session history.
@@ -275,36 +284,6 @@ public class BrowserHandler extends BasePage {
             log.error("Failed to switch to frame. Exception: {}", ex.getMessage(), ex);
             throw new ExceptionHub.FrameException("Error switching to frame", ex);
         }
-    }
-
-    /**
-     * Retrieves the current URL of the browser page.
-     * <p>
-     * This method fetches the URL of the current browser page. If the URL cannot be
-     * retrieved, a WebDriverException is thrown.
-     * </p>
-     *
-     * @return The current page URL as a String.
-     */
-    public String getPageUrl() {
-        String url = driverManager.getDriver().getCurrentUrl();
-        log.info("The browser page url is :: '{}'", url);
-        return url;
-    }
-
-    /**
-     * Retrieves the title of the current browser page.
-     * <p>
-     * This method fetches the title of the current browser page. If the title cannot be
-     * retrieved, a WebDriverException is thrown.
-     * </p>
-     *
-     * @return The current page title as a String.
-     */
-    public String getPageTitle() {
-        String title = driverManager.getDriver().getTitle();
-        log.info("The browser page title is :: '{}'", title);
-        return title;
     }
 
 }

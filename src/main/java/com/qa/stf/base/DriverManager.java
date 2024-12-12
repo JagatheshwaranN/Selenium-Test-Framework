@@ -69,11 +69,13 @@ public class DriverManager extends BrowserManager {
         extentTest.remove();
     }
 
+    private static DriverManager instance;
+
     public void launchBrowser() {
         driver = createDriver();
         setDriver(driver);
-        new TestListener(new DriverManager());
-        page = new BasePage();
+        new TestListener(DriverManager.getInstance());
+        page = new BasePage(DriverManager.getInstance());
         driver.get(getDataFromPropFile(TestConstants.APP_URL));
     }
 
@@ -143,6 +145,13 @@ public class DriverManager extends BrowserManager {
             }
             default -> throw new ExceptionHub.InvalidDataException(getBrowserType().toString());
         };
+    }
+
+    public static DriverManager getInstance() {
+        if (instance == null) {
+            instance = new DriverManager();
+        }
+        return instance;
     }
 
 }

@@ -1,14 +1,18 @@
 package com.qa.stf.ohrm.objects;
 
 import com.qa.stf.base.BasePage;
+import com.qa.stf.base.DriverManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class LoginPageObject  extends BasePage {
+public class LoginPageObject {
 
-	public LoginPageObject() {
+	protected DriverManager driverManager;
+
+	public LoginPageObject(DriverManager driverManager) {
+		this.driverManager = driverManager;
         PageFactory.initElements(driverManager.getDriver(), this);
 	}
 

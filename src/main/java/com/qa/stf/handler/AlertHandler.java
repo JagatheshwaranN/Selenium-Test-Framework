@@ -1,5 +1,6 @@
 package com.qa.stf.handler;
 
+import com.qa.stf.base.DriverManager;
 import com.qa.stf.util.ExceptionHub;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -47,9 +48,15 @@ import java.util.Optional;
  * @author Jagatheshwaran N
  * @version 1.1
  */
-public class AlertHandler extends BasePage {
+public class AlertHandler {
 
     private static final Logger log = LogManager.getLogger(AlertHandler.class);
+
+    protected DriverManager driverManager;
+
+    public AlertHandler(DriverManager driverManager) {
+    this.driverManager = driverManager;
+    }
 
     /**
      * Retrieves the currently active alert on the page.

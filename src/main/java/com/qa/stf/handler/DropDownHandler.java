@@ -54,7 +54,7 @@ import com.qa.stf.base.BasePage;
  * @author Jagatheshwaran N
  * @version 1.2
  */
-public class DropDownHandler extends BasePage {
+public class DropDownHandler {
 
     private static final Logger log = LogManager.getLogger(DropDownHandler.class);
 
@@ -113,7 +113,7 @@ public class DropDownHandler extends BasePage {
      * @param visibleText  The visible text of the option to be selected.
      * @param elementLabel The label for logging purposes.
      * @throws ExceptionHub.ElementNotFoundException If the specified value is not found in
-     *                                                the dropdown options.
+     *                                               the dropdown options.
      */
     public void selectOptionByVisibleText(WebElement dropdown, String visibleText, String elementLabel) {
         if (verificationHandler.isElementDisplayed(dropdown, elementLabel)) {
@@ -136,8 +136,8 @@ public class DropDownHandler extends BasePage {
      * @param value        The value of the option to be selected.
      * @param elementLabel The label for logging purposes.
      * @throws ExceptionHub.OptionNotFoundException If the specified value is not found in
-     *                                               the dropdown options.
-     * @throws ExceptionHub.DropDownException If the dropdown is not interactable.
+     *                                              the dropdown options.
+     * @throws ExceptionHub.DropDownException       If the dropdown is not interactable.
      */
     public void selectDropdownOption(WebElement dropdown, List<WebElement> optionsList, String value, String elementLabel) {
         try {
@@ -153,7 +153,7 @@ public class DropDownHandler extends BasePage {
                 option.click();
                 log.info("The option '{}' is selected from the '{}' dropdown", value, elementLabel);
             }
-        }catch (ElementNotInteractableException ex) {
+        } catch (ElementNotInteractableException ex) {
             log.error("The dropdown is present but not interactable. Exception: {}", ex.getMessage(), ex);
             throw new ExceptionHub.DropDownException("Failed to interact with the dropdown due to its non-interactable state.", ex);
         }

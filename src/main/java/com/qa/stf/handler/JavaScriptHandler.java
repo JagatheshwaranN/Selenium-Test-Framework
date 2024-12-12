@@ -1,5 +1,6 @@
 package com.qa.stf.handler;
 
+import com.qa.stf.base.DriverManager;
 import com.qa.stf.util.ExceptionHub;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -9,7 +10,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebElement;
 
 import com.qa.stf.base.BasePage;
-import com.qa.stf.base.WebPage;
+import com.qa.stf.base.WebElementActions;
 
 /**
  * The JavaScriptHandler class provides utility methods for executing JavaScript
@@ -53,7 +54,7 @@ import com.qa.stf.base.WebPage;
  * @author Jagatheshwaran N
  * @version 1.3
  */
-public class JavaScriptHandler extends BasePage implements WebPage {
+public class JavaScriptHandler implements WebElementActions {
 
     private static final Logger log = LogManager.getLogger(JavaScriptHandler.class);
 
@@ -67,10 +68,12 @@ public class JavaScriptHandler extends BasePage implements WebPage {
     protected static final String SCROLL_VERTICAL_PIXEL = "window.scrollBy(0, %s);";
     protected static final String PAGE_ZOOM = "document.body.style.zoom='%s';";
 
+    private final DriverManager driverManager;
     private final JavascriptExecutor executor;
     private final VerificationHandler verificationHandler;
 
-    public JavaScriptHandler(VerificationHandler verificationHandler) {
+    public JavaScriptHandler(DriverManager driverManager, VerificationHandler verificationHandler) {
+        this.driverManager = driverManager;
         this.executor = (JavascriptExecutor) driverManager.getDriver();
         this.verificationHandler = verificationHandler;
     }
@@ -130,7 +133,7 @@ public class JavaScriptHandler extends BasePage implements WebPage {
      * @param elementLabel The label describing the element.
      */
     @Override
-    public void typeElement(WebElement element, String text, String elementLabel) {
+    public void typeText(WebElement element, String text, String elementLabel) {
         if (verificationHandler.isElementDisplayed(element, elementLabel)) {
             if (text != null) {
                 executor.executeScript(String.format(TYPE_INTO_ELEMENT, text), element);

@@ -2,11 +2,16 @@ package com.qa.stf.ohrm.elements;
 
 import java.util.List;
 
+import com.qa.stf.base.DriverManager;
 import org.openqa.selenium.WebElement;
 
 import com.qa.stf.ohrm.objects.AdminPageObject;
 
 public class AdminPageElement extends AdminPageObject {
+
+	public AdminPageElement(DriverManager driverManager) {
+		super(driverManager);
+	}
 
 	public WebElement getAdminHeader() {
 		return adminHeader;

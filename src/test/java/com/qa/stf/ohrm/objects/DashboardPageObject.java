@@ -1,5 +1,6 @@
 package com.qa.stf.ohrm.objects;
 
+import com.qa.stf.base.DriverManager;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
@@ -7,9 +8,12 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class DashboardPageObject extends LoginPageObject {
+public class DashboardPageObject {
 
-	public DashboardPageObject() {
+	protected DriverManager driverManager;
+
+	public DashboardPageObject(DriverManager driverManager) {
+		this.driverManager = driverManager;
 		PageFactory.initElements(driverManager.getDriver(), this);
 	}
 

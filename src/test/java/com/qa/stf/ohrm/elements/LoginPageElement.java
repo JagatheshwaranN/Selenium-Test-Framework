@@ -1,10 +1,15 @@
 package com.qa.stf.ohrm.elements;
 
+import com.qa.stf.base.DriverManager;
 import org.openqa.selenium.WebElement;
 
 import com.qa.stf.ohrm.objects.LoginPageObject;
 
 public class LoginPageElement extends LoginPageObject {
+
+	public LoginPageElement(DriverManager driverManager) {
+		super(driverManager);
+	}
 
 	public WebElement getUserName() {
 		return userName;

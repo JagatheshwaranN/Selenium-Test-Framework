@@ -1,6 +1,7 @@
 package com.qa.stf.handler;
 
-import com.qa.stf.base.WebPage;
+import com.qa.stf.base.DriverManager;
+import com.qa.stf.base.WebElementActions;
 import com.qa.stf.util.ExceptionHub;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -62,16 +63,23 @@ import java.util.Collections;
  * @author Jagatheshwaran N
  * @version 1.1
  */
-public class InteractionHandler extends BasePage implements WebPage {
+public class InteractionHandler implements WebElementActions {
 
     private static final Logger log = LogManager.getLogger(InteractionHandler.class);
 
     protected static final String CLEAR_ELEMENT = "Keys.CONTROL + 'a', Keys.DELETE";
 
+
+    /**
+     * Manages WebDriver instances for interacting with web pages.
+     */
+
+    private final DriverManager driverManager;
     private final Actions builder;
     private final VerificationHandler verificationHandler;
 
-    public InteractionHandler(VerificationHandler verificationHandler) {
+    public InteractionHandler(DriverManager driverManager, VerificationHandler verificationHandler) {
+        this.driverManager = driverManager;
         this.builder = new Actions(driverManager.getDriver());
         this.verificationHandler = verificationHandler;
     }
@@ -104,7 +112,7 @@ public class InteractionHandler extends BasePage implements WebPage {
      * @param value        The value to substitute in the locator.
      * @param elementLabel The label describing the element.
      * @throws ExceptionHub.InteractionException If an error occurs while click on an
-     *                                            element.
+     *                                           element.
      */
     @Override
     public void clickElement(By locator, String value, String elementLabel) {
@@ -131,7 +139,7 @@ public class InteractionHandler extends BasePage implements WebPage {
      * @param elementLabel The label describing the element.
      */
     @Override
-    public void typeElement(WebElement element, String text, String elementLabel) {
+    public void typeText(WebElement element, String text, String elementLabel) {
         if (verificationHandler.isElementDisplayed(element, elementLabel)) {
             if (text != null) {
                 builder.sendKeys(element, text).perform();
@@ -182,7 +190,7 @@ public class InteractionHandler extends BasePage implements WebPage {
      * @param element      The WebElement to right-click on.
      * @param elementLabel The label describing the element.
      */
-    public void performRightClickOnElement(WebElement element, String elementLabel) {
+    public void performRightclickElement(WebElement element, String elementLabel) {
         if (verificationHandler.isElementDisplayed(element, elementLabel)) {
             builder.contextClick(element).perform();
             log.info("The mouse right clicked on the '{}' element", elementLabel);
@@ -198,7 +206,7 @@ public class InteractionHandler extends BasePage implements WebPage {
      * @param element      The WebElement to double-click on.
      * @param elementLabel The label describing the element.
      */
-    public void performDoubleClickOnElement(WebElement element, String elementLabel) {
+    public void performDoubleclickElement(WebElement element, String elementLabel) {
         if (verificationHandler.isElementDisplayed(element, elementLabel)) {
             builder.doubleClick(element).perform();
             log.info("The mouse double clicked on the '{}' element", elementLabel);

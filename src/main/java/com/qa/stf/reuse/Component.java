@@ -1,6 +1,7 @@
 package com.qa.stf.reuse;
 
 import com.google.common.util.concurrent.Uninterruptibles;
+import com.qa.stf.base.DriverManager;
 import com.qa.stf.handler.VerificationHandler;
 import com.qa.stf.util.ExceptionHub;
 import org.apache.logging.log4j.LogManager;
@@ -8,8 +9,8 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
 import org.openqa.selenium.WebElement;
-import com.qa.stf.base.BasePage;
-import com.qa.stf.base.WebPage;
+import com.qa.stf.base.WebElementActions;
+
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -54,13 +55,15 @@ import java.util.concurrent.TimeUnit;
  * @author Jagatheshwaran N
  * @version 1.1
  */
-public class Component extends BasePage implements WebPage {
+public class Component implements WebElementActions {
 
     private static final Logger log = LogManager.getLogger(Component.class);
 
+    private final DriverManager driverManager;
     private final VerificationHandler verificationHandler;
 
-    public Component(VerificationHandler verificationHandler) {
+    public Component(DriverManager driverManager, VerificationHandler verificationHandler) {
+        this.driverManager = driverManager;
         this.verificationHandler = verificationHandler;
     }
 
@@ -144,7 +147,7 @@ public class Component extends BasePage implements WebPage {
      * @param elementLabel The label or description of the element.
      */
     @Override
-    public void typeElement(WebElement element, String text, String elementLabel) {
+    public void typeText(WebElement element, String text, String elementLabel) {
         if (verificationHandler.isElementDisplayed(element, elementLabel)) {
             if (text != null) {
                 element.sendKeys(text);
