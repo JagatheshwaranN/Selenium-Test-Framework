@@ -55,7 +55,7 @@ public class BrowserManager extends FileReader {
      *                                          not recognized.
      */
     public BrowserType getBrowserType() {
-        setBrowser(getValue(BrowserType.BROWSER.getName()));
+        setBrowser(getValue(BrowserType.BROWSER.getBrowserName()));
         return switch (getBrowser()) {
             case TestConstants.CHROME -> {
                 log.info("Chrome browser is set for test execution");

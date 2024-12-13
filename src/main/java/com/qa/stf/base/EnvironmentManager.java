@@ -54,8 +54,8 @@ public class EnvironmentManager extends FileReader {
      *                                          not recognized.
      */
     public EnvType getEnvType() {
-        setEnv(getValue(EnvType.ENV.getName())); // Set environment from value
-        properties.setProperty(EnvType.ENV.getName(), getEnv()); // Store environment in properties
+        setEnv(getValue(EnvType.ENV.getEnvName())); // Set environment from value
+        properties.setProperty(EnvType.ENV.getEnvName(), getEnv()); // Store environment in properties
 
         // Validate and return the appropriate environment type
         if (getEnv() == null || getEnv().isEmpty()) {

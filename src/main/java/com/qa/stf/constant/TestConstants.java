@@ -1,5 +1,17 @@
 package com.qa.stf.constant;
 
+/**
+ * This class contains constants used across the application for test configuration,
+ * file paths, test case details, browser details, environment details, browser options,
+ * application URL, wait times, test statuses, and extent report configurations.
+ * <p>
+ * The constants are organized into categories and include file paths for configuration,
+ * report generation, and test data; test case execution settings; browser-specific options;
+ * environment modes; and reporting details.
+ * <p>
+ * These constants provide a centralized location for managing static configuration
+ * values, promoting reusability and reducing duplication in the codebase.
+ */
 public class TestConstants {
 
 	// User Directory
@@ -54,4 +66,3 @@ public class TestConstants {
 	public static final String EXTENT_REPORT_BROWSER_INFO = "Test Browser";
 
 }
-
