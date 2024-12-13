@@ -22,7 +22,7 @@ public class LoginPageTest extends BaseTest {
 
 		var classObject = LoginPageTest.class;
 		Method[] methods = classObject.getMethods();
-		if (DataSupplier.isTestRunnable(methods[0].getName(), DriverManager.excelReader)) {
+		if (!DataSupplier.isTestRunnable(methods[0].getName(), DriverManager.excelReader)) {
 			throw new SkipException("Skipping the Test - " + StringUtils.capitalize(methods[0].getName())
 					+ " as the RunMode is set to N");
 		}
@@ -38,5 +38,6 @@ public class LoginPageTest extends BaseTest {
 			e.printStackTrace();
 		}
 	}
+
 }
 

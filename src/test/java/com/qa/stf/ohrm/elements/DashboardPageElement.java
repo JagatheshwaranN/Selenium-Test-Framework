@@ -2,11 +2,16 @@ package com.qa.stf.ohrm.elements;
 
 import java.util.List;
 
+import com.qa.stf.base.DriverManager;
 import org.openqa.selenium.WebElement;
 
 import com.qa.stf.ohrm.objects.DashboardPageObject;
 
 public class DashboardPageElement extends DashboardPageObject {
+
+	public DashboardPageElement(DriverManager driverManager) {
+		super(driverManager);
+	}
 
 	public WebElement getUserDropDown() {
 		return userDropDown;

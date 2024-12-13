@@ -74,7 +74,7 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
 
     private static final Logger log = LogManager.getLogger(TestListener.class);
 
-    DriverManager driverManager;
+//    DriverManager driverManager;
     ExtentReports extentReports;
     ExtentTest extentTest;
 
@@ -83,15 +83,20 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
     private static final String SNAPSHOT_PATH = System.getProperty("user.dir") + TestConstants.SNAPSHOT_PATH;
     private static final String IMG_FORMAT = ".png";
 
-    /**
-     * Constructs a TestListener instance.
-     *
-     * @param driverManager The {@link DriverManager} instance used to manage WebDriver
-     *                      and ExtentTest objects.
-     */
-    public TestListener(DriverManager driverManager) {
-        this.driverManager = driverManager;
+    public TestListener() {
+        // Initialization code if needed
     }
+
+    DriverManager driverManager = DriverManager.getInstance();
+//    /**
+//     * Constructs a TestListener instance.
+//     *
+//     * @param driverManager The {@link DriverManager} instance used to manage WebDriver
+//     *                      and ExtentTest objects.
+//     */
+//    public TestListener(DriverManager driverManager) {
+//        this.driverManager = driverManager;
+//    }
 
     /**
      * Called when a test suite starts execution.

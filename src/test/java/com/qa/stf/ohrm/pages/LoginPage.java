@@ -17,7 +17,7 @@ public class LoginPage extends LoginPageElement {
 		pageManager.getComponent().typeText(getUserName(), username, getUserNameLabel());
 		pageManager.getComponent().typeText(getPassWord(), password, getPassWordLabel());
 		pageManager.getComponent().clickElement(getLogin(), getLoginLabel());
-		return new DashboardPage();
+		return pageManager.getDashboardPage();
 	}
 }
 

@@ -28,7 +28,7 @@ public class PageManager {
 	}
 
 	public DashboardPage getDashboardPage() {
-		return (dashboardPage == null) ? dashboardPage = new DashboardPage() : dashboardPage;
+		return (dashboardPage == null) ? dashboardPage = new DashboardPage(DriverManager.getInstance()) : dashboardPage;
 	}
 
 	public AdminPage getAdminPage() {

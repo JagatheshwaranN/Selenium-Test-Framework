@@ -196,7 +196,6 @@ public class DriverManager extends BrowserManager {
     public void initializeDriver() {
         WebDriver driver = createDriver();
         setDriver(driver);
-        new TestListener(DriverManager.getInstance());
         new BasePage(DriverManager.getInstance());
         driver.get(getDataFromPropFile(TestConstants.APP_URL));
     }
@@ -277,7 +276,7 @@ public class DriverManager extends BrowserManager {
                 case CHROME -> {
                     gcOptions = new ChromeOptions();
                     gcOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.ANY);
-                    gcOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME.getName());
+                    gcOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME.getBrowserName());
                     gcOptions.addArguments(TestConstants.CHROME_REMOTE_ORIGIN);
                     gcOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
                     yield new RemoteWebDriver(URI.create(getDataFromPropFile("RemoteUrl")).toURL(), gcOptions);
@@ -285,13 +284,13 @@ public class DriverManager extends BrowserManager {
                 case FIREFOX -> {
                     ffOptions = new FirefoxOptions();
                     ffOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.ANY);
-                    ffOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.FIREFOX.getName());
+                    ffOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.FIREFOX.getBrowserName());
                     yield new RemoteWebDriver(URI.create(getDataFromPropFile("RemoteUrl")).toURL(), ffOptions);
                 }
                 case EDGE -> {
                     meOptions = new EdgeOptions();
                     meOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.ANY);
-                    meOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.EDGE.getName());
+                    meOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.EDGE.getBrowserName());
                     meOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
                     yield new RemoteWebDriver(URI.create(getDataFromPropFile("RemoteUrl")).toURL(), meOptions);
                 }

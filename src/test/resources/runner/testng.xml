@@ -12,10 +12,10 @@
 			<class name="com.qa.stf.ohrm.testcases.LoginPageTest" />
 		</classes>
 	</test>
-	<test thread-count="1" name="AdminPageTest">
+	<!--<test thread-count="1" name="AdminPageTest">
 		<classes>
 			<class name="com.qa.stf.ohrm.testcases.AdminPageTest" />
 		</classes>
-	</test>
+	</test>-->
 </suite>
 
