@@ -67,7 +67,24 @@ public class Component implements ElementActions {
     private final VerificationHandler verificationHandler;
 
 
+    /**
+     * Constructs a Component instance and initializes it with the provided
+     * DriverManager and VerificationHandler.
+     * <p>
+     * This constructor sets up the necessary dependencies, including the DriverManager
+     * for managing WebDriver instances, and the VerificationHandler for handling
+     * verification tasks.
+     * </p>
+     *
+     * @param driverManager       The DriverManager instance for managing WebDriver.
+     * @param verificationHandler The VerificationHandler instance for handling
+     *                            verification tasks.
+     * @throws IllegalArgumentException If the provided DriverManager is null.
+     */
     public Component(DriverManager driverManager, VerificationHandler verificationHandler) {
+        if (driverManager == null) {
+            throw new IllegalArgumentException("DriverManager cannot be null.");
+        }
         this.driverManager = driverManager;
         this.verificationHandler = verificationHandler;
     }
@@ -123,7 +140,7 @@ public class Component implements ElementActions {
      *                     element.
      * @param elementLabel The label or description of the element.
      * @throws ExceptionHub.InteractionException If an error occurs while clicking
-     *                                            the element.
+     *                                           the element.
      */
     @Override
     public void clickElement(By locator, String value, String elementLabel) {

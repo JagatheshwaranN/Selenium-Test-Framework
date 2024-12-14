@@ -51,27 +51,67 @@ import com.qa.stf.base.ElementActions;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.3
+ * @version 1.4
  */
 public class JavaScriptHandler implements ElementActions {
 
+    // Logger instance for the JavaScriptHandler class to enable logging during the execution
     private static final Logger log = LogManager.getLogger(JavaScriptHandler.class);
 
-    protected static final String CLICK_ELEMENT = "arguments[0].click();";
-    protected static final String TYPE_INTO_ELEMENT = "arguments[0].value='%s';";
-    protected static final String CLEAR_ELEMENT = "arguments[0].value = '';";
-    protected static final String SCROLL_TO_ELEMENT = "window.scrollTo(arguments[0],arguments[1])";
-    protected static final String SCROLL_INTO_VIEW = "arguments[0].scrollIntoView()";
-    protected static final String SCROLL_UP_VERTICAL = "window.scrollTo(0, -document.body.scrollHeight)";
-    protected static final String SCROLL_DOWN_VERTICAL = "window.scrollTo(0, document.body.scrollHeight)";
-    protected static final String SCROLL_VERTICAL_PIXEL = "window.scrollBy(0, %s);";
-    protected static final String PAGE_ZOOM = "document.body.style.zoom='%s';";
-
+    // Instance of DriverManager to manage the WebDriver for interacting with the browser
     private final DriverManager driverManager;
+
+    // Instance of JavascriptExecutor to execute JavaScript commands within the browser context
     private final JavascriptExecutor executor;
+
+    // Instance of VerificationHandler to perform verification actions on elements within the page
     private final VerificationHandler verificationHandler;
 
+    // JavaScript command to click on an element using arguments[0] (the element)
+    protected static final String CLICK_ELEMENT = "arguments[0].click();";
+
+    // JavaScript command to type a value into an element using arguments[0] (the element)
+    protected static final String TYPE_INTO_ELEMENT = "arguments[0].value='%s';";
+
+    // JavaScript command to clear the value of an element using arguments[0] (the element)
+    protected static final String CLEAR_ELEMENT = "arguments[0].value = '';";
+
+    // JavaScript command to scroll to a specific point on the page using arguments[0] (x-axis) and arguments[1] (y-axis)
+    protected static final String SCROLL_TO_ELEMENT = "window.scrollTo(arguments[0],arguments[1])";
+
+    // JavaScript command to scroll an element into view
+    protected static final String SCROLL_INTO_VIEW = "arguments[0].scrollIntoView()";
+
+    // JavaScript command to scroll up vertically by the height of the document
+    protected static final String SCROLL_UP_VERTICAL = "window.scrollTo(0, -document.body.scrollHeight)";
+
+    // JavaScript command to scroll down vertically by the height of the document
+    protected static final String SCROLL_DOWN_VERTICAL = "window.scrollTo(0, document.body.scrollHeight)";
+
+    // JavaScript command to scroll vertically by a specified number of pixels
+    protected static final String SCROLL_VERTICAL_PIXEL = "window.scrollBy(0, %s);";
+
+    // JavaScript command to zoom the page by a specified percentage
+    protected static final String PAGE_ZOOM = "document.body.style.zoom='%s';";
+
+    /**
+     * Constructs a JavaScriptHandler instance and initializes it with the provided
+     * DriverManager and VerificationHandler.
+     * <p>
+     * This constructor sets up the necessary dependencies, including the DriverManager
+     * for managing WebDriver instances, the JavascriptExecutor for executing JavaScript
+     * commands, and the VerificationHandler for handling verification tasks.
+     * </p>
+     *
+     * @param driverManager       The DriverManager instance for managing WebDriver.
+     * @param verificationHandler The VerificationHandler instance for handling verification
+     *                            tasks.
+     * @throws IllegalArgumentException If the provided DriverManager is null.
+     */
     public JavaScriptHandler(DriverManager driverManager, VerificationHandler verificationHandler) {
+        if (driverManager == null) {
+            throw new IllegalArgumentException("DriverManager cannot be null.");
+        }
         this.driverManager = driverManager;
         this.executor = (JavascriptExecutor) driverManager.getDriver();
         this.verificationHandler = verificationHandler;
@@ -105,7 +145,7 @@ public class JavaScriptHandler implements ElementActions {
      * @param value        The value to substitute in the locator.
      * @param elementLabel The label describing the element.
      * @throws ExceptionHub.JavascriptExecutorException If an error occurs while click on an
-     *                                                   element.
+     *                                                  element.
      */
     @Override
     public void clickElement(By locator, String value, String elementLabel) {
@@ -287,19 +327,19 @@ public class JavaScriptHandler implements ElementActions {
      */
     public boolean inViewport(WebElement element) {
         String script = """
-        // Calculate the cumulative offset positions of the element and its ancestors
-        for (var e = arguments[0], f = e.offsetTop, t = e.offsetLeft, o = e.offsetWidth, n = e.offsetHeight;
-            e.offsetParent;) {
-            f += (e = e.offsetParent).offsetTop;
-            t += e.offsetLeft;
-        }
+                    // Calculate the cumulative offset positions of the element and its ancestors
+                    for (var e = arguments[0], f = e.offsetTop, t = e.offsetLeft, o = e.offsetWidth, n = e.offsetHeight;
+                        e.offsetParent;) {
+                        f += (e = e.offsetParent).offsetTop;
+                        t += e.offsetLeft;
+                    }
 
-        // Check if the element's top and left positions are within the viewport's boundaries
-        return f < window.pageYOffset + window.innerHeight &&
-            t < window.pageXOffset + window.innerWidth &&
-            f + n > window.pageYOffset &&
-            t + o > window.pageXOffset;
-    """;
+                    // Check if the element's top and left positions are within the viewport's boundaries
+                    return f < window.pageYOffset + window.innerHeight &&
+                        t < window.pageXOffset + window.innerWidth &&
+                        f + n > window.pageYOffset &&
+                        t + o > window.pageXOffset;
+                """;
         return Boolean.TRUE.equals(executor.executeScript(script, element));
     }
 

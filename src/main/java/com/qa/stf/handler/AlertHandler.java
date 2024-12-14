@@ -44,16 +44,34 @@ import java.util.Optional;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.1
+ * @version 1.2
  */
 public class AlertHandler {
 
+    // Logger instance for the AlertHandler class to enable logging during the execution
     private static final Logger log = LogManager.getLogger(AlertHandler.class);
 
+    // Instance of DriverManager to manage the WebDriver for interacting with the browser
     protected DriverManager driverManager;
 
+    /**
+     * Constructs an AlertHandler instance and initializes it with the provided
+     * DriverManager.
+     * <p>
+     * This constructor ensures that the DriverManager is not null before assigning
+     * it to the instance variable. It is used for handling JavaScript alerts, confirms,
+     * and prompts in the browser.
+     * </p>
+     *
+     * @param driverManager The DriverManager instance to be used for interacting with
+     *                      the WebDriver.
+     * @throws IllegalArgumentException If the provided DriverManager is null.
+     */
     public AlertHandler(DriverManager driverManager) {
-    this.driverManager = driverManager;
+        if (driverManager == null) {
+            throw new IllegalArgumentException("DriverManager cannot be null.");
+        }
+        this.driverManager = driverManager;
     }
 
     /**

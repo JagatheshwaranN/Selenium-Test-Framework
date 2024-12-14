@@ -51,12 +51,14 @@ import com.qa.stf.constant.TestConstants;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.1
+ * @version 1.2
  */
 public class FileReader {
 
+    // Logger instance for the FileReader class to enable logging during execution
     private static final Logger log = LogManager.getLogger(FileReader.class);
 
+    // Properties object to store key-value pairs from a properties file
     public static Properties properties = new Properties();
 
     /**

@@ -96,6 +96,16 @@ public class DriverManager extends BrowserManager {
     // Static instance of ExcelReader to read data from Excel files for test execution
     public static ExcelReader excelReader;
 
+    /**
+     * Constructs a DriverManager instance and initializes the EnvironmentManager
+     * and ExcelReader.
+     * <p>
+     * This constructor sets up the EnvironmentManager to manage environment configurations
+     * and initializes the ExcelReader to read test data from an Excel file located at the
+     * specified path in the TestConstants class.
+     * </p>
+     *
+     */
     public DriverManager() {
         this.environmentManager = new EnvironmentManager();
         excelReader = new ExcelReader(TestConstants.CWD + TestConstants.EXCEL_FILE_PATH);

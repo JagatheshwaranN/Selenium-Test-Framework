@@ -52,14 +52,27 @@ import com.qa.stf.base.BasePage;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.2
+ * @version 1.3
  */
 public class DropDownHandler {
 
+    // Logger instance for the DropDownHandler class to enable logging during the execution
     private static final Logger log = LogManager.getLogger(DropDownHandler.class);
 
+    // Instance of VerificationHandler to perform verification actions on dropdown elements
     private final VerificationHandler verificationHandler;
 
+    /**
+     * Constructs a DropDownHandler instance and initializes it with the provided
+     * VerificationHandler.
+     * <p>
+     * This constructor assigns the given VerificationHandler to the instance variable,
+     * which is used for performing verification operations related to dropdown elements.
+     * </p>
+     *
+     * @param verificationHandler The VerificationHandler instance to be used for handling
+     *                            verification tasks.
+     */
     public DropDownHandler(VerificationHandler verificationHandler) {
         this.verificationHandler = verificationHandler;
     }

@@ -7,6 +7,41 @@ import com.qa.stf.util.FileReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+/**
+ * The EnvironmentManager class manages the environment configurations for test execution
+ * by retrieving and validating the environment type (e.g., LOCAL or REMOTE) based on
+ * environment variables or property files.
+ *
+ * <p>Features:
+ * <ul>
+ *     <li>Set and get the environment type for test execution.</li>
+ *     <li>Retrieve the corresponding EnvType enumeration based on the environment set.</li>
+ *     <li>Fetch environment configuration values from environment variables or property files.</li>
+ * </ul>
+ *
+ * <p>Exception Handling:
+ * <ul>
+ *   <li>Custom exceptions from the {@link ExceptionHub.ConfigTypeException} class
+ *       are thrown for unrecognized or invalid environment types.</li>
+ *   <li>Detailed logging is provided for environment configurations and error scenarios.</li>
+ * </ul>
+ *
+ * <p>Note:
+ * The class assumes proper setup for environment configuration and property files.
+ * Users must handle environment setup and termination separately.
+ *
+ * <p>Example:
+ * <pre>
+ * {@code
+ * EnvironmentManager environmentManager = new EnvironmentManager();
+ * environmentManager.setEnv("local");
+ * EnvType envType = environmentManager.getEnvType();
+ * }
+ * </pre>
+ *
+ * @author Jagatheshwaran N
+ * @version 1.2
+ */
 public class EnvironmentManager extends FileReader {
 
     // Logger instance for the EnvironmentManager class to enable logging during the execution

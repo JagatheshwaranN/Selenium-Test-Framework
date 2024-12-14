@@ -72,6 +72,18 @@ public class BasePage extends Page implements ElementActions {
     // Instance of WebDriverWait to handle waiting for elements to appear on the page
     protected WebDriverWait wait;
 
+    /**
+     * Constructs a BasePage instance and initializes the WebDriver and WebDriverWait.
+     * <p>
+     * This constructor ensures that the DriverManager is not null and sets up the
+     * WebDriverWait using the driver from the provided DriverManager instance. The
+     * WebDriverWait is configured to use a duration defined in the TestConstants class.
+     * </p>
+     *
+     * @param driverManager The DriverManager instance used to initialize the WebDriver
+     *                      and WebDriverWait.
+     * @throws IllegalArgumentException If the provided DriverManager is null.
+     */
     public BasePage(DriverManager driverManager) {
         if (driverManager == null) {
             throw new IllegalArgumentException("DriverManager cannot be null.");

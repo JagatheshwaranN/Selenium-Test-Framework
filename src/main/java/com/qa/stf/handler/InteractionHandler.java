@@ -60,24 +60,44 @@ import java.util.Collections;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.1
+ * @version 1.2
  */
 public class InteractionHandler implements ElementActions {
 
+    // Logger instance for the InteractionHandler class to enable logging during the execution
     private static final Logger log = LogManager.getLogger(InteractionHandler.class);
 
-    protected static final String CLEAR_ELEMENT = "Keys.CONTROL + 'a', Keys.DELETE";
-
-
-    /**
-     * Manages WebDriver instances for interacting with web pages.
-     */
-
+    // Instance of DriverManager to manage the WebDriver for interacting with the browser
     private final DriverManager driverManager;
+
+    // Instance of Actions to build complex user interactions (e.g., mouse movements, clicks, keyboard actions)
     private final Actions builder;
+
+    // Instance of VerificationHandler to handle verification actions, likely for validating elements on the page
     private final VerificationHandler verificationHandler;
 
+    // Constant string representing the combination of keys to clear an element (Select All + Delete)
+    private static final String CLEAR_ELEMENT = "Keys.CONTROL + 'a', Keys.DELETE";
+
+    /**
+     * Constructs an InteractionHandler instance and initializes it with the provided
+     * DriverManager and VerificationHandler.
+     * <p>
+     * This constructor sets up the necessary dependencies, including the DriverManager
+     * for managing WebDriver instances, the Actions builder for simulating user
+     * interactions with elements, and the VerificationHandler for performing verification
+     * tasks.
+     * </p>
+     *
+     * @param driverManager       The DriverManager instance for managing WebDriver.
+     * @param verificationHandler The VerificationHandler instance for handling verification
+     *                            tasks.
+     * @throws IllegalArgumentException If the provided DriverManager is null.
+     */
     public InteractionHandler(DriverManager driverManager, VerificationHandler verificationHandler) {
+        if (driverManager == null) {
+            throw new IllegalArgumentException("DriverManager cannot be null.");
+        }
         this.driverManager = driverManager;
         this.builder = new Actions(driverManager.getDriver());
         this.verificationHandler = verificationHandler;

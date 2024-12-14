@@ -48,19 +48,33 @@ import org.openqa.selenium.*;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.3
+ * @version 1.4
  */
 public class BrowserHandler {
 
+    // Logger instance for the BrowserHandler class to enable logging during the execution
     private static final Logger log = LogManager.getLogger(BrowserHandler.class);
 
-    /**
-     * Manages WebDriver instances for interacting with web pages.
-     */
+    // Instance of DriverManager to manage the WebDriver for interacting with the browser
     protected DriverManager driverManager;
 
-
+    /**
+     * Constructs a BrowserHandler instance and initializes it with the provided
+     * DriverManager.
+     * <p>
+     * This constructor ensures that the DriverManager is not null before assigning
+     * it to the instance variable. It is used for handling browser-related operations
+     * and configurations in the WebDriver.
+     * </p>
+     *
+     * @param driverManager The DriverManager instance to be used for interacting with
+     *                      the WebDriver.
+     * @throws IllegalArgumentException If the provided DriverManager is null.
+     */
     public BrowserHandler(DriverManager driverManager) {
+        if (driverManager == null) {
+            throw new IllegalArgumentException("DriverManager cannot be null.");
+        }
         this.driverManager = driverManager;
     }
 
@@ -165,7 +179,7 @@ public class BrowserHandler {
      * </p>
      *
      * @param index The index of the window to switch to.
-     * @throws IllegalArgumentException      If the provided index is out of bounds.
+     * @throws IllegalArgumentException     If the provided index is out of bounds.
      * @throws ExceptionHub.WindowException If the window cannot be switched due to an exception.
      */
     private void switchToWindowByIndex(int index) {
@@ -191,9 +205,9 @@ public class BrowserHandler {
      * windows or switching to the parent window, a BaseException.WindowException is thrown.
      * </p>
      *
-     * @throws IllegalArgumentException      If there are no browser windows available to close.
+     * @throws IllegalArgumentException     If there are no browser windows available to close.
      * @throws ExceptionHub.WindowException If there is an error closing child windows or
-     *                                       switching to the parent window.
+     *                                      switching to the parent window.
      */
     public void switchToParentWithChildClose() {
         var windowsId = getWindowsList();
@@ -248,7 +262,7 @@ public class BrowserHandler {
      * @throws IllegalArgumentException       If the input is null or invalid.
      * @throws NoSuchFrameException           If the frame is not found.
      * @throws StaleElementReferenceException If the WebElement is stale.
-     * @throws ExceptionHub.FrameException   If switching to the frame fails due to other reasons.
+     * @throws ExceptionHub.FrameException    If switching to the frame fails due to other reasons.
      */
     public void switchToFrame(Object frameIdentifier) {
         if (frameIdentifier == null) {

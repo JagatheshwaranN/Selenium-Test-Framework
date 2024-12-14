@@ -55,18 +55,32 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.1
+ * @version 1.2
  */
 public class ExcelReader {
 
+    // Logger instance for the ExcelReader class to enable logging during the execution
     private static final Logger log = LogManager.getLogger(ExcelReader.class);
 
+    // Path to the Excel file
     public String path;
+
+    // FileInputStream to read data from the Excel file
     public FileInputStream fis = null;
+
+    // FileOutputStream to write data to the Excel file
     public FileOutputStream fileOut = null;
+
+    // XSSFWorkbook to represent the Excel workbook in memory
     private XSSFWorkbook workbook = null;
+
+    // XSSFSheet to represent a specific sheet in the Excel workbook
     private XSSFSheet sheet = null;
+
+    // XSSFRow to represent a row within a specific sheet in the workbook
     private XSSFRow row = null;
+
+    // XSSFCell to represent a cell within a specific row in the sheet
     private XSSFCell cell = null;
 
     /**

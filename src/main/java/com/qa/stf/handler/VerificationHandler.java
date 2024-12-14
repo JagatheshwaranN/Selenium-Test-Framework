@@ -59,6 +59,7 @@ import java.util.Objects;
  */
 public class VerificationHandler {
 
+    // Logger instance for the VerificationHandler class to enable logging during the execution
     private static final Logger log = LogManager.getLogger(VerificationHandler.class);
 
     /**
@@ -74,7 +75,7 @@ public class VerificationHandler {
      * @param elementLabel The label for logging purposes.
      * @return true if the element is displayed, false otherwise.
      * @throws ExceptionHub.ElementNotFoundException If the element is not found or
-     *                                                inaccessible.
+     *                                               inaccessible.
      */
     public boolean isElementDisplayed(WebElement element, String elementLabel) {
         BasePage page = new BasePage(DriverManager.getInstance());

@@ -53,10 +53,11 @@ import static com.qa.stf.base.DriverManager.excelReader;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.1
+ * @version 1.2
  */
 public class DataSupplier {
 
+	// Logger instance for the DataSupplier class to enable logging during the execution
 	private static final Logger log = LogManager.getLogger(DataSupplier.class);
 
 	/**

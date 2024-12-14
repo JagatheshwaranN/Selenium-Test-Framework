@@ -7,6 +7,42 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.qa.stf.util.FileReader;
 
+/**
+ * The BrowserManager class handles browser-related configurations for test execution
+ * using Selenium WebDriver. It manages the browser type (e.g., Chrome, Firefox, Edge)
+ * based on environment variables or property files and provides utility methods for
+ * setting and retrieving the browser type.
+ *
+ * <p>Features:
+ * <ul>
+ *     <li>Set and get the browser type for test execution.</li>
+ *     <li>Retrieve the corresponding BrowserType enumeration based on the browser set.</li>
+ *     <li>Fetch browser configuration values from environment variables or property files.</li>
+ * </ul>
+ *
+ * <p>Exception Handling:
+ * <ul>
+ *   <li>Custom exceptions from the {@link ExceptionHub.ConfigTypeException} class
+ *       are thrown for unrecognized or invalid browser types.</li>
+ *   <li>Detailed logging is provided for browser configurations and error scenarios.</li>
+ * </ul>
+ *
+ * <p>Note:
+ * The class assumes proper WebDriver setup and configuration. The user must handle
+ * WebDriver initialization and termination separately.
+ *
+ * <p>Example:
+ * <pre>
+ * {@code
+ * BrowserManager browserManager = new BrowserManager();
+ * browserManager.setBrowser("chrome");
+ * BrowserType browserType = browserManager.getBrowserType();
+ * }
+ * </pre>
+ *
+ * @author Jagatheshwaran N
+ * @version 1.2
+ */
 public class BrowserManager extends FileReader {
 
     // Logger instance for the BrowserManager class to enable logging during the execution
