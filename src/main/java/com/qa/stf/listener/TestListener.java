@@ -11,6 +11,7 @@ import com.aventstack.extentreports.ExtentTest;
 import com.qa.stf.report.ExtentReport;
 import com.qa.stf.util.ExceptionHub;
 import org.apache.commons.io.FileUtils;
+import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
@@ -68,35 +69,38 @@ import com.qa.stf.constant.TestConstants;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.1
+ * @version 1.3
  */
 public class TestListener extends DriverManager implements ITestListener, ISuiteListener {
 
+    // Importing the logger to enable logging for the TestListener class
     private static final Logger log = LogManager.getLogger(TestListener.class);
 
-//    DriverManager driverManager;
+    // Instance of ExtentReports to manage and generate test execution reports
     ExtentReports extentReports;
+
+    // Instance of ExtentTest to log individual test steps and results in the reports
     ExtentTest extentTest;
 
+    // Singleton instance of DriverManager to handle WebDriver management
+    DriverManager driverManager = DriverManager.getInstance();
+
+    // Constant key to configure the ReportNG property to disable output escaping in reports
     private static final String REPORT_CONFIG_KEY = "org.uncommons.reportng.escape-output";
+
+    // Value for the REPORT_CONFIG_KEY to disable output escaping
     private static final String REPORT_CONFIG_VALUE = "false";
+
+    // Path to store the screenshot files, constructed using the project's root directory and a constant path
     private static final String SNAPSHOT_PATH = System.getProperty("user.dir") + TestConstants.SNAPSHOT_PATH;
+
+    // Constant representing the image format for the screenshots
     private static final String IMG_FORMAT = ".png";
 
+    // Default constructor for the TestListener class
     public TestListener() {
-        // Initialization code if needed
+        // Empty constructor to allow TestNG to instantiate this listener class
     }
-
-    DriverManager driverManager = DriverManager.getInstance();
-//    /**
-//     * Constructs a TestListener instance.
-//     *
-//     * @param driverManager The {@link DriverManager} instance used to manage WebDriver
-//     *                      and ExtentTest objects.
-//     */
-//    public TestListener(DriverManager driverManager) {
-//        this.driverManager = driverManager;
-//    }
 
     /**
      * Called when a test suite starts execution.
@@ -161,7 +165,8 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
     @Override
     public void onTestSuccess(ITestResult result) {
         handleTestResult(result, Status.PASS, TestConstants.TEST_PASS);
-        log.warn("Test Passed: {}", result.getName());
+        driverManager.closeExtentTest();
+        log.info("Test Passed: {}", result.getName());
     }
 
     /**
@@ -172,7 +177,8 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
     @Override
     public void onTestFailure(ITestResult result) {
         handleTestResult(result, Status.FAIL, TestConstants.TEST_FAIL);
-        log.warn("Test Failed: {}", result.getName());
+        driverManager.closeExtentTest();
+        log.error("Test Failed: {}", result.getName());
     }
 
     /**

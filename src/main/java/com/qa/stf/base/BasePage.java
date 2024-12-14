@@ -59,14 +59,17 @@ import com.qa.stf.constant.TestConstants;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.1
+ * @version 1.2
  */
 public class BasePage extends Page implements ElementActions {
 
+    // Logger instance for the BasePage class to enable logging during the execution
     private static final Logger log = LogManager.getLogger(BasePage.class);
 
+    // Instance of DriverManager to manage the WebDriver for interacting with the browser
     protected DriverManager driverManager;
 
+    // Instance of WebDriverWait to handle waiting for elements to appear on the page
     protected WebDriverWait wait;
 
     public BasePage(DriverManager driverManager) {

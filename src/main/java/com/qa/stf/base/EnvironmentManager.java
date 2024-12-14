@@ -9,8 +9,10 @@ import org.apache.logging.log4j.Logger;
 
 public class EnvironmentManager extends FileReader {
 
+    // Logger instance for the EnvironmentManager class to enable logging during the execution
     private static final Logger log = LogManager.getLogger(EnvironmentManager.class);
 
+    // Instance variable to store the environment configuration for the application
     private String env;
 
     /**

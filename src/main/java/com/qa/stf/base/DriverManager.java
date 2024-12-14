@@ -4,7 +4,6 @@ import java.net.MalformedURLException;
 import java.net.URI;
 
 import com.qa.stf.constant.BrowserType;
-import com.qa.stf.listener.TestListener;
 import com.qa.stf.util.ExcelReader;
 import com.qa.stf.util.ExceptionHub;
 import org.apache.logging.log4j.LogManager;
@@ -69,20 +68,32 @@ import com.qa.stf.constant.TestConstants;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.2
+ * @version 1.3
  */
 public class DriverManager extends BrowserManager {
 
+    // Logger instance for the DriverManager class to enable logging during the execution
     private static final Logger log = LogManager.getLogger(DriverManager.class);
 
+    // Instance of ChromeOptions to configure Chrome-specific WebDriver options
     private ChromeOptions gcOptions;
+
+    // Instance of FirefoxOptions to configure Firefox-specific WebDriver options
     private FirefoxOptions ffOptions;
+
+    // Instance of EdgeOptions to configure Microsoft Edge-specific WebDriver options
     private EdgeOptions meOptions;
+
+    // ThreadLocal variable to store WebDriver instance specific to the current thread (for multithreaded execution)
     private static final ThreadLocal<WebDriver> driverLocal = new ThreadLocal<>();
+
+    // ThreadLocal variable to store ExtentTest instance specific to the current thread (for multithreaded execution)
     private static final ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
 
+    // Instance of EnvironmentManager to manage and retrieve environment configurations
     private final EnvironmentManager environmentManager;
 
+    // Static instance of ExcelReader to read data from Excel files for test execution
     public static ExcelReader excelReader;
 
     public DriverManager() {

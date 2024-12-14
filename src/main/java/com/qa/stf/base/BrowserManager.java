@@ -9,8 +9,10 @@ import com.qa.stf.util.FileReader;
 
 public class BrowserManager extends FileReader {
 
+    // Logger instance for the BrowserManager class to enable logging during the execution
     private static final Logger log = LogManager.getLogger(BrowserManager.class);
 
+    // Instance variable to store the browser configuration (e.g., Chrome, Firefox, etc.)
     private String browser;
 
     /**

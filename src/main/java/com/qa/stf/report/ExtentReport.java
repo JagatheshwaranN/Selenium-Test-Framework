@@ -55,12 +55,14 @@ import java.util.Date;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.2
+ * @version 1.3
  */
 public class ExtentReport {
 
+    // Logger instance for the ExtentReport class to enable logging during the execution
     private static final Logger log = LogManager.getLogger(ExtentReport.class);
 
+    // Static instance of ExtentReports to manage and generate test execution reports
     public static ExtentReports extentReports;
 
     /**

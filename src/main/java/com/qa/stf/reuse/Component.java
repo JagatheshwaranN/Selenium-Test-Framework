@@ -53,14 +53,19 @@ import java.util.concurrent.TimeUnit;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.1
+ * @version 1.2
  */
 public class Component implements ElementActions {
 
+    // Logger instance for the Component class to enable logging during the execution
     private static final Logger log = LogManager.getLogger(Component.class);
 
+    // Instance of DriverManager to handle WebDriver management for the component
     private final DriverManager driverManager;
+
+    // Instance of VerificationHandler to handle verification actions for the component
     private final VerificationHandler verificationHandler;
+
 
     public Component(DriverManager driverManager, VerificationHandler verificationHandler) {
         this.driverManager = driverManager;
