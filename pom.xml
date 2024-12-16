@@ -13,7 +13,7 @@
         <jdk.level>22</jdk.level>
         <maven.compiler.source>22</maven.compiler.source>
         <maven.compiler.target>22</maven.compiler.target>
-        <selenium.version>4.25.0</selenium.version>
+        <selenium.version>4.27.0</selenium.version>
         <testng.version>7.10.2</testng.version>
         <log.version>2.24.1</log.version>
         <poi.version>5.3.0</poi.version>
@@ -32,6 +32,11 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-remote-driver</artifactId>
             <version>${selenium.version}</version>
         </dependency>
         <dependency>
