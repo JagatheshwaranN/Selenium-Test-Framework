@@ -24,9 +24,7 @@ public class BaseTest extends DriverManager {
 
 	@AfterMethod
 	public void testTearDown() {
-		if (getDriver() != null) {
-			getDriver().quit();
-		}
+		closeDriver();
 	}
 }
 

@@ -17,7 +17,6 @@ import org.openqa.selenium.edge.EdgeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.CapabilityType;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.aventstack.extentreports.ExtentTest;
@@ -69,7 +68,7 @@ import com.qa.stf.constant.TestConstants;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.3
+ * @version 1.4
  */
 public class DriverManager extends BrowserManager {
 
@@ -96,8 +95,6 @@ public class DriverManager extends BrowserManager {
 
     // Static instance of ExcelReader to read data from Excel files for test execution
     public static ExcelReader excelReader;
-
-    public DesiredCapabilities capabilities = new DesiredCapabilities();
 
     /**
      * Constructs a DriverManager instance and initializes the EnvironmentManager
@@ -300,35 +297,27 @@ public class DriverManager extends BrowserManager {
                 case CHROME -> {
                     log.info("Initializing Chrome driver for remote execution.");
                     System.setProperty("webdriver.http.factory", "jdk-http-client");
-//                    gcOptions = new ChromeOptions();
-//                    gcOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.WINDOWS);
-//                    gcOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME.getBrowserName());
-//                    gcOptions.addArguments(TestConstants.CHROME_REMOTE_ORIGIN);
-//                    gcOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
-//                    gcOptions.setEnableDownloads(true);
-                    capabilities.setPlatform(Platform.WINDOWS);
-                    capabilities.setBrowserName(BrowserType.CHROME.getBrowserName());
                     gcOptions = new ChromeOptions();
-                    gcOptions.setEnableDownloads(true);
-                    gcOptions.merge(capabilities);
-                    yield new RemoteWebDriver((URI.create(getDataFromPropFile("RemoteUrl")).toURL()), gcOptions);
+                    gcOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.WINDOWS);
+                    gcOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME.getBrowserName().toLowerCase());
+                    gcOptions.addArguments(TestConstants.CHROME_REMOTE_ORIGIN);
+                    gcOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
+                    yield new RemoteWebDriver((URI.create(getDataFromPropFile(TestConstants.GRID_URL)).toURL()), gcOptions);
                 }
                 case FIREFOX -> {
                     log.info("Initializing Firefox driver for remote execution.");
                     ffOptions = new FirefoxOptions();
-                    ffOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.ANY);
-                    ffOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.FIREFOX.getBrowserName());
-                    ffOptions.setEnableDownloads(true);
-                    yield new RemoteWebDriver(URI.create(getDataFromPropFile("RemoteUrl")).toURL(), ffOptions);
+                    ffOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.WINDOWS);
+                    ffOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.FIREFOX.getBrowserName().toLowerCase());
+                    yield new RemoteWebDriver(URI.create(getDataFromPropFile(TestConstants.GRID_URL)).toURL(), ffOptions);
                 }
                 case EDGE -> {
                     log.info("Initializing Edge driver for remote execution.");
                     meOptions = new EdgeOptions();
-                    meOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.ANY);
-                    meOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.EDGE.getBrowserName());
+                    meOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.WINDOWS);
+                    meOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.EDGE.getBrowserName().toLowerCase());
                     meOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
-                    meOptions.setEnableDownloads(true);
-                    yield new RemoteWebDriver(URI.create(getDataFromPropFile("RemoteUrl")).toURL(), meOptions);
+                    yield new RemoteWebDriver(URI.create(getDataFromPropFile(TestConstants.GRID_URL)).toURL(), meOptions);
                 }
                 default -> throw new ExceptionHub.InvalidDataException(getBrowserType().toString());
             };

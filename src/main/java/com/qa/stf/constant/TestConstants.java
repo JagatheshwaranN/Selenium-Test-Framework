@@ -48,6 +48,9 @@ public class TestConstants {
 	// App URL
 	public static final String APP_URL = "AppUrl";
 
+	// Grid URL
+	public static final String GRID_URL = "RemoteUrl";
+
 	// Wait Time Details
 	public static final int EXPLICIT_WAIT_TIME = 5;
 
