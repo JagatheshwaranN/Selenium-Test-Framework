@@ -44,6 +44,7 @@ public class TestConstants {
 	// Browser Option Details
 	public static final String CHROME_REMOTE_ORIGIN = "--remote-allow-origins=*";
 	public static final String BROWSER_MAXIMIZE = "--start-maximized";
+	public static final String EDGE_BROWSER_MAXIMIZE = "start-maximized";
 
 	// App URL
 	public static final String APP_URL = "AppUrl";

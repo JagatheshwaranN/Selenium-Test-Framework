@@ -270,7 +270,7 @@ public class DriverManager extends BrowserManager {
             case EDGE -> {
                 log.info("Initializing Edge driver for local execution.");
                 meOptions = new EdgeOptions();
-                meOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
+                meOptions.addArguments(TestConstants.EDGE_BROWSER_MAXIMIZE);
                 yield new EdgeDriver(meOptions);
             }
             default -> throw new ExceptionHub.InvalidDataException(getBrowserType().toString());
