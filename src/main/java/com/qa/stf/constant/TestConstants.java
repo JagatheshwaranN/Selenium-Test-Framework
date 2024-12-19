@@ -14,6 +14,20 @@ package com.qa.stf.constant;
  */
 public class TestConstants {
 
+	// Browser Details
+	public static final String CHROME = "Chrome";
+	public static final String FIREFOX = "Firefox";
+	public static final String EDGE = "MicrosoftEdge";
+
+	// Env Details
+	public static final String LOCAL = "LOCAL";
+	public static final String REMOTE = "REMOTE";
+
+	// Browser Option Details
+	public static final String CHROME_REMOTE_ORIGIN = "--remote-allow-origins=*";
+	public static final String BROWSER_MAXIMIZE = "--start-maximized";
+	public static final String EDGE_BROWSER_MAXIMIZE = "start-maximized";
+
 	// User Directory
 	public static final String CWD = System.getProperty("user.dir");
 
@@ -32,34 +46,17 @@ public class TestConstants {
 	public static final String RUN_MODE_YES = "Y";
 	public static final String RUN_MODE_NO = "N";
 
-	// Browser Details
-	public static final String CHROME = "Chrome";
-	public static final String FIREFOX = "Firefox";
-	public static final String EDGE = "MicrosoftEdge";
-
-	// Env Details
-	public static final String LOCAL = "LOCAL";
-	public static final String REMOTE = "REMOTE";
-
-	// Browser Option Details
-	public static final String CHROME_REMOTE_ORIGIN = "--remote-allow-origins=*";
-	public static final String BROWSER_MAXIMIZE = "--start-maximized";
-	public static final String EDGE_BROWSER_MAXIMIZE = "start-maximized";
+	// Test Status Details
+	public static final String TEST_PASS = " Test Passed";
+	public static final String TEST_FAIL = " Test Failed";
+	public static final String TEST_START = " Test Started";
+	public static final String TEST_SKIP = " Test Skipped. As the RUN MODE is set to N";
 
 	// App URL
 	public static final String APP_URL = "AppUrl";
 
 	// Grid URL
 	public static final String GRID_URL = "RemoteUrl";
-
-	// Wait Time Details
-	public static final int EXPLICIT_WAIT_TIME = 5;
-
-	// Test Status Details
-	public static final String TEST_PASS = " Test Passed";
-	public static final String TEST_FAIL = " Test Failed";
-	public static final String TEST_START = " Test Started";
-	public static final String TEST_SKIP = " Test Skipped. As the RUN MODE is set to N";
 
 	// Extent Report Details
 	public static final String DATE_FORMAT = "dd_MM_yyyy_hh_mm_ss";
@@ -68,5 +65,9 @@ public class TestConstants {
 	public static final String EXTENT_REPORT_OS_INFO = "Operating System";
 	public static final String EXTENT_REPORT_USER_INFO = "User Name";
 	public static final String EXTENT_REPORT_BROWSER_INFO = "Test Browser";
+
+	// Wait Time Details
+	public static final int EXPLICIT_WAIT_TIME = 5;
+	public static final int WAIT_TIME = 2;
 
 }

@@ -68,7 +68,7 @@ import com.qa.stf.constant.TestConstants;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.4
+ * @version 1.5
  */
 public class DriverManager extends BrowserManager {
 
@@ -296,11 +296,9 @@ public class DriverManager extends BrowserManager {
             return switch (getBrowserType()) {
                 case CHROME -> {
                     log.info("Initializing Chrome driver for remote execution.");
-                    System.setProperty("webdriver.http.factory", "jdk-http-client");
                     gcOptions = new ChromeOptions();
                     gcOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.WINDOWS);
                     gcOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME.getBrowserName().toLowerCase());
-                    gcOptions.addArguments(TestConstants.CHROME_REMOTE_ORIGIN);
                     gcOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
                     yield new RemoteWebDriver((URI.create(getDataFromPropFile(TestConstants.GRID_URL)).toURL()), gcOptions);
                 }
@@ -315,8 +313,8 @@ public class DriverManager extends BrowserManager {
                     log.info("Initializing Edge driver for remote execution.");
                     meOptions = new EdgeOptions();
                     meOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.WINDOWS);
-                    meOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.EDGE.getBrowserName().toLowerCase());
-                    meOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
+                    meOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.EDGE.getBrowserName());
+                    meOptions.addArguments(TestConstants.EDGE_BROWSER_MAXIMIZE);
                     yield new RemoteWebDriver(URI.create(getDataFromPropFile(TestConstants.GRID_URL)).toURL(), meOptions);
                 }
                 default -> throw new ExceptionHub.InvalidDataException(getBrowserType().toString());

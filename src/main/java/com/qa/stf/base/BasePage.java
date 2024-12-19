@@ -341,7 +341,7 @@ public class BasePage extends Page implements ElementActions {
      * </p>
      */
     public static void waitForSeconds() {
-        Uninterruptibles.sleepUninterruptibly(2, TimeUnit.SECONDS);
+        Uninterruptibles.sleepUninterruptibly(TestConstants.WAIT_TIME, TimeUnit.SECONDS);
     }
 
 }

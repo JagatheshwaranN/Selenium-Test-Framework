@@ -8,6 +8,7 @@ import java.util.UUID;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
+import com.qa.stf.base.BasePage;
 import com.qa.stf.report.ExtentReport;
 import com.qa.stf.util.ExceptionHub;
 import org.apache.commons.io.FileUtils;
@@ -69,7 +70,7 @@ import com.qa.stf.constant.TestConstants;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.3
+ * @version 1.4
  */
 public class TestListener extends DriverManager implements ITestListener, ISuiteListener {
 
@@ -92,7 +93,7 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
     private static final String REPORT_CONFIG_VALUE = "false";
 
     // Path to store the screenshot files, constructed using the project's root directory and a constant path
-    private static final String SNAPSHOT_PATH = System.getProperty("user.dir") + TestConstants.SNAPSHOT_PATH;
+    private static final String SNAPSHOT_PATH = TestConstants.CWD + TestConstants.SNAPSHOT_PATH;
 
     // Constant representing the image format for the screenshots
     private static final String IMG_FORMAT = ".png";
@@ -211,6 +212,7 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
             log.error("Failed to capture Base64 screenshot: {}", ex.getMessage(), ex);
             throw new ExceptionHub.ScreenshotException("Failed to create the Base64 screenshot", ex);
         }
+        BasePage.waitForSeconds();
         testNGReporterUpdate(result.getName().toUpperCase() + message, snapshotPath);
     }
 
@@ -242,11 +244,12 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
      * @param screenshotPath The path of the screenshot to embed.
      */
     private void testNGReporterUpdate(String testStatus, String screenshotPath) {
+        // String filePath = "file:///" + screenshotPath.replace("\\", "/");
         Reporter.log("<br>");
         Reporter.log(testStatus);
         Reporter.log("<br>");
-        Reporter.log("<a target='_blank' href='" + screenshotPath + "'><img src='" + screenshotPath
-                + "' height='100' width='100' /></a>");
+        Reporter.log("<a target='_blank' href=" + screenshotPath + "><img src=" + screenshotPath
+                + " height='100' width='100' /></a>");
     }
 
 }

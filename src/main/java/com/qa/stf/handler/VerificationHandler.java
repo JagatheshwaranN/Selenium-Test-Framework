@@ -149,7 +149,7 @@ public class VerificationHandler {
     public String readValueFromInput(WebElement element, String elementLabel) {
         String value = null;
         if (isElementDisplayed(element, elementLabel)) {
-            value = element.getAttribute("value");
+            value = element.getDomAttribute("value");
             if (value == null || value.isEmpty()) {
                 log.info("The '{}' element has no value or is empty.", elementLabel);
             } else {
