@@ -48,7 +48,7 @@ import org.openqa.selenium.*;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.4
+ * @version 1.5
  */
 public class BrowserHandler {
 
@@ -126,7 +126,7 @@ public class BrowserHandler {
      */
     public String getBrowserWindowHandle() {
         String handle = driverManager.getDriver().getWindowHandle();
-        log.info("Captured browser window handle :: {}", handle);
+        log.info("Captured browser window handle :: '{}'", handle);
         return handle;
     }
 
@@ -142,7 +142,7 @@ public class BrowserHandler {
      */
     public Set<String> getBrowserWindowHandles() {
         Set<String> handles = driverManager.getDriver().getWindowHandles();
-        log.info("Captured {} browser window handles :: {}", handles.size(), handles);
+        log.info("Captured '{}' browser window handles :: '{}'", handles.size(), handles);
         return handles;
     }
 
@@ -211,7 +211,7 @@ public class BrowserHandler {
      */
     public void switchToParentWithChildClose() {
         var windowsId = getWindowsList();
-        log.info("Total windows before closing the children :: {}", windowsId.size());
+        log.info("Total windows before closing the children :: '{}'", windowsId.size());
         try {
             for (var i = 1; i < windowsId.size(); i++) {
                 var childWindow = windowsId.get(i);

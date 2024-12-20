@@ -70,7 +70,7 @@ import com.qa.stf.constant.TestConstants;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.4
+ * @version 1.5
  */
 public class TestListener extends DriverManager implements ITestListener, ISuiteListener {
 
@@ -120,7 +120,7 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
      */
     @Override
     public void onFinish(ISuite suite) {
-        log.info("Test Suite finished: {}", suite.getName());
+        log.info("Test Suite finished: '{}'", suite.getName());
     }
 
     /**
@@ -131,7 +131,7 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
     @Override
     public void onStart(ITestContext context) {
         extentReports = ExtentReport.setupExtentReport();
-        log.info("Test Context started: {}", context.getName());
+        log.info("Test Context started: '{}'", context.getName());
     }
 
     /**
@@ -141,7 +141,7 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
      */
     @Override
     public void onFinish(ITestContext context) {
-        log.info("Test Context finished: {}", context.getName());
+        log.info("Test Context finished: '{}'", context.getName());
         extentReports.flush();
     }
 
@@ -167,7 +167,7 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
     public void onTestSuccess(ITestResult result) {
         handleTestResult(result, Status.PASS, TestConstants.TEST_PASS);
         driverManager.closeExtentTest();
-        log.info("Test Passed: {}", result.getName());
+        log.info("Test Passed: '{}'", result.getName());
     }
 
     /**
@@ -179,7 +179,7 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
     public void onTestFailure(ITestResult result) {
         handleTestResult(result, Status.FAIL, TestConstants.TEST_FAIL);
         driverManager.closeExtentTest();
-        log.error("Test Failed: {}", result.getName());
+        log.error("Test Failed: '{}'", result.getName());
     }
 
     /**
@@ -190,7 +190,7 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
     @Override
     public void onTestSkipped(ITestResult result) {
         driverManager.getExtentTest().log(Status.SKIP, () -> result.getName().toUpperCase() + TestConstants.TEST_SKIP);
-        log.warn("Test Skipped: {}", result.getName());
+        log.warn("Test Skipped: '{}'", result.getName());
     }
 
     /**
@@ -229,7 +229,7 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
         File destination = new File(SNAPSHOT_PATH + timestamp + "_" + uniqueId + IMG_FORMAT);
         try {
             FileUtils.copyFile(source, destination);
-            log.info("Screenshot saved: {}", destination.getAbsolutePath());
+            log.info("Screenshot saved: '{}'", destination.getAbsolutePath());
         } catch (IOException ex) {
             log.error("Failed to save screenshot: {}", ex.getMessage(), ex);
             throw new ExceptionHub.ScreenshotException("Failed to create the screenshot", ex);

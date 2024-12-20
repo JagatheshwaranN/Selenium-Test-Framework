@@ -82,10 +82,10 @@ public class ExtentReport {
 
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat(TestConstants.DATE_FORMAT);
             String actualDate = simpleDateFormat.format(new Date());
-            log.debug("Formatted date for report: {}", actualDate);
+            log.debug("Formatted date for report: '{}'", actualDate);
 
             ExtentSparkReporter extentSparkReporter = getExtentSparkReporter(actualDate);
-            log.info("ExtentSparkReporter initialized with path: {}", extentSparkReporter.getFile().getAbsolutePath());
+            log.info("ExtentSparkReporter initialized with path: '{}'", extentSparkReporter.getFile().getAbsolutePath());
 
             extentReports = new ExtentReports();
             extentReports.attachReporter(extentSparkReporter);
@@ -93,7 +93,7 @@ public class ExtentReport {
             extentSparkReporter.config().setDocumentTitle(TestConstants.EXTENT_REPORT_TITLE);
             extentSparkReporter.config().setTheme(Theme.DARK);
             extentSparkReporter.config().setReportName(TestConstants.EXTENT_REPORT_NAME);
-            log.debug("ExtentSparkReporter configuration set: Title - {}, Theme - {}, Name - {}",
+            log.debug("ExtentSparkReporter configuration set: Title - '{}', Theme - '{}', Name - '{}'",
                     TestConstants.EXTENT_REPORT_TITLE, Theme.DARK, TestConstants.EXTENT_REPORT_NAME);
 
             extentReports.setSystemInfo(TestConstants.EXTENT_REPORT_OS_INFO, System.getProperty("os.name"));
@@ -126,12 +126,12 @@ public class ExtentReport {
         log.debug("Ensuring report directory exists.");
         File reportDir = new File(TestConstants.CWD + TestConstants.EXTENT_REPORT_PATH);
         if (!reportDir.exists() && !reportDir.mkdirs()) {
-            log.error("Failed to create report directory: {}", reportDir.getAbsolutePath());
+            log.error("Failed to create report directory: '{}'", reportDir.getAbsolutePath());
             throw new IOException("Failed to create directory: " + reportDir.getAbsolutePath());
         }
         String reportPath = String.format(TestConstants.CWD + TestConstants.EXTENT_REPORT_PATH
                 + TestConstants.EXTENT_REPORT_FILE_NAME, actualDate);
-        log.info("Report path set to: {}", reportPath);
+        log.info("Report path set to: '{}'", reportPath);
         return new ExtentSparkReporter(reportPath);
     }
 

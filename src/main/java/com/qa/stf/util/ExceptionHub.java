@@ -58,7 +58,7 @@ package com.qa.stf.util;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.1
+ * @version 1.2
  */
 public class ExceptionHub extends RuntimeException {
 
@@ -131,7 +131,7 @@ public class ExceptionHub extends RuntimeException {
          * @param elementLabel The label of the element that was not found or modified.
          */
         public ElementNotFoundException(String elementLabel) {
-            super(String.format("Element %s is not found / modified on the DOM.", elementLabel));
+            super(String.format("Element '%s' is not found / modified on the DOM.", elementLabel));
         }
 
         /**
@@ -142,7 +142,7 @@ public class ExceptionHub extends RuntimeException {
          * @param cause        The cause of the exception.
          */
         public ElementNotFoundException(String elementLabel, Throwable cause) {
-            super(String.format("Element %s is not found / modified on the DOM.", elementLabel), cause);
+            super(String.format("Element '%s' is not found / modified on the DOM.", elementLabel), cause);
         }
     }
 
@@ -155,7 +155,7 @@ public class ExceptionHub extends RuntimeException {
          * @param config The name of the invalid configuration type.
          */
         public ConfigTypeException(String config) {
-            super(String.format("The %s config type is not valid. Please check the configuration.", config));
+            super(String.format("The '%s' config type is not valid. Please check the configuration.", config));
         }
 
         /**
@@ -166,7 +166,7 @@ public class ExceptionHub extends RuntimeException {
          * @param cause        The cause of the exception.
          */
         public ConfigTypeException(String elementLabel, Throwable cause) {
-            super(String.format("The %s config file is not found. Please check the configuration.", elementLabel), cause);
+            super(String.format("The '%s' config file is not found. Please check the configuration.", elementLabel), cause);
         }
     }
 
@@ -179,7 +179,7 @@ public class ExceptionHub extends RuntimeException {
          * @param data The invalid data value that caused the exception.
          */
         public InvalidDataException(String data) {
-            super(String.format("The %s value is not valid. Please check the data.", data));
+            super(String.format("The '%s' value is not valid. Please check the data.", data));
         }
 
         /**
@@ -190,7 +190,7 @@ public class ExceptionHub extends RuntimeException {
          * @param cause The cause of the exception.
          */
         public InvalidDataException(String data, Throwable cause) {
-            super(String.format("The %s value is not found in the configuration file.", data), cause);
+            super(String.format("The '%s' value is not found in the configuration file.", data), cause);
         }
     }
 

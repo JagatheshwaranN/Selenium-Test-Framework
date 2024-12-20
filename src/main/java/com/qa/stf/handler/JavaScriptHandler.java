@@ -51,7 +51,7 @@ import com.qa.stf.base.ElementActions;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.4
+ * @version 1.5
  */
 public class JavaScriptHandler implements ElementActions {
 
@@ -297,7 +297,7 @@ public class JavaScriptHandler implements ElementActions {
     public void scrollByPixel(int pixels) {
         String direction = pixels > 0 ? "down" : "up";
         executor.executeScript(String.format(SCROLL_VERTICAL_PIXEL, pixels));
-        log.info("Scrolled {} vertically by '{}' pixels using JavaScriptExecutor", direction, Math.abs(pixels));
+        log.info("Scrolled '{}' vertically by '{}' pixels using JavaScriptExecutor", direction, Math.abs(pixels));
     }
 
     /**

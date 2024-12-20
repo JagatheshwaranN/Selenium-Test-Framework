@@ -15,17 +15,17 @@ public class DashboardPage extends DashboardPageElement {
 	}
 
 	public void userDropDown() {
-		pageManager.getComponent().clickElement(getUserDropDown(), getUserDropDownLabel());
+		pageManager.getPageComponent().clickElement(getUserDropDown(), getUserDropDownLabel());
 		pageManager.getVerificationHelper().isElementDisplayed(getUserDropDownMenu(), getUserDropDownMenuLabel());
 	}
 
 	public void pfDoLogout() {
 		userDropDown();
-		pageManager.getComponent().clickElement(getLogout(), getLogoutLabel());
+		pageManager.getPageComponent().clickElement(getLogout(), getLogoutLabel());
 	}
 
 	public AdminPage navigateToAdminPage() {
-		pageManager.getComponent().clickElement(getAdminSection(), getAdminSectionLabel());
+		pageManager.getPageComponent().clickElement(getAdminSection(), getAdminSectionLabel());
 		return pageManager.getAdminPage();
 	}
 

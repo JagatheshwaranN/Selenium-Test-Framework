@@ -59,7 +59,7 @@ import com.qa.stf.constant.TestConstants;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.2
+ * @version 1.3
  */
 public class BasePage extends Page implements ElementActions {
 
@@ -105,7 +105,7 @@ public class BasePage extends Page implements ElementActions {
     @Override
     public String getPageTitle() {
         String title = driverManager.getDriver().getTitle();
-        log.info("Page title retrieved: {}", title);
+        log.info("Page title retrieved: '{}'", title);
         return title;
     }
 
@@ -121,7 +121,7 @@ public class BasePage extends Page implements ElementActions {
     @Override
     public String getPageUrl() {
         String url = driverManager.getDriver().getCurrentUrl();
-        log.info("Page URL retrieved: {}", url);
+        log.info("Page URL retrieved: '{}'", url);
         return url;
     }
 
@@ -141,7 +141,7 @@ public class BasePage extends Page implements ElementActions {
     public String getPageHeader(WebElement element, String elementLabel) {
         waitForElementVisible(element, elementLabel);
         String headerText = element.getText();
-        log.info("Page header retrieved for {}: {}", elementLabel, headerText);
+        log.info("Page header retrieved for '{}': '{}'", elementLabel, headerText);
         return headerText;
     }
 
@@ -164,9 +164,9 @@ public class BasePage extends Page implements ElementActions {
         }
         try {
             wait.until(ExpectedConditions.visibilityOf(element));
-            log.info("Element is visible: {}", elementLabel);
+            log.info("Element is visible: '{}'", elementLabel);
         } catch (NoSuchElementException ex) {
-            log.error("Element not found: {}", elementLabel, ex);
+            log.error("Element not found: '{}'", elementLabel, ex);
             throw new ExceptionHub.ElementNotFoundException(elementLabel, ex);
         }
     }
@@ -183,7 +183,7 @@ public class BasePage extends Page implements ElementActions {
     @Override
     public void waitForPageTitle(String title) {
         wait.until(ExpectedConditions.titleContains(title));
-        log.info("Page title contains: {}", title);
+        log.info("Page title contains: '{}'", title);
     }
 
     /**
@@ -205,7 +205,7 @@ public class BasePage extends Page implements ElementActions {
             throw new IllegalArgumentException("Locator cannot be null for: " + locatorLabel);
         }
         WebElement element = driverManager.getDriver().findElement(locator);
-        log.debug("Element generated for {} using locator: {}", locatorLabel, locator);
+        log.debug("Element generated for '{}' using locator: '{}'", locatorLabel, locator);
         return element;
     }
 
@@ -228,7 +228,7 @@ public class BasePage extends Page implements ElementActions {
             throw new IllegalArgumentException("Locator cannot be null or blank for: " + locatorLabel);
         }
         WebElement element = driverManager.getDriver().findElement(By.xpath(locator));
-        log.debug("Element generated for {} using XPath: {}", locatorLabel, locator);
+        log.debug("Element generated for '{}' using XPath: '{}'", locatorLabel, locator);
         return element;
     }
 

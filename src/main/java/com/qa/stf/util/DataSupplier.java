@@ -53,7 +53,7 @@ import static com.qa.stf.base.DriverManager.excelReader;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.2
+ * @version 1.3
  */
 public class DataSupplier {
 
@@ -93,9 +93,9 @@ public class DataSupplier {
 				);
 			}
 			data[row - 2][0] = table;
-			log.debug("Fetched data for row {}: {}", row, table);
+			log.debug("Fetched data for row '{}': '{}'", row, table);
 		}
-		log.info("Data fetched successfully from sheet '{}'. Total rows: {}", sheetName, totalRows - 1);
+		log.info("Data fetched successfully from sheet '{}'. Total rows: '{}'", sheetName, totalRows - 1);
 		return data;
 	}
 
@@ -113,7 +113,8 @@ public class DataSupplier {
 	 * @param excelReader Utility to read data from the Excel file.
 	 * @return {@code true} if the test is runnable (run mode is "Y"); otherwise, {@code false}.
 	 */
-	public static boolean isTestRunnable(String testName, ExcelReader excelReader) {
+	@SuppressWarnings("BooleanMethodIsAlwaysInverted")
+    public static boolean isTestRunnable(String testName, ExcelReader excelReader) {
 		var sheetName = TestConstants.TEST_SUITE_NAME;
 		var testCaseColumn = TestConstants.TEST_CASE_NAME;
 		var runModeColumn = TestConstants.TEST_RUN_MODE;

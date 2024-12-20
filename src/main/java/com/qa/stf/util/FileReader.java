@@ -51,7 +51,7 @@ import com.qa.stf.constant.TestConstants;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.2
+ * @version 1.3
  */
 public class FileReader {
 
@@ -71,14 +71,14 @@ public class FileReader {
      * </p>
      *
      * @throws ExceptionHub.ConfigTypeException If the file is not found or an error
-     *                                           occurs while loading it.
+     *                                          occurs while loading it.
      */
     public static void loadPropertyFile() {
         try (FileInputStream fileInputStream = new FileInputStream(TestConstants.CWD + TestConstants.CONFIG_FILE_PATH)) {
             properties.load(fileInputStream);
             log.info("The configuration file is loaded!!");
         } catch (FileNotFoundException ex) {
-            log.error("The configuration file not found on the given path " + TestConstants.CONFIG_FILE_PATH, ex);
+            log.error("The configuration file not found on the given path: '{}'", TestConstants.CONFIG_FILE_PATH, ex);
             throw new ExceptionHub.ConfigTypeException(TestConstants.CONFIG_FILE_PATH, ex);
         } catch (IOException ex) {
             log.error("Error occurred while loading the configuration file", ex);
@@ -112,7 +112,7 @@ public class FileReader {
         }
         return data;
     }
-    
+
 }
 
 

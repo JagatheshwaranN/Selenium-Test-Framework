@@ -1,9 +1,9 @@
 package com.qa.stf.ohrm.pages;
 
+import com.qa.stf.base.BasePage;
 import com.qa.stf.base.DriverManager;
 import com.qa.stf.handler.DropDownHandler;
 import com.qa.stf.handler.VerificationHandler;
-import com.qa.stf.reuse.Component;
 
 public class PageManager {
 
@@ -17,10 +17,10 @@ public class PageManager {
 
 	private DropDownHandler dropDownHandler;
 
-	private Component component;
+	private BasePage basePage;
 
-	public Component getComponent() {
-		return (component == null) ? component = new Component(DriverManager.getInstance(), getVerificationHelper()) : component;
+	public BasePage getPageComponent() {
+		return (basePage == null) ? basePage = new BasePage(DriverManager.getInstance()) : basePage;
 	}
 
 	public LoginPage getLoginPage() {

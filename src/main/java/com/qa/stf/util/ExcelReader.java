@@ -55,7 +55,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.2
+ * @version 1.3
  */
 public class ExcelReader {
 
@@ -101,10 +101,10 @@ public class ExcelReader {
             workbook = new XSSFWorkbook(fis);
             sheet = workbook.getSheetAt(0); // Default to the first sheet
         } catch (FileNotFoundException ex) {
-            log.error("The excel file was not found at the given path: {}", path, ex);
+            log.error("The excel file was not found at the given path: '{}'", path, ex);
             throw new ExceptionHub.ConfigTypeException("File not found at path: " + path, ex);
         } catch (IOException ex) {
-            log.error("Error occurred while loading the excel file from path: {}", path, ex);
+            log.error("Error occurred while loading the excel file from path: '{}'", path, ex);
             throw new ExceptionHub.ConfigTypeException("Error occurred while loading excel file from path: " + path, ex);
         }
     }
@@ -155,7 +155,7 @@ public class ExcelReader {
     public String getCellData(String sheetName, String colName, int rowNum) {
         try {
             if (rowNum <= 0) {
-                log.warn("Row number must be greater than 0. Provided: {}", rowNum);
+                log.warn("Row number must be greater than 0. Provided: '{}'", rowNum);
                 return "";
             }
 
@@ -186,7 +186,7 @@ public class ExcelReader {
             return getCellValueAsString(cell);
 
         } catch (Exception ex) {
-            log.error("Error reading cell data for sheet '{}', column '{}', row {}", sheetName, colName, rowNum, ex);
+            log.error("Error reading cell data for sheet '{}', column '{}', row '{}'", sheetName, colName, rowNum, ex);
             throw new ExceptionHub.InvalidDataException(
                     String.format("Error reading cell data in sheet '%s', column '%s', row '%s'", sheetName, colName, rowNum), ex);
         }
@@ -232,7 +232,7 @@ public class ExcelReader {
     public String getCellData(String sheetName, int colNum, int rowNum) {
         try {
             if (rowNum <= 0) {
-                log.warn("Row number must be greater than 0. Provided: {}", rowNum);
+                log.warn("Row number must be greater than 0. Provided: '{}'", rowNum);
                 return "";
             }
 
@@ -251,7 +251,7 @@ public class ExcelReader {
             return getCellValueAsString(cell);
 
         } catch (Exception ex) {
-            log.error("Error reading cell data for sheet '{}', column '{}', row {}", sheetName, colNum, rowNum, ex);
+            log.error("Error reading cell data for sheet '{}', column '{}', row '{}'", sheetName, colNum, rowNum, ex);
             throw new ExceptionHub.InvalidDataException(
                     String.format("Error reading cell data in sheet '%s', column '%d', row '%d'", sheetName, colNum, rowNum), ex);
         }
@@ -327,7 +327,7 @@ public class ExcelReader {
      */
     public boolean setCellData(String sheetName, String colName, int rowNum, String data) {
         if (rowNum <= 0) {
-            log.warn("Row number must be greater than 0. Provided: {}", rowNum);
+            log.warn("Row number must be greater than 0. Provided: '{}'", rowNum);
             return false;
         }
 
@@ -361,7 +361,7 @@ public class ExcelReader {
 
             // Write changes back to the file
             workbook.write(fileOut);
-            log.info("Data successfully updated in sheet '{}', column '{}', row {}", sheetName, colName, rowNum);
+            log.info("Data successfully updated in sheet '{}', column '{}', row '{}'", sheetName, colName, rowNum);
 
             return true;
 
@@ -430,7 +430,7 @@ public class ExcelReader {
 
             // Write changes back to the file
             workbook.write(fileOut);
-            log.info("Data successfully updated in sheet '{}', column '{}', row {}", sheetName, colName, rowNum);
+            log.info("Data successfully updated in sheet '{}', column '{}', row '{}'", sheetName, colName, rowNum);
 
         } catch (IOException ex) {
             log.error("Error occurred while updating the Excel sheet", ex);
@@ -664,7 +664,7 @@ public class ExcelReader {
         }
 
         if (colNum < 0) {
-            log.warn("Invalid column number: {}. Cannot remove column.", colNum);
+            log.warn("Invalid column number: '{}'. Cannot remove column.", colNum);
             return false;
         }
 
@@ -702,11 +702,11 @@ public class ExcelReader {
 
             // Save the changes to the file
             workbook.write(fileOut);
-            log.info("Column {} successfully removed from sheet '{}'.", colNum, sheetName);
+            log.info("Column '{}' successfully removed from sheet '{}'.", colNum, sheetName);
             return true;
 
         } catch (IOException ex) {
-            log.error("Error occurred while removing column {} from sheet '{}'.", colNum, sheetName, ex);
+            log.error("Error occurred while removing column '{}' from sheet '{}'.", colNum, sheetName, ex);
             throw new ExceptionHub.ExcelException(
                     String.format("Error occurred while removing column %d from sheet '%s'.", colNum, sheetName), ex);
         }
@@ -727,6 +727,7 @@ public class ExcelReader {
      * @throws ExceptionHub.ExcelException If an error occurs during the sheet existence
      *                                      check.
      */
+    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
     public boolean isSheetExist(String sheetName) {
         if (sheetName == null || sheetName.trim().isEmpty()) {
             log.warn("Sheet name is null or empty. Cannot check for sheet existence.");
@@ -788,7 +789,7 @@ public class ExcelReader {
 
             // Return the number of columns in the first row
             int columnCount = row.getLastCellNum();
-            log.info("Sheet '{}' has {} columns.", sheetName, columnCount);
+            log.info("Sheet '{}' has '{}' columns.", sheetName, columnCount);
             return columnCount;
 
         } catch (Exception ex) {
@@ -869,7 +870,7 @@ public class ExcelReader {
             for (int i = 2; i <= getRowCount(sheetName); i++) {
                 String currentCellValue = getCellData(sheetName, colName, i);
                 if (currentCellValue != null && currentCellValue.equalsIgnoreCase(cellValue)) {
-                    log.info("Cell value '{}' found at row {} in column '{}'.", cellValue, i, colName);
+                    log.info("Cell value '{}' found at row '{}' in column '{}'.", cellValue, i, colName);
                     return i; // Return row number if match is found
                 }
             }

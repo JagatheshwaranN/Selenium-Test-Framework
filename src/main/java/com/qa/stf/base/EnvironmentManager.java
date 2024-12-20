@@ -40,7 +40,7 @@ import org.apache.logging.log4j.Logger;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.2
+ * @version 1.3
  */
 public class EnvironmentManager extends FileReader {
 
@@ -110,7 +110,7 @@ public class EnvironmentManager extends FileReader {
                 yield EnvType.REMOTE;
             }
             default -> {
-                log.error("Invalid environment type: {}", getEnv());
+                log.error("Invalid environment type: '{}'", getEnv());
                 throw new ExceptionHub.ConfigTypeException("Invalid environment type: " + getEnv());
             }
         };
@@ -134,7 +134,7 @@ public class EnvironmentManager extends FileReader {
         }
         value = getDataFromPropFile(key);
         if (value == null || value.isEmpty()) {
-            log.warn("Value for key {} not found in environment or property file.", key);
+            log.warn("Value for key '{}' not found in environment or property file.", key);
         }
         return value;
     }

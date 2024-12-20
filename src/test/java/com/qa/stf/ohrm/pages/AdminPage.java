@@ -14,12 +14,12 @@ public class AdminPage extends AdminPageElement {
 	public void searchUser(String user, String status) {
 
 		pageManager.getVerificationHelper().isElementDisplayed(getAdminHeader(), getAdminHeaderLabel());
-		pageManager.getComponent().typeText(getAdminSearchUserName(), user, getAdminSearchUserNameLabel());
+		pageManager.getPageComponent().typeText(getAdminSearchUserName(), user, getAdminSearchUserNameLabel());
 		pageManager.getDropDownHandler().selectDropdownOption(getAdminUserRoleDropDown(), getAdminUserRoleDropDownOptions(),
 				user, getAdminUserRoleDropDownLabel());
 		pageManager.getDropDownHandler().selectDropdownOption(getAdminUserStatusDropDown(), getAdminUserStatusDropDownOptions(),
 				status, getAdminUserStatusDropDownLabel());
-		pageManager.getComponent().clickElement(getAdminSearch(), getAdminSearchLabel());
+		pageManager.getPageComponent().clickElement(getAdminSearch(), getAdminSearchLabel());
 		pageManager.getVerificationHelper().isElementDisplayed(getAdminSearchResultSection(), getAdminSearchResultSectionLabel());
 		pageManager.getVerificationHelper().isElementDisplayed(getAdminSearchResultSection(),
 				getAdminSearchResultSectionLabel());

@@ -41,7 +41,7 @@ import com.qa.stf.util.FileReader;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.2
+ * @version 1.3
  */
 public class BrowserManager extends FileReader {
 
@@ -108,7 +108,7 @@ public class BrowserManager extends FileReader {
                 yield BrowserType.EDGE;
             }
             default -> {
-                log.error("Invalid browser type: {}", getBrowser());
+                log.error("Invalid browser type: '{}'", getBrowser());
                 throw new ExceptionHub.ConfigTypeException(getBrowser());
             }
         };
@@ -133,7 +133,7 @@ public class BrowserManager extends FileReader {
         }
         value = getDataFromPropFile(key);
         if (value == null || value.isEmpty()) {
-            log.warn("Value for key {} not found in environment or property file.", key);
+            log.warn("Value for key '{}' not found in environment or property file.", key);
         }
         return value;
     }
