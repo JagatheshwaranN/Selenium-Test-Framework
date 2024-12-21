@@ -2,7 +2,10 @@ package com.qa.stf.listener;
 
 import java.io.File;
 import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
+import java.util.Base64;
 import java.util.Calendar;
 import java.util.UUID;
 
@@ -70,7 +73,7 @@ import com.qa.stf.constant.TestConstants;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.5
+ * @version 1.6
  */
 public class TestListener extends DriverManager implements ITestListener, ISuiteListener {
 
@@ -97,6 +100,9 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
 
     // Constant representing the image format for the screenshots
     private static final String IMG_FORMAT = ".png";
+
+    // Constant representing the base64 image format for the screenshots
+    private static final String BASE64_ENCODE = "data:image/png;base64,";
 
     // Default constructor for the TestListener class
     public TestListener() {
@@ -244,11 +250,18 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
      * @param screenshotPath The path of the screenshot to embed.
      */
     private void testNGReporterUpdate(String testStatus, String screenshotPath) {
-        // String filePath = "file:///" + screenshotPath.replace("\\", "/");
         Reporter.log("<br>");
         Reporter.log(testStatus);
         Reporter.log("<br>");
-        Reporter.log("<a target='_blank' href=" + screenshotPath + "><img src=" + screenshotPath
+        byte[] imageBytes;
+        try {
+            imageBytes = Files.readAllBytes(Paths.get(screenshotPath));
+        } catch (IOException ex) {
+            throw new RuntimeException(ex);
+        }
+        String base64Image = Base64.getEncoder().encodeToString(imageBytes);
+        String base64Src = BASE64_ENCODE + base64Image;
+        Reporter.log("<a href=" + base64Src + "><img src=" + base64Src
                 + " height='100' width='100' /></a>");
     }
 
