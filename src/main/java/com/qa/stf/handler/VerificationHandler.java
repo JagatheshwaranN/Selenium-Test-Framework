@@ -2,7 +2,6 @@ package com.qa.stf.handler;
 
 import com.qa.stf.base.BasePage;
 import com.qa.stf.base.DriverManager;
-import com.qa.stf.base.Page;
 import com.qa.stf.util.ExceptionHub;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;

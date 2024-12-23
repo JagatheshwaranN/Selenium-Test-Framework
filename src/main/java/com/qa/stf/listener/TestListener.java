@@ -12,10 +12,10 @@ import java.util.UUID;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.qa.stf.base.BasePage;
+import com.qa.stf.constant.TestConstants;
 import com.qa.stf.report.ExtentReport;
 import com.qa.stf.util.ExceptionHub;
 import org.apache.commons.io.FileUtils;
-import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
@@ -30,7 +30,8 @@ import org.testng.Reporter;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.Status;
 import com.qa.stf.base.DriverManager;
-import com.qa.stf.constant.TestConstants;
+
+import static com.qa.stf.constant.TestConstants.*;
 
 /**
  * The TestListener class implements the TestNG {@link ITestListener} and {@link ISuiteListener}
@@ -96,7 +97,7 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
     private static final String REPORT_CONFIG_VALUE = "false";
 
     // Path to store the screenshot files, constructed using the project's root directory and a constant path
-    private static final String SNAPSHOT_PATH = TestConstants.CWD + TestConstants.SNAPSHOT_PATH;
+    private static final String SCREENSHOT_PATH = CWD + SNAPSHOT_PATH;
 
     // Constant representing the image format for the screenshots
     private static final String IMG_FORMAT = ".png";
@@ -160,8 +161,8 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
     public void onTestStart(ITestResult result) {
         extentTest = extentReports.createTest(result.getMethod().getMethodName());
         driverManager.setExtentTest(extentTest);
-        driverManager.getExtentTest().log(Status.INFO, () -> result.getName().toUpperCase() + TestConstants.TEST_START);
-        Reporter.log(result.getName().toUpperCase() + TestConstants.TEST_START);
+        driverManager.getExtentTest().log(Status.INFO, () -> result.getName().toUpperCase() + TEST_START);
+        Reporter.log(result.getName().toUpperCase() + TEST_START);
     }
 
     /**
@@ -171,7 +172,7 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
      */
     @Override
     public void onTestSuccess(ITestResult result) {
-        handleTestResult(result, Status.PASS, TestConstants.TEST_PASS);
+        handleTestResult(result, Status.PASS, TEST_PASS);
         driverManager.closeExtentTest();
         log.info("Test Passed: '{}'", result.getName());
     }
@@ -183,7 +184,7 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
      */
     @Override
     public void onTestFailure(ITestResult result) {
-        handleTestResult(result, Status.FAIL, TestConstants.TEST_FAIL);
+        handleTestResult(result, Status.FAIL, TEST_FAIL);
         driverManager.closeExtentTest();
         log.error("Test Failed: '{}'", result.getName());
     }
@@ -195,7 +196,7 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
      */
     @Override
     public void onTestSkipped(ITestResult result) {
-        driverManager.getExtentTest().log(Status.SKIP, () -> result.getName().toUpperCase() + TestConstants.TEST_SKIP);
+        driverManager.getExtentTest().log(Status.SKIP, () -> result.getName().toUpperCase() + TEST_SKIP);
         log.warn("Test Skipped: '{}'", result.getName());
     }
 
@@ -229,10 +230,10 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
      * @throws ExceptionHub.ScreenshotException If the screenshot cannot be saved.
      */
     private String captureScreenshot() {
-        String timestamp = new SimpleDateFormat(TestConstants.DATE_FORMAT).format(Calendar.getInstance().getTime());
+        String timestamp = new SimpleDateFormat(DATE_FORMAT).format(Calendar.getInstance().getTime());
         String uniqueId = UUID.randomUUID().toString();
         File source = ((TakesScreenshot) driverManager.getDriver()).getScreenshotAs(OutputType.FILE);
-        File destination = new File(SNAPSHOT_PATH + timestamp + "_" + uniqueId + IMG_FORMAT);
+        File destination = new File(SCREENSHOT_PATH + timestamp + "_" + uniqueId + IMG_FORMAT);
         try {
             FileUtils.copyFile(source, destination);
             log.info("Screenshot saved: '{}'", destination.getAbsolutePath());

@@ -10,7 +10,6 @@ import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-import com.qa.stf.base.BasePage;
 
 /**
  * The DropDownHandler class provides utility methods to interact with dropdown

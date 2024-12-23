@@ -3,14 +3,16 @@ package com.qa.stf.util;
 import java.lang.reflect.Method;
 import java.util.Hashtable;
 
+import com.qa.stf.constant.TestConstants;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.DataProvider;
 
 import com.qa.stf.base.DriverManager;
-import com.qa.stf.constant.TestConstants;
 
 import static com.qa.stf.base.DriverManager.excelReader;
+
+import static com.qa.stf.constant.TestConstants.*;
 
 /**
  * The DataSupplier class provides utility methods for supplying test data to TestNG
@@ -115,15 +117,13 @@ public class DataSupplier {
 	 */
 	@SuppressWarnings("BooleanMethodIsAlwaysInverted")
     public static boolean isTestRunnable(String testName, ExcelReader excelReader) {
-		var sheetName = TestConstants.TEST_SUITE_NAME;
-		var testCaseColumn = TestConstants.TEST_CASE_NAME;
-		var runModeColumn = TestConstants.TEST_RUN_MODE;
-		var rows = excelReader.getRowCount(sheetName);
+		var sheetName = TEST_SUITE_NAME;
+        var rows = excelReader.getRowCount(sheetName);
 		for (var row = 2; row <= rows; row++) {
-			var testCase = excelReader.getCellData(sheetName, testCaseColumn, row);
+			var testCase = excelReader.getCellData(sheetName, TEST_CASE_NAME, row);
 			if (testCase != null && testCase.equalsIgnoreCase(testName)) {
-				var runMode = excelReader.getCellData(sheetName, runModeColumn, row);
-				if (TestConstants.RUN_MODE_YES.equalsIgnoreCase(runMode)) {
+				var runMode = excelReader.getCellData(sheetName, TEST_RUN_MODE, row);
+				if (RUN_MODE_YES.equalsIgnoreCase(runMode)) {
 					log.info("The '{}' test case is runnable. Sheet: '{}', Run Mode: '{}'", testName, sheetName, runMode);
 					return true;
 				} else {

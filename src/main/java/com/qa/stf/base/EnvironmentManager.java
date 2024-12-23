@@ -1,11 +1,12 @@
 package com.qa.stf.base;
 
 import com.qa.stf.constant.EnvType;
-import com.qa.stf.constant.TestConstants;
 import com.qa.stf.util.ExceptionHub;
 import com.qa.stf.util.FileReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+
+import static com.qa.stf.constant.TestConstants.*;
 
 /**
  * The EnvironmentManager class manages the environment configurations for test execution
@@ -101,11 +102,11 @@ public class EnvironmentManager extends FileReader {
         }
 
         return switch (getEnv().toUpperCase()) {
-            case TestConstants.LOCAL -> {
+            case LOCAL -> {
                 log.info("Local Environment is opted for test execution");
                 yield EnvType.LOCAL;
             }
-            case TestConstants.REMOTE -> {
+            case REMOTE -> {
                 log.info("Remote Environment is opted for test execution");
                 yield EnvType.REMOTE;
             }

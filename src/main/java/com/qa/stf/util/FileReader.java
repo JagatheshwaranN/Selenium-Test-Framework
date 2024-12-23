@@ -6,10 +6,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
+import com.qa.stf.constant.TestConstants;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
-import com.qa.stf.constant.TestConstants;
+import static com.qa.stf.constant.TestConstants.*;
 
 /**
  * The FileReader class provides utility methods for reading and managing properties
@@ -74,12 +75,12 @@ public class FileReader {
      *                                          occurs while loading it.
      */
     public static void loadPropertyFile() {
-        try (FileInputStream fileInputStream = new FileInputStream(TestConstants.CWD + TestConstants.CONFIG_FILE_PATH)) {
+        try (FileInputStream fileInputStream = new FileInputStream(CWD + CONFIG_FILE_PATH)) {
             properties.load(fileInputStream);
             log.info("The configuration file is loaded!!");
         } catch (FileNotFoundException ex) {
-            log.error("The configuration file not found on the given path: '{}'", TestConstants.CONFIG_FILE_PATH, ex);
-            throw new ExceptionHub.ConfigTypeException(TestConstants.CONFIG_FILE_PATH, ex);
+            log.error("The configuration file not found on the given path: '{}'", CONFIG_FILE_PATH, ex);
+            throw new ExceptionHub.ConfigTypeException(CONFIG_FILE_PATH, ex);
         } catch (IOException ex) {
             log.error("Error occurred while loading the configuration file", ex);
             throw new ExceptionHub.ConfigTypeException("Error occurred while loading configuration file", ex);

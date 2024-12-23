@@ -1,11 +1,13 @@
 package com.qa.stf.base;
 
 import com.qa.stf.constant.BrowserType;
-import com.qa.stf.constant.TestConstants;
 import com.qa.stf.util.ExceptionHub;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import com.qa.stf.util.FileReader;
+
+import static com.qa.stf.constant.TestConstants.*;
+
 
 /**
  * The BrowserManager class handles browser-related configurations for test execution
@@ -95,15 +97,15 @@ public class BrowserManager extends FileReader {
     public BrowserType getBrowserType() {
         setBrowser(getValue(BrowserType.BROWSER.getBrowserName()));
         return switch (getBrowser()) {
-            case TestConstants.CHROME -> {
+            case CHROME -> {
                 log.info("Chrome browser is set for test execution");
                 yield BrowserType.CHROME;
             }
-            case TestConstants.FIREFOX -> {
+            case FIREFOX -> {
                 log.info("Firefox browser is set for test execution");
                 yield BrowserType.FIREFOX;
             }
-            case TestConstants.EDGE -> {
+            case EDGE -> {
                 log.info("Edge browser is set for test execution");
                 yield BrowserType.EDGE;
             }

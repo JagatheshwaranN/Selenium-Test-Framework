@@ -3,7 +3,6 @@ package com.qa.stf.report;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-import com.qa.stf.constant.TestConstants;
 import com.qa.stf.util.ExceptionHub;
 import com.qa.stf.util.FileReader;
 import org.apache.logging.log4j.LogManager;
@@ -13,6 +12,8 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+
+import static com.qa.stf.constant.TestConstants.*;
 
 /**
  * The ExtentReport class provides utility methods for generating and managing Extent
@@ -80,7 +81,7 @@ public class ExtentReport {
         try {
             log.info("Initializing Extent Report setup.");
 
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(TestConstants.DATE_FORMAT);
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat(DATE_FORMAT);
             String actualDate = simpleDateFormat.format(new Date());
             log.debug("Formatted date for report: '{}'", actualDate);
 
@@ -90,16 +91,16 @@ public class ExtentReport {
             extentReports = new ExtentReports();
             extentReports.attachReporter(extentSparkReporter);
 
-            extentSparkReporter.config().setDocumentTitle(TestConstants.EXTENT_REPORT_TITLE);
+            extentSparkReporter.config().setDocumentTitle(EXTENT_REPORT_TITLE);
             extentSparkReporter.config().setTheme(Theme.DARK);
-            extentSparkReporter.config().setReportName(TestConstants.EXTENT_REPORT_NAME);
+            extentSparkReporter.config().setReportName(EXTENT_REPORT_NAME);
             log.debug("ExtentSparkReporter configuration set: Title - '{}', Theme - '{}', Name - '{}'",
-                    TestConstants.EXTENT_REPORT_TITLE, Theme.DARK, TestConstants.EXTENT_REPORT_NAME);
+                    EXTENT_REPORT_TITLE, Theme.DARK, EXTENT_REPORT_NAME);
 
-            extentReports.setSystemInfo(TestConstants.EXTENT_REPORT_OS_INFO, System.getProperty("os.name"));
-            extentReports.setSystemInfo(TestConstants.EXTENT_REPORT_USER_INFO, System.getProperty("user.name"));
+            extentReports.setSystemInfo(EXTENT_REPORT_OS_INFO, System.getProperty("os.name"));
+            extentReports.setSystemInfo(EXTENT_REPORT_USER_INFO, System.getProperty("user.name"));
             String browserInfo = FileReader.getDataFromPropFile("Browser");
-            extentReports.setSystemInfo(TestConstants.EXTENT_REPORT_BROWSER_INFO,
+            extentReports.setSystemInfo(EXTENT_REPORT_BROWSER_INFO,
                     browserInfo != null ? browserInfo : "Unknown");
             log.info("System information added to the report.");
 
@@ -124,13 +125,13 @@ public class ExtentReport {
      */
     private static ExtentSparkReporter getExtentSparkReporter(String actualDate) throws IOException {
         log.debug("Ensuring report directory exists.");
-        File reportDir = new File(TestConstants.CWD + TestConstants.EXTENT_REPORT_PATH);
+        File reportDir = new File(CWD + EXTENT_REPORT_PATH);
         if (!reportDir.exists() && !reportDir.mkdirs()) {
             log.error("Failed to create report directory: '{}'", reportDir.getAbsolutePath());
             throw new IOException("Failed to create directory: " + reportDir.getAbsolutePath());
         }
-        String reportPath = String.format(TestConstants.CWD + TestConstants.EXTENT_REPORT_PATH
-                + TestConstants.EXTENT_REPORT_FILE_NAME, actualDate);
+        String reportPath = String.format(CWD + EXTENT_REPORT_PATH
+                + EXTENT_REPORT_FILE_NAME, actualDate);
         log.info("Report path set to: '{}'", reportPath);
         return new ExtentSparkReporter(reportPath);
     }

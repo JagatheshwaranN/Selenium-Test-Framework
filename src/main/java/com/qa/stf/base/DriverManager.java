@@ -20,7 +20,7 @@ import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
 import com.aventstack.extentreports.ExtentTest;
-import com.qa.stf.constant.TestConstants;
+import static com.qa.stf.constant.TestConstants.*;
 
 /**
  * The DriverManager class manages the WebDriver instances for various browsers
@@ -108,7 +108,7 @@ public class DriverManager extends BrowserManager {
      */
     public DriverManager() {
         this.environmentManager = new EnvironmentManager();
-        excelReader = new ExcelReader(TestConstants.CWD + TestConstants.EXCEL_FILE_PATH);
+        excelReader = new ExcelReader(CWD + EXCEL_FILE_PATH);
     }
 
     /**
@@ -218,7 +218,7 @@ public class DriverManager extends BrowserManager {
         WebDriver driver = createDriver();
         setDriver(driver);
         new BasePage(DriverManager.getInstance());
-        driver.get(getDataFromPropFile(TestConstants.APP_URL));
+        driver.get(getDataFromPropFile(APP_URL));
     }
 
     /**
@@ -258,19 +258,19 @@ public class DriverManager extends BrowserManager {
             case CHROME -> {
                 log.info("Initializing Chrome driver for local execution.");
                 gcOptions = new ChromeOptions();
-                gcOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
+                gcOptions.addArguments(BROWSER_MAXIMIZE);
                 yield new ChromeDriver(gcOptions);
             }
             case FIREFOX -> {
                 log.info("Initializing Firefox driver for local execution.");
                 ffOptions = new FirefoxOptions();
-                ffOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
+                ffOptions.addArguments(BROWSER_MAXIMIZE);
                 yield new FirefoxDriver(ffOptions);
             }
             case EDGE -> {
                 log.info("Initializing Edge driver for local execution.");
                 meOptions = new EdgeOptions();
-                meOptions.addArguments(TestConstants.EDGE_BROWSER_MAXIMIZE);
+                meOptions.addArguments(EDGE_BROWSER_MAXIMIZE);
                 yield new EdgeDriver(meOptions);
             }
             default -> throw new ExceptionHub.InvalidDataException(getBrowserType().toString());
@@ -299,23 +299,23 @@ public class DriverManager extends BrowserManager {
                     gcOptions = new ChromeOptions();
                     gcOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.WINDOWS);
                     gcOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME.getBrowserName().toLowerCase());
-                    gcOptions.addArguments(TestConstants.BROWSER_MAXIMIZE);
-                    yield new RemoteWebDriver((URI.create(getDataFromPropFile(TestConstants.GRID_URL)).toURL()), gcOptions);
+                    gcOptions.addArguments(BROWSER_MAXIMIZE);
+                    yield new RemoteWebDriver((URI.create(getDataFromPropFile(GRID_URL)).toURL()), gcOptions);
                 }
                 case FIREFOX -> {
                     log.info("Initializing Firefox driver for remote execution.");
                     ffOptions = new FirefoxOptions();
                     ffOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.WINDOWS);
                     ffOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.FIREFOX.getBrowserName().toLowerCase());
-                    yield new RemoteWebDriver(URI.create(getDataFromPropFile(TestConstants.GRID_URL)).toURL(), ffOptions);
+                    yield new RemoteWebDriver(URI.create(getDataFromPropFile(GRID_URL)).toURL(), ffOptions);
                 }
                 case EDGE -> {
                     log.info("Initializing Edge driver for remote execution.");
                     meOptions = new EdgeOptions();
                     meOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.WINDOWS);
                     meOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.EDGE.getBrowserName());
-                    meOptions.addArguments(TestConstants.EDGE_BROWSER_MAXIMIZE);
-                    yield new RemoteWebDriver(URI.create(getDataFromPropFile(TestConstants.GRID_URL)).toURL(), meOptions);
+                    meOptions.addArguments(EDGE_BROWSER_MAXIMIZE);
+                    yield new RemoteWebDriver(URI.create(getDataFromPropFile(GRID_URL)).toURL(), meOptions);
                 }
                 default -> throw new ExceptionHub.InvalidDataException(getBrowserType().toString());
             };

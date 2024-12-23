@@ -14,7 +14,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.qa.stf.constant.TestConstants;
+import static com.qa.stf.constant.TestConstants.*;
 
 /**
  * The BasePage class serves as a foundational class for interacting with
@@ -90,7 +90,7 @@ public class BasePage extends Page implements ElementActions {
         }
         this.driverManager = driverManager;
         this.wait = new WebDriverWait(driverManager.getDriver(),
-                Duration.ofSeconds(TestConstants.EXPLICIT_WAIT_TIME));
+                Duration.ofSeconds(EXPLICIT_WAIT_TIME));
     }
 
     /**
@@ -341,7 +341,7 @@ public class BasePage extends Page implements ElementActions {
      * </p>
      */
     public static void waitForSeconds() {
-        Uninterruptibles.sleepUninterruptibly(TestConstants.WAIT_TIME, TimeUnit.SECONDS);
+        Uninterruptibles.sleepUninterruptibly(WAIT_TIME, TimeUnit.SECONDS);
     }
 
 }
