@@ -13,7 +13,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.qa.stf.base.BasePage;
 import com.qa.stf.constant.TestConstants;
-import com.qa.stf.report.ExtentReport;
+import com.qa.stf.report.ExtentReportManager;
 import com.qa.stf.util.ExceptionHub;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
@@ -74,7 +74,7 @@ import static com.qa.stf.constant.TestConstants.*;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.6
+ * @version 1.7
  */
 public class TestListener extends DriverManager implements ITestListener, ISuiteListener {
 
@@ -89,6 +89,9 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
 
     // Singleton instance of DriverManager to handle WebDriver management
     DriverManager driverManager = DriverManager.getInstance();
+
+    // Singleton instance of ExtentReportManager to handle Extent Report management
+    ExtentReportManager extentReportManager = ExtentReportManager.getInstance();
 
     // Constant key to configure the ReportNG property to disable output escaping in reports
     private static final String REPORT_CONFIG_KEY = "org.uncommons.reportng.escape-output";
@@ -137,7 +140,7 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
      */
     @Override
     public void onStart(ITestContext context) {
-        extentReports = ExtentReport.setupExtentReport();
+        extentReports = ExtentReportManager.setupExtentReport();
         log.info("Test Context started: '{}'", context.getName());
     }
 
@@ -160,8 +163,8 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
     @Override
     public void onTestStart(ITestResult result) {
         extentTest = extentReports.createTest(result.getMethod().getMethodName());
-        driverManager.setExtentTest(extentTest);
-        driverManager.getExtentTest().log(Status.INFO, () -> result.getName().toUpperCase() + TEST_START);
+        extentReportManager.setExtentTest(extentTest);
+        extentReportManager.getExtentTest().log(Status.INFO, () -> result.getName().toUpperCase() + TEST_START);
         Reporter.log(result.getName().toUpperCase() + TEST_START);
     }
 
@@ -173,7 +176,7 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
     @Override
     public void onTestSuccess(ITestResult result) {
         handleTestResult(result, Status.PASS, TEST_PASS);
-        driverManager.closeExtentTest();
+        extentReportManager.closeExtentTest();
         log.info("Test Passed: '{}'", result.getName());
     }
 
@@ -185,7 +188,7 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
     @Override
     public void onTestFailure(ITestResult result) {
         handleTestResult(result, Status.FAIL, TEST_FAIL);
-        driverManager.closeExtentTest();
+        extentReportManager.closeExtentTest();
         log.error("Test Failed: '{}'", result.getName());
     }
 
@@ -196,7 +199,7 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
      */
     @Override
     public void onTestSkipped(ITestResult result) {
-        driverManager.getExtentTest().log(Status.SKIP, () -> result.getName().toUpperCase() + TEST_SKIP);
+        extentReportManager.getExtentTest().log(Status.SKIP, () -> result.getName().toUpperCase() + TEST_SKIP);
         log.warn("Test Skipped: '{}'", result.getName());
     }
 
@@ -213,7 +216,7 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
         String snapshotPath = captureScreenshot();
         try {
             String base64Snapshot = ((TakesScreenshot) driverManager.getDriver()).getScreenshotAs(OutputType.BASE64);
-            driverManager.getExtentTest().log(status, result.getName().toUpperCase() + message,
+            extentReportManager.getExtentTest().log(status, result.getName().toUpperCase() + message,
                     MediaEntityBuilder.createScreenCaptureFromBase64String(base64Snapshot).build());
         } catch (Exception ex) {
             log.error("Failed to capture Base64 screenshot: {}", ex.getMessage(), ex);

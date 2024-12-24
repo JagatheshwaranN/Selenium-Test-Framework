@@ -4,6 +4,7 @@ import com.qa.stf.base.BasePage;
 import com.qa.stf.base.DriverManager;
 import com.qa.stf.handler.DropDownHandler;
 import com.qa.stf.handler.VerificationHandler;
+import com.qa.stf.report.ExtentReportManager;
 
 public class PageManager {
 

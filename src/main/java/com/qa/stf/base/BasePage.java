@@ -3,7 +3,9 @@ package com.qa.stf.base;
 import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
+import com.aventstack.extentreports.Status;
 import com.google.common.util.concurrent.Uninterruptibles;
+import com.qa.stf.report.ExtentReportManager;
 import com.qa.stf.util.ExceptionHub;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -59,7 +61,7 @@ import static com.qa.stf.constant.TestConstants.*;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.3
+ * @version 1.4
  */
 public class BasePage extends Page implements ElementActions {
 
@@ -68,6 +70,9 @@ public class BasePage extends Page implements ElementActions {
 
     // Instance of DriverManager to manage the WebDriver for interacting with the browser
     protected DriverManager driverManager;
+
+    // Instance of ExtentReportManager to manage the extent report
+    protected ExtentReportManager extentReportManager;
 
     // Instance of WebDriverWait to handle waiting for elements to appear on the page
     protected WebDriverWait wait;
@@ -89,6 +94,7 @@ public class BasePage extends Page implements ElementActions {
             throw new IllegalArgumentException("DriverManager cannot be null.");
         }
         this.driverManager = driverManager;
+        extentReportManager = ExtentReportManager.getInstance();
         this.wait = new WebDriverWait(driverManager.getDriver(),
                 Duration.ofSeconds(EXPLICIT_WAIT_TIME));
     }
@@ -106,6 +112,7 @@ public class BasePage extends Page implements ElementActions {
     public String getPageTitle() {
         String title = driverManager.getDriver().getTitle();
         log.info("Page title retrieved: '{}'", title);
+        extentReportManager.getExtentTest().log(Status.PASS, String.format("Page title retrieved: '%s'", title));
         return title;
     }
 
@@ -122,6 +129,7 @@ public class BasePage extends Page implements ElementActions {
     public String getPageUrl() {
         String url = driverManager.getDriver().getCurrentUrl();
         log.info("Page URL retrieved: '{}'", url);
+        extentReportManager.getExtentTest().log(Status.PASS, String.format("Page URL retrieved: '%s'", url));
         return url;
     }
 
@@ -142,6 +150,7 @@ public class BasePage extends Page implements ElementActions {
         waitForElementVisible(element, elementLabel);
         String headerText = element.getText();
         log.info("Page header retrieved for '{}': '{}'", elementLabel, headerText);
+        extentReportManager.getExtentTest().log(Status.PASS, String.format("Page header retrieved for '%s': '%s'", elementLabel, headerText));
         return headerText;
     }
 
@@ -165,8 +174,10 @@ public class BasePage extends Page implements ElementActions {
         try {
             wait.until(ExpectedConditions.visibilityOf(element));
             log.info("Element is visible: '{}'", elementLabel);
+            extentReportManager.getExtentTest().log(Status.PASS, String.format("Element is visible: '%s'", elementLabel));
         } catch (NoSuchElementException ex) {
             log.error("Element not found: '{}'", elementLabel, ex);
+            extentReportManager.getExtentTest().log(Status.FAIL, String.format("Element not found: '%s'", elementLabel));
             throw new ExceptionHub.ElementNotFoundException(elementLabel, ex);
         }
     }
@@ -184,6 +195,7 @@ public class BasePage extends Page implements ElementActions {
     public void waitForPageTitle(String title) {
         wait.until(ExpectedConditions.titleContains(title));
         log.info("Page title contains: '{}'", title);
+        extentReportManager.getExtentTest().log(Status.PASS, String.format("Page title contains: '%s'", title));
     }
 
     /**
@@ -206,6 +218,7 @@ public class BasePage extends Page implements ElementActions {
         }
         WebElement element = driverManager.getDriver().findElement(locator);
         log.debug("Element generated for '{}' using locator: '{}'", locatorLabel, locator);
+        extentReportManager.getExtentTest().log(Status.PASS, String.format("Element generated for '%s' using locator: '%s'", locatorLabel, locator));
         return element;
     }
 
@@ -229,6 +242,7 @@ public class BasePage extends Page implements ElementActions {
         }
         WebElement element = driverManager.getDriver().findElement(By.xpath(locator));
         log.debug("Element generated for '{}' using XPath: '{}'", locatorLabel, locator);
+        extentReportManager.getExtentTest().log(Status.PASS, String.format("Element generated for '%s' using XPath: '%s'", locatorLabel, locator));
         return element;
     }
 
@@ -247,6 +261,7 @@ public class BasePage extends Page implements ElementActions {
     public void clearElement(WebElement element, String elementLabel) {
         element.clear();
         log.info("Cleared the content of '{}' element", elementLabel);
+        extentReportManager.getExtentTest().log(Status.PASS, String.format("Cleared the content of '%s' element", elementLabel));
     }
 
     /**
@@ -263,6 +278,7 @@ public class BasePage extends Page implements ElementActions {
     public void clickElement(WebElement element, String elementLabel) {
         element.click();
         log.info("Clicked the '{}' element", elementLabel);
+        extentReportManager.getExtentTest().log(Status.PASS, String.format("Clicked the '%s' element", elementLabel));
     }
 
     /**
@@ -287,8 +303,10 @@ public class BasePage extends Page implements ElementActions {
             WebElement element = driverManager.getDriver().findElement(By.xpath(String.format(locator.toString().replace("By.xpath: ", ""), value)));
             element.click();
             log.info("Clicked the '{}' element", elementLabel);
+            extentReportManager.getExtentTest().log(Status.PASS, String.format("Clicked the '%s' element", elementLabel));
         } catch (ElementClickInterceptedException ex) {
             log.error("Failed to click the '{}' element", elementLabel, ex);
+            extentReportManager.getExtentTest().log(Status.FAIL, String.format("Failed to click the '%s' element", elementLabel));
             throw new ExceptionHub.InteractionException("Exception occurred while clicking '" + elementLabel + "' element", ex);
         }
     }
@@ -310,6 +328,7 @@ public class BasePage extends Page implements ElementActions {
         if (text != null) {
             element.sendKeys(text);
             log.info("Entered '{}' text into the '{}' element", text, elementLabel);
+            extentReportManager.getExtentTest().log(Status.PASS, String.format("Entered '%s' text into the '%s' element", text, elementLabel));
         }
     }
 
@@ -328,6 +347,7 @@ public class BasePage extends Page implements ElementActions {
     private boolean isElementNotNull(WebElement element, String elementLabel) {
         if (element == null) {
             log.error("The '{}' element is null.", elementLabel);
+            extentReportManager.getExtentTest().log(Status.FAIL, String.format("The '%s' element is null.", elementLabel));
             return false;
         }
         return true;

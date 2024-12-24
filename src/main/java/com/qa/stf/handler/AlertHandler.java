@@ -1,6 +1,8 @@
 package com.qa.stf.handler;
 
+import com.aventstack.extentreports.Status;
 import com.qa.stf.base.DriverManager;
+import com.qa.stf.report.ExtentReportManager;
 import com.qa.stf.util.ExceptionHub;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -44,7 +46,7 @@ import java.util.Optional;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.2
+ * @version 1.3
  */
 public class AlertHandler {
 
@@ -53,6 +55,9 @@ public class AlertHandler {
 
     // Instance of DriverManager to manage the WebDriver for interacting with the browser
     protected DriverManager driverManager;
+
+    // Instance of ExtentReportManager to manage the extent report
+    protected ExtentReportManager extentReportManager;
 
     /**
      * Constructs an AlertHandler instance and initializes it with the provided
@@ -72,6 +77,7 @@ public class AlertHandler {
             throw new IllegalArgumentException("DriverManager cannot be null.");
         }
         this.driverManager = driverManager;
+        extentReportManager = ExtentReportManager.getInstance();
     }
 
     /**
@@ -88,9 +94,11 @@ public class AlertHandler {
         try {
             Alert alert = driverManager.getDriver().switchTo().alert();
             log.info("Alert found and retrieved.");
+            extentReportManager.getExtentTest().log(Status.PASS,"Alert found and retrieved.");
             return Optional.of(alert);
         } catch (NoAlertPresentException ex) {
             log.error("No alert present on the page.");
+            extentReportManager.getExtentTest().log(Status.FAIL,"No alert present on the page.");
             throw new ExceptionHub.AlertNotFoundException(ex);
         }
     }
@@ -105,7 +113,8 @@ public class AlertHandler {
     public void acceptAlert() {
         getAlert().ifPresent(alert -> {
             alert.accept();
-            log.info("The alert popup is accepted");
+            log.info("The alert popup is accepted.");
+            extentReportManager.getExtentTest().log(Status.PASS,"The alert popup is accepted.");
         });
     }
 
@@ -119,7 +128,8 @@ public class AlertHandler {
     public void dismissAlert() {
         getAlert().ifPresent(alert -> {
             alert.dismiss();
-            log.info("The alert popup is dismissed");
+            log.info("The alert popup is dismissed.");
+            extentReportManager.getExtentTest().log(Status.PASS,"The alert popup is dismissed.");
         });
     }
 
@@ -137,8 +147,10 @@ public class AlertHandler {
         String text = alert.map(Alert::getText).orElse("No Alert Present");
         if (text.isEmpty()) {
             log.error("No alert is active, returning empty string.");
+            extentReportManager.getExtentTest().log(Status.FAIL,"No alert is active, returning empty string.");
         }
-        log.info("Alert text retrieved :: '{}'", text);
+        log.info("Alert text retrieved: '{}'", text);
+        extentReportManager.getExtentTest().log(Status.PASS,String.format("Alert text retrieved: '%s'", text));
         return text;
     }
 
@@ -156,7 +168,8 @@ public class AlertHandler {
         getAlert().ifPresent(alert -> {
             alert.sendKeys(text);
             alert.accept();
-            log.info("The prompt alert window is accepted");
+            log.info("The prompt alert window is accepted.");
+            extentReportManager.getExtentTest().log(Status.PASS,"The prompt alert window is accepted");
         });
     }
 

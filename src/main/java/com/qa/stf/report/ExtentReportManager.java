@@ -1,6 +1,7 @@
 package com.qa.stf.report;
 
 import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.qa.stf.util.ExceptionHub;
@@ -56,15 +57,44 @@ import static com.qa.stf.constant.TestConstants.*;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.3
+ * @version 1.4
  */
-public class ExtentReport {
+public class ExtentReportManager {
 
     // Logger instance for the ExtentReport class to enable logging during the execution
-    private static final Logger log = LogManager.getLogger(ExtentReport.class);
+    private static final Logger log = LogManager.getLogger(ExtentReportManager.class);
 
     // Static instance of ExtentReports to manage and generate test execution reports
     public static ExtentReports extentReports;
+
+    // ThreadLocal variable to store ExtentTest instance specific to the current thread (for multithreaded execution)
+    private static final ThreadLocal<ExtentTest> extentTestTL = new ThreadLocal<>();
+
+    /**
+     * Singleton instance holder for the ExtentReportManager class.
+     * <p>
+     * This inner static class is used to implement the Singleton design pattern
+     * in a thread-safe manner. The ExtentReportManager instance is created lazily when
+     * the `getInstance()` method is called for the first time.
+     * </p>
+     */
+    private static final class InstanceHolder {
+        private static final ExtentReportManager instance = new ExtentReportManager();
+    }
+
+    /**
+     * Retrieves the singleton instance of the ExtentReportManager class.
+     * <p>
+     * This method provides a thread-safe way to access the single instance of
+     * ExtentReportManager, ensuring that only one instance exists throughout the
+     * application lifecycle.
+     * </p>
+     *
+     * @return The singleton instance of ExtentReportManager.
+     */
+    public static ExtentReportManager getInstance() {
+        return ExtentReportManager.InstanceHolder.instance;
+    }
 
     /**
      * Sets up and initializes the Extent Report with a Spark Reporter.
@@ -134,6 +164,44 @@ public class ExtentReport {
                 + EXTENT_REPORT_FILE_NAME, actualDate);
         log.info("Report path set to: '{}'", reportPath);
         return new ExtentSparkReporter(reportPath);
+    }
+
+    /**
+     * Retrieves the ExtentTest instance for the current thread.
+     * <p>
+     * This method returns the ExtentTest instance associated with the current thread.
+     * The ExtentTest is used for logging test results in ExtentReports.
+     * </p>
+     *
+     * @return The ExtentTest instance for the current thread.
+     */
+    public ExtentTest getExtentTest() {
+        return extentTestTL.get();
+    }
+
+    /**
+     * Sets the ExtentTest instance for the current thread.
+     * <p>
+     * This method stores the ExtentTest instance in a thread-local variable
+     * to ensure each thread has its own ExtentTest for logging test results.
+     * </p>
+     *
+     * @param extentTest The ExtentTest instance to be set for the current thread.
+     */
+    public void setExtentTest(ExtentTest extentTest) {
+        extentTestTL.set(extentTest);
+    }
+
+    /**
+     * Closes the current ExtentTest instance by removing it from the thread-local
+     * storage.
+     * <p>
+     * This method removes the ExtentTest instance associated with the current thread,
+     * marking the end of the current test logging.
+     * </p>
+     */
+    public void closeExtentTest() {
+        extentTestTL.remove();
     }
 
 }

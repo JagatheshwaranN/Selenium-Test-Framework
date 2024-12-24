@@ -4,6 +4,7 @@ import java.net.MalformedURLException;
 import java.net.URI;
 
 import com.qa.stf.constant.BrowserType;
+import com.qa.stf.report.ExtentReportManager;
 import com.qa.stf.util.ExcelReader;
 import com.qa.stf.util.ExceptionHub;
 import org.apache.logging.log4j.LogManager;
@@ -19,7 +20,6 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
-import com.aventstack.extentreports.ExtentTest;
 import static com.qa.stf.constant.TestConstants.*;
 
 /**
@@ -68,7 +68,7 @@ import static com.qa.stf.constant.TestConstants.*;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.5
+ * @version 1.6
  */
 public class DriverManager extends BrowserManager {
 
@@ -86,9 +86,6 @@ public class DriverManager extends BrowserManager {
 
     // ThreadLocal variable to store WebDriver instance specific to the current thread (for multithreaded execution)
     private static final ThreadLocal<WebDriver> driverLocal = new ThreadLocal<>();
-
-    // ThreadLocal variable to store ExtentTest instance specific to the current thread (for multithreaded execution)
-    private static final ThreadLocal<ExtentTest> extentTest = new ThreadLocal<>();
 
     // Instance of EnvironmentManager to manage and retrieve environment configurations
     private final EnvironmentManager environmentManager;
@@ -163,44 +160,6 @@ public class DriverManager extends BrowserManager {
      */
     public WebDriver getDriver() {
         return driverLocal.get();
-    }
-
-    /**
-     * Retrieves the ExtentTest instance for the current thread.
-     * <p>
-     * This method returns the ExtentTest instance associated with the current thread.
-     * The ExtentTest is used for logging test results in ExtentReports.
-     * </p>
-     *
-     * @return The ExtentTest instance for the current thread.
-     */
-    public ExtentTest getExtentTest() {
-        return extentTest.get();
-    }
-
-    /**
-     * Sets the ExtentTest instance for the current thread.
-     * <p>
-     * This method stores the ExtentTest instance in a thread-local variable
-     * to ensure each thread has its own ExtentTest for logging test results.
-     * </p>
-     *
-     * @param extentTest The ExtentTest instance to be set for the current thread.
-     */
-    public void setExtentTest(ExtentTest extentTest) {
-        DriverManager.extentTest.set(extentTest);
-    }
-
-    /**
-     * Closes the current ExtentTest instance by removing it from the thread-local
-     * storage.
-     * <p>
-     * This method removes the ExtentTest instance associated with the current thread,
-     * marking the end of the current test logging.
-     * </p>
-     */
-    public void closeExtentTest() {
-        extentTest.remove();
     }
 
     /**
