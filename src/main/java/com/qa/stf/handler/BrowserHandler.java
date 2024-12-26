@@ -223,17 +223,20 @@ public class BrowserHandler {
      */
     public void switchToParentWithChildClose() {
         var windowsId = getWindowsList();
-        log.info("Total windows before closing the children :: '{}'", windowsId.size());
+        log.info("Total windows before closing the children: '{}'", windowsId.size());
         try {
             for (var i = 1; i < windowsId.size(); i++) {
                 var childWindow = windowsId.get(i);
-                log.info("Closing child browser window with handle :: '{}'", childWindow);
+                log.info("Closing child browser window with handle: '{}'", childWindow);
+                extentReportManager.getExtentTest().log(Status.PASS, String.format("Closing child browser window with handle: '%s'", childWindow));
                 driverManager.getDriver().switchTo().window(childWindow).close();
             }
             driverManager.getDriver().switchTo().window(windowsId.getFirst());
             log.info("Switched back to the parent browser window with handle: '{}'", windowsId.getFirst());
+            extentReportManager.getExtentTest().log(Status.PASS, String.format("Switched back to the parent browser window with handle: '%s'", windowsId.getFirst()));
         } catch (NoSuchWindowException ex) {
             log.error("Error closing child windows or switching to parent window. Exception: {}", ex.getMessage(), ex);
+            extentReportManager.getExtentTest().log(Status.FAIL, "Error closing child windows or switching to parent window.");
             throw new ExceptionHub.WindowException("Error closing child windows or switching to parent window", ex);
         }
     }
@@ -288,26 +291,31 @@ public class BrowserHandler {
                     }
                     driverManager.getDriver().switchTo().frame(frameNameOrId);
                     log.info("The control is switched to the frame using name or ID :: '{}'", frameNameOrId);
+                    extentReportManager.getExtentTest().log(Status.PASS, String.format("The control is switched to the frame using name or ID: '%s'", frameNameOrId));
                 }
                 case Integer frameIndex -> {
                     if (frameIndex < 0) {
                         throw new IllegalArgumentException("Frame index cannot be negative.");
                     }
                     driverManager.getDriver().switchTo().frame(frameIndex);
-                    log.info("The control is switched to the frame using index :: '{}'", frameIndex);
+                    log.info("The control is switched to the frame using index: '{}'", frameIndex);
+                    extentReportManager.getExtentTest().log(Status.PASS, String.format("The control is switched to the frame using index: '%s'", frameIndex));
                 }
                 case WebElement frameElement -> {
                     driverManager.getDriver().switchTo().frame(frameElement);
-                    log.info("The control is switched to the frame using WebElement :: '{}'", frameElement);
+                    log.info("The control is switched to the frame using WebElement: '{}'", frameElement);
+                    extentReportManager.getExtentTest().log(Status.PASS, String.format("The control is switched to the frame using WebElement: '%s'", frameElement));
                 }
                 default ->
                         throw new IllegalArgumentException("Unsupported frame identifier type: " + frameIdentifier.getClass().getName());
             }
         } catch (StaleElementReferenceException ex) {
             log.error("Failed to switch to frame due to stale element reference. Exception: {}", ex.getMessage(), ex);
+            extentReportManager.getExtentTest().log(Status.FAIL, "Failed to switch to frame due to stale element reference.");
             throw new ExceptionHub.FrameException("Error switching to frame due to stale element reference", ex);
         } catch (NoSuchFrameException ex) {
             log.error("Failed to switch to frame. Exception: {}", ex.getMessage(), ex);
+            extentReportManager.getExtentTest().log(Status.FAIL, "Failed to switch to frame.");
             throw new ExceptionHub.FrameException("Error switching to frame", ex);
         }
     }

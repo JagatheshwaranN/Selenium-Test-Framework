@@ -1,7 +1,9 @@
 package com.qa.stf.handler;
 
+import com.aventstack.extentreports.Status;
 import com.qa.stf.base.DriverManager;
 import com.qa.stf.base.ElementActions;
+import com.qa.stf.report.ExtentReportManager;
 import com.qa.stf.util.ExceptionHub;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -60,7 +62,7 @@ import java.util.Collections;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.2
+ * @version 1.3
  */
 public class InteractionHandler implements ElementActions {
 
@@ -75,6 +77,9 @@ public class InteractionHandler implements ElementActions {
 
     // Instance of VerificationHandler to handle verification actions, likely for validating elements on the page
     private final VerificationHandler verificationHandler;
+
+    // Instance of ExtentReportManager to manage the extent report
+    protected ExtentReportManager extentReportManager;
 
     // Constant string representing the combination of keys to clear an element (Select All + Delete)
     private static final String CLEAR_ELEMENT = "Keys.CONTROL + 'a', Keys.DELETE";
@@ -101,6 +106,7 @@ public class InteractionHandler implements ElementActions {
         this.driverManager = driverManager;
         this.builder = new Actions(driverManager.getDriver());
         this.verificationHandler = verificationHandler;
+        extentReportManager = ExtentReportManager.getInstance();
     }
 
     /**
@@ -117,6 +123,7 @@ public class InteractionHandler implements ElementActions {
         if (verificationHandler.isElementDisplayed(element, elementLabel)) {
             builder.click(element).perform();
             log.info("Clicked the '{}' element using Actions", elementLabel);
+            extentReportManager.getExtentTest().log(Status.PASS, String.format("Clicked the '%s' element using Actions", elementLabel));
         }
     }
 
@@ -140,9 +147,11 @@ public class InteractionHandler implements ElementActions {
             if (verificationHandler.isElementDisplayed(element, elementLabel)) {
                 builder.click(element).perform();
                 log.info("Clicked the '{}' element using Actions", elementLabel);
+                extentReportManager.getExtentTest().log(Status.PASS, String.format("Clicked the '%s' element using Actions", elementLabel));
             }
         } catch (ElementClickInterceptedException ex) {
             log.error("Failed to click the '{}' element using Actions", elementLabel, ex);
+            extentReportManager.getExtentTest().log(Status.FAIL, String.format("Failed to click the '%s' element using Actions", elementLabel));
             throw new ExceptionHub.InteractionException("Exception occurred while clicking " + elementLabel + " element using JavaScriptExecutor", ex);
         }
     }
@@ -163,6 +172,7 @@ public class InteractionHandler implements ElementActions {
             if (text != null) {
                 builder.sendKeys(element, text).perform();
                 log.info("Entered '{}' text into the '{}' element using Actions", text, elementLabel);
+                extentReportManager.getExtentTest().log(Status.PASS, String.format("Entered '%s' text into the '%s' element using Actions", text, elementLabel));
             }
         }
     }
@@ -181,6 +191,7 @@ public class InteractionHandler implements ElementActions {
         if (verificationHandler.isElementDisplayed(element, elementLabel)) {
             element.sendKeys(CLEAR_ELEMENT);
             log.info("Cleared the content of '{}' element using Actions", elementLabel);
+            extentReportManager.getExtentTest().log(Status.PASS, String.format("Cleared the content of '%s' element using Actions", elementLabel));
         }
     }
 
@@ -197,6 +208,7 @@ public class InteractionHandler implements ElementActions {
         if (verificationHandler.isElementDisplayed(element, elementLabel)) {
             builder.moveToElement(element).perform();
             log.info("The mouse hovered and clicked on the '{}' element", elementLabel);
+            extentReportManager.getExtentTest().log(Status.PASS, String.format("The mouse hovered and clicked on the '%s' element", elementLabel));
         }
     }
 
@@ -209,10 +221,11 @@ public class InteractionHandler implements ElementActions {
      * @param element      The WebElement to right-click on.
      * @param elementLabel The label describing the element.
      */
-    public void performRightclickElement(WebElement element, String elementLabel) {
+    public void rightClickElement(WebElement element, String elementLabel) {
         if (verificationHandler.isElementDisplayed(element, elementLabel)) {
             builder.contextClick(element).perform();
             log.info("The mouse right clicked on the '{}' element", elementLabel);
+            extentReportManager.getExtentTest().log(Status.PASS, String.format("The mouse right clicked on the '%s' element", elementLabel));
         }
     }
 
@@ -225,10 +238,11 @@ public class InteractionHandler implements ElementActions {
      * @param element      The WebElement to double-click on.
      * @param elementLabel The label describing the element.
      */
-    public void performDoubleclickElement(WebElement element, String elementLabel) {
+    public void doubleClickElement(WebElement element, String elementLabel) {
         if (verificationHandler.isElementDisplayed(element, elementLabel)) {
             builder.doubleClick(element).perform();
             log.info("The mouse double clicked on the '{}' element", elementLabel);
+            extentReportManager.getExtentTest().log(Status.PASS, String.format("The mouse double clicked on the '%s' element", elementLabel));
         }
     }
 
@@ -246,6 +260,7 @@ public class InteractionHandler implements ElementActions {
             hoverOverElement(element, elementLabel);
             builder.click(element).perform();
             log.info("The mouse hovered and clicked on the '{}' element", elementLabel);
+            extentReportManager.getExtentTest().log(Status.PASS, String.format("The mouse hovered and clicked on the '%s' element", elementLabel));
         }
     }
 
@@ -264,6 +279,7 @@ public class InteractionHandler implements ElementActions {
                     .release(element)
                     .perform();
             log.info("The mouse click and released on the '{}' element", elementLabel);
+            extentReportManager.getExtentTest().log(Status.PASS, String.format("The mouse click and released on the '%s' element", elementLabel));
         }
     }
 
@@ -280,6 +296,7 @@ public class InteractionHandler implements ElementActions {
         if (verificationHandler.isElementDisplayed(element, elementLabel)) {
             builder.clickAndHold(element).perform();
             log.info("The mouse clicked and held on the '{}' element", elementLabel);
+            extentReportManager.getExtentTest().log(Status.PASS, String.format("The mouse clicked and held on the '%s' element", elementLabel));
         }
     }
 
@@ -302,6 +319,7 @@ public class InteractionHandler implements ElementActions {
                     .release(droppableElement)
                     .perform();
             log.info("The '{}' element is drag and dropped on the '{}' element", elementLabel1, elementLabel2);
+            extentReportManager.getExtentTest().log(Status.PASS, String.format("The '%s' element is drag and dropped on the '%s' element", elementLabel1, elementLabel2));
         }
     }
 
@@ -318,10 +336,11 @@ public class InteractionHandler implements ElementActions {
      * @param elementLabel1    The label describing the draggable element.
      * @param elementLabel2    The label describing the droppable element.
      */
-    public void performDragAndDropUsingActions(WebElement draggableElement, WebElement droppableElement, String elementLabel1, String elementLabel2) {
+    public void dragAndDropUsingActions(WebElement draggableElement, WebElement droppableElement, String elementLabel1, String elementLabel2) {
         if (verificationHandler.isElementDisplayed(draggableElement, elementLabel1) && verificationHandler.isElementDisplayed(droppableElement, elementLabel2)) {
             builder.dragAndDrop(draggableElement, droppableElement).perform();
             log.info("The '{}' element is drag and dropped on the '{}' element", elementLabel1, elementLabel2);
+            extentReportManager.getExtentTest().log(Status.PASS, String.format("The '%s' element is drag and dropped on the '%s' element", elementLabel1, elementLabel2));
         }
     }
 
@@ -331,13 +350,14 @@ public class InteractionHandler implements ElementActions {
      * This action mimics the user clicking the back button on the browser.
      * </p>
      */
-    public void performBrowserBackAction() {
+    public void browserBackAction() {
         PointerInput mouse = new PointerInput(PointerInput.Kind.MOUSE, "Default Mouse");
         Sequence sequence = new Sequence(mouse, 0)
                 .addAction(mouse.createPointerDown(PointerInput.MouseButton.BACK.asArg()))
                 .addAction(mouse.createPointerUp(PointerInput.MouseButton.BACK.asArg()));
         ((RemoteWebDriver) driverManager.getDriver()).perform(Collections.singletonList(sequence));
-        log.info("The mouse clicked on the back button");
+        log.info("The mouse clicked on the back button.");
+        extentReportManager.getExtentTest().log(Status.PASS, "The mouse clicked on the back button.");
     }
 
     /**
@@ -346,13 +366,14 @@ public class InteractionHandler implements ElementActions {
      * This action mimics the user clicking the forward button on the browser.
      * </p>
      */
-    public void performBrowserForwardAction() {
+    public void browserForwardAction() {
         PointerInput mouse = new PointerInput(PointerInput.Kind.MOUSE, "Default Mouse");
         Sequence sequence = new Sequence(mouse, 0)
                 .addAction(mouse.createPointerDown(PointerInput.MouseButton.FORWARD.asArg()))
                 .addAction(mouse.createPointerUp(PointerInput.MouseButton.FORWARD.asArg()));
         ((RemoteWebDriver) driverManager.getDriver()).perform(Collections.singletonList(sequence));
-        log.info("The mouse clicked on the forward button");
+        log.info("The mouse clicked on the forward button.");
+        extentReportManager.getExtentTest().log(Status.PASS, "The mouse clicked on the forward button.");
     }
 
     /**
@@ -368,6 +389,7 @@ public class InteractionHandler implements ElementActions {
         if (verificationHandler.isElementDisplayed(element, elementLabel)) {
             builder.scrollToElement(element).perform();
             log.info("Scrolled to the '{}' element using Actions", elementLabel);
+            extentReportManager.getExtentTest().log(Status.PASS, String.format("Scrolled to the '%s' element using Actions", elementLabel));
         }
     }
 
@@ -388,6 +410,7 @@ public class InteractionHandler implements ElementActions {
             int yAxis = element.getRect().y;
             builder.scrollByAmount(xAxis, yAxis).perform();
             log.info("Scrolled to the '{}' element using Actions", elementLabel);
+            extentReportManager.getExtentTest().log(Status.PASS, String.format("Scrolled to the '%s' element using Actions", elementLabel));
         }
     }
 
@@ -409,6 +432,7 @@ public class InteractionHandler implements ElementActions {
             WheelInput.ScrollOrigin scrollOrigin = WheelInput.ScrollOrigin.fromElement(element);
             builder.scrollFromOrigin(scrollOrigin, xAxis, yAxis).perform();
             log.info("Scrolled from the '{}' element using Actions", elementLabel);
+            extentReportManager.getExtentTest().log(Status.PASS, String.format("Scrolled from the '%s' element using Actions", elementLabel));
         }
     }
 
