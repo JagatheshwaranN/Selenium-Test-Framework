@@ -10,20 +10,21 @@ import java.util.List;
 
 public class DashboardPageObject {
 
-	protected DriverManager driverManager;
-
 	public DashboardPageObject(DriverManager driverManager) {
-		this.driverManager = driverManager;
 		PageFactory.initElements(driverManager.getDriver(), this);
 	}
+
+	@FindBy(css = ".oxd-dropdown-menu")
+	protected WebElement userDropDownMenu;
+	protected String userDropDownMenuLabel = "UserDropDownMenu";
 
 	@FindBys({ @FindBy(css = ".oxd-topbar-header-userarea"), @FindBy(css = ".oxd-userdropdown-tab") })
 	protected WebElement userDropDown;
 	protected String userDropDownLabel = "UserDropDown";
 
-	@FindBy(css = ".oxd-dropdown-menu")
-	protected WebElement userDropDownMenu;
-	protected String userDropDownMenuLabel = "UserDropDownMenu";
+	@FindBy(xpath = "//div[@class='oxd-topbar-header-title']//span//h6")
+	protected WebElement dashboardHeader;
+	protected String dashboardHeaderLabel = "Dashboard Header";
 
 	@FindBy(xpath = "//a[contains(@href,'logout')]")
 	protected WebElement logout;
@@ -34,7 +35,7 @@ public class DashboardPageObject {
 	protected String adminSectionLabel = "AdminSection";
 
 	@FindBy(xpath = "//div[@class='oxd-grid-item oxd-grid-item--gutters orangehrm-quick-launch-card']")
-	protected List<WebElement> quickLaunchCards;
-	protected String quickLaunchCardsLabel = "QuickLaunchCards";
+	protected List<WebElement> quickLaunchTiles;
+	protected String quickLaunchTilesLabel = "QuickLaunchTiles";
 }
 

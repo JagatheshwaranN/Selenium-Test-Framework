@@ -14,6 +14,10 @@ public class DashboardPage extends DashboardPageElement {
 		super(driverManager);
 	}
 
+	public void verifyDashboardHeader() {
+		pageManager.getVerificationHelper().isElementDisplayed(getDashboardHeader(), getDashboardHeaderLabel());
+	}
+
 	public void userDropDown() {
 		pageManager.getPageComponent().clickElement(getUserDropDown(), getUserDropDownLabel());
 		pageManager.getVerificationHelper().isElementDisplayed(getUserDropDownMenu(), getUserDropDownMenuLabel());
@@ -24,13 +28,13 @@ public class DashboardPage extends DashboardPageElement {
 		pageManager.getPageComponent().clickElement(getLogout(), getLogoutLabel());
 	}
 
-	public AdminPage navigateToAdminPage() {
+	public void navigateToAdminPage() {
 		pageManager.getPageComponent().clickElement(getAdminSection(), getAdminSectionLabel());
-		return pageManager.getAdminPage();
+		// return pageManager.getAdminPage();
 	}
 
 	public List<WebElement> getQuickLaunchCards() {
-		return getQuickLaunchCards();
+		return getQuickLaunchTiles();
 	}
 }
 

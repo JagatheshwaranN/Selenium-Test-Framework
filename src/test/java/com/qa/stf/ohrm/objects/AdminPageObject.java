@@ -10,10 +10,7 @@ import org.openqa.selenium.support.PageFactory;
 
 public class AdminPageObject {
 
-    protected DriverManager driverManager;
-
     public AdminPageObject(DriverManager driverManager) {
-        this.driverManager = driverManager;
         PageFactory.initElements(driverManager.getDriver(), this);
     }
 

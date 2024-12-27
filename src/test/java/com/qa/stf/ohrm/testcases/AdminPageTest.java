@@ -17,7 +17,7 @@ public class AdminPageTest extends BaseTest {
 	PageManager pageManager;
 
 	@Test(dataProviderClass = DataSupplier.class, dataProvider = "fetchData")
-	public void adminPageTest(Hashtable<String, String> data) throws InterruptedException {
+	public void adminPageTest(Hashtable<String, String> data) {
 
 		var classObject = AdminPageTest.class;
 		Method[] methods = classObject.getMethods();
@@ -31,9 +31,8 @@ public class AdminPageTest extends BaseTest {
 		}
 		pageManager = new PageManager();
 		pageManager.getLoginPage().doLogin(data.get("UserName"), data.get("Password"));
-		Thread.sleep(5000);
+		pageManager.getDashboardPage().verifyDashboardHeader();
 		pageManager.getDashboardPage().navigateToAdminPage();
-		Thread.sleep(5000);
 		pageManager.getAdminPage().searchUser(data.get("User"), data.get("SearchCriteria"));
 	}
 }

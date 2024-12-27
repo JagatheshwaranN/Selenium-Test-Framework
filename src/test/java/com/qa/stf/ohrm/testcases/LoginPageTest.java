@@ -32,11 +32,7 @@ public class LoginPageTest extends BaseTest {
 		}
 		pageManager = new PageManager();
 		pageManager.getLoginPage().doLogin(data.get("UserName"), data.get("Password"));
-		try {
-			Thread.sleep(5000);
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
+		pageManager.getDashboardPage().verifyDashboardHeader();
 	}
 
 }

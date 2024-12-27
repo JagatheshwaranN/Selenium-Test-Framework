@@ -13,6 +13,14 @@ public class DashboardPageElement extends DashboardPageObject {
 		super(driverManager);
 	}
 
+	public WebElement getDashboardHeader() {
+		return dashboardHeader;
+	}
+
+	public String getDashboardHeaderLabel() {
+		return dashboardHeaderLabel;
+	}
+
 	public WebElement getUserDropDown() {
 		return userDropDown;
 	}
@@ -45,12 +53,12 @@ public class DashboardPageElement extends DashboardPageObject {
 		return adminSectionLabel;
 	}
 
-	public List<WebElement> getQuickLaunchCards() {
-		return quickLaunchCards;
+	public List<WebElement> getQuickLaunchTiles() {
+		return quickLaunchTiles;
 	}
 
-	public String getQuickLaunchCardsLabel() {
-		return quickLaunchCardsLabel;
+	public String getQuickLaunchTilesLabel() {
+		return quickLaunchTilesLabel;
 	}
 
 }

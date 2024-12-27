@@ -1,6 +1,8 @@
 package com.qa.stf.handler;
 
+import com.aventstack.extentreports.Status;
 import com.qa.stf.base.DriverManager;
+import com.qa.stf.report.ExtentReportManager;
 import com.qa.stf.util.ExceptionHub;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -51,7 +53,7 @@ import com.qa.stf.base.ElementActions;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.5
+ * @version 1.6
  */
 public class JavaScriptHandler implements ElementActions {
 
@@ -66,6 +68,9 @@ public class JavaScriptHandler implements ElementActions {
 
     // Instance of VerificationHandler to perform verification actions on elements within the page
     private final VerificationHandler verificationHandler;
+
+    // Instance of ExtentReportManager to manage the extent report
+    protected ExtentReportManager extentReportManager;
 
     // JavaScript command to click on an element using arguments[0] (the element)
     protected static final String CLICK_ELEMENT = "arguments[0].click();";
@@ -115,6 +120,7 @@ public class JavaScriptHandler implements ElementActions {
         this.driverManager = driverManager;
         this.executor = (JavascriptExecutor) driverManager.getDriver();
         this.verificationHandler = verificationHandler;
+        extentReportManager = ExtentReportManager.getInstance();
     }
 
     /**
@@ -131,6 +137,7 @@ public class JavaScriptHandler implements ElementActions {
         if (verificationHandler.isElementDisplayed(element, elementLabel)) {
             executor.executeScript(CLICK_ELEMENT, element);
             log.info("Clicked the '{}' element using JavaScriptExecutor", elementLabel);
+            extentReportManager.getExtentTest().log(Status.PASS, String.format("Clicked the '%s' element using JavaScriptExecutor", elementLabel));
         }
     }
 
@@ -154,9 +161,11 @@ public class JavaScriptHandler implements ElementActions {
             if (verificationHandler.isElementDisplayed(element, elementLabel)) {
                 executor.executeScript(CLICK_ELEMENT, element);
                 log.info("Clicked the '{}' element using JavaScriptExecutor", elementLabel);
+                extentReportManager.getExtentTest().log(Status.PASS, String.format("Clicked the '%s' element using JavaScriptExecutor", elementLabel));
             }
         } catch (ElementClickInterceptedException ex) {
             log.error("Failed to click the '{}' element using JavaScriptExecutor", elementLabel, ex);
+            extentReportManager.getExtentTest().log(Status.FAIL, String.format("Failed to click the '%s' element using JavaScriptExecutor", elementLabel));
             throw new ExceptionHub.JavascriptExecutorException("Exception occurred while clicking " + elementLabel + " element using JavaScriptExecutor", ex);
         }
     }
@@ -177,6 +186,7 @@ public class JavaScriptHandler implements ElementActions {
             if (text != null) {
                 executor.executeScript(String.format(TYPE_INTO_ELEMENT, text), element);
                 log.info("Entered '{}' text into the '{}' element using JavaScriptExecutor", text, elementLabel);
+                extentReportManager.getExtentTest().log(Status.PASS, String.format("Entered '%s' text into the '%s' element using JavaScriptExecutor", text, elementLabel));
             }
         }
     }
@@ -195,6 +205,7 @@ public class JavaScriptHandler implements ElementActions {
         if (verificationHandler.isElementDisplayed(element, elementLabel)) {
             executor.executeScript(CLEAR_ELEMENT, element);
             log.info("Cleared the content of '{}' element using JavaScriptExecutor", elementLabel);
+            extentReportManager.getExtentTest().log(Status.PASS, String.format("Cleared the content of '%s' element using JavaScriptExecutor", elementLabel));
         }
     }
 
@@ -211,6 +222,7 @@ public class JavaScriptHandler implements ElementActions {
         if (verificationHandler.isElementDisplayed(element, elementLabel)) {
             executor.executeScript(SCROLL_TO_ELEMENT, element.getLocation().x, element.getLocation().y);
             log.info("Scrolled to the '{}' element using JavaScriptExecutor", elementLabel);
+            extentReportManager.getExtentTest().log(Status.PASS, String.format("Scrolled to the '%s' element using JavaScriptExecutor", elementLabel));
         }
     }
 
@@ -228,6 +240,7 @@ public class JavaScriptHandler implements ElementActions {
             scrollToElement(element, elementLabel);
             clickElement(element, elementLabel);
             log.info("Scrolled to the '{}' element and clicked using JavaScriptExecutor", elementLabel);
+            extentReportManager.getExtentTest().log(Status.PASS, String.format("Scrolled to the '%s' element and clicked using JavaScriptExecutor", elementLabel));
         }
     }
 
@@ -244,6 +257,7 @@ public class JavaScriptHandler implements ElementActions {
         if (verificationHandler.isElementDisplayed(element, elementLabel)) {
             executor.executeScript(SCROLL_INTO_VIEW, element);
             log.info("Scrolled into view of '{}' element using JavaScriptExecutor", elementLabel);
+            extentReportManager.getExtentTest().log(Status.PASS, String.format("Scrolled into view of '%s' element using JavaScriptExecutor", elementLabel));
         }
     }
 
@@ -261,6 +275,7 @@ public class JavaScriptHandler implements ElementActions {
             scrollIntoView(element, elementLabel);
             clickElement(element, elementLabel);
             log.info("Scrolled into view of '{}' element and clicked using JavaScriptExecutor", elementLabel);
+            extentReportManager.getExtentTest().log(Status.PASS, String.format("Scrolled into view of '%s' element and clicked using JavaScriptExecutor", elementLabel));
         }
     }
 
@@ -273,6 +288,7 @@ public class JavaScriptHandler implements ElementActions {
     public void scrollToTop() {
         executor.executeScript(SCROLL_UP_VERTICAL);
         log.info("Scrolled up vertically to top of the page using JavaScriptExecutor");
+        extentReportManager.getExtentTest().log(Status.PASS, "Scrolled up vertically to top of the page using JavaScriptExecutor");
     }
 
     /**
@@ -284,6 +300,7 @@ public class JavaScriptHandler implements ElementActions {
     public void scrollToBottom() {
         executor.executeScript(SCROLL_DOWN_VERTICAL);
         log.info("Scrolled down vertically to bottom of the page using JavaScriptExecutor");
+        extentReportManager.getExtentTest().log(Status.PASS, "Scrolled down vertically to bottom of the page using JavaScriptExecutor");
     }
 
     /**
@@ -298,6 +315,7 @@ public class JavaScriptHandler implements ElementActions {
         String direction = pixels > 0 ? "down" : "up";
         executor.executeScript(String.format(SCROLL_VERTICAL_PIXEL, pixels));
         log.info("Scrolled '{}' vertically by '{}' pixels using JavaScriptExecutor", direction, Math.abs(pixels));
+        extentReportManager.getExtentTest().log(Status.PASS, String.format("Scrolled '%s' vertically by '%s' pixels using JavaScriptExecutor", direction, Math.abs(pixels)));
     }
 
     /**
@@ -312,6 +330,7 @@ public class JavaScriptHandler implements ElementActions {
     public void zoomInByPercentage(double zoomPercentage) {
         executor.executeScript(String.format(PAGE_ZOOM, zoomPercentage + "%"));
         log.info("Page zoomed to '{}' percent using JavaScriptExecutor", zoomPercentage);
+        extentReportManager.getExtentTest().log(Status.PASS, String.format("Page zoomed to '%s' percent using JavaScriptExecutor", zoomPercentage));
     }
 
     /**

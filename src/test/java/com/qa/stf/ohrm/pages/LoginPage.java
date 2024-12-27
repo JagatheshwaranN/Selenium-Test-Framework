@@ -11,13 +11,15 @@ public class LoginPage extends LoginPageElement {
 		super(driverManager);
 	}
 
-	public DashboardPage doLogin(String username, String password) {
-
+	public void doLogin(String username, String password) {
+		pageManager.getPageComponent().getPageTitle();
+		pageManager.getPageComponent().getPageUrl();
 		pageManager.getVerificationHelper().isElementDisplayed(getUserName(), getUserNameLabel());
 		pageManager.getPageComponent().typeText(getUserName(), username, getUserNameLabel());
 		pageManager.getPageComponent().typeText(getPassWord(), password, getPassWordLabel());
 		pageManager.getPageComponent().clickElement(getLogin(), getLoginLabel());
-		return pageManager.getDashboardPage();
+		//return pageManager.getDashboardPage();
 	}
+
 }
 
