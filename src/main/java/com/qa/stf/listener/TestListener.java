@@ -15,6 +15,7 @@ import com.qa.stf.base.BasePage;
 import com.qa.stf.constant.TestConstants;
 import com.qa.stf.report.ExtentReportManager;
 import com.qa.stf.util.ExceptionHub;
+import com.qa.stf.util.FileReader;
 import org.apache.commons.io.FileUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -74,7 +75,7 @@ import static com.qa.stf.constant.TestConstants.*;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.7
+ * @version 1.8
  */
 public class TestListener extends DriverManager implements ITestListener, ISuiteListener {
 
@@ -120,6 +121,14 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
      */
     @Override
     public void onStart(ISuite suite) {
+        FileReader.loadPropertyFile();
+        try {
+            FileUtils.cleanDirectory(new File(SCREENSHOT_PATH));
+            FileUtils.cleanDirectory(new File(CWD + EXTENT_REPORT_PATH));
+        } catch (IOException ex) {
+            log.error("Error cleaning directories: {}", ex.getMessage());
+        }
+        extentReports = ExtentReportManager.setupExtentReport();
         log.info("Test Suite started: {}", suite.getName());
     }
 
@@ -140,7 +149,7 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
      */
     @Override
     public void onStart(ITestContext context) {
-        extentReports = ExtentReportManager.setupExtentReport();
+//        extentReports = ExtentReportManager.setupExtentReport();
         log.info("Test Context started: '{}'", context.getName());
     }
 

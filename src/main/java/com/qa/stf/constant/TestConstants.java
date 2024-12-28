@@ -11,6 +11,9 @@ package com.qa.stf.constant;
  * <p>
  * These constants provide a centralized location for managing static configuration
  * values, promoting reusability and reducing duplication in the codebase.
+ *
+ * @author Jagatheshwaran N
+ * @version 1.5
  */
 public class TestConstants {
 
@@ -34,8 +37,8 @@ public class TestConstants {
 	// File Path Details
 	public static final String CONFIG_FILE_PATH = "/src/main/resources/config/configuration.properties";
 	public static final String EXCEL_FILE_PATH = "/src/test/resources/data/testData.xlsx";
-	public static final String EXTENT_REPORT_CONFIG_FILE_PATH = "//src//test//resources//report//report-config.xml";
-	public static final String EXTENT_REPORT_PATH = "//target//report//";
+	public static final String EXTENT_REPORT_CONFIG_FILE_PATH = "//src//main//resources//config//report-config.xml";
+	public static final String EXTENT_REPORT_PATH = "//src//test//resources//report//";
 	public static final String EXTENT_REPORT_FILE_NAME = "ExtentReport_%s.html";
 	public static final String SNAPSHOT_PATH = "//src//test//resources//screenshots//";
 
