@@ -5,12 +5,13 @@ import com.qa.stf.report.ExtentReportManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class DataPickerHandler {
+public class DatePickerHandler {
 
     // Logger instance for the DropDownHandler class to enable logging during the execution
-    private static final Logger log = LogManager.getLogger(DataPickerHandler.class);
+    private static final Logger log = LogManager.getLogger(DatePickerHandler.class);
 
     // Instance of DriverManager to manage the WebDriver for interacting with the browser
     private final DriverManager driverManager;
@@ -33,7 +34,7 @@ public class DataPickerHandler {
      * @param verificationHandler The VerificationHandler instance to be used for handling
      *                            verification tasks.
      */
-    public DataPickerHandler(DriverManager driverManager, VerificationHandler verificationHandler) {
+    public DatePickerHandler(DriverManager driverManager, VerificationHandler verificationHandler) {
         if (driverManager == null) {
             throw new IllegalArgumentException("DriverManager cannot be null.");
         }
@@ -42,8 +43,9 @@ public class DataPickerHandler {
         extentReportManager = ExtentReportManager.getInstance();
     }
 
-    public void selectDateFromDatePicker(WebElement datePicker, WebElement monthDetail, WebElement yearDetail, WebElement monthNavigator, By dayLocator, String day, String month, String year) {
+    public void selectDateFromDatePicker(WebElement datePicker, WebElement dateDetailSection, WebElement monthDetail, WebElement yearDetail, WebElement monthNavigator, By dayLocator, String day, String month, String year, String dateDetailSectionLabel) {
         datePicker.click();
+        verificationHandler.isElementDisplayed(dateDetailSection, dateDetailSectionLabel);
         String monthText = monthDetail.getText();
         String yearText = yearDetail.getText();
         System.out.println(monthText);

@@ -70,7 +70,7 @@ public class TestConstants {
 	public static final String EXTENT_REPORT_BROWSER_INFO = "Test Browser";
 
 	// Wait Time Details
-	public static final int EXPLICIT_WAIT_TIME = 5;
-	public static final int WAIT_TIME = 2;
+	public static final int EXPLICIT_WAIT_TIME = 10;
+	public static final int WAIT_TIME = 5000;
 
 }

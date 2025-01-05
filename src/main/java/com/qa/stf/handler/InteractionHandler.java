@@ -9,6 +9,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.ElementClickInterceptedException;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 
@@ -62,7 +63,7 @@ import java.util.Collections;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.3
+ * @version 1.4
  */
 public class InteractionHandler implements ElementActions {
 
@@ -80,9 +81,6 @@ public class InteractionHandler implements ElementActions {
 
     // Instance of ExtentReportManager to manage the extent report
     protected ExtentReportManager extentReportManager;
-
-    // Constant string representing the combination of keys to clear an element (Select All + Delete)
-    private static final String CLEAR_ELEMENT = "Keys.CONTROL + 'a', Keys.DELETE";
 
     /**
      * Constructs an InteractionHandler instance and initializes it with the provided
@@ -189,7 +187,8 @@ public class InteractionHandler implements ElementActions {
     @Override
     public void clearElement(WebElement element, String elementLabel) {
         if (verificationHandler.isElementDisplayed(element, elementLabel)) {
-            element.sendKeys(CLEAR_ELEMENT);
+            element.sendKeys(Keys.CONTROL + "a");
+            element.sendKeys(Keys.DELETE);
             log.info("Cleared the content of '{}' element using Actions", elementLabel);
             extentReportManager.getExtentTest().log(Status.PASS, String.format("Cleared the content of '%s' element using Actions", elementLabel));
         }

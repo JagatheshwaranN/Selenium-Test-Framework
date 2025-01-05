@@ -6,9 +6,11 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
-public class TimePageObjects {
+import java.util.List;
 
-    public TimePageObjects(DriverManager driverManager) {
+public class TimePageObject {
+
+    public TimePageObject(DriverManager driverManager) {
         PageFactory.initElements(driverManager.getDriver(), this);
     }
 
@@ -21,26 +23,31 @@ public class TimePageObjects {
     protected String attendanceTopNavDropDownLabel = "Attendance Dropdown";
 
     @FindBy(xpath = "//ul[@class='oxd-dropdown-menu']")
-    protected WebElement attendanceTopNavDropDownOptions;
-    protected String attendanceTopNavDropDownOptionsLabel = "Attendance Dropdown Option";
+    protected WebElement attendanceTopNavDropDownLayout;
+    protected String attendanceTopNavDropDownLayoutLabel = "Attendance Dropdown Layout";
+
+    @FindBy(xpath = "//ul[@class='oxd-dropdown-menu']//li")
+    protected List<WebElement> attendanceTopNavDropDownOptions;
+    protected String attendanceTopNavDropDownOptionsLabel = "Attendance Dropdown Options";
 
     @FindBy(xpath = "//h6[@class='oxd-text oxd-text--h6 orangehrm-main-title']")
     protected WebElement punchInOutSectionHeader;
     protected String punchInOutSectionHeaderLabel = "Punch In / Out Header";
 
-    @FindBy(xpath = "//div[@class='oxd-date-input']")
+    @FindBy(xpath = "//div[@class='oxd-date-input']//i[@class='oxd-icon bi-calendar oxd-date-input-icon']")
     protected WebElement datePicker;
     protected String datePickerLabel = "Date Input";
+    protected By datePickerLocator = By.xpath("//div[@class='oxd-date-input']//i[@class='oxd-icon bi-calendar oxd-date-input-icon']");
 
-    @FindBy(xpath = "//div[@class='oxd-date-input-calendar']")
+    @FindBy(xpath = "//div[@class='oxd-calendar-wrapper']")
     protected WebElement datePickerDetailSection;
     protected String datePickerDetailSectionLabel = "Date Details Section";
 
-    @FindBy(xpath = "//li[@class='oxd-calendar-selector-month']")
+    @FindBy(xpath = "//div[@class='oxd-calendar-selector-month-selected']//p")
     protected WebElement monthDetail;
     protected String monthDetailLabel = "Month Detail";
 
-    @FindBy(xpath = "//li[@class='oxd-calendar-selector-year']")
+    @FindBy(xpath = "//div[@class='oxd-calendar-selector-year-selected']//p")
     protected WebElement yearDetail;
     protected String yearDetailLabel = "Year Detail";
 
@@ -61,6 +68,10 @@ public class TimePageObjects {
     @FindBy(xpath = "//input[contains(@class,'oxd-time-hour-input-text')]")
     protected WebElement timePickerHourInput;
     protected String timePickerHourInputLabel = "Hour Input";
+
+    @FindBy(xpath = "//input[contains(@class,'oxd-time-hour-input-text')]")
+    protected WebElement timePickerHourInputFocus;
+    protected String timePickerHourInputFocusLabel = "Hour Input";
 
     @FindBy(xpath = "//input[@name='am']")
     protected WebElement timePickerAMInput;
@@ -93,5 +104,9 @@ public class TimePageObjects {
     @FindBy(xpath = "//div[@class='orangehrm-container']//div[@class='oxd-table']")
     protected WebElement employeeResultSection;
     protected String employeeResultSectionLabel = "Employee Result Section";
+
+    @FindBy(xpath = "//div[@class='oxd-loading-spinner']")
+    protected WebElement loadSpinner;
+    protected String loadSpinnerLabel = "Load Spinner";
 
 }

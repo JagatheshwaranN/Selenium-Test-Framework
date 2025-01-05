@@ -1,6 +1,7 @@
 package com.qa.stf.base;
 
 import java.time.Duration;
+import java.util.Objects;
 import java.util.concurrent.TimeUnit;
 
 import com.aventstack.extentreports.Status;
@@ -9,11 +10,10 @@ import com.qa.stf.report.ExtentReportManager;
 import com.qa.stf.util.ExceptionHub;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.ElementClickInterceptedException;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import static com.qa.stf.constant.TestConstants.*;
@@ -354,15 +354,43 @@ public class BasePage extends Page implements ElementActions {
     }
 
     /**
-     * Pauses the execution for 2 seconds.
+     * Pauses the execution for 5 seconds.
      * <p>
      * This method uses the Uninterruptibles.sleepUninterruptibly method to make the
-     * current thread sleep for 2 seconds without being interrupted.
+     * current thread sleep for 5 seconds without being interrupted.
      * </p>
      */
-    public static void waitForSeconds() {
-        Uninterruptibles.sleepUninterruptibly(WAIT_TIME, TimeUnit.SECONDS);
+    public void waitForSeconds() {
+        synchronized (DriverManager.getInstance().getDriver()) {
+            try {
+                DriverManager.getInstance().getDriver().wait(WAIT_TIME);
+            } catch (InterruptedException ex) {
+                throw new RuntimeException(ex);
+            }
+        }
+
     }
+
+    public void waitForDOMToBeStable() {
+        String initialDom = driverManager.getDriver().getPageSource();
+        wait.until(driver -> !Objects.equals(driver.getPageSource(), initialDom));
+    }
+
+    public void waitForElementClickable(WebElement element, String elementLabel) {
+        if (!isElementNotNull(element, elementLabel)) {
+            throw new ExceptionHub(elementLabel + " element is null.");
+        }
+        try {
+            wait.until(ExpectedConditions.elementToBeClickable(element));
+            log.info("Element is visible: '{}'", elementLabel);
+            extentReportManager.getExtentTest().log(Status.PASS, String.format("Element is visible: '%s'", elementLabel));
+        } catch (NoSuchElementException ex) {
+            log.error("Element not found: '{}'", elementLabel, ex);
+            extentReportManager.getExtentTest().log(Status.FAIL, String.format("Element not found: '%s'", elementLabel));
+            throw new ExceptionHub.ElementNotFoundException(elementLabel, ex);
+        }
+    }
+
 
 }
 

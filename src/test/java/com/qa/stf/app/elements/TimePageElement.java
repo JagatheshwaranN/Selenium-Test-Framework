@@ -1,12 +1,13 @@
 package com.qa.stf.app.elements;
 
-import com.qa.stf.app.objects.TimePageObjects;
+import com.qa.stf.app.objects.TimePageObject;
 import com.qa.stf.base.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.FindBy;
 
-public class TimePageElement extends TimePageObjects {
+import java.util.List;
+
+public class TimePageElement extends TimePageObject {
 
     public TimePageElement(DriverManager driverManager) {
         super(driverManager);
@@ -28,7 +29,15 @@ public class TimePageElement extends TimePageObjects {
         return attendanceTopNavDropDownLabel;
     }
 
-    public WebElement getAttendanceTopNavDropDownOptions() {
+    public WebElement getAttendanceTopNavDropDownLayout() {
+        return attendanceTopNavDropDownLayout;
+    }
+
+    public String getAttendanceTopNavDropDownLayoutLabel() {
+        return attendanceTopNavDropDownLayoutLabel;
+    }
+
+    public List<WebElement> getAttendanceTopNavDropDownOptions() {
         return attendanceTopNavDropDownOptions;
     }
 
@@ -50,6 +59,10 @@ public class TimePageElement extends TimePageObjects {
 
     public String getDatePickerLabel() {
         return datePickerLabel;
+    }
+
+    public By getDatePickerLocator() {
+        return datePickerLocator;
     }
 
     public WebElement getDatePickerDetailSection() {
@@ -110,6 +123,14 @@ public class TimePageElement extends TimePageObjects {
 
     public String getTimePickerHourInputLabel() {
         return timePickerHourInputLabel;
+    }
+
+    public WebElement getTimePickerHourInputFocus() {
+        return timePickerHourInputFocus;
+    }
+
+    public String getTimePickerHourInputFocusLabel() {
+        return timePickerHourInputFocusLabel;
     }
 
     public WebElement getTimePickerAMInput() {
@@ -174,6 +195,14 @@ public class TimePageElement extends TimePageObjects {
 
     public String getEmployeeResultSectionLabel() {
         return employeeResultSectionLabel;
+    }
+
+    public WebElement getLoadSpinner() {
+        return loadSpinner;
+    }
+
+    public String getLoadSpinnerLabel() {
+        return loadSpinnerLabel;
     }
 
 }

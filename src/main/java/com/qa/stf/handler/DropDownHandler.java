@@ -4,6 +4,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.aventstack.extentreports.Status;
+import com.qa.stf.base.BasePage;
+import com.qa.stf.base.DriverManager;
 import com.qa.stf.report.ExtentReportManager;
 import com.qa.stf.util.ExceptionHub;
 import org.apache.logging.log4j.LogManager;
@@ -160,10 +162,11 @@ public class DropDownHandler {
      *                                              the dropdown options.
      * @throws ExceptionHub.DropDownException       If the dropdown is not interactable.
      */
-    public void selectDropdownOption(WebElement dropdown, List<WebElement> optionsList, String value, String elementLabel) {
+    public void selectDropdownOption(WebElement dropdown, WebElement dropdownLayout, List<WebElement> optionsList, String value, String elementLabel) {
         try {
             if (verificationHandler.isElementDisplayed(dropdown, elementLabel)) {
                 dropdown.click();
+                new BasePage(DriverManager.getInstance()).waitForElementVisible(dropdownLayout, elementLabel);
                 WebElement option = optionsList.stream()
                         .filter(opt -> opt.getText().equalsIgnoreCase(value))
                         .findFirst()

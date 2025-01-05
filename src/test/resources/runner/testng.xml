@@ -7,11 +7,11 @@
 	<listener class-name="org.uncommons.reportng.HTMLReporter" />
 		<listener class-name="com.qa.stf.listener.TestListener" />
 	</listeners>
-	<test thread-count="1" name="LoginPageTest">
+<!--	<test thread-count="1" name="LoginPageTest">
 		<classes>
 			<class name="com.qa.stf.app.testcases.LoginPageTest" />
 		</classes>
-	</test>
+	</test>-->
 <!--
 	<test thread-count="1" name="AdminPageTest">
 		<classes>
@@ -19,5 +19,10 @@
 		</classes>
 	</test>
 -->
+	<test thread-count="1" name="TimePageTest">
+		<classes>
+			<class name="com.qa.stf.app.testcases.TimePageTest" />
+		</classes>
+	</test>
 </suite>
 

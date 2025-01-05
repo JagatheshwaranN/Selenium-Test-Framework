@@ -2,8 +2,7 @@ package com.qa.stf.app.pages;
 
 import com.qa.stf.base.BasePage;
 import com.qa.stf.base.DriverManager;
-import com.qa.stf.handler.DropDownHandler;
-import com.qa.stf.handler.VerificationHandler;
+import com.qa.stf.handler.*;
 
 public class PageManager {
 
@@ -13,9 +12,17 @@ public class PageManager {
 
 	private AdminPage adminPage;
 
+	private TimePage timePage;
+
 	private VerificationHandler verificationHelper;
 
 	private DropDownHandler dropDownHandler;
+
+	private DatePickerHandler datePickerHandler;
+
+	private InteractionHandler interactionHandler;
+
+	private JavaScriptHandler javaScriptHandler;
 
 	private BasePage basePage;
 
@@ -35,6 +42,10 @@ public class PageManager {
 		return (adminPage == null) ? adminPage = new AdminPage(DriverManager.getInstance()) : adminPage;
 	}
 
+	public TimePage getTimePage() {
+		return (timePage == null) ? timePage = new TimePage(DriverManager.getInstance()) : timePage;
+	}
+
 	public VerificationHandler getVerificationHelper() {
 		return (verificationHelper == null) ? verificationHelper = new VerificationHandler() : verificationHelper;
 	}
@@ -42,5 +53,18 @@ public class PageManager {
 	public DropDownHandler getDropDownHandler() {
 		return (dropDownHandler == null) ? dropDownHandler = new DropDownHandler(new VerificationHandler()) : dropDownHandler;
 	}
+
+	public DatePickerHandler getDatePickerHandler() {
+		return (datePickerHandler == null) ? datePickerHandler = new DatePickerHandler(DriverManager.getInstance(), new VerificationHandler()) : datePickerHandler;
+	}
+
+	public InteractionHandler getInteractionHandler() {
+		return (interactionHandler == null) ? interactionHandler = new InteractionHandler(DriverManager.getInstance(), new VerificationHandler()) : interactionHandler;
+	}
+
+	public JavaScriptHandler getJavaScriptHandler() {
+		return (javaScriptHandler == null) ? javaScriptHandler = new JavaScriptHandler(DriverManager.getInstance(), new VerificationHandler()) : javaScriptHandler;
+	}
+
 }
 
