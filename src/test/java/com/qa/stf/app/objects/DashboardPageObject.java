@@ -1,4 +1,4 @@
-package com.qa.stf.ohrm.objects;
+package com.qa.stf.app.objects;
 
 import com.qa.stf.base.DriverManager;
 import org.openqa.selenium.WebElement;
@@ -14,6 +14,10 @@ public class DashboardPageObject {
 		PageFactory.initElements(driverManager.getDriver(), this);
 	}
 
+	@FindBy(xpath = "//div[@class='oxd-topbar-header-title']//span//h6")
+	protected WebElement dashboardHeader;
+	protected String dashboardHeaderLabel = "Dashboard Header";
+
 	@FindBy(css = ".oxd-dropdown-menu")
 	protected WebElement userDropDownMenu;
 	protected String userDropDownMenuLabel = "UserDropDownMenu";
@@ -22,9 +26,9 @@ public class DashboardPageObject {
 	protected WebElement userDropDown;
 	protected String userDropDownLabel = "UserDropDown";
 
-	@FindBy(xpath = "//div[@class='oxd-topbar-header-title']//span//h6")
-	protected WebElement dashboardHeader;
-	protected String dashboardHeaderLabel = "Dashboard Header";
+	@FindBy(xpath = "//p[@class='oxd-userdropdown-name']")
+	protected WebElement userName;
+	protected String userNameLabel = "UserName";
 
 	@FindBy(xpath = "//a[contains(@href,'logout')]")
 	protected WebElement logout;
@@ -33,6 +37,10 @@ public class DashboardPageObject {
 	@FindBy(xpath = "//a[contains(@href,'admin/viewAdminModule')]")
 	protected WebElement adminSection;
 	protected String adminSectionLabel = "AdminSection";
+
+	@FindBy(xpath = "//a[contains(@href,'time/viewTimeModule')]")
+	protected WebElement timeSection;
+	protected String timeSectionLabel = "AdminSection";
 
 	@FindBy(xpath = "//div[@class='oxd-grid-item oxd-grid-item--gutters orangehrm-quick-launch-card']")
 	protected List<WebElement> quickLaunchTiles;

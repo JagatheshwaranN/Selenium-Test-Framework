@@ -1,9 +1,9 @@
-package com.qa.stf.ohrm.elements;
+package com.qa.stf.app.elements;
 
 import com.qa.stf.base.DriverManager;
 import org.openqa.selenium.WebElement;
 
-import com.qa.stf.ohrm.objects.LoginPageObject;
+import com.qa.stf.app.objects.LoginPageObject;
 
 public class LoginPageElement extends LoginPageObject {
 

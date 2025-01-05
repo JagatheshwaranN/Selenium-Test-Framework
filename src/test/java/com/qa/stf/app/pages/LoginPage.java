@@ -1,7 +1,7 @@
-package com.qa.stf.ohrm.pages;
+package com.qa.stf.app.pages;
 
 import com.qa.stf.base.DriverManager;
-import com.qa.stf.ohrm.elements.LoginPageElement;
+import com.qa.stf.app.elements.LoginPageElement;
 
 public class LoginPage extends LoginPageElement {
 

@@ -1,0 +1,848 @@
+[INFO ] 2024-12-21 10:40:50.481 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2024-12-21 10:40:50.526 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2024-12-21 10:40:50.538 [main] ExtentReport - Initializing Extent Report setup.
+[INFO ] 2024-12-21 10:40:50.539 [main] ExtentReport - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//target//report//ExtentReport_21_12_2024_10_40_50.html'
+[INFO ] 2024-12-21 10:40:50.595 [main] ExtentReport - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\target\report\ExtentReport_21_12_2024_10_40_50.html'
+[INFO ] 2024-12-21 10:40:51.024 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-21 10:40:51.024 [main] ExtentReport - System information added to the report.
+[INFO ] 2024-12-21 10:40:51.024 [main] ExtentReport - Extent Report setup completed successfully.
+[INFO ] 2024-12-21 10:40:51.024 [main] TestListener - Test Context started: 'LoginPageTest'
+[INFO ] 2024-12-21 10:40:51.095 [main] ExcelReader - Sheet 'loginPageTest' found in the workbook.
+[INFO ] 2024-12-21 10:40:51.103 [main] ExcelReader - Sheet 'loginPageTest' has '3' columns.
+[INFO ] 2024-12-21 10:40:51.147 [main] DataSupplier - Data fetched successfully from sheet 'loginPageTest'. Total rows: '1'
+[INFO ] 2024-12-21 10:40:51.173 [main] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2024-12-21 10:40:51.173 [main] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2024-12-21 10:40:51.173 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-21 10:40:51.173 [main] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2024-12-21 10:40:51.174 [main] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2024-12-21 10:40:53.830 [main] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2024-12-21 10:41:01.134 [main] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2024-12-21 10:41:02.957 [main] BasePage - Element is visible: 'UserName'
+[INFO ] 2024-12-21 10:41:03.083 [main] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2024-12-21 10:41:03.227 [main] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2024-12-21 10:41:06.377 [main] BasePage - Clicked the 'Login' element
+[INFO ] 2024-12-21 10:41:11.651 [main] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\21_12_2024_10_41_11_b7a57163-8e3a-4f84-a708-3889864e86bd.png'
+[INFO ] 2024-12-21 10:41:13.841 [main] TestListener - Test Passed: 'loginPageTest'
+[INFO ] 2024-12-21 10:41:14.386 [main] TestListener - Test Context finished: 'LoginPageTest'
+[INFO ] 2024-12-21 10:41:16.131 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2024-12-26 08:45:52.955 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2024-12-26 08:45:52.997 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2024-12-26 08:45:53.004 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2024-12-26 08:45:53.006 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//target//report//ExtentReport_26_12_2024_08_45_53.html'
+[INFO ] 2024-12-26 08:45:53.055 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\target\report\ExtentReport_26_12_2024_08_45_53.html'
+[INFO ] 2024-12-26 08:45:53.446 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-26 08:45:53.446 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2024-12-26 08:45:53.446 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2024-12-26 08:45:53.447 [main] TestListener - Test Context started: 'LoginPageTest'
+[INFO ] 2024-12-26 08:45:53.476 [main] ExcelReader - Sheet 'loginPageTest' found in the workbook.
+[INFO ] 2024-12-26 08:45:53.477 [main] ExcelReader - Sheet 'loginPageTest' has '3' columns.
+[INFO ] 2024-12-26 08:45:53.490 [main] DataSupplier - Data fetched successfully from sheet 'loginPageTest'. Total rows: '1'
+[INFO ] 2024-12-26 08:45:53.508 [main] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2024-12-26 08:45:53.509 [main] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2024-12-26 08:45:53.509 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-26 08:45:53.510 [main] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2024-12-26 08:45:53.510 [main] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2024-12-26 08:46:01.894 [main] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2024-12-26 08:46:05.528 [main] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2024-12-26 08:46:06.614 [main] BasePage - Element is visible: 'UserName'
+[INFO ] 2024-12-26 08:46:06.747 [main] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2024-12-26 08:46:06.894 [main] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2024-12-26 08:46:08.392 [main] BasePage - Clicked the 'Login' element
+[INFO ] 2024-12-26 08:46:13.698 [main] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\26_12_2024_08_46_13_ce84cf92-896e-4e02-9776-dce68b49490a.png'
+[INFO ] 2024-12-26 08:46:15.912 [main] TestListener - Test Passed: 'loginPageTest'
+[INFO ] 2024-12-26 08:46:16.513 [main] TestListener - Test Context finished: 'LoginPageTest'
+[INFO ] 2024-12-26 08:46:17.177 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2024-12-27 08:36:44.291 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2024-12-27 08:36:44.340 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2024-12-27 08:36:44.360 [TestNG-tests-2] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2024-12-27 08:36:44.361 [TestNG-tests-2] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//target//report//ExtentReport_27_12_2024_08_36_44.html'
+[INFO ] 2024-12-27 08:36:44.370 [TestNG-tests-1] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2024-12-27 08:36:44.372 [TestNG-tests-1] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//target//report//ExtentReport_27_12_2024_08_36_44.html'
+[INFO ] 2024-12-27 08:36:44.438 [TestNG-tests-1] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\target\report\ExtentReport_27_12_2024_08_36_44.html'
+[INFO ] 2024-12-27 08:36:44.438 [TestNG-tests-2] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\target\report\ExtentReport_27_12_2024_08_36_44.html'
+[INFO ] 2024-12-27 08:36:44.845 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-27 08:36:44.845 [TestNG-tests-2] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-27 08:36:44.845 [TestNG-tests-1] ExtentReportManager - System information added to the report.
+[INFO ] 2024-12-27 08:36:44.845 [TestNG-tests-2] ExtentReportManager - System information added to the report.
+[INFO ] 2024-12-27 08:36:44.846 [TestNG-tests-1] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2024-12-27 08:36:44.846 [TestNG-tests-2] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2024-12-27 08:36:44.846 [TestNG-tests-1] TestListener - Test Context started: 'LoginPageTest'
+[INFO ] 2024-12-27 08:36:44.846 [TestNG-tests-2] TestListener - Test Context started: 'AdminPageTest'
+[INFO ] 2024-12-27 08:36:44.912 [TestNG-tests-2] ExcelReader - Sheet 'adminPageTest' found in the workbook.
+[INFO ] 2024-12-27 08:36:44.912 [TestNG-tests-2] ExcelReader - Sheet 'adminPageTest' has '5' columns.
+[INFO ] 2024-12-27 08:36:44.913 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' found in the workbook.
+[INFO ] 2024-12-27 08:36:44.914 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' has '3' columns.
+[INFO ] 2024-12-27 08:36:44.929 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'loginPageTest'. Total rows: '1'
+[INFO ] 2024-12-27 08:36:44.932 [TestNG-tests-2] DataSupplier - Data fetched successfully from sheet 'adminPageTest'. Total rows: '1'
+[INFO ] 2024-12-27 08:36:44.957 [TestNG-tests-2] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2024-12-27 08:36:44.957 [TestNG-tests-2] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2024-12-27 08:36:44.957 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2024-12-27 08:36:44.957 [TestNG-tests-2] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-27 08:36:44.958 [TestNG-tests-2] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2024-12-27 08:36:44.958 [TestNG-tests-2] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2024-12-27 08:36:44.958 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2024-12-27 08:36:44.959 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-27 08:36:44.959 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2024-12-27 08:36:44.960 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2024-12-27 08:36:53.537 [TestNG-tests-2] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2024-12-27 08:36:53.537 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2024-12-27 08:36:55.878 [TestNG-tests-1] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2024-12-27 08:36:58.620 [TestNG-tests-1] BasePage - Element is visible: 'UserName'
+[INFO ] 2024-12-27 08:36:58.911 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2024-12-27 08:36:59.140 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2024-12-27 08:36:59.567 [TestNG-tests-2] DataSupplier - The 'adminPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2024-12-27 08:37:00.544 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2024-12-27 08:37:00.797 [TestNG-tests-2] BasePage - Element is visible: 'UserName'
+[INFO ] 2024-12-27 08:37:00.986 [TestNG-tests-2] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2024-12-27 08:37:01.181 [TestNG-tests-2] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2024-12-27 08:37:02.632 [TestNG-tests-2] BasePage - Clicked the 'Login' element
+[INFO ] 2024-12-27 08:37:05.929 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\27_12_2024_08_37_05_4734ceaa-1db8-43be-8947-a9004bad8c24.png'
+[INFO ] 2024-12-27 08:37:08.133 [TestNG-tests-1] TestListener - Test Passed: 'loginPageTest'
+[INFO ] 2024-12-27 08:37:08.450 [TestNG-tests-1] TestListener - Test Context finished: 'LoginPageTest'
+[INFO ] 2024-12-27 08:37:08.666 [TestNG-tests-2] BasePage - Clicked the 'AdminSection' element
+[INFO ] 2024-12-27 08:37:13.729 [TestNG-tests-2] BasePage - Element is visible: 'AdminHeader'
+[INFO ] 2024-12-27 08:37:13.895 [TestNG-tests-2] BasePage - Entered 'Admin' text into the 'AdminSearchUserName' element
+[INFO ] 2024-12-27 08:37:13.944 [TestNG-tests-2] BasePage - Element is visible: 'AdminUserRoleDropDown'
+[INFO ] 2024-12-27 08:37:14.318 [TestNG-tests-2] DropDownHandler - The option 'Admin' is selected from the 'AdminUserRoleDropDown' dropdown
+[INFO ] 2024-12-27 08:37:14.359 [TestNG-tests-2] BasePage - Element is visible: 'AdminUserStatusDropDown'
+[INFO ] 2024-12-27 08:37:14.710 [TestNG-tests-2] DropDownHandler - The option 'Enabled' is selected from the 'AdminUserStatusDropDown' dropdown
+[INFO ] 2024-12-27 08:37:14.867 [TestNG-tests-2] BasePage - Clicked the 'AdminSearch' element
+[INFO ] 2024-12-27 08:37:15.450 [TestNG-tests-2] BasePage - Element is visible: 'AdminSearchResultSection'
+[INFO ] 2024-12-27 08:37:15.536 [TestNG-tests-2] BasePage - Element is visible: 'AdminSearchResultSection'
+[INFO ] 2024-12-27 08:37:15.614 [TestNG-tests-2] BasePage - Element is visible: 'AdminSearchResultData'
+[INFO ] 2024-12-27 08:37:15.823 [TestNG-tests-2] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\27_12_2024_08_37_15_1e7fa23b-9ba6-402d-9e08-bff00a6384e8.png'
+[INFO ] 2024-12-27 08:37:17.986 [TestNG-tests-2] TestListener - Test Passed: 'adminPageTest'
+[INFO ] 2024-12-27 08:37:18.306 [TestNG-tests-2] TestListener - Test Context finished: 'AdminPageTest'
+[INFO ] 2024-12-27 08:37:18.499 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2024-12-27 08:54:39.931 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2024-12-27 08:54:39.968 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2024-12-27 08:54:39.988 [TestNG-tests-2] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2024-12-27 08:54:39.990 [TestNG-tests-2] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//target//report//ExtentReport_27_12_2024_08_54_39.html'
+[INFO ] 2024-12-27 08:54:39.991 [TestNG-tests-1] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2024-12-27 08:54:39.994 [TestNG-tests-1] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//target//report//ExtentReport_27_12_2024_08_54_39.html'
+[INFO ] 2024-12-27 08:54:40.017 [TestNG-tests-2] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\target\report\ExtentReport_27_12_2024_08_54_39.html'
+[INFO ] 2024-12-27 08:54:40.017 [TestNG-tests-1] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\target\report\ExtentReport_27_12_2024_08_54_39.html'
+[INFO ] 2024-12-27 08:54:40.361 [TestNG-tests-2] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-27 08:54:40.361 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-27 08:54:40.362 [TestNG-tests-1] ExtentReportManager - System information added to the report.
+[INFO ] 2024-12-27 08:54:40.362 [TestNG-tests-1] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2024-12-27 08:54:40.363 [TestNG-tests-1] TestListener - Test Context started: 'LoginPageTest'
+[INFO ] 2024-12-27 08:54:40.362 [TestNG-tests-2] ExtentReportManager - System information added to the report.
+[INFO ] 2024-12-27 08:54:40.364 [TestNG-tests-2] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2024-12-27 08:54:40.364 [TestNG-tests-2] TestListener - Test Context started: 'AdminPageTest'
+[INFO ] 2024-12-27 08:54:40.409 [TestNG-tests-2] ExcelReader - Sheet 'adminPageTest' found in the workbook.
+[INFO ] 2024-12-27 08:54:40.410 [TestNG-tests-2] ExcelReader - Sheet 'adminPageTest' has '5' columns.
+[INFO ] 2024-12-27 08:54:40.409 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' found in the workbook.
+[INFO ] 2024-12-27 08:54:40.411 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' has '3' columns.
+[INFO ] 2024-12-27 08:54:40.424 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'loginPageTest'. Total rows: '1'
+[INFO ] 2024-12-27 08:54:40.426 [TestNG-tests-2] DataSupplier - Data fetched successfully from sheet 'adminPageTest'. Total rows: '1'
+[INFO ] 2024-12-27 08:54:40.450 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2024-12-27 08:54:40.450 [TestNG-tests-2] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2024-12-27 08:54:40.450 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2024-12-27 08:54:40.451 [TestNG-tests-2] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2024-12-27 08:54:40.451 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-27 08:54:40.451 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2024-12-27 08:54:40.452 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2024-12-27 08:54:40.452 [TestNG-tests-2] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-27 08:54:40.452 [TestNG-tests-2] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2024-12-27 08:54:40.453 [TestNG-tests-2] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2024-12-27 08:54:44.550 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2024-12-27 08:54:44.550 [TestNG-tests-2] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2024-12-27 08:54:48.752 [TestNG-tests-1] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2024-12-27 08:54:49.251 [TestNG-tests-2] DataSupplier - The 'adminPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2024-12-27 08:54:49.393 [TestNG-tests-1] BasePage - Element is visible: 'UserName'
+[INFO ] 2024-12-27 08:54:49.580 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2024-12-27 08:54:49.782 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2024-12-27 08:54:50.006 [TestNG-tests-2] BasePage - Element is visible: 'UserName'
+[INFO ] 2024-12-27 08:54:50.178 [TestNG-tests-2] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2024-12-27 08:54:50.336 [TestNG-tests-2] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2024-12-27 08:54:51.311 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2024-12-27 08:54:51.479 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\27_12_2024_08_54_51_f4c37f88-e350-4255-9c63-d13f8b2f75e3.png'
+[INFO ] 2024-12-27 08:54:51.922 [TestNG-tests-2] BasePage - Clicked the 'Login' element
+[INFO ] 2024-12-27 08:54:52.151 [TestNG-tests-2] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\27_12_2024_08_54_52_cf96ad8e-4b27-4b1e-ac5b-eaf55289efe6.png'
+[INFO ] 2024-12-27 08:54:53.622 [TestNG-tests-1] TestListener - Test Passed: 'loginPageTest'
+[INFO ] 2024-12-27 08:54:53.959 [TestNG-tests-1] TestListener - Test Context finished: 'LoginPageTest'
+[ERROR] 2024-12-27 08:54:54.549 [TestNG-tests-2] TestListener - Test Failed: 'adminPageTest'
+[INFO ] 2024-12-27 08:54:55.030 [TestNG-tests-2] TestListener - Test Context finished: 'AdminPageTest'
+[INFO ] 2024-12-27 08:54:55.191 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2024-12-27 09:18:52.343 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2024-12-27 09:18:52.380 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2024-12-27 09:18:52.396 [TestNG-tests-1] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2024-12-27 09:18:52.411 [TestNG-tests-1] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//target//report//ExtentReport_27_12_2024_09_18_52.html'
+[INFO ] 2024-12-27 09:18:52.427 [TestNG-tests-1] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\target\report\ExtentReport_27_12_2024_09_18_52.html'
+[INFO ] 2024-12-27 09:18:52.728 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-27 09:18:52.744 [TestNG-tests-1] ExtentReportManager - System information added to the report.
+[INFO ] 2024-12-27 09:18:52.744 [TestNG-tests-1] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2024-12-27 09:18:52.744 [TestNG-tests-1] TestListener - Test Context started: 'AdminPageTest'
+[INFO ] 2024-12-27 09:18:52.781 [TestNG-tests-1] ExcelReader - Sheet 'adminPageTest' found in the workbook.
+[INFO ] 2024-12-27 09:18:52.781 [TestNG-tests-1] ExcelReader - Sheet 'adminPageTest' has '5' columns.
+[INFO ] 2024-12-27 09:18:52.796 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'adminPageTest'. Total rows: '1'
+[INFO ] 2024-12-27 09:18:52.812 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2024-12-27 09:18:52.812 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2024-12-27 09:18:52.812 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-27 09:18:52.812 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2024-12-27 09:18:52.812 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2024-12-27 09:18:55.576 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2024-12-27 09:19:00.345 [TestNG-tests-1] DataSupplier - The 'adminPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2024-12-27 09:19:00.377 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2024-12-27 09:19:00.395 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2024-12-27 09:19:00.974 [TestNG-tests-1] BasePage - Element is visible: 'UserName'
+[INFO ] 2024-12-27 09:19:01.116 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2024-12-27 09:19:01.286 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2024-12-27 09:19:02.786 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2024-12-27 09:19:03.361 [TestNG-tests-1] BasePage - Element is visible: 'Dashboard Header'
+[INFO ] 2024-12-27 09:19:04.408 [TestNG-tests-1] BasePage - Clicked the 'AdminSection' element
+[INFO ] 2024-12-27 09:19:04.977 [TestNG-tests-1] BasePage - Element is visible: 'AdminHeader'
+[INFO ] 2024-12-27 09:19:05.096 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'AdminSearchUserName' element
+[INFO ] 2024-12-27 09:19:05.135 [TestNG-tests-1] BasePage - Element is visible: 'AdminUserRoleDropDown'
+[INFO ] 2024-12-27 09:19:05.459 [TestNG-tests-1] DropDownHandler - The option 'Admin' is selected from the 'AdminUserRoleDropDown' dropdown
+[INFO ] 2024-12-27 09:19:05.494 [TestNG-tests-1] BasePage - Element is visible: 'AdminUserStatusDropDown'
+[INFO ] 2024-12-27 09:19:05.730 [TestNG-tests-1] DropDownHandler - The option 'Enabled' is selected from the 'AdminUserStatusDropDown' dropdown
+[INFO ] 2024-12-27 09:19:05.847 [TestNG-tests-1] BasePage - Clicked the 'AdminSearch' element
+[INFO ] 2024-12-27 09:19:06.413 [TestNG-tests-1] BasePage - Element is visible: 'AdminSearchResultSection'
+[INFO ] 2024-12-27 09:19:06.463 [TestNG-tests-1] BasePage - Element is visible: 'AdminSearchResultData'
+[INFO ] 2024-12-27 09:19:06.679 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\27_12_2024_09_19_06_e81b8b00-4807-4136-89f6-c33ae920ea4c.png'
+[INFO ] 2024-12-27 09:19:08.839 [TestNG-tests-1] TestListener - Test Passed: 'adminPageTest'
+[INFO ] 2024-12-27 09:19:09.175 [TestNG-tests-1] TestListener - Test Context finished: 'AdminPageTest'
+[INFO ] 2024-12-27 09:19:10.043 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2024-12-28 08:57:26.820 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2024-12-28 08:57:26.862 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2024-12-28 08:57:26.885 [TestNG-tests-1] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2024-12-28 08:57:26.892 [TestNG-tests-2] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2024-12-28 08:57:26.895 [TestNG-tests-1] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//target//report//ExtentReport_28_12_2024_08_57_26.html'
+[INFO ] 2024-12-28 08:57:26.897 [TestNG-tests-2] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//target//report//ExtentReport_28_12_2024_08_57_26.html'
+[INFO ] 2024-12-28 08:57:26.946 [TestNG-tests-2] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\target\report\ExtentReport_28_12_2024_08_57_26.html'
+[INFO ] 2024-12-28 08:57:26.946 [TestNG-tests-1] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\target\report\ExtentReport_28_12_2024_08_57_26.html'
+[INFO ] 2024-12-28 08:57:27.918 [TestNG-tests-2] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-28 08:57:27.918 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-28 08:57:27.919 [TestNG-tests-2] ExtentReportManager - System information added to the report.
+[INFO ] 2024-12-28 08:57:27.919 [TestNG-tests-1] ExtentReportManager - System information added to the report.
+[INFO ] 2024-12-28 08:57:27.919 [TestNG-tests-2] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2024-12-28 08:57:27.919 [TestNG-tests-1] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2024-12-28 08:57:27.919 [TestNG-tests-2] TestListener - Test Context started: 'AdminPageTest'
+[INFO ] 2024-12-28 08:57:27.919 [TestNG-tests-1] TestListener - Test Context started: 'LoginPageTest'
+[INFO ] 2024-12-28 08:57:27.968 [TestNG-tests-2] ExcelReader - Sheet 'adminPageTest' found in the workbook.
+[INFO ] 2024-12-28 08:57:27.970 [TestNG-tests-2] ExcelReader - Sheet 'adminPageTest' has '5' columns.
+[INFO ] 2024-12-28 08:57:27.970 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' found in the workbook.
+[INFO ] 2024-12-28 08:57:27.971 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' has '3' columns.
+[INFO ] 2024-12-28 08:57:27.984 [TestNG-tests-2] DataSupplier - Data fetched successfully from sheet 'adminPageTest'. Total rows: '1'
+[INFO ] 2024-12-28 08:57:27.989 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'loginPageTest'. Total rows: '1'
+[INFO ] 2024-12-28 08:57:28.010 [TestNG-tests-2] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2024-12-28 08:57:28.011 [TestNG-tests-2] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2024-12-28 08:57:28.010 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2024-12-28 08:57:28.011 [TestNG-tests-2] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-28 08:57:28.011 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2024-12-28 08:57:28.012 [TestNG-tests-2] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2024-12-28 08:57:28.012 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-28 08:57:28.012 [TestNG-tests-2] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2024-12-28 08:57:28.012 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2024-12-28 08:57:28.013 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2024-12-28 08:57:38.022 [TestNG-tests-2] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2024-12-28 08:57:38.076 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2024-12-28 08:57:43.250 [TestNG-tests-1] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2024-12-28 08:57:43.362 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2024-12-28 08:57:43.426 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2024-12-28 08:57:43.497 [TestNG-tests-2] DataSupplier - The 'adminPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2024-12-28 08:57:43.523 [TestNG-tests-2] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2024-12-28 08:57:43.575 [TestNG-tests-2] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2024-12-28 08:57:44.286 [TestNG-tests-1] BasePage - Element is visible: 'UserName'
+[INFO ] 2024-12-28 08:57:44.309 [TestNG-tests-2] BasePage - Element is visible: 'UserName'
+[INFO ] 2024-12-28 08:57:44.623 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2024-12-28 08:57:44.684 [TestNG-tests-2] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2024-12-28 08:57:44.916 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2024-12-28 08:57:44.916 [TestNG-tests-2] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2024-12-28 08:57:46.451 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2024-12-28 08:57:46.451 [TestNG-tests-2] BasePage - Clicked the 'Login' element
+[INFO ] 2024-12-28 08:57:47.450 [TestNG-tests-1] BasePage - Element is visible: 'Dashboard Header'
+[INFO ] 2024-12-28 08:57:47.467 [TestNG-tests-2] BasePage - Element is visible: 'Dashboard Header'
+[INFO ] 2024-12-28 08:57:48.185 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\28_12_2024_08_57_47_423d077c-8645-4968-b85f-c45bb20f9770.png'
+[INFO ] 2024-12-28 08:57:49.051 [TestNG-tests-2] BasePage - Clicked the 'AdminSection' element
+[INFO ] 2024-12-28 08:57:49.800 [TestNG-tests-2] BasePage - Element is visible: 'AdminHeader'
+[INFO ] 2024-12-28 08:57:49.971 [TestNG-tests-2] BasePage - Entered 'Admin' text into the 'AdminSearchUserName' element
+[INFO ] 2024-12-28 08:57:50.022 [TestNG-tests-2] BasePage - Element is visible: 'AdminUserRoleDropDown'
+[INFO ] 2024-12-28 08:57:50.644 [TestNG-tests-1] TestListener - Test Passed: 'loginPageTest'
+[INFO ] 2024-12-28 08:57:50.873 [TestNG-tests-2] DropDownHandler - The option 'Admin' is selected from the 'AdminUserRoleDropDown' dropdown
+[INFO ] 2024-12-28 08:57:50.918 [TestNG-tests-2] BasePage - Element is visible: 'AdminUserStatusDropDown'
+[INFO ] 2024-12-28 08:57:51.267 [TestNG-tests-2] DropDownHandler - The option 'Enabled' is selected from the 'AdminUserStatusDropDown' dropdown
+[INFO ] 2024-12-28 08:57:51.420 [TestNG-tests-2] BasePage - Clicked the 'AdminSearch' element
+[INFO ] 2024-12-28 08:57:51.990 [TestNG-tests-2] BasePage - Element is visible: 'AdminSearchResultSection'
+[INFO ] 2024-12-28 08:57:52.058 [TestNG-tests-2] BasePage - Element is visible: 'AdminSearchResultData'
+[INFO ] 2024-12-28 08:57:52.297 [TestNG-tests-2] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\28_12_2024_08_57_52_757bd59b-027a-466a-b698-dec84dd6e9a8.png'
+[INFO ] 2024-12-28 08:57:52.361 [TestNG-tests-1] TestListener - Test Context finished: 'LoginPageTest'
+[INFO ] 2024-12-28 08:57:54.496 [TestNG-tests-2] TestListener - Test Passed: 'adminPageTest'
+[INFO ] 2024-12-28 08:57:54.808 [TestNG-tests-2] TestListener - Test Context finished: 'AdminPageTest'
+[INFO ] 2024-12-28 08:57:54.854 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2024-12-28 09:03:44.798 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2024-12-28 09:03:44.812 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//target//report//ExtentReport_28_12_2024_09_03_44.html'
+[INFO ] 2024-12-28 09:03:44.843 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\target\report\ExtentReport_28_12_2024_09_03_44.html'
+[ERROR] 2024-12-28 09:03:45.183 [main] FileReader - The key 'Browser' is not present in the configuration file
+[INFO ] 2024-12-28 09:08:32.613 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2024-12-28 09:08:32.619 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2024-12-28 09:08:32.626 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//target//report//ExtentReport_28_12_2024_09_08_32.html'
+[INFO ] 2024-12-28 09:08:32.651 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\target\report\ExtentReport_28_12_2024_09_08_32.html'
+[INFO ] 2024-12-28 09:08:32.971 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-28 09:08:32.972 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2024-12-28 09:08:32.972 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2024-12-28 09:08:32.973 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2024-12-28 09:08:32.992 [TestNG-tests-1] TestListener - Test Context started: 'LoginPageTest'
+[INFO ] 2024-12-28 09:08:32.992 [TestNG-tests-2] TestListener - Test Context started: 'AdminPageTest'
+[INFO ] 2024-12-28 09:08:33.053 [TestNG-tests-2] ExcelReader - Sheet 'adminPageTest' found in the workbook.
+[INFO ] 2024-12-28 09:08:33.053 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' found in the workbook.
+[INFO ] 2024-12-28 09:08:33.053 [TestNG-tests-2] ExcelReader - Sheet 'adminPageTest' has '5' columns.
+[INFO ] 2024-12-28 09:08:33.054 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' has '3' columns.
+[INFO ] 2024-12-28 09:08:33.066 [TestNG-tests-2] DataSupplier - Data fetched successfully from sheet 'adminPageTest'. Total rows: '1'
+[INFO ] 2024-12-28 09:08:33.068 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'loginPageTest'. Total rows: '1'
+[INFO ] 2024-12-28 09:08:33.124 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2024-12-28 09:08:33.125 [TestNG-tests-2] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2024-12-28 09:08:33.125 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2024-12-28 09:08:33.126 [TestNG-tests-2] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2024-12-28 09:08:33.126 [TestNG-tests-2] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-28 09:08:33.126 [TestNG-tests-2] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2024-12-28 09:08:33.126 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-28 09:08:33.126 [TestNG-tests-2] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2024-12-28 09:08:33.127 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2024-12-28 09:08:33.127 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2024-12-28 09:08:37.327 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2024-12-28 09:08:37.364 [TestNG-tests-2] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2024-12-28 09:08:42.155 [TestNG-tests-2] DataSupplier - The 'adminPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2024-12-28 09:08:42.196 [TestNG-tests-2] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2024-12-28 09:08:42.205 [TestNG-tests-2] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2024-12-28 09:08:42.610 [TestNG-tests-1] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2024-12-28 09:08:42.626 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2024-12-28 09:08:42.636 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2024-12-28 09:08:42.825 [TestNG-tests-2] BasePage - Element is visible: 'UserName'
+[INFO ] 2024-12-28 09:08:43.035 [TestNG-tests-2] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2024-12-28 09:08:43.221 [TestNG-tests-2] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2024-12-28 09:08:43.344 [TestNG-tests-1] BasePage - Element is visible: 'UserName'
+[INFO ] 2024-12-28 09:08:43.503 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2024-12-28 09:08:43.717 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2024-12-28 09:08:44.935 [TestNG-tests-2] BasePage - Clicked the 'Login' element
+[INFO ] 2024-12-28 09:08:45.244 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2024-12-28 09:08:45.528 [TestNG-tests-2] BasePage - Element is visible: 'Dashboard Header'
+[INFO ] 2024-12-28 09:08:45.960 [TestNG-tests-1] BasePage - Element is visible: 'Dashboard Header'
+[INFO ] 2024-12-28 09:08:46.614 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\28_12_2024_09_08_45_70e263d6-6f67-421b-a096-37f1f8dac88f.png'
+[INFO ] 2024-12-28 09:08:46.910 [TestNG-tests-2] BasePage - Clicked the 'AdminSection' element
+[INFO ] 2024-12-28 09:08:48.110 [TestNG-tests-2] BasePage - Element is visible: 'AdminHeader'
+[INFO ] 2024-12-28 09:08:48.226 [TestNG-tests-2] BasePage - Entered 'Admin' text into the 'AdminSearchUserName' element
+[INFO ] 2024-12-28 09:08:48.264 [TestNG-tests-2] BasePage - Element is visible: 'AdminUserRoleDropDown'
+[INFO ] 2024-12-28 09:08:48.576 [TestNG-tests-2] DropDownHandler - The option 'Admin' is selected from the 'AdminUserRoleDropDown' dropdown
+[INFO ] 2024-12-28 09:08:48.605 [TestNG-tests-2] BasePage - Element is visible: 'AdminUserStatusDropDown'
+[INFO ] 2024-12-28 09:08:48.810 [TestNG-tests-2] DropDownHandler - The option 'Enabled' is selected from the 'AdminUserStatusDropDown' dropdown
+[INFO ] 2024-12-28 09:08:48.821 [TestNG-tests-1] TestListener - Test Passed: 'loginPageTest'
+[INFO ] 2024-12-28 09:08:49.002 [TestNG-tests-2] BasePage - Clicked the 'AdminSearch' element
+[INFO ] 2024-12-28 09:08:49.182 [TestNG-tests-1] TestListener - Test Context finished: 'LoginPageTest'
+[INFO ] 2024-12-28 09:08:49.571 [TestNG-tests-2] BasePage - Element is visible: 'AdminSearchResultSection'
+[INFO ] 2024-12-28 09:08:49.654 [TestNG-tests-2] BasePage - Element is visible: 'AdminSearchResultData'
+[INFO ] 2024-12-28 09:08:49.896 [TestNG-tests-2] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\28_12_2024_09_08_49_371d465c-a827-4b79-8864-86fd16035da1.png'
+[INFO ] 2024-12-28 09:08:52.055 [TestNG-tests-2] TestListener - Test Passed: 'adminPageTest'
+[INFO ] 2024-12-28 09:08:52.342 [TestNG-tests-2] TestListener - Test Context finished: 'AdminPageTest'
+[INFO ] 2024-12-28 09:08:52.368 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2024-12-28 09:14:49.537 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2024-12-28 09:14:49.541 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2024-12-28 09:14:49.548 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//target//report//ExtentReport_28_12_2024_09_14_49.html'
+[INFO ] 2024-12-28 09:14:49.582 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\target\report\ExtentReport_28_12_2024_09_14_49.html'
+[INFO ] 2024-12-28 09:14:49.895 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-28 09:14:49.895 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2024-12-28 09:14:49.896 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2024-12-28 09:14:49.896 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2024-12-28 09:14:49.922 [TestNG-tests-1] TestListener - Test Context started: 'LoginPageTest'
+[INFO ] 2024-12-28 09:14:49.972 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' found in the workbook.
+[INFO ] 2024-12-28 09:14:49.973 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' has '3' columns.
+[INFO ] 2024-12-28 09:14:49.986 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'loginPageTest'. Total rows: '1'
+[INFO ] 2024-12-28 09:14:50.023 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2024-12-28 09:14:50.024 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2024-12-28 09:14:50.024 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-28 09:14:50.025 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2024-12-28 09:14:50.025 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2024-12-28 09:14:52.746 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2024-12-28 09:14:57.578 [TestNG-tests-1] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2024-12-28 09:14:57.617 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2024-12-28 09:14:57.627 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2024-12-28 09:14:58.236 [TestNG-tests-1] BasePage - Element is visible: 'UserName'
+[INFO ] 2024-12-28 09:14:58.424 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2024-12-28 09:14:58.555 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2024-12-28 09:14:59.971 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2024-12-28 09:15:00.577 [TestNG-tests-1] BasePage - Element is visible: 'Dashboard Header'
+[INFO ] 2024-12-28 09:15:01.059 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\28_12_2024_09_15_00_bc55c2e3-8490-4cb6-9a03-ec89b6cc4e74.png'
+[INFO ] 2024-12-28 09:15:03.324 [TestNG-tests-1] TestListener - Test Passed: 'loginPageTest'
+[INFO ] 2024-12-28 09:15:03.592 [TestNG-tests-1] TestListener - Test Context finished: 'LoginPageTest'
+[INFO ] 2024-12-28 09:15:04.119 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2024-12-28 09:25:29.342 [main] FileReader - The configuration file is loaded!!
+[ERROR] 2024-12-28 09:25:31.714 [main] TestListener - Error cleaning directories: Directory '\\target\report' does not exist.
+[INFO ] 2024-12-28 09:25:31.715 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2024-12-28 09:25:31.717 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//target//report//ExtentReport_28_12_2024_09_25_31.html'
+[INFO ] 2024-12-28 09:25:31.745 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\target\report\ExtentReport_28_12_2024_09_25_31.html'
+[INFO ] 2024-12-28 09:25:32.007 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-28 09:25:32.008 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2024-12-28 09:25:32.008 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2024-12-28 09:25:32.008 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2024-12-28 09:25:32.053 [TestNG-tests-1] TestListener - Test Context started: 'LoginPageTest'
+[INFO ] 2024-12-28 09:25:32.114 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' found in the workbook.
+[INFO ] 2024-12-28 09:25:32.116 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' has '3' columns.
+[INFO ] 2024-12-28 09:25:32.127 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'loginPageTest'. Total rows: '1'
+[INFO ] 2024-12-28 09:25:32.195 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2024-12-28 09:25:32.196 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2024-12-28 09:25:32.196 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-28 09:25:32.196 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2024-12-28 09:25:32.197 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2024-12-28 09:25:35.009 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2024-12-28 09:25:39.823 [TestNG-tests-1] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2024-12-28 09:25:39.866 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2024-12-28 09:25:39.875 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2024-12-28 09:25:40.472 [TestNG-tests-1] BasePage - Element is visible: 'UserName'
+[INFO ] 2024-12-28 09:25:40.602 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2024-12-28 09:25:40.759 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2024-12-28 09:25:42.229 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2024-12-28 09:25:42.807 [TestNG-tests-1] BasePage - Element is visible: 'Dashboard Header'
+[INFO ] 2024-12-28 09:25:43.324 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\28_12_2024_09_25_42_c84d7005-bcd3-4110-92d1-b3c2bfda7b74.png'
+[INFO ] 2024-12-28 09:25:45.613 [TestNG-tests-1] TestListener - Test Passed: 'loginPageTest'
+[INFO ] 2024-12-28 09:25:45.908 [TestNG-tests-1] TestListener - Test Context finished: 'LoginPageTest'
+[INFO ] 2024-12-28 09:25:47.563 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2024-12-28 09:29:57.601 [main] FileReader - The configuration file is loaded!!
+[ERROR] 2024-12-28 09:29:59.921 [main] TestListener - Error cleaning directories: Directory '\\src\test\resources\report' does not exist.
+[INFO ] 2024-12-28 09:29:59.921 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2024-12-28 09:29:59.922 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_28_12_2024_09_29_59.html'
+[INFO ] 2024-12-28 09:29:59.939 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_28_12_2024_09_29_59.html'
+[INFO ] 2024-12-28 09:30:00.195 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-28 09:30:00.196 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2024-12-28 09:30:00.196 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2024-12-28 09:30:00.196 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2024-12-28 09:30:00.211 [TestNG-tests-1] TestListener - Test Context started: 'LoginPageTest'
+[INFO ] 2024-12-28 09:30:00.247 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' found in the workbook.
+[INFO ] 2024-12-28 09:30:00.247 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' has '3' columns.
+[INFO ] 2024-12-28 09:30:00.258 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'loginPageTest'. Total rows: '1'
+[INFO ] 2024-12-28 09:30:00.290 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2024-12-28 09:30:00.291 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2024-12-28 09:30:00.291 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-28 09:30:00.291 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2024-12-28 09:30:00.292 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2024-12-28 09:30:03.164 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2024-12-28 09:30:05.522 [TestNG-tests-1] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2024-12-28 09:30:05.597 [TestNG-tests-1] BasePage - Page title retrieved: 'opensource-demo.orangehrmlive.com'
+[INFO ] 2024-12-28 09:30:05.610 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2024-12-28 09:30:11.085 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\28_12_2024_09_30_10_cabd660f-3eb2-43e0-838b-c626bffa8abe.png'
+[ERROR] 2024-12-28 09:30:13.203 [TestNG-tests-1] TestListener - Test Failed: 'loginPageTest'
+[INFO ] 2024-12-28 09:30:13.552 [TestNG-tests-1] TestListener - Test Context finished: 'LoginPageTest'
+[INFO ] 2024-12-28 09:30:14.076 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2024-12-28 09:33:37.158 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2024-12-28 09:33:37.195 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2024-12-28 09:33:37.206 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_28_12_2024_09_33_37.html'
+[INFO ] 2024-12-28 09:33:37.245 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_28_12_2024_09_33_37.html'
+[INFO ] 2024-12-28 09:33:37.615 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-28 09:33:37.615 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2024-12-28 09:33:37.616 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2024-12-28 09:33:37.616 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2024-12-28 09:33:37.638 [TestNG-tests-1] TestListener - Test Context started: 'LoginPageTest'
+[INFO ] 2024-12-28 09:33:37.688 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' found in the workbook.
+[INFO ] 2024-12-28 09:33:37.688 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' has '3' columns.
+[INFO ] 2024-12-28 09:33:37.702 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'loginPageTest'. Total rows: '1'
+[INFO ] 2024-12-28 09:33:37.740 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2024-12-28 09:33:37.740 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2024-12-28 09:33:37.741 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-28 09:33:37.741 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2024-12-28 09:33:37.741 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2024-12-28 09:33:40.460 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2024-12-28 09:33:45.946 [TestNG-tests-1] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2024-12-28 09:33:45.994 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2024-12-28 09:33:46.007 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2024-12-28 09:33:46.610 [TestNG-tests-1] BasePage - Element is visible: 'UserName'
+[INFO ] 2024-12-28 09:33:46.752 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2024-12-28 09:33:46.938 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2024-12-28 09:33:47.047 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2024-12-28 09:33:48.986 [TestNG-tests-1] BasePage - Element is visible: 'Dashboard Header'
+[INFO ] 2024-12-28 09:33:49.547 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\28_12_2024_09_33_49_b2d331da-4473-4321-a3f4-3f0bdcd01911.png'
+[INFO ] 2024-12-28 09:33:51.818 [TestNG-tests-1] TestListener - Test Passed: 'loginPageTest'
+[INFO ] 2024-12-28 09:33:52.109 [TestNG-tests-1] TestListener - Test Context finished: 'LoginPageTest'
+[INFO ] 2024-12-28 09:33:53.213 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2024-12-28 09:37:52.221 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2024-12-28 09:37:52.244 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2024-12-28 09:37:52.252 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\reportExtentReport_28_12_2024_09_37_52.html'
+[INFO ] 2024-12-28 09:37:52.276 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\reportExtentReport_28_12_2024_09_37_52.html'
+[INFO ] 2024-12-28 09:37:52.567 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-28 09:37:52.567 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2024-12-28 09:37:52.568 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2024-12-28 09:37:52.568 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2024-12-28 09:37:52.586 [TestNG-tests-1] TestListener - Test Context started: 'LoginPageTest'
+[INFO ] 2024-12-28 09:37:52.634 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' found in the workbook.
+[INFO ] 2024-12-28 09:37:52.634 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' has '3' columns.
+[INFO ] 2024-12-28 09:37:52.647 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'loginPageTest'. Total rows: '1'
+[INFO ] 2024-12-28 09:37:52.687 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2024-12-28 09:37:52.688 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2024-12-28 09:37:52.688 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-28 09:37:52.689 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2024-12-28 09:37:52.689 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2024-12-28 09:37:55.427 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2024-12-28 09:37:59.709 [TestNG-tests-1] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2024-12-28 09:37:59.752 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2024-12-28 09:37:59.763 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2024-12-28 09:38:00.358 [TestNG-tests-1] BasePage - Element is visible: 'UserName'
+[INFO ] 2024-12-28 09:38:00.492 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2024-12-28 09:38:00.652 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2024-12-28 09:38:02.016 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2024-12-28 09:38:02.604 [TestNG-tests-1] BasePage - Element is visible: 'Dashboard Header'
+[INFO ] 2024-12-28 09:38:03.152 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\28_12_2024_09_38_02_9d54f1f9-5f69-44c2-b99e-45a0ab0e58f7.png'
+[INFO ] 2024-12-28 09:38:05.398 [TestNG-tests-1] TestListener - Test Passed: 'loginPageTest'
+[INFO ] 2024-12-28 09:38:05.812 [TestNG-tests-1] TestListener - Test Context finished: 'LoginPageTest'
+[INFO ] 2024-12-28 09:38:06.996 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2024-12-28 09:39:31.677 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2024-12-28 09:39:31.704 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2024-12-28 09:39:31.711 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_28_12_2024_09_39_31.html'
+[INFO ] 2024-12-28 09:39:31.737 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_28_12_2024_09_39_31.html'
+[INFO ] 2024-12-28 09:39:32.047 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-28 09:39:32.047 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2024-12-28 09:39:32.048 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2024-12-28 09:39:32.048 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2024-12-28 09:39:32.068 [TestNG-tests-1] TestListener - Test Context started: 'LoginPageTest'
+[INFO ] 2024-12-28 09:39:32.108 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' found in the workbook.
+[INFO ] 2024-12-28 09:39:32.109 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' has '3' columns.
+[INFO ] 2024-12-28 09:39:32.120 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'loginPageTest'. Total rows: '1'
+[INFO ] 2024-12-28 09:39:32.155 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2024-12-28 09:39:32.156 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2024-12-28 09:39:32.156 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2024-12-28 09:39:32.156 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2024-12-28 09:39:32.157 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2024-12-28 09:39:34.825 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2024-12-28 09:39:39.425 [TestNG-tests-1] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2024-12-28 09:39:39.468 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2024-12-28 09:39:39.479 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2024-12-28 09:39:40.077 [TestNG-tests-1] BasePage - Element is visible: 'UserName'
+[INFO ] 2024-12-28 09:39:40.218 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2024-12-28 09:39:40.386 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2024-12-28 09:39:41.781 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2024-12-28 09:39:42.379 [TestNG-tests-1] BasePage - Element is visible: 'Dashboard Header'
+[INFO ] 2024-12-28 09:39:42.909 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\28_12_2024_09_39_42_13b81e28-1c27-4abe-8244-6bc9d2b4713f.png'
+[INFO ] 2024-12-28 09:39:45.218 [TestNG-tests-1] TestListener - Test Passed: 'loginPageTest'
+[INFO ] 2024-12-28 09:39:45.520 [TestNG-tests-1] TestListener - Test Context finished: 'LoginPageTest'
+[INFO ] 2024-12-28 09:39:46.557 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-05 08:45:53.885 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-05 08:45:53.920 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-05 08:45:53.927 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_05_01_2025_08_45_53.html'
+[INFO ] 2025-01-05 08:45:53.976 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_05_01_2025_08_45_53.html'
+[INFO ] 2025-01-05 08:45:54.495 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-05 08:45:54.496 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-05 08:45:54.496 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-05 08:45:54.496 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-05 08:45:54.515 [TestNG-tests-1] TestListener - Test Context started: 'LoginPageTest'
+[INFO ] 2025-01-05 08:45:54.619 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' found in the workbook.
+[INFO ] 2025-01-05 08:45:54.620 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' has '3' columns.
+[INFO ] 2025-01-05 08:45:54.633 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'loginPageTest'. Total rows: '2'
+[INFO ] 2025-01-05 08:45:54.701 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-05 08:45:54.701 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-05 08:45:54.701 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-05 08:45:54.702 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-05 08:45:54.702 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-05 08:46:05.862 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-05 08:46:11.795 [TestNG-tests-1] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-05 08:46:11.836 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-05 08:46:11.864 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-05 08:46:12.484 [TestNG-tests-1] BasePage - Element is visible: 'UserName'
+[INFO ] 2025-01-05 08:46:12.630 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-05 08:46:12.754 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2025-01-05 08:46:14.229 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-05 08:46:14.823 [TestNG-tests-1] BasePage - Element is visible: 'Dashboard Header'
+[INFO ] 2025-01-05 08:46:15.354 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\05_01_2025_08_46_14_61a46f72-2a6f-466c-bc9a-edfcf8feb905.png'
+[INFO ] 2025-01-05 08:46:17.650 [TestNG-tests-1] TestListener - Test Passed: 'loginPageTest'
+[INFO ] 2025-01-05 08:46:18.677 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-05 08:46:18.678 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-05 08:46:18.678 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-05 08:46:18.678 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-05 08:46:18.679 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-05 08:46:20.603 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-05 08:46:25.083 [TestNG-tests-1] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-05 08:46:25.098 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-05 08:46:25.112 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-05 08:46:25.693 [TestNG-tests-1] BasePage - Element is visible: 'UserName'
+[INFO ] 2025-01-05 08:46:25.837 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-05 08:46:25.978 [TestNG-tests-1] BasePage - Entered 'admin12' text into the 'Password' element
+[INFO ] 2025-01-05 08:46:27.470 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-05 08:46:32.914 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\05_01_2025_08_46_32_8a4a2067-ea35-44d0-b041-939f0c981c6a.png'
+[ERROR] 2025-01-05 08:46:35.044 [TestNG-tests-1] TestListener - Test Failed: 'loginPageTest'
+[INFO ] 2025-01-05 08:46:35.425 [TestNG-tests-1] TestListener - Test Context finished: 'LoginPageTest'
+[INFO ] 2025-01-05 08:46:36.672 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-05 08:48:25.049 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-05 08:48:25.103 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-05 08:48:25.123 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_05_01_2025_08_48_25.html'
+[INFO ] 2025-01-05 08:48:25.175 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_05_01_2025_08_48_25.html'
+[INFO ] 2025-01-05 08:48:25.539 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-05 08:48:25.539 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-05 08:48:25.539 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-05 08:48:25.540 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-05 08:48:25.555 [TestNG-tests-1] TestListener - Test Context started: 'LoginPageTest'
+[INFO ] 2025-01-05 08:48:25.594 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' found in the workbook.
+[INFO ] 2025-01-05 08:48:25.594 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' has '3' columns.
+[INFO ] 2025-01-05 08:48:25.606 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'loginPageTest'. Total rows: '2'
+[INFO ] 2025-01-05 08:48:25.645 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-05 08:48:25.646 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-05 08:48:25.646 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-05 08:48:25.647 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-05 08:48:25.647 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-05 08:48:28.562 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-05 08:48:32.362 [TestNG-tests-1] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-05 08:48:32.402 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-05 08:48:32.413 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-05 08:48:37.919 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\05_01_2025_08_48_37_84264a6a-0ff6-459a-bff7-a2f466083fc4.png'
+[ERROR] 2025-01-05 08:48:40.050 [TestNG-tests-1] TestListener - Test Failed: 'loginPageTest'
+[INFO ] 2025-01-05 08:48:42.135 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-05 08:48:42.135 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-05 08:48:42.135 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-05 08:48:42.135 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-05 08:48:42.135 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-05 08:48:43.612 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-05 08:48:48.602 [TestNG-tests-1] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[WARN ] 2025-01-05 08:48:48.608 [TestNG-tests-1] TestListener - Test Skipped: 'loginPageTest'
+[INFO ] 2025-01-05 08:48:48.868 [TestNG-tests-1] TestListener - Test Context finished: 'LoginPageTest'
+[INFO ] 2025-01-05 08:48:49.576 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-05 08:50:34.244 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-05 08:50:34.269 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-05 08:50:34.276 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_05_01_2025_08_50_34.html'
+[INFO ] 2025-01-05 08:50:34.299 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_05_01_2025_08_50_34.html'
+[INFO ] 2025-01-05 08:50:34.593 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-05 08:50:34.593 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-05 08:50:34.593 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-05 08:50:34.593 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-05 08:50:34.610 [TestNG-tests-1] TestListener - Test Context started: 'LoginPageTest'
+[INFO ] 2025-01-05 08:50:34.655 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' found in the workbook.
+[INFO ] 2025-01-05 08:50:34.655 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' has '3' columns.
+[INFO ] 2025-01-05 08:50:34.669 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'loginPageTest'. Total rows: '2'
+[INFO ] 2025-01-05 08:50:34.722 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-05 08:50:34.722 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-05 08:50:34.723 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-05 08:50:34.723 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-05 08:50:34.723 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-05 08:50:37.451 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-05 08:50:42.105 [TestNG-tests-1] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-05 08:50:42.143 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-05 08:50:42.154 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-05 08:50:42.734 [TestNG-tests-1] BasePage - Element is visible: 'UserName'
+[INFO ] 2025-01-05 08:50:42.877 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-05 08:50:43.017 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2025-01-05 08:50:44.509 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-05 08:50:45.087 [TestNG-tests-1] BasePage - Element is visible: 'Dashboard Header'
+[INFO ] 2025-01-05 08:50:45.511 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\05_01_2025_08_50_45_94521ec1-53fb-4f61-a3f3-443bd01fbf35.png'
+[INFO ] 2025-01-05 08:50:47.776 [TestNG-tests-1] TestListener - Test Passed: 'loginPageTest'
+[INFO ] 2025-01-05 08:50:48.127 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-05 08:50:48.127 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-05 08:50:48.127 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-05 08:50:48.127 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-05 08:50:48.128 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-05 08:50:50.141 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-05 08:50:54.877 [TestNG-tests-1] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[WARN ] 2025-01-05 08:50:54.883 [TestNG-tests-1] TestListener - Test Skipped: 'loginPageTest'
+[INFO ] 2025-01-05 08:50:55.171 [TestNG-tests-1] TestListener - Test Context finished: 'LoginPageTest'
+[INFO ] 2025-01-05 08:50:55.711 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-05 08:52:21.383 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-05 08:52:21.407 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-05 08:52:21.415 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_05_01_2025_08_52_21.html'
+[INFO ] 2025-01-05 08:52:21.440 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_05_01_2025_08_52_21.html'
+[INFO ] 2025-01-05 08:52:21.760 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-05 08:52:21.761 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-05 08:52:21.761 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-05 08:52:21.762 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-05 08:52:21.782 [TestNG-tests-1] TestListener - Test Context started: 'LoginPageTest'
+[INFO ] 2025-01-05 08:52:21.782 [TestNG-tests-2] TestListener - Test Context started: 'AdminPageTest'
+[INFO ] 2025-01-05 08:52:21.891 [TestNG-tests-2] ExcelReader - Sheet 'adminPageTest' found in the workbook.
+[INFO ] 2025-01-05 08:52:21.891 [TestNG-tests-2] ExcelReader - Sheet 'adminPageTest' has '5' columns.
+[INFO ] 2025-01-05 08:52:21.893 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' found in the workbook.
+[INFO ] 2025-01-05 08:52:21.894 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' has '3' columns.
+[INFO ] 2025-01-05 08:52:21.911 [TestNG-tests-2] DataSupplier - Data fetched successfully from sheet 'adminPageTest'. Total rows: '1'
+[INFO ] 2025-01-05 08:52:21.915 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'loginPageTest'. Total rows: '2'
+[INFO ] 2025-01-05 08:52:21.955 [TestNG-tests-2] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-05 08:52:21.956 [TestNG-tests-2] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-05 08:52:21.956 [TestNG-tests-2] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-05 08:52:21.957 [TestNG-tests-2] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-05 08:52:21.957 [TestNG-tests-2] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-05 08:52:21.955 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-05 08:52:21.959 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-05 08:52:21.959 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-05 08:52:21.959 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-05 08:52:21.960 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-05 08:52:25.809 [TestNG-tests-2] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-05 08:52:25.971 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-05 08:52:32.223 [TestNG-tests-2] DataSupplier - The 'adminPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[WARN ] 2025-01-05 08:52:32.235 [TestNG-tests-2] TestListener - Test Skipped: 'adminPageTest'
+[INFO ] 2025-01-05 08:52:32.328 [TestNG-tests-1] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-05 08:52:32.391 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-05 08:52:32.406 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-05 08:52:32.730 [TestNG-tests-2] TestListener - Test Context finished: 'AdminPageTest'
+[INFO ] 2025-01-05 08:52:33.185 [TestNG-tests-1] BasePage - Element is visible: 'UserName'
+[INFO ] 2025-01-05 08:52:33.468 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-05 08:52:33.727 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2025-01-05 08:52:35.089 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-05 08:52:35.656 [TestNG-tests-1] BasePage - Element is visible: 'Dashboard Header'
+[INFO ] 2025-01-05 08:52:36.141 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\05_01_2025_08_52_35_884789d9-6d31-4f33-8d28-9bd60a6f63a9.png'
+[INFO ] 2025-01-05 08:52:38.366 [TestNG-tests-1] TestListener - Test Passed: 'loginPageTest'
+[INFO ] 2025-01-05 08:52:38.658 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-05 08:52:38.658 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-05 08:52:38.659 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-05 08:52:38.659 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-05 08:52:38.659 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-05 08:52:40.812 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-05 08:52:45.483 [TestNG-tests-1] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[WARN ] 2025-01-05 08:52:45.486 [TestNG-tests-1] TestListener - Test Skipped: 'loginPageTest'
+[INFO ] 2025-01-05 08:52:45.742 [TestNG-tests-1] TestListener - Test Context finished: 'LoginPageTest'
+[INFO ] 2025-01-05 08:52:45.881 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-05 09:02:44.908 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-05 09:02:44.933 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-05 09:02:44.942 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_05_01_2025_09_02_44.html'
+[INFO ] 2025-01-05 09:02:44.962 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_05_01_2025_09_02_44.html'
+[INFO ] 2025-01-05 09:02:45.283 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-05 09:02:45.283 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-05 09:02:45.283 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-05 09:02:45.284 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-05 09:02:45.302 [TestNG-tests-1] TestListener - Test Context started: 'LoginPageTest'
+[INFO ] 2025-01-05 09:02:45.338 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' found in the workbook.
+[INFO ] 2025-01-05 09:02:45.338 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' has '3' columns.
+[INFO ] 2025-01-05 09:02:45.350 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'loginPageTest'. Total rows: '2'
+[INFO ] 2025-01-05 09:02:45.383 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-05 09:02:45.384 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-05 09:02:45.384 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-05 09:02:45.385 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-05 09:02:45.385 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-05 09:02:48.101 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-05 09:02:52.813 [TestNG-tests-1] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[WARN ] 2025-01-05 09:02:52.824 [TestNG-tests-1] TestListener - Test Skipped: 'loginPageTest'
+[INFO ] 2025-01-05 09:02:53.121 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-05 09:02:53.121 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-05 09:02:53.121 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-05 09:02:53.122 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-05 09:02:53.122 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-05 09:02:54.928 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-05 09:03:00.004 [TestNG-tests-1] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[WARN ] 2025-01-05 09:03:00.006 [TestNG-tests-1] TestListener - Test Skipped: 'loginPageTest'
+[INFO ] 2025-01-05 09:03:00.305 [TestNG-tests-1] TestListener - Test Context finished: 'LoginPageTest'
+[INFO ] 2025-01-05 09:03:00.854 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-05 09:09:40.486 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-05 09:09:40.511 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-05 09:09:40.518 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_05_01_2025_09_09_40.html'
+[INFO ] 2025-01-05 09:09:40.544 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_05_01_2025_09_09_40.html'
+[INFO ] 2025-01-05 09:09:40.828 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-05 09:09:40.829 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-05 09:09:40.829 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-05 09:09:40.829 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-05 09:09:40.849 [TestNG-tests-1] TestListener - Test Context started: 'LoginPageTest'
+[INFO ] 2025-01-05 09:09:40.887 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' found in the workbook.
+[INFO ] 2025-01-05 09:09:40.887 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' has '3' columns.
+[INFO ] 2025-01-05 09:09:40.900 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'loginPageTest'. Total rows: '2'
+[INFO ] 2025-01-05 09:09:40.936 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-05 09:09:40.937 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-05 09:09:40.937 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-05 09:09:40.937 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-05 09:09:40.938 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-05 09:09:43.455 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-05 09:09:48.063 [TestNG-tests-1] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[WARN ] 2025-01-05 09:09:48.067 [TestNG-tests-1] TestListener - Test Skipped: 'loginPageTest'
+[INFO ] 2025-01-05 09:09:48.416 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-05 09:09:48.416 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-05 09:09:48.417 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-05 09:09:48.418 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-05 09:09:48.418 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-05 09:09:50.104 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-05 09:09:55.343 [TestNG-tests-1] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[WARN ] 2025-01-05 09:09:55.344 [TestNG-tests-1] TestListener - Test Skipped: 'loginPageTest'
+[INFO ] 2025-01-05 09:09:55.640 [TestNG-tests-1] TestListener - Test Context finished: 'LoginPageTest'
+[INFO ] 2025-01-05 09:09:56.267 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-05 09:12:18.355 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-05 09:12:18.384 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-05 09:12:18.392 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_05_01_2025_09_12_18.html'
+[INFO ] 2025-01-05 09:12:18.419 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_05_01_2025_09_12_18.html'
+[INFO ] 2025-01-05 09:12:18.739 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-05 09:12:18.740 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-05 09:12:18.740 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-05 09:12:18.741 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-05 09:12:18.761 [TestNG-tests-1] TestListener - Test Context started: 'LoginPageTest'
+[INFO ] 2025-01-05 09:12:18.840 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' found in the workbook.
+[INFO ] 2025-01-05 09:12:18.842 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' has '3' columns.
+[INFO ] 2025-01-05 09:12:18.857 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'loginPageTest'. Total rows: '2'
+[INFO ] 2025-01-05 09:12:18.889 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-05 09:12:18.890 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-05 09:12:18.890 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-05 09:12:18.891 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-05 09:12:18.891 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-05 09:12:21.950 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-05 09:12:26.590 [TestNG-tests-1] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[WARN ] 2025-01-05 09:12:26.597 [TestNG-tests-1] TestListener - Test Skipped: 'loginPageTest'
+[INFO ] 2025-01-05 09:12:26.859 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-05 09:12:26.859 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-05 09:12:26.859 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-05 09:12:26.860 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-05 09:12:26.860 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-05 09:12:28.505 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-05 09:12:34.183 [TestNG-tests-1] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[WARN ] 2025-01-05 09:12:34.183 [TestNG-tests-1] TestListener - Test Skipped: 'loginPageTest'
+[INFO ] 2025-01-05 09:12:34.462 [TestNG-tests-1] TestListener - Test Context finished: 'LoginPageTest'
+[INFO ] 2025-01-05 09:12:35.016 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-05 09:16:29.156 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-05 09:16:29.187 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-05 09:16:29.202 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_05_01_2025_09_16_29.html'
+[INFO ] 2025-01-05 09:16:29.218 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_05_01_2025_09_16_29.html'
+[INFO ] 2025-01-05 09:16:29.488 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-05 09:16:29.488 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-05 09:16:29.503 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-05 09:16:29.503 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-05 09:16:29.519 [TestNG-tests-1] TestListener - Test Context started: 'LoginPageTest'
+[INFO ] 2025-01-05 09:16:29.557 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' found in the workbook.
+[INFO ] 2025-01-05 09:16:29.557 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' has '3' columns.
+[INFO ] 2025-01-05 09:16:29.572 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'loginPageTest'. Total rows: '2'
+[INFO ] 2025-01-05 09:16:29.619 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-05 09:16:29.619 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-05 09:16:29.619 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-05 09:16:29.619 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-05 09:16:29.619 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-05 09:16:32.171 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-05 09:16:37.613 [TestNG-tests-1] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[WARN ] 2025-01-05 09:16:37.613 [TestNG-tests-1] TestListener - Test Skipped: 'loginPageTest'
+[INFO ] 2025-01-05 09:16:37.922 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-05 09:16:37.922 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-05 09:16:37.922 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-05 09:16:37.922 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-05 09:16:37.922 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-05 09:16:39.493 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-05 09:16:44.238 [TestNG-tests-1] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[WARN ] 2025-01-05 09:16:44.239 [TestNG-tests-1] TestListener - Test Skipped: 'loginPageTest'
+[INFO ] 2025-01-05 09:16:44.474 [TestNG-tests-1] TestListener - Test Context finished: 'LoginPageTest'
+[INFO ] 2025-01-05 09:16:44.984 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-05 09:22:48.938 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-05 09:22:48.966 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-05 09:22:48.968 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_05_01_2025_09_22_48.html'
+[INFO ] 2025-01-05 09:22:48.998 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_05_01_2025_09_22_48.html'
+[INFO ] 2025-01-05 09:22:49.324 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-05 09:22:49.324 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-05 09:22:49.339 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-05 09:22:49.339 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-05 09:22:49.355 [TestNG-tests-1] TestListener - Test Context started: 'LoginPageTest'
+[INFO ] 2025-01-05 09:22:49.408 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' found in the workbook.
+[INFO ] 2025-01-05 09:22:49.408 [TestNG-tests-1] ExcelReader - Sheet 'loginPageTest' has '3' columns.
+[INFO ] 2025-01-05 09:22:49.424 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'loginPageTest'. Total rows: '2'
+[INFO ] 2025-01-05 09:22:49.471 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-05 09:22:49.471 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-05 09:22:49.471 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-05 09:22:49.471 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-05 09:22:49.471 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-05 09:22:52.280 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-05 09:22:59.072 [TestNG-tests-1] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-05 09:22:59.116 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-05 09:22:59.129 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-05 09:22:59.850 [TestNG-tests-1] BasePage - Element is visible: 'UserName'
+[INFO ] 2025-01-05 09:22:59.994 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-05 09:23:00.144 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2025-01-05 09:23:01.574 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-05 09:23:02.148 [TestNG-tests-1] BasePage - Element is visible: 'Dashboard Header'
+[INFO ] 2025-01-05 09:23:02.631 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\05_01_2025_09_23_02_231dc6e7-08ff-4d67-99b4-34412807e938.png'
+[INFO ] 2025-01-05 09:23:02.847 [TestNG-tests-1] TestListener - Test Passed: 'LoginPageTest'
+[INFO ] 2025-01-05 09:23:03.542 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-05 09:23:03.542 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-05 09:23:03.542 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-05 09:23:03.542 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-05 09:23:03.542 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-05 09:23:05.893 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-05 09:23:11.221 [TestNG-tests-1] DataSupplier - The 'loginPageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-05 09:23:11.233 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-05 09:23:11.242 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-05 09:23:12.463 [TestNG-tests-1] BasePage - Element is visible: 'UserName'
+[INFO ] 2025-01-05 09:23:12.576 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-05 09:23:12.709 [TestNG-tests-1] BasePage - Entered 'admin12' text into the 'Password' element
+[INFO ] 2025-01-05 09:23:14.116 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-05 09:23:19.591 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\05_01_2025_09_23_19_b98f22db-0b4c-40a8-b118-7e22dbdb040d.png'
+[ERROR] 2025-01-05 09:23:19.709 [TestNG-tests-1] TestListener - Test Failed: 'LoginPageTest'
+[INFO ] 2025-01-05 09:23:20.063 [TestNG-tests-1] TestListener - Test Context finished: 'LoginPageTest'
+[INFO ] 2025-01-05 09:23:21.735 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'

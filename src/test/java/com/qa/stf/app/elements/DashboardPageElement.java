@@ -1,11 +1,11 @@
-package com.qa.stf.ohrm.elements;
+package com.qa.stf.app.elements;
 
 import java.util.List;
 
 import com.qa.stf.base.DriverManager;
 import org.openqa.selenium.WebElement;
 
-import com.qa.stf.ohrm.objects.DashboardPageObject;
+import com.qa.stf.app.objects.DashboardPageObject;
 
 public class DashboardPageElement extends DashboardPageObject {
 
@@ -37,6 +37,14 @@ public class DashboardPageElement extends DashboardPageObject {
 		return userDropDownMenuLabel;
 	}
 
+	public WebElement getUserName() {
+		return userName;
+	}
+
+	public String getUserNameLabel() {
+		return userNameLabel;
+	}
+
 	public WebElement getLogout() {
 		return logout;
 	}
@@ -51,6 +59,14 @@ public class DashboardPageElement extends DashboardPageObject {
 
 	public String getAdminSectionLabel() {
 		return adminSectionLabel;
+	}
+
+	public WebElement getTimeSection() {
+		return timeSection;
+	}
+
+	public String getTimeSectionLabel() {
+		return timeSectionLabel;
 	}
 
 	public List<WebElement> getQuickLaunchTiles() {

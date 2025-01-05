@@ -1,9 +1,8 @@
-package com.qa.stf.ohrm.objects;
+package com.qa.stf.app.objects;
 
 import java.util.List;
 
 import com.qa.stf.base.DriverManager;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;

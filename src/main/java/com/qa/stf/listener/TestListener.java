@@ -11,12 +11,12 @@ import java.util.UUID;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
-import com.qa.stf.base.BasePage;
 import com.qa.stf.constant.TestConstants;
 import com.qa.stf.report.ExtentReportManager;
 import com.qa.stf.util.ExceptionHub;
 import com.qa.stf.util.FileReader;
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.OutputType;
@@ -75,7 +75,7 @@ import static com.qa.stf.constant.TestConstants.*;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.8
+ * @version 1.9
  */
 public class TestListener extends DriverManager implements ITestListener, ISuiteListener {
 
@@ -171,10 +171,10 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
      */
     @Override
     public void onTestStart(ITestResult result) {
-        extentTest = extentReports.createTest(result.getMethod().getMethodName());
+        extentTest = extentReports.createTest(StringUtils.capitalize(result.getMethod().getMethodName()));
         extentReportManager.setExtentTest(extentTest);
-        extentReportManager.getExtentTest().log(Status.INFO, () -> result.getName().toUpperCase() + TEST_START);
-        Reporter.log(result.getName().toUpperCase() + TEST_START);
+        extentReportManager.getExtentTest().log(Status.INFO, () -> StringUtils.capitalize(result.getName()) + TEST_START);
+        Reporter.log(StringUtils.capitalize(result.getName()) + TEST_START);
     }
 
     /**
@@ -186,7 +186,7 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
     public void onTestSuccess(ITestResult result) {
         handleTestResult(result, Status.PASS, TEST_PASS);
         extentReportManager.closeExtentTest();
-        log.info("Test Passed: '{}'", result.getName());
+        log.info("Test Passed: '{}'", StringUtils.capitalize(result.getName()));
     }
 
     /**
@@ -198,7 +198,7 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
     public void onTestFailure(ITestResult result) {
         handleTestResult(result, Status.FAIL, TEST_FAIL);
         extentReportManager.closeExtentTest();
-        log.error("Test Failed: '{}'", result.getName());
+        log.error("Test Failed: '{}'", StringUtils.capitalize(result.getName()));
     }
 
     /**
@@ -208,8 +208,8 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
      */
     @Override
     public void onTestSkipped(ITestResult result) {
-        extentReportManager.getExtentTest().log(Status.SKIP, () -> result.getName().toUpperCase() + TEST_SKIP);
-        log.warn("Test Skipped: '{}'", result.getName());
+        extentReportManager.getExtentTest().log(Status.SKIP, () -> StringUtils.capitalize(result.getName()) + TEST_SKIP);
+        log.warn("Test Skipped: '{}'", StringUtils.capitalize(result.getName()));
     }
 
     /**
@@ -225,14 +225,14 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
         String snapshotPath = captureScreenshot();
         try {
             String base64Snapshot = ((TakesScreenshot) driverManager.getDriver()).getScreenshotAs(OutputType.BASE64);
-            extentReportManager.getExtentTest().log(status, result.getName().toUpperCase() + message,
+            extentReportManager.getExtentTest().log(status, StringUtils.capitalize(result.getName()) + message,
                     MediaEntityBuilder.createScreenCaptureFromBase64String(base64Snapshot).build());
         } catch (Exception ex) {
             log.error("Failed to capture Base64 screenshot: {}", ex.getMessage(), ex);
             throw new ExceptionHub.ScreenshotException("Failed to create the Base64 screenshot", ex);
         }
-        BasePage.waitForSeconds();
-        testNGReporterUpdate(result.getName().toUpperCase() + message, snapshotPath);
+        // BasePage.waitForSeconds();
+        testNGReporterUpdate(StringUtils.capitalize(result.getName()) + message, snapshotPath);
     }
 
     /**

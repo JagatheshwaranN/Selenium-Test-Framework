@@ -1,4 +1,4 @@
-package com.qa.stf.ohrm.objects;
+package com.qa.stf.app.objects;
 
 import com.qa.stf.base.DriverManager;
 import org.openqa.selenium.WebElement;

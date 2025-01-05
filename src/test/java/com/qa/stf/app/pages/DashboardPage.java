@@ -1,10 +1,10 @@
-package com.qa.stf.ohrm.pages;
+package com.qa.stf.app.pages;
 
 import java.util.List;
 
 import com.qa.stf.base.DriverManager;
 import org.openqa.selenium.WebElement;
-import com.qa.stf.ohrm.elements.DashboardPageElement;
+import com.qa.stf.app.elements.DashboardPageElement;
 
 public class DashboardPage extends DashboardPageElement {
 
@@ -31,6 +31,10 @@ public class DashboardPage extends DashboardPageElement {
 	public void navigateToAdminPage() {
 		pageManager.getPageComponent().clickElement(getAdminSection(), getAdminSectionLabel());
 		// return pageManager.getAdminPage();
+	}
+
+	public void navigateToTimePage() {
+		pageManager.getPageComponent().clickElement(getTimeSection(), getTimeSectionLabel());
 	}
 
 	public List<WebElement> getQuickLaunchCards() {

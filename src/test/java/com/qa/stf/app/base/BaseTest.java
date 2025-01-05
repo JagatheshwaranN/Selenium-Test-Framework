@@ -1,4 +1,4 @@
-package com.qa.stf.ohrm.base;
+package com.qa.stf.app.base;
 
 import com.qa.stf.base.DriverManager;
 import org.testng.annotations.AfterMethod;

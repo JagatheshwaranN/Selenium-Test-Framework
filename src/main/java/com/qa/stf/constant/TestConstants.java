@@ -13,7 +13,7 @@ package com.qa.stf.constant;
  * values, promoting reusability and reducing duplication in the codebase.
  *
  * @author Jagatheshwaran N
- * @version 1.5
+ * @version 1.6
  */
 public class TestConstants {
 
@@ -42,14 +42,14 @@ public class TestConstants {
 	public static final String EXTENT_REPORT_FILE_NAME = "ExtentReport_%s.html";
 	public static final String SNAPSHOT_PATH = "//src//test//resources//screenshots//";
 
-	// Test Case Details
+	// Excel Test Case Details
 	public static final String TEST_SUITE_NAME = "TestSuite";
 	public static final String TEST_CASE_NAME = "TestCaseName";
 	public static final String TEST_RUN_MODE = "RunMode";
 	public static final String RUN_MODE_YES = "Y";
 	public static final String RUN_MODE_NO = "N";
 
-	// Test Status Details
+	// Report Test Status Details
 	public static final String TEST_PASS = " Test Passed";
 	public static final String TEST_FAIL = " Test Failed";
 	public static final String TEST_START = " Test Started";

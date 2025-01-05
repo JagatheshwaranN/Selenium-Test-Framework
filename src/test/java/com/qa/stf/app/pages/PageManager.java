@@ -1,4 +1,4 @@
-package com.qa.stf.ohrm.pages;
+package com.qa.stf.app.pages;
 
 import com.qa.stf.base.BasePage;
 import com.qa.stf.base.DriverManager;

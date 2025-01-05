@@ -1,15 +1,16 @@
-package com.qa.stf.ohrm.testcases;
+package com.qa.stf.app.testcases;
 
 import java.lang.reflect.Method;
 import java.util.Hashtable;
 
+import com.qa.stf.constant.TestConstants;
 import org.apache.commons.lang3.StringUtils;
 import org.testng.SkipException;
 import org.testng.annotations.Test;
 
-import com.qa.stf.ohrm.base.BaseTest;
+import com.qa.stf.app.base.BaseTest;
 import com.qa.stf.base.DriverManager;
-import com.qa.stf.ohrm.pages.PageManager;
+import com.qa.stf.app.pages.PageManager;
 import com.qa.stf.util.DataSupplier;
 
 public class AdminPageTest extends BaseTest {
@@ -25,7 +26,7 @@ public class AdminPageTest extends BaseTest {
 			throw new SkipException("Skipping the Test - " + StringUtils.capitalize(methods[0].getName())
 					+ " as the RunMode is set to N");
 		}
-		if (!data.get("RunMode").equalsIgnoreCase("Y")) {
+		if (data.get("RunMode").equalsIgnoreCase(TestConstants.RUN_MODE_NO)) {
 			throw new SkipException("Skipping the TestCase - " + StringUtils.capitalize(methods[0].getName())
 					+ " as the RunMode for the Test Data is set to N");
 		}
