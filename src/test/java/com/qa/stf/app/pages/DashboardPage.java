@@ -14,13 +14,17 @@ public class DashboardPage extends DashboardPageElement {
 		super(driverManager);
 	}
 
-	public void verifyDashboardHeader() {
-		pageManager.getVerificationHelper().isElementDisplayed(getDashboardHeader(), getDashboardHeaderLabel());
+	public boolean verifyDashboardPageHeader() {
+		return pageManager.getVerificationHelper().isElementDisplayed(getDashboardHeader(), getDashboardHeaderLabel());
 	}
 
 	public void userDropDown() {
 		pageManager.getPageComponent().clickElement(getUserDropDown(), getUserDropDownLabel());
 		pageManager.getVerificationHelper().isElementDisplayed(getUserDropDownMenu(), getUserDropDownMenuLabel());
+	}
+
+	public String fetchUserNameFromDropDown() {
+		return pageManager.getVerificationHelper().readTextValueFromElement(getUserName(), getUserNameLabel());
 	}
 
 	public void pfDoLogout() {
@@ -30,7 +34,6 @@ public class DashboardPage extends DashboardPageElement {
 
 	public void navigateToAdminPage() {
 		pageManager.getPageComponent().clickElement(getAdminSection(), getAdminSectionLabel());
-		// return pageManager.getAdminPage();
 	}
 
 	public void navigateToTimePage() {

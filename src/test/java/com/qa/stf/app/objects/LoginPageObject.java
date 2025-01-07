@@ -12,6 +12,10 @@ public class LoginPageObject {
         PageFactory.initElements(driverManager.getDriver(), this);
 	}
 
+	@FindBy(xpath = "//h5[contains(@class,'rangehrm-login-title')]")
+	protected WebElement loginHeader;
+	protected String loginHeaderLabel = "Login Header";
+
 	@FindBy(xpath = "//input[@name='username']")
 	protected WebElement userName;
 	protected String userNameLabel = "UserName";

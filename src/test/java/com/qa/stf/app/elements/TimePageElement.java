@@ -181,6 +181,14 @@ public class TimePageElement extends TimePageObject {
         return employeeNameInputLabel;
     }
 
+    public WebElement getEmployeeNameSuggestion() {
+        return employeeNameSuggestion;
+    }
+
+    public String getEmployeeNameSuggestionLabel() {
+        return employeeNameSuggestionLabel;
+    }
+
     public WebElement getViewButton() {
         return viewButton;
     }

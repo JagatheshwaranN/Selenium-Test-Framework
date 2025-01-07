@@ -97,6 +97,10 @@ public class TimePageObject {
     protected WebElement employeeNameInput;
     protected String employeeNameInputLabel = "Employee Name";
 
+    @FindBy(xpath = "//div[@role='listbox']")
+    protected WebElement employeeNameSuggestion;
+    protected String employeeNameSuggestionLabel = "EmployeeNameSuggestion";
+
     @FindBy(xpath = "//button[@type='submit']")
     protected WebElement viewButton;
     protected String viewButtonLabel = "View Button";

@@ -12,13 +12,10 @@ public class LoginPage extends LoginPageElement {
 	}
 
 	public void doLogin(String username, String password) {
-		pageManager.getPageComponent().getPageTitle();
-		pageManager.getPageComponent().getPageUrl();
-		pageManager.getVerificationHelper().isElementDisplayed(getUserName(), getUserNameLabel());
+		pageManager.getVerificationHelper().isElementDisplayed(getLoginHeader(), getLoginHeaderLabel());
 		pageManager.getPageComponent().typeText(getUserName(), username, getUserNameLabel());
 		pageManager.getPageComponent().typeText(getPassWord(), password, getPassWordLabel());
 		pageManager.getPageComponent().clickElement(getLogin(), getLoginLabel());
-		//return pageManager.getDashboardPage();
 	}
 
 }

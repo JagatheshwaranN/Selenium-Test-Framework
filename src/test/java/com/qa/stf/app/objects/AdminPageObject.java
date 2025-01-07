@@ -37,6 +37,10 @@ public class AdminPageObject {
     protected List<WebElement> adminUserStatusDropDownOptions;
     protected String adminUserStatusDropDownOptionsLabel = "AdminUserStatusDropDownOptions";
 
+    @FindBy(xpath = "//div[@role='listbox']")
+    protected WebElement adminSearchDropDownLayout;
+    protected String adminSearchDropDownLayoutLabel = "AdminSearchDropDownLayout";
+
     @FindBy(xpath = "//button[contains(@class,'oxd-button--secondary orangehrm-left-space')]")
     protected WebElement adminSearch;
     protected String adminSearchLabel = "AdminSearch";

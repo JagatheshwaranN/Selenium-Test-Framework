@@ -61,6 +61,14 @@ public class AdminPageElement extends AdminPageObject {
 		return adminUserStatusDropDownOptionsLabel;
 	}
 
+	public WebElement getAdminSearchDropDownLayout() {
+		return adminSearchDropDownLayout;
+	}
+
+	public String getAdminSearchDropDownLayoutLabel() {
+		return adminSearchDropDownLayoutLabel;
+	}
+
 	public WebElement getAdminSearch() {
 		return adminSearch;
 	}

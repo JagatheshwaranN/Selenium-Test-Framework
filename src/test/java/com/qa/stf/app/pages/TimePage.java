@@ -1,15 +1,10 @@
 package com.qa.stf.app.pages;
 
-import com.google.common.util.concurrent.Uninterruptibles;
 import com.qa.stf.app.elements.TimePageElement;
 import com.qa.stf.base.DriverManager;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.sql.Time;
-import java.time.Duration;
-import java.util.Objects;
-import java.util.concurrent.TimeUnit;
+import static com.qa.stf.app.constant.AppConstants.*;
+
 
 public class TimePage extends TimePageElement {
 
@@ -19,8 +14,8 @@ public class TimePage extends TimePageElement {
         super(driverManager);
     }
 
-    public void verifyTimeSheetHeader() {
-        pageManager.getVerificationHelper().isElementDisplayed(getTimeSheetHeader(), getTimeSheetHeaderLabel());
+    public boolean verifyTimeSheetPageHeader() {
+        return pageManager.getVerificationHelper().isElementDisplayed(getTimeSheetHeader(), getTimeSheetHeaderLabel());
     }
 
     public void navigateToPunchInOutSection() {
@@ -28,7 +23,7 @@ public class TimePage extends TimePageElement {
     }
 
     public void addPunchInDetail() {
-        pageManager.getVerificationHelper().isTextEqualTo(getPunchInOutSectionHeader(), "Punch In", getPunchInOutSectionHeaderLabel());
+        pageManager.getVerificationHelper().isTextEqualTo(getPunchInOutSectionHeader(), TIMESHEET_PAGE_PUNCH_IN_HEADER, getPunchInOutSectionHeaderLabel());
         pageManager.getPageComponent().waitForDOMToBeStable();
         pageManager.getDatePickerHandler().selectDateFromDatePicker(getDatePicker(), getDatePickerDetailSection(),
                 getMonthDetail(), getYearDetail(), getMonthNavigator(), getDayOfMonth(),
@@ -42,7 +37,7 @@ public class TimePage extends TimePageElement {
     }
 
     public void addPunchOutDetail() {
-        pageManager.getVerificationHelper().isTextEqualTo(getPunchInOutSectionHeader(), "Punch Out", getPunchInOutSectionHeaderLabel());
+        pageManager.getVerificationHelper().isTextEqualTo(getPunchInOutSectionHeader(), TIMESHEET_PAGE_PUNCH_OUT_HEADER, getPunchInOutSectionHeaderLabel());
         pageManager.getPageComponent().waitForDOMToBeStable();
         pageManager.getPageComponent().waitForSeconds();
         pageManager.getDatePickerHandler().selectDateFromDatePicker(getDatePicker(), getDatePickerDetailSection(),
@@ -61,4 +56,17 @@ public class TimePage extends TimePageElement {
     public void navigateToEmployeeRecordsSection() {
         pageManager.getDropDownHandler().selectDropdownOption(getAttendanceTopNavDropDown(), getAttendanceTopNavDropDownLayout(), getAttendanceTopNavDropDownOptions(), "Employee Records", getAttendanceTopNavDropDownLabel());
     }
+
+    public boolean searchEmployeeAttendanceRecord(String userName) {
+        pageManager.getVerificationHelper().isElementDisplayed(getEmployeeAttendanceRecordsHeader(), getEmployeeAttendanceRecordsHeaderLabel());
+        pageManager.getPageComponent().typeText(getEmployeeNameInput(), userName, getEmployeeNameInputLabel());
+        pageManager.getVerificationHelper().isElementDisplayed(getEmployeeNameSuggestion(), getEmployeeNameSuggestionLabel());
+        pageManager.getPageComponent().clickElement(getEmployeeNameSuggestion(), getEmployeeNameSuggestionLabel());
+        pageManager.getDatePickerHandler().selectDateFromDatePicker(getDatePicker(), getDatePickerDetailSection(),
+                getMonthDetail(), getYearDetail(), getMonthNavigator(), getDayOfMonth(),
+                "13", "February", "2025", getDatePickerDetailSectionLabel());
+        pageManager.getPageComponent().clickElement(getViewButton(), getViewButtonLabel());
+        return pageManager.getVerificationHelper().isElementDisplayed(getEmployeeResultSection(), getEmployeeResultSectionLabel());
+    }
+
 }

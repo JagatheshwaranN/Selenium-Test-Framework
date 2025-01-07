@@ -11,17 +11,22 @@ public class AdminPage extends AdminPageElement {
 		super(driverManager);
 	}
 
-	public void searchUser(String user, String status) {
+	public boolean verifyAdminPageHeader() {
+		return pageManager.getVerificationHelper().isElementDisplayed(getAdminHeader(), getAdminHeaderLabel());
+	}
+
+	public boolean searchUser(String user, String status) {
 		pageManager.getVerificationHelper().isElementDisplayed(getAdminHeader(), getAdminHeaderLabel());
 		pageManager.getPageComponent().typeText(getAdminSearchUserName(), user, getAdminSearchUserNameLabel());
-//		pageManager.getDropDownHandler().selectDropdownOption(getAdminUserRoleDropDown(), getAdminUserRoleDropDownOptions(),
-//				user, getAdminUserRoleDropDownLabel());
-//		pageManager.getDropDownHandler().selectDropdownOption(getAdminUserStatusDropDown(), getAdminUserStatusDropDownOptions(),
-//				status, getAdminUserStatusDropDownLabel());
+		pageManager.getDropDownHandler().selectDropdownOption(getAdminUserRoleDropDown(), getAdminSearchDropDownLayout(), getAdminUserRoleDropDownOptions(),
+				user, getAdminUserRoleDropDownLabel());
+		pageManager.getDropDownHandler().selectDropdownOption(getAdminUserStatusDropDown(), getAdminSearchDropDownLayout(), getAdminUserStatusDropDownOptions(),
+				status, getAdminUserStatusDropDownLabel());
 		pageManager.getPageComponent().clickElement(getAdminSearch(), getAdminSearchLabel());
 		pageManager.getVerificationHelper().isElementDisplayed(getAdminSearchResultSection(), getAdminSearchResultSectionLabel());
-		pageManager.getVerificationHelper().isElementDisplayed(getAdminSearchResultData(),
+		return pageManager.getVerificationHelper().isElementDisplayed(getAdminSearchResultData(),
 				getAdminSearchResultDataLabel());
 	}
+
 }
 

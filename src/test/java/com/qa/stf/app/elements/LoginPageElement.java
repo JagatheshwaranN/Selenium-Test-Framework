@@ -11,6 +11,14 @@ public class LoginPageElement extends LoginPageObject {
 		super(driverManager);
 	}
 
+	public WebElement getLoginHeader() {
+		return loginHeader;
+	}
+
+	public String getLoginHeaderLabel() {
+		return loginHeaderLabel;
+	}
+
 	public WebElement getUserName() {
 		return userName;
 	}
