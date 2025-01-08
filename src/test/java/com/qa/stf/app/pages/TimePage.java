@@ -27,7 +27,7 @@ public class TimePage extends TimePageElement {
         pageManager.getPageComponent().waitForDOMToBeStable();
         pageManager.getDatePickerHandler().selectDateFromDatePicker(getDatePicker(), getDatePickerDetailSection(),
                 getMonthDetail(), getYearDetail(), getMonthNavigator(), getDayOfMonth(),
-                "13", "February", "2025", getDatePickerDetailSectionLabel());
+                "14", "February", "2025", getDatePickerDetailSectionLabel());
         pageManager.getPageComponent().clickElement(getTimePicker(), getTimePickerLabel());
         pageManager.getInteractionHandler().clearElement(getTimePickerHourInput(), getTimePickerHourInputLabel());
         pageManager.getPageComponent().typeText(getTimePickerHourInput(), "08", getTimePickerHourInputLabel());
@@ -42,7 +42,7 @@ public class TimePage extends TimePageElement {
         pageManager.getPageComponent().waitForSeconds();
         pageManager.getDatePickerHandler().selectDateFromDatePicker(getDatePicker(), getDatePickerDetailSection(),
                 getMonthDetail(), getYearDetail(), getMonthNavigator(), getDayOfMonth(),
-                "13", "February", "2025", getDatePickerDetailSectionLabel());
+                "14", "February", "2025", getDatePickerDetailSectionLabel());
         pageManager.getPageComponent().clickElement(getTimePicker(), getTimePickerLabel());
         pageManager.getInteractionHandler().clearElement(getTimePickerHourInput(), getTimePickerHourInputLabel());
         pageManager.getPageComponent().typeText(getTimePickerHourInput(), "09", getTimePickerHourInputLabel());
@@ -58,6 +58,7 @@ public class TimePage extends TimePageElement {
     }
 
     public boolean searchEmployeeAttendanceRecord(String userName) {
+        pageManager.getPageComponent().waitForDOMToBeStable();
         pageManager.getVerificationHelper().isElementDisplayed(getEmployeeAttendanceRecordsHeader(), getEmployeeAttendanceRecordsHeaderLabel());
         pageManager.getPageComponent().typeText(getEmployeeNameInput(), userName, getEmployeeNameInputLabel());
         pageManager.getVerificationHelper().isElementDisplayed(getEmployeeNameSuggestion(), getEmployeeNameSuggestionLabel());
