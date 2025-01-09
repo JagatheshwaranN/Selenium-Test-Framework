@@ -11,12 +11,13 @@ public class AdminPage extends AdminPageElement {
 		super(driverManager);
 	}
 
-	public boolean verifyAdminPageHeader() {
-		return pageManager.getVerificationHelper().isElementDisplayed(getAdminHeader(), getAdminHeaderLabel());
+	public String verifyAdminPageHeader() {
+		pageManager.getWaitHandler().waitForPresenceOfElements(getAdminPageLoadCheck(), getAdminPageLoadCheckLabel());
+		return pageManager.getPageComponent().getPageHeader(getAdminHeader(), getAdminHeaderLabel());
 	}
 
 	public boolean searchUser(String user, String status) {
-		pageManager.getVerificationHelper().isElementDisplayed(getAdminHeader(), getAdminHeaderLabel());
+		pageManager.getPageComponent().getPageHeader(getAdminHeader(), getAdminHeaderLabel());
 		pageManager.getPageComponent().typeText(getAdminSearchUserName(), user, getAdminSearchUserNameLabel());
 		pageManager.getDropDownHandler().selectDropdownOption(getAdminUserRoleDropDown(), getAdminSearchDropDownLayout(), getAdminUserRoleDropDownOptions(),
 				user, getAdminUserRoleDropDownLabel());

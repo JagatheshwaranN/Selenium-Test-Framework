@@ -6,6 +6,7 @@ import com.qa.stf.report.ExtentReportManager;
 import com.qa.stf.util.ExceptionHub;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -60,6 +61,21 @@ public class WaitHandler {
         }
         try {
             wait.until(ExpectedConditions.visibilityOf(element));
+            log.info("Element is visible: '{}'", elementLabel);
+            extentReportManager.getExtentTest().log(Status.PASS, String.format("Element is visible: '%s'", elementLabel));
+        } catch (NoSuchElementException ex) {
+            log.error("Element not found: '{}'", elementLabel, ex);
+            extentReportManager.getExtentTest().log(Status.FAIL, String.format("Element not found: '%s'", elementLabel));
+            throw new ExceptionHub.ElementNotFoundException(elementLabel, ex);
+        }
+    }
+
+    public void waitForPresenceOfElements(By locator, String elementLabel) {
+        if (locator == null) {
+            throw new ExceptionHub(elementLabel + " element is null.");
+        }
+        try {
+            wait.until(ExpectedConditions.presenceOfAllElementsLocatedBy(locator));
             log.info("Element is visible: '{}'", elementLabel);
             extentReportManager.getExtentTest().log(Status.PASS, String.format("Element is visible: '%s'", elementLabel));
         } catch (NoSuchElementException ex) {

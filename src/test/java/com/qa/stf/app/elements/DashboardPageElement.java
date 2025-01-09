@@ -3,6 +3,7 @@ package com.qa.stf.app.elements;
 import java.util.List;
 
 import com.qa.stf.base.DriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import com.qa.stf.app.objects.DashboardPageObject;
@@ -11,6 +12,14 @@ public class DashboardPageElement extends DashboardPageObject {
 
 	public DashboardPageElement(DriverManager driverManager) {
 		super(driverManager);
+	}
+
+	public By getDashboardPageLoadCheck() {
+		return dashboardPageLoadCheck;
+	}
+
+	public String getDashboardPageLoadCheckLabel() {
+		return dashboardPageLoadCheckLabel;
 	}
 
 	public WebElement getDashboardHeader() {

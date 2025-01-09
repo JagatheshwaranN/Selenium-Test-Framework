@@ -12,7 +12,7 @@ public class PageManager {
 
 	private AdminPage adminPage;
 
-	private TimePage timePage;
+	private TimesheetPage timesheetPage;
 
 	private VerificationHandler verificationHelper;
 
@@ -44,8 +44,8 @@ public class PageManager {
 		return (adminPage == null) ? adminPage = new AdminPage(DriverManager.getInstance()) : adminPage;
 	}
 
-	public TimePage getTimePage() {
-		return (timePage == null) ? timePage = new TimePage(DriverManager.getInstance()) : timePage;
+	public TimesheetPage getTimePage() {
+		return (timesheetPage == null) ? timesheetPage = new TimesheetPage(DriverManager.getInstance()) : timesheetPage;
 	}
 
 	public VerificationHandler getVerificationHelper() {

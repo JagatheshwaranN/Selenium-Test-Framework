@@ -1,24 +1,32 @@
 package com.qa.stf.app.elements;
 
-import com.qa.stf.app.objects.TimePageObject;
+import com.qa.stf.app.objects.TimesheetPageObject;
 import com.qa.stf.base.DriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.util.List;
 
-public class TimePageElement extends TimePageObject {
+public class TimesheetPageElement extends TimesheetPageObject {
 
-    public TimePageElement(DriverManager driverManager) {
+    public TimesheetPageElement(DriverManager driverManager) {
         super(driverManager);
     }
 
-    public WebElement getTimeSheetHeader() {
-        return timeSheetHeader;
+    public By getTimesheetPageLoadCheck() {
+        return timesheetPageLoadCheck;
     }
 
-    public String getTimeSheetHeaderLabel() {
-        return timeSheetHeaderLabel;
+    public String getTimesheetPageLoadCheckLabel() {
+        return timesheetPageLoadCheckLabel;
+    }
+
+    public WebElement getTimesheetHeader() {
+        return timesheetHeader;
+    }
+
+    public String getTimesheetHeaderLabel() {
+        return timesheetHeaderLabel;
     }
 
     public WebElement getAttendanceTopNavDropDown() {
@@ -43,6 +51,22 @@ public class TimePageElement extends TimePageObject {
 
     public String getAttendanceTopNavDropDownOptionsLabel() {
         return attendanceTopNavDropDownOptionsLabel;
+    }
+
+    public By getPunchInSectionLoadCheck() {
+        return punchInSectionLoadCheck;
+    }
+
+    public String getPunchInSectionLoadCheckLabel() {
+        return punchInSectionLoadCheckLabel;
+    }
+
+    public By getPunchOutSectionLoadCheck() {
+        return punchOutSectionLoadCheck;
+    }
+
+    public String getPunchOutSectionLoadCheckLabel() {
+        return punchOutSectionLoadCheckLabel;
     }
 
     public WebElement getPunchInOutSectionHeader() {
@@ -163,6 +187,14 @@ public class TimePageElement extends TimePageObject {
 
     public String getSubmitButtonLabel() {
         return submitButtonLabel;
+    }
+
+    public By getEmployeeAttendanceSectionLoadCheck() {
+        return employeeAttendanceSectionLoadCheck;
+    }
+
+    public String getEmployeeAttendanceSectionLoadCheckLabel() {
+        return employeeAttendanceSectionLoadCheckLabel;
     }
 
     public WebElement getEmployeeAttendanceRecordsHeader() {

@@ -14,8 +14,9 @@ public class DashboardPage extends DashboardPageElement {
 		super(driverManager);
 	}
 
-	public boolean verifyDashboardPageHeader() {
-		return pageManager.getVerificationHelper().isElementDisplayed(getDashboardHeader(), getDashboardHeaderLabel());
+	public String verifyDashboardPageHeader() {
+		pageManager.getWaitHandler().waitForPresenceOfElements(getDashboardPageLoadCheck(), getDashboardPageLoadCheckLabel());
+		return pageManager.getPageComponent().getPageHeader(getDashboardHeader(), getDashboardHeaderLabel());
 	}
 
 	public void userDropDown() {

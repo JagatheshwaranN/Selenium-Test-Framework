@@ -11,8 +11,12 @@ public class LoginPage extends LoginPageElement {
 		super(driverManager);
 	}
 
+	public String verifyLoginPageHeader() {
+		pageManager.getWaitHandler().waitForPresenceOfElements(getLoginPageLoadCheck(), getLoginPageLoadCheckLabel());
+		return pageManager.getPageComponent().getPageHeader(getLoginHeader(), getLoginHeaderLabel());
+	}
+
 	public void doLogin(String username, String password) {
-		pageManager.getPageComponent().getPageHeader(getLoginHeader(), getLoginHeaderLabel());
 		pageManager.getPageComponent().typeText(getUserName(), username, getUserNameLabel());
 		pageManager.getPageComponent().typeText(getPassWord(), password, getPassWordLabel());
 		pageManager.getPageComponent().clickElement(getLogin(), getLoginLabel());

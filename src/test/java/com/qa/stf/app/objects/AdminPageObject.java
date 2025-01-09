@@ -3,6 +3,7 @@ package com.qa.stf.app.objects;
 import java.util.List;
 
 import com.qa.stf.base.DriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -13,7 +14,10 @@ public class AdminPageObject {
         PageFactory.initElements(driverManager.getDriver(), this);
     }
 
-    @FindBy(css = ".oxd-topbar-header-breadcrumb")
+    protected By adminPageLoadCheck = By.xpath("//div[contains(@class,'oxd-grid-item')]");
+    protected String adminPageLoadCheckLabel = "Admin Page Load";
+
+    @FindBy(css = ".oxd-topbar-header-breadcrumb > h6:nth-child(1)")
     protected WebElement adminHeader;
     protected String adminHeaderLabel = "AdminHeader";
 

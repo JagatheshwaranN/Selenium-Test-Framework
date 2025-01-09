@@ -1,6 +1,7 @@
 package com.qa.stf.app.objects;
 
 import com.qa.stf.base.DriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
 import org.openqa.selenium.support.FindBy;
@@ -11,6 +12,9 @@ public class LoginPageObject {
 	public LoginPageObject(DriverManager driverManager) {
         PageFactory.initElements(driverManager.getDriver(), this);
 	}
+
+	protected By loginPageLoadCheck = By.xpath("//input");
+	protected String loginPageLoadCheckLabel = "Login Page Load";
 
 	@FindBy(xpath = "//h5[contains(@class,'rangehrm-login-title')]")
 	protected WebElement loginHeader;

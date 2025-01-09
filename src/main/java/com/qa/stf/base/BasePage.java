@@ -274,5 +274,27 @@ public class BasePage extends Page implements ElementActions {
         }
     }
 
+    /**
+     * Types the specified text in sequence into the element.
+     * <p>
+     * This method checks if the given element is displayed and, if so, types the
+     * provided text sequentially into it. If the text is not null, the {@code sendKeys()}
+     * method is used to enter the text into the element.
+     * </p>
+     *
+     * @param element      The WebElement to type the text into.
+     * @param text         The text to be entered into the element.
+     * @param elementLabel The label or description of the element.
+     */
+    public void typeTextInSequence(WebElement element, String text, String elementLabel) {
+        if (text != null) {
+            for(char ch : text.toCharArray()){
+                element.sendKeys(String.valueOf(ch));
+            }
+            log.info("Entered '{}' text into the '{}' element", text, elementLabel);
+            extentReportManager.getExtentTest().log(Status.PASS, String.format("Entered '%s' text into the '%s' element", text, elementLabel));
+        }
+    }
+
 }
 

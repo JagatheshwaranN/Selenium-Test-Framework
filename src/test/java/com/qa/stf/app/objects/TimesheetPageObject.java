@@ -8,15 +8,18 @@ import org.openqa.selenium.support.PageFactory;
 
 import java.util.List;
 
-public class TimePageObject {
+public class TimesheetPageObject {
 
-    public TimePageObject(DriverManager driverManager) {
+    public TimesheetPageObject(DriverManager driverManager) {
         PageFactory.initElements(driverManager.getDriver(), this);
     }
 
-    @FindBy(xpath = "//div[@class='oxd-topbar-header-title']//span")
-    protected WebElement timeSheetHeader;
-    protected String timeSheetHeaderLabel = "TimeSheets Header";
+    protected By timesheetPageLoadCheck = By.cssSelector(".oxd-topbar-body-nav-tab-item");
+    protected String timesheetPageLoadCheckLabel = "Timesheet Page Load";
+
+    @FindBy(css = ".oxd-topbar-header-breadcrumb > h6:nth-child(1)")
+    protected WebElement timesheetHeader;
+    protected String timesheetHeaderLabel = "TimeSheets Header";
 
     @FindBy(xpath = "//nav[@class='oxd-topbar-body-nav']//li//span[contains(text(),'Attendance')]")
     protected WebElement attendanceTopNavDropDown;
@@ -29,6 +32,12 @@ public class TimePageObject {
     @FindBy(xpath = "//ul[@class='oxd-dropdown-menu']//li")
     protected List<WebElement> attendanceTopNavDropDownOptions;
     protected String attendanceTopNavDropDownOptionsLabel = "Attendance Dropdown Options";
+
+    protected By punchInSectionLoadCheck = By.xpath("//div[contains(@class,'oxd-grid-item')]");
+    protected String punchInSectionLoadCheckLabel = "Punch In Section Load";
+
+    protected By punchOutSectionLoadCheck = By.xpath("//div[contains(@class,'oxd-grid-item')]");
+    protected String punchOutSectionLoadCheckLabel = "Punch Out Section Load";
 
     @FindBy(xpath = "//h6[@class='oxd-text oxd-text--h6 orangehrm-main-title']")
     protected WebElement punchInOutSectionHeader;
@@ -88,6 +97,9 @@ public class TimePageObject {
     @FindBy(xpath = "//button[@class='oxd-button oxd-button--medium oxd-button--secondary orangehrm-left-space']")
     protected WebElement submitButton;
     protected String submitButtonLabel = "PunchIn/Out Button";
+
+    protected By employeeAttendanceSectionLoadCheck  = By.xpath("//div[contains(@class,'oxd-grid-item')]");
+    protected String employeeAttendanceSectionLoadCheckLabel = "Employee Attendance Section Load";
 
     @FindBy(xpath = "//h5[@class='oxd-text oxd-text--h5 oxd-table-filter-title']")
     protected WebElement employeeAttendanceRecordsHeader;

@@ -3,6 +3,7 @@ package com.qa.stf.app.elements;
 import java.util.List;
 
 import com.qa.stf.base.DriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import com.qa.stf.app.objects.AdminPageObject;
@@ -11,6 +12,14 @@ public class AdminPageElement extends AdminPageObject {
 
 	public AdminPageElement(DriverManager driverManager) {
 		super(driverManager);
+	}
+
+	public By getAdminPageLoadCheck() {
+		return adminPageLoadCheck;
+	}
+
+	public String getAdminPageLoadCheckLabel() {
+		return adminPageLoadCheckLabel;
 	}
 
 	public WebElement getAdminHeader() {

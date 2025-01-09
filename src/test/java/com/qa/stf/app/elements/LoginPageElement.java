@@ -1,6 +1,7 @@
 package com.qa.stf.app.elements;
 
 import com.qa.stf.base.DriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import com.qa.stf.app.objects.LoginPageObject;
@@ -9,6 +10,14 @@ public class LoginPageElement extends LoginPageObject {
 
 	public LoginPageElement(DriverManager driverManager) {
 		super(driverManager);
+	}
+
+	public By getLoginPageLoadCheck() {
+		return loginPageLoadCheck;
+	}
+
+	public String getLoginPageLoadCheckLabel() {
+		return loginPageLoadCheckLabel;
 	}
 
 	public WebElement getLoginHeader() {

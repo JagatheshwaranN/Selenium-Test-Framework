@@ -1,6 +1,7 @@
 package com.qa.stf.app.objects;
 
 import com.qa.stf.base.DriverManager;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.FindBys;
@@ -13,6 +14,9 @@ public class DashboardPageObject {
 	public DashboardPageObject(DriverManager driverManager) {
 		PageFactory.initElements(driverManager.getDriver(), this);
 	}
+
+	protected By dashboardPageLoadCheck = By.cssSelector(".oxd-main-menu-item");
+	protected String dashboardPageLoadCheckLabel = "Dashboard Page Load";
 
 	@FindBy(xpath = "//div[@class='oxd-topbar-header-title']//span//h6")
 	protected WebElement dashboardHeader;
