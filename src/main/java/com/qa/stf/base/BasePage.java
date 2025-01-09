@@ -1,22 +1,12 @@
 package com.qa.stf.base;
 
-import java.time.Duration;
-import java.util.Objects;
-import java.util.concurrent.TimeUnit;
-
 import com.aventstack.extentreports.Status;
-import com.google.common.util.concurrent.Uninterruptibles;
+import com.qa.stf.handler.WaitHandler;
 import com.qa.stf.report.ExtentReportManager;
 import com.qa.stf.util.ExceptionHub;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.FluentWait;
-import org.openqa.selenium.support.ui.Wait;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import static com.qa.stf.constant.TestConstants.*;
 
 /**
  * The BasePage class serves as a foundational class for interacting with
@@ -61,7 +51,7 @@ import static com.qa.stf.constant.TestConstants.*;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.4
+ * @version 1.5
  */
 public class BasePage extends Page implements ElementActions {
 
@@ -74,8 +64,6 @@ public class BasePage extends Page implements ElementActions {
     // Instance of ExtentReportManager to manage the extent report
     protected ExtentReportManager extentReportManager;
 
-    // Instance of WebDriverWait to handle waiting for elements to appear on the page
-    protected WebDriverWait wait;
 
     /**
      * Constructs a BasePage instance and initializes the WebDriver and WebDriverWait.
@@ -95,8 +83,6 @@ public class BasePage extends Page implements ElementActions {
         }
         this.driverManager = driverManager;
         extentReportManager = ExtentReportManager.getInstance();
-        this.wait = new WebDriverWait(driverManager.getDriver(),
-                Duration.ofSeconds(EXPLICIT_WAIT_TIME));
     }
 
     /**
@@ -147,55 +133,11 @@ public class BasePage extends Page implements ElementActions {
      */
     @Override
     public String getPageHeader(WebElement element, String elementLabel) {
-        waitForElementVisible(element, elementLabel);
+        new WaitHandler(DriverManager.getInstance()).waitForElementVisible(element, elementLabel);
         String headerText = element.getText();
         log.info("Page header retrieved for '{}': '{}'", elementLabel, headerText);
         extentReportManager.getExtentTest().log(Status.PASS, String.format("Page header retrieved for '%s': '%s'", elementLabel, headerText));
         return headerText;
-    }
-
-    /**
-     * Waits for the specified element to be visible on the page.
-     * <p>
-     * This method waits until the given element becomes visible. If the element
-     * is not visible within the specified timeout, an exception is thrown.
-     * </p>
-     *
-     * @param element      The WebElement to wait for.
-     * @param elementLabel The label or description of the element.
-     * @throws ExceptionHub.ElementNotFoundException if the element is not found
-     *                                               within the timeout.
-     */
-    @Override
-    public void waitForElementVisible(WebElement element, String elementLabel) {
-        if (!isElementNotNull(element, elementLabel)) {
-            throw new ExceptionHub(elementLabel + " element is null.");
-        }
-        try {
-            wait.until(ExpectedConditions.visibilityOf(element));
-            log.info("Element is visible: '{}'", elementLabel);
-            extentReportManager.getExtentTest().log(Status.PASS, String.format("Element is visible: '%s'", elementLabel));
-        } catch (NoSuchElementException ex) {
-            log.error("Element not found: '{}'", elementLabel, ex);
-            extentReportManager.getExtentTest().log(Status.FAIL, String.format("Element not found: '%s'", elementLabel));
-            throw new ExceptionHub.ElementNotFoundException(elementLabel, ex);
-        }
-    }
-
-    /**
-     * Waits for the page title to contain the specified string.
-     * <p>
-     * This method waits until the title of the page contains the specified
-     * string. The page title is logged for informational purposes.
-     * </p>
-     *
-     * @param title The title or part of the title to wait for.
-     */
-    @Override
-    public void waitForPageTitle(String title) {
-        wait.until(ExpectedConditions.titleContains(title));
-        log.info("Page title contains: '{}'", title);
-        extentReportManager.getExtentTest().log(Status.PASS, String.format("Page title contains: '%s'", title));
     }
 
     /**
@@ -331,66 +273,6 @@ public class BasePage extends Page implements ElementActions {
             extentReportManager.getExtentTest().log(Status.PASS, String.format("Entered '%s' text into the '%s' element", text, elementLabel));
         }
     }
-
-    /**
-     * Checks if the element is not null and logs an error if it is.
-     * <p>
-     * This method ensures that a given web element is not null. If the element is
-     * null, it logs an error and returns false.
-     * </p>
-     *
-     * @param element      The WebElement to check.
-     * @param elementLabel The label for logging purposes.
-     * @return true if the element is not null, false otherwise.
-     */
-    @SuppressWarnings("BooleanMethodIsAlwaysInverted")
-    private boolean isElementNotNull(WebElement element, String elementLabel) {
-        if (element == null) {
-            log.error("The '{}' element is null.", elementLabel);
-            extentReportManager.getExtentTest().log(Status.FAIL, String.format("The '%s' element is null.", elementLabel));
-            return false;
-        }
-        return true;
-    }
-
-    /**
-     * Pauses the execution for 5 seconds.
-     * <p>
-     * This method uses the Uninterruptibles.sleepUninterruptibly method to make the
-     * current thread sleep for 5 seconds without being interrupted.
-     * </p>
-     */
-    public void waitForSeconds() {
-        synchronized (DriverManager.getInstance().getDriver()) {
-            try {
-                DriverManager.getInstance().getDriver().wait(WAIT_TIME);
-            } catch (InterruptedException ex) {
-                throw new RuntimeException(ex);
-            }
-        }
-
-    }
-
-    public void waitForDOMToBeStable() {
-        String initialDom = driverManager.getDriver().getPageSource();
-        wait.until(driver -> !Objects.equals(driver.getPageSource(), initialDom));
-    }
-
-    public void waitForElementClickable(WebElement element, String elementLabel) {
-        if (!isElementNotNull(element, elementLabel)) {
-            throw new ExceptionHub(elementLabel + " element is null.");
-        }
-        try {
-            wait.until(ExpectedConditions.elementToBeClickable(element));
-            log.info("Element is visible: '{}'", elementLabel);
-            extentReportManager.getExtentTest().log(Status.PASS, String.format("Element is visible: '%s'", elementLabel));
-        } catch (NoSuchElementException ex) {
-            log.error("Element not found: '{}'", elementLabel, ex);
-            extentReportManager.getExtentTest().log(Status.FAIL, String.format("Element not found: '%s'", elementLabel));
-            throw new ExceptionHub.ElementNotFoundException(elementLabel, ex);
-        }
-    }
-
 
 }
 

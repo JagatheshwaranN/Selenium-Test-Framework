@@ -24,7 +24,7 @@ public class TimePage extends TimePageElement {
 
     public void addPunchInDetail() {
         pageManager.getVerificationHelper().isTextEqualTo(getPunchInOutSectionHeader(), TIMESHEET_PAGE_PUNCH_IN_HEADER, getPunchInOutSectionHeaderLabel());
-        pageManager.getPageComponent().waitForDOMToBeStable();
+        pageManager.getWaitHandler().waitForDOMToBeStable();
         pageManager.getDatePickerHandler().selectDateFromDatePicker(getDatePicker(), getDatePickerDetailSection(),
                 getMonthDetail(), getYearDetail(), getMonthNavigator(), getDayOfMonth(),
                 "14", "February", "2025", getDatePickerDetailSectionLabel());
@@ -38,8 +38,8 @@ public class TimePage extends TimePageElement {
 
     public void addPunchOutDetail() {
         pageManager.getVerificationHelper().isTextEqualTo(getPunchInOutSectionHeader(), TIMESHEET_PAGE_PUNCH_OUT_HEADER, getPunchInOutSectionHeaderLabel());
-        pageManager.getPageComponent().waitForDOMToBeStable();
-        pageManager.getPageComponent().waitForSeconds();
+        pageManager.getWaitHandler().waitForDOMToBeStable();
+        pageManager.getWaitHandler().waitForSeconds();
         pageManager.getDatePickerHandler().selectDateFromDatePicker(getDatePicker(), getDatePickerDetailSection(),
                 getMonthDetail(), getYearDetail(), getMonthNavigator(), getDayOfMonth(),
                 "14", "February", "2025", getDatePickerDetailSectionLabel());
@@ -49,8 +49,8 @@ public class TimePage extends TimePageElement {
         pageManager.getPageComponent().clickElement(getTimePickerPMInput(), getTimePickerPMInputLabel());
         pageManager.getPageComponent().typeText(getNoteSection(), "Attendance", getNoteSectionLabel());
         pageManager.getPageComponent().clickElement(getSubmitButton(), getSubmitButtonLabel());
-        pageManager.getPageComponent().waitForDOMToBeStable();
-        pageManager.getPageComponent().waitForSeconds();
+        pageManager.getWaitHandler().waitForDOMToBeStable();
+        pageManager.getWaitHandler().waitForSeconds();
     }
 
     public void navigateToEmployeeRecordsSection() {
@@ -58,7 +58,7 @@ public class TimePage extends TimePageElement {
     }
 
     public boolean searchEmployeeAttendanceRecord(String userName) {
-        pageManager.getPageComponent().waitForDOMToBeStable();
+        pageManager.getWaitHandler().waitForDOMToBeStable();
         pageManager.getVerificationHelper().isElementDisplayed(getEmployeeAttendanceRecordsHeader(), getEmployeeAttendanceRecordsHeaderLabel());
         pageManager.getPageComponent().typeText(getEmployeeNameInput(), userName, getEmployeeNameInputLabel());
         pageManager.getVerificationHelper().isElementDisplayed(getEmployeeNameSuggestion(), getEmployeeNameSuggestionLabel());

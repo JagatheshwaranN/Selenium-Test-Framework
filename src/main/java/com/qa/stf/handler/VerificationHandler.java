@@ -56,7 +56,7 @@ import java.util.Objects;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.2
+ * @version 1.3
  */
 public class VerificationHandler {
 
@@ -93,8 +93,7 @@ public class VerificationHandler {
      *                                               inaccessible.
      */
     public boolean isElementDisplayed(WebElement element, String elementLabel) {
-        BasePage page = new BasePage(DriverManager.getInstance());
-        page.waitForElementVisible(element, elementLabel);
+        new WaitHandler(DriverManager.getInstance()).waitForElementVisible(element, elementLabel);
         try {
             return element.isDisplayed();
         } catch (NoSuchElementException | StaleElementReferenceException ex) {

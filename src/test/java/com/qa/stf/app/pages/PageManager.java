@@ -24,6 +24,8 @@ public class PageManager {
 
 	private JavaScriptHandler javaScriptHandler;
 
+	private WaitHandler waitHandler;
+
 	private BasePage basePage;
 
 	public BasePage getPageComponent() {
@@ -64,6 +66,10 @@ public class PageManager {
 
 	public JavaScriptHandler getJavaScriptHandler() {
 		return (javaScriptHandler == null) ? javaScriptHandler = new JavaScriptHandler(DriverManager.getInstance(), new VerificationHandler()) : javaScriptHandler;
+	}
+
+	public WaitHandler getWaitHandler() {
+		return (waitHandler == null) ? waitHandler = new WaitHandler(DriverManager.getInstance()) : waitHandler;
 	}
 
 }

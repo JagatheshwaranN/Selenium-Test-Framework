@@ -2,7 +2,6 @@ package com.qa.stf.handler;
 
 import com.qa.stf.base.DriverManager;
 import com.qa.stf.report.ExtentReportManager;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
@@ -10,6 +9,8 @@ import org.openqa.selenium.WebElement;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+
+// version 1.2
 
 public class DatePickerHandler {
 

@@ -38,14 +38,14 @@ public abstract class Page {
 	 * @param element the {@link WebElement} to wait for
 	 * @param label a descriptive label for the element (used for logging or reporting)
 	 */
-	public abstract void waitForElementVisible(WebElement element, String label);
+	// public abstract void waitForElementVisible(WebElement element, String label);
 
 	/**
 	 * Waits until the page title matches the specified title.
 	 *
 	 * @param title the expected title of the page
 	 */
-	public abstract void waitForPageTitle(String title);
+	// public abstract void waitForPageTitle(String title);
 
 	/**
 	 * Generates a web element based on the specified locator.

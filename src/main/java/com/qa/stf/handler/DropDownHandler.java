@@ -166,7 +166,7 @@ public class DropDownHandler {
         try {
             if (verificationHandler.isElementDisplayed(dropdown, elementLabel)) {
                 dropdown.click();
-                new BasePage(DriverManager.getInstance()).waitForElementVisible(dropdownLayout, elementLabel);
+                new WaitHandler(DriverManager.getInstance()).waitForElementVisible(dropdownLayout, elementLabel);
                 WebElement option = optionsList.stream()
                         .filter(opt -> opt.getText().equalsIgnoreCase(value))
                         .findFirst()

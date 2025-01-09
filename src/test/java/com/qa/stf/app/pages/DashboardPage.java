@@ -27,7 +27,7 @@ public class DashboardPage extends DashboardPageElement {
 		return pageManager.getVerificationHelper().readTextValueFromElement(getUserName(), getUserNameLabel());
 	}
 
-	public void pfDoLogout() {
+	public void logout() {
 		userDropDown();
 		pageManager.getPageComponent().clickElement(getLogout(), getLogoutLabel());
 	}
