@@ -4032,3 +4032,1457 @@
 [ERROR] 2025-01-09 19:37:34.963 [TestNG-tests-1] TestListener - Test Failed: 'TimePageTest'
 [INFO ] 2025-01-09 19:37:35.354 [TestNG-tests-1] TestListener - Test Context finished: 'TimePageTest'
 [INFO ] 2025-01-09 19:37:36.602 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-09 20:05:05.740 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-09 20:05:05.770 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-09 20:05:05.778 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_09_01_2025_08_05_05.html'
+[INFO ] 2025-01-09 20:05:05.803 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_09_01_2025_08_05_05.html'
+[INFO ] 2025-01-09 20:05:06.106 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 20:05:06.106 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-09 20:05:06.106 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-09 20:05:06.107 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-09 20:05:06.127 [TestNG-tests-1] TestListener - Test Context started: 'TimePageTest'
+[INFO ] 2025-01-09 20:05:06.167 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' found in the workbook.
+[INFO ] 2025-01-09 20:05:06.168 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' has '3' columns.
+[INFO ] 2025-01-09 20:05:06.182 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'timePageTest'. Total rows: '1'
+[INFO ] 2025-01-09 20:05:06.232 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-09 20:05:06.232 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-09 20:05:06.232 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 20:05:06.233 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-09 20:05:06.233 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-09 20:05:09.222 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-09 20:05:11.946 [TestNG-tests-1] DataSupplier - The 'timePageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-09 20:05:13.949 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-09 20:05:13.967 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-09 20:05:14.564 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Page Load'
+[INFO ] 2025-01-09 20:05:14.622 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Header'
+[INFO ] 2025-01-09 20:05:14.662 [TestNG-tests-1] BasePage - Page header retrieved for 'Login Header': 'Login'
+[INFO ] 2025-01-09 20:05:14.788 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-09 20:05:14.934 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2025-01-09 20:05:16.464 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-09 20:05:17.050 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Page Load'
+[INFO ] 2025-01-09 20:05:17.101 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Header'
+[INFO ] 2025-01-09 20:05:17.133 [TestNG-tests-1] BasePage - Page header retrieved for 'Dashboard Header': 'Dashboard'
+[INFO ] 2025-01-09 20:05:18.315 [TestNG-tests-1] BasePage - Clicked the 'AdminSection' element
+[INFO ] 2025-01-09 20:05:18.926 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Timesheet Page Load'
+[INFO ] 2025-01-09 20:05:18.980 [TestNG-tests-1] DatePickerHandler - Element is visible: 'TimeSheets Header'
+[INFO ] 2025-01-09 20:05:19.014 [TestNG-tests-1] BasePage - Page header retrieved for 'TimeSheets Header': 'Time'
+[INFO ] 2025-01-09 20:05:19.056 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 20:05:19.900 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 20:05:20.681 [TestNG-tests-1] DropDownHandler - The option 'Punch In/Out' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 20:05:21.300 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In Section Load'
+[INFO ] 2025-01-09 20:05:21.363 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 20:05:22.321 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 20:05:22.491 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 20:05:22.725 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 20:05:22.925 [TestNG-tests-1] BasePage - Clicked the 'Time Input' element
+[INFO ] 2025-01-09 20:05:22.978 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Hour Input'
+[INFO ] 2025-01-09 20:05:23.164 [TestNG-tests-1] InteractionHandler - Cleared the content of 'Hour Input' element using Actions
+[INFO ] 2025-01-09 20:05:23.276 [TestNG-tests-1] BasePage - Entered '08' text into the 'Hour Input' element
+[INFO ] 2025-01-09 20:05:23.441 [TestNG-tests-1] BasePage - Clicked the 'PM Button' element
+[INFO ] 2025-01-09 20:05:23.577 [TestNG-tests-1] BasePage - Entered 'Attendance' text into the 'Note Section' element
+[INFO ] 2025-01-09 20:05:23.711 [TestNG-tests-1] BasePage - Clicked the 'PunchIn/Out Button' element
+[INFO ] 2025-01-09 20:05:23.732 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch Out Section Load'
+[INFO ] 2025-01-09 20:05:23.773 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 20:05:26.539 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\09_01_2025_08_05_26_c24f2d28-bba2-4abc-bbd5-affbfd507948.png'
+[ERROR] 2025-01-09 20:05:26.731 [TestNG-tests-1] TestListener - Test Failed: 'TimePageTest'
+[INFO ] 2025-01-09 20:05:27.099 [TestNG-tests-1] TestListener - Test Context finished: 'TimePageTest'
+[INFO ] 2025-01-09 20:05:28.424 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-09 20:11:03.082 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-09 20:11:03.109 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-09 20:11:03.118 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_09_01_2025_08_11_03.html'
+[INFO ] 2025-01-09 20:11:03.144 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_09_01_2025_08_11_03.html'
+[INFO ] 2025-01-09 20:11:03.433 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 20:11:03.433 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-09 20:11:03.434 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-09 20:11:03.434 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-09 20:11:03.452 [TestNG-tests-1] TestListener - Test Context started: 'TimePageTest'
+[INFO ] 2025-01-09 20:11:03.496 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' found in the workbook.
+[INFO ] 2025-01-09 20:11:03.497 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' has '3' columns.
+[INFO ] 2025-01-09 20:11:03.509 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'timePageTest'. Total rows: '1'
+[INFO ] 2025-01-09 20:11:03.563 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-09 20:11:03.564 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-09 20:11:03.565 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 20:11:03.566 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-09 20:11:03.566 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-09 20:11:06.441 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-09 20:11:10.507 [TestNG-tests-1] DataSupplier - The 'timePageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-09 20:11:10.519 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-09 20:11:10.536 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-09 20:11:11.120 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Page Load'
+[INFO ] 2025-01-09 20:11:11.172 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Header'
+[INFO ] 2025-01-09 20:11:11.226 [TestNG-tests-1] BasePage - Page header retrieved for 'Login Header': 'Login'
+[INFO ] 2025-01-09 20:11:11.336 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-09 20:11:11.488 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2025-01-09 20:11:11.597 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-09 20:11:13.570 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Page Load'
+[INFO ] 2025-01-09 20:11:13.620 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Header'
+[INFO ] 2025-01-09 20:11:13.649 [TestNG-tests-1] BasePage - Page header retrieved for 'Dashboard Header': 'Dashboard'
+[INFO ] 2025-01-09 20:11:14.812 [TestNG-tests-1] BasePage - Clicked the 'AdminSection' element
+[INFO ] 2025-01-09 20:11:15.394 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Timesheet Page Load'
+[INFO ] 2025-01-09 20:11:15.505 [TestNG-tests-1] DatePickerHandler - Element is visible: 'TimeSheets Header'
+[INFO ] 2025-01-09 20:11:15.590 [TestNG-tests-1] BasePage - Page header retrieved for 'TimeSheets Header': 'Time'
+[INFO ] 2025-01-09 20:11:15.664 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 20:11:16.483 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 20:11:17.298 [TestNG-tests-1] DropDownHandler - The option 'Punch In/Out' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 20:11:17.865 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In Section Load'
+[INFO ] 2025-01-09 20:11:17.901 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 20:11:17.970 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 20:11:18.863 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 20:11:19.042 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 20:11:19.251 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 20:11:19.635 [TestNG-tests-1] BasePage - Clicked the 'Time Input' element
+[INFO ] 2025-01-09 20:11:19.694 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Hour Input'
+[INFO ] 2025-01-09 20:11:19.914 [TestNG-tests-1] InteractionHandler - Cleared the content of 'Hour Input' element using Actions
+[INFO ] 2025-01-09 20:11:19.971 [TestNG-tests-1] BasePage - Entered '08' text into the 'Hour Input' element
+[INFO ] 2025-01-09 20:11:20.140 [TestNG-tests-1] BasePage - Clicked the 'PM Button' element
+[INFO ] 2025-01-09 20:11:20.252 [TestNG-tests-1] BasePage - Entered 'Attendance' text into the 'Note Section' element
+[INFO ] 2025-01-09 20:11:20.373 [TestNG-tests-1] BasePage - Clicked the 'PunchIn/Out Button' element
+[INFO ] 2025-01-09 20:11:20.388 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch Out Section Load'
+[INFO ] 2025-01-09 20:11:20.417 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 20:11:20.492 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 20:11:23.170 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\09_01_2025_08_11_22_b97c16c3-51ea-45d3-9d65-cc4e4de1bd3f.png'
+[ERROR] 2025-01-09 20:11:23.351 [TestNG-tests-1] TestListener - Test Failed: 'TimePageTest'
+[INFO ] 2025-01-09 20:11:23.707 [TestNG-tests-1] TestListener - Test Context finished: 'TimePageTest'
+[INFO ] 2025-01-09 20:11:24.848 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-09 20:15:31.059 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-09 20:15:31.084 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-09 20:15:31.092 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_09_01_2025_08_15_31.html'
+[INFO ] 2025-01-09 20:15:31.117 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_09_01_2025_08_15_31.html'
+[INFO ] 2025-01-09 20:15:31.384 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 20:15:31.386 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-09 20:15:31.386 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-09 20:15:31.386 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-09 20:15:31.414 [TestNG-tests-1] TestListener - Test Context started: 'TimePageTest'
+[INFO ] 2025-01-09 20:15:31.455 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' found in the workbook.
+[INFO ] 2025-01-09 20:15:31.456 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' has '3' columns.
+[INFO ] 2025-01-09 20:15:31.468 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'timePageTest'. Total rows: '1'
+[INFO ] 2025-01-09 20:15:31.505 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-09 20:15:31.506 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-09 20:15:31.506 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 20:15:31.506 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-09 20:15:31.506 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-09 20:15:34.001 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-09 20:15:39.037 [TestNG-tests-1] DataSupplier - The 'timePageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-09 20:15:39.051 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-09 20:15:39.067 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-09 20:15:39.679 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Page Load'
+[INFO ] 2025-01-09 20:15:39.736 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Header'
+[INFO ] 2025-01-09 20:15:39.780 [TestNG-tests-1] BasePage - Page header retrieved for 'Login Header': 'Login'
+[INFO ] 2025-01-09 20:15:39.893 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-09 20:15:40.033 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2025-01-09 20:15:41.613 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-09 20:15:42.253 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Page Load'
+[INFO ] 2025-01-09 20:15:42.311 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Header'
+[INFO ] 2025-01-09 20:15:42.345 [TestNG-tests-1] BasePage - Page header retrieved for 'Dashboard Header': 'Dashboard'
+[INFO ] 2025-01-09 20:15:43.519 [TestNG-tests-1] BasePage - Clicked the 'AdminSection' element
+[INFO ] 2025-01-09 20:15:44.094 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Timesheet Page Load'
+[INFO ] 2025-01-09 20:15:44.145 [TestNG-tests-1] DatePickerHandler - Element is visible: 'TimeSheets Header'
+[INFO ] 2025-01-09 20:15:44.209 [TestNG-tests-1] BasePage - Page header retrieved for 'TimeSheets Header': 'Time'
+[INFO ] 2025-01-09 20:15:44.265 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 20:15:45.163 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 20:15:45.889 [TestNG-tests-1] DropDownHandler - The option 'Punch In/Out' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 20:15:46.486 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In Section Load'
+[INFO ] 2025-01-09 20:15:46.525 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 20:15:46.595 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 20:15:47.534 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 20:15:47.690 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 20:15:47.887 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 20:15:48.153 [TestNG-tests-1] BasePage - Clicked the 'Time Input' element
+[INFO ] 2025-01-09 20:15:48.206 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Hour Input'
+[INFO ] 2025-01-09 20:15:48.391 [TestNG-tests-1] InteractionHandler - Cleared the content of 'Hour Input' element using Actions
+[INFO ] 2025-01-09 20:15:48.467 [TestNG-tests-1] BasePage - Entered '08' text into the 'Hour Input' element
+[INFO ] 2025-01-09 20:15:48.651 [TestNG-tests-1] BasePage - Clicked the 'PM Button' element
+[INFO ] 2025-01-09 20:15:48.765 [TestNG-tests-1] BasePage - Entered 'Attendance' text into the 'Note Section' element
+[INFO ] 2025-01-09 20:15:48.898 [TestNG-tests-1] BasePage - Clicked the 'PunchIn/Out Button' element
+[INFO ] 2025-01-09 20:15:50.804 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch Out Section Load'
+[INFO ] 2025-01-09 20:15:50.843 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 20:15:50.944 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 20:15:54.025 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\09_01_2025_08_15_52_6a8e21b4-e1e1-4e2b-965c-58efc9830912.png'
+[ERROR] 2025-01-09 20:15:54.254 [TestNG-tests-1] TestListener - Test Failed: 'TimePageTest'
+[INFO ] 2025-01-09 20:15:54.648 [TestNG-tests-1] TestListener - Test Context finished: 'TimePageTest'
+[INFO ] 2025-01-09 20:15:56.008 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-09 20:19:39.367 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-09 20:19:39.393 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-09 20:19:39.403 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_09_01_2025_08_19_39.html'
+[INFO ] 2025-01-09 20:19:39.424 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_09_01_2025_08_19_39.html'
+[INFO ] 2025-01-09 20:19:39.697 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 20:19:39.697 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-09 20:19:39.697 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-09 20:19:39.698 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-09 20:19:39.717 [TestNG-tests-1] TestListener - Test Context started: 'TimePageTest'
+[INFO ] 2025-01-09 20:19:39.759 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' found in the workbook.
+[INFO ] 2025-01-09 20:19:39.759 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' has '3' columns.
+[INFO ] 2025-01-09 20:19:39.771 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'timePageTest'. Total rows: '1'
+[INFO ] 2025-01-09 20:19:39.808 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-09 20:19:39.808 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-09 20:19:39.809 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 20:19:39.809 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-09 20:19:39.809 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-09 20:19:43.004 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-09 20:19:49.181 [TestNG-tests-1] DataSupplier - The 'timePageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-09 20:19:49.196 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-09 20:19:49.215 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-09 20:19:50.370 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Page Load'
+[INFO ] 2025-01-09 20:19:50.429 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Header'
+[INFO ] 2025-01-09 20:19:50.488 [TestNG-tests-1] BasePage - Page header retrieved for 'Login Header': 'Login'
+[INFO ] 2025-01-09 20:19:50.590 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-09 20:19:50.708 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2025-01-09 20:19:50.834 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-09 20:19:52.973 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Page Load'
+[INFO ] 2025-01-09 20:19:53.019 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Header'
+[INFO ] 2025-01-09 20:19:53.048 [TestNG-tests-1] BasePage - Page header retrieved for 'Dashboard Header': 'Dashboard'
+[INFO ] 2025-01-09 20:19:54.391 [TestNG-tests-1] BasePage - Clicked the 'AdminSection' element
+[INFO ] 2025-01-09 20:19:54.993 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Timesheet Page Load'
+[INFO ] 2025-01-09 20:19:55.052 [TestNG-tests-1] DatePickerHandler - Element is visible: 'TimeSheets Header'
+[INFO ] 2025-01-09 20:19:55.091 [TestNG-tests-1] BasePage - Page header retrieved for 'TimeSheets Header': 'Time'
+[INFO ] 2025-01-09 20:19:55.134 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 20:19:55.974 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 20:19:56.674 [TestNG-tests-1] DropDownHandler - The option 'Punch In/Out' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 20:19:57.264 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In Section Load'
+[INFO ] 2025-01-09 20:19:57.302 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 20:20:07.823 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\09_01_2025_08_20_07_67a7fef8-dbbd-41f1-96d0-3cf0e0bd497c.png'
+[ERROR] 2025-01-09 20:20:07.975 [TestNG-tests-1] TestListener - Test Failed: 'TimePageTest'
+[INFO ] 2025-01-09 20:20:08.406 [TestNG-tests-1] TestListener - Test Context finished: 'TimePageTest'
+[INFO ] 2025-01-09 20:20:09.759 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-09 20:21:41.291 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-09 20:21:41.325 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-09 20:21:41.331 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_09_01_2025_08_21_41.html'
+[INFO ] 2025-01-09 20:21:41.352 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_09_01_2025_08_21_41.html'
+[INFO ] 2025-01-09 20:21:41.643 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 20:21:41.643 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-09 20:21:41.643 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-09 20:21:41.646 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-09 20:21:41.665 [TestNG-tests-1] TestListener - Test Context started: 'TimePageTest'
+[INFO ] 2025-01-09 20:21:41.700 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' found in the workbook.
+[INFO ] 2025-01-09 20:21:41.700 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' has '3' columns.
+[INFO ] 2025-01-09 20:21:41.714 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'timePageTest'. Total rows: '1'
+[INFO ] 2025-01-09 20:21:41.762 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-09 20:21:41.762 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-09 20:21:41.762 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 20:21:41.763 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-09 20:21:41.763 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-09 20:21:45.242 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-09 20:21:49.328 [TestNG-tests-1] DataSupplier - The 'timePageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-09 20:21:49.345 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-09 20:21:49.363 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-09 20:21:49.965 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Page Load'
+[INFO ] 2025-01-09 20:21:50.030 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Header'
+[INFO ] 2025-01-09 20:21:50.080 [TestNG-tests-1] BasePage - Page header retrieved for 'Login Header': 'Login'
+[INFO ] 2025-01-09 20:21:50.198 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-09 20:21:50.371 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2025-01-09 20:21:50.488 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-09 20:21:52.505 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Page Load'
+[INFO ] 2025-01-09 20:21:52.549 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Header'
+[INFO ] 2025-01-09 20:21:52.579 [TestNG-tests-1] BasePage - Page header retrieved for 'Dashboard Header': 'Dashboard'
+[INFO ] 2025-01-09 20:21:53.868 [TestNG-tests-1] BasePage - Clicked the 'AdminSection' element
+[INFO ] 2025-01-09 20:21:54.471 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Timesheet Page Load'
+[INFO ] 2025-01-09 20:21:54.513 [TestNG-tests-1] DatePickerHandler - Element is visible: 'TimeSheets Header'
+[INFO ] 2025-01-09 20:21:54.560 [TestNG-tests-1] BasePage - Page header retrieved for 'TimeSheets Header': 'Time'
+[INFO ] 2025-01-09 20:21:54.616 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 20:21:55.458 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 20:21:56.237 [TestNG-tests-1] DropDownHandler - The option 'Punch In/Out' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 20:21:56.790 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In Section Load'
+[INFO ] 2025-01-09 20:21:56.826 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 20:22:07.235 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\09_01_2025_08_22_07_4f78baf1-429e-4694-b4e5-ca08b5881605.png'
+[ERROR] 2025-01-09 20:22:07.375 [TestNG-tests-1] TestListener - Test Failed: 'TimePageTest'
+[INFO ] 2025-01-09 20:22:09.795 [TestNG-tests-1] TestListener - Test Context finished: 'TimePageTest'
+[INFO ] 2025-01-09 20:22:10.380 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-09 20:22:47.764 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-09 20:22:47.796 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-09 20:22:47.804 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_09_01_2025_08_22_47.html'
+[INFO ] 2025-01-09 20:22:47.831 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_09_01_2025_08_22_47.html'
+[INFO ] 2025-01-09 20:22:48.114 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 20:22:48.115 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-09 20:22:48.115 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-09 20:22:48.115 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-09 20:22:48.131 [TestNG-tests-1] TestListener - Test Context started: 'TimePageTest'
+[INFO ] 2025-01-09 20:22:48.168 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' found in the workbook.
+[INFO ] 2025-01-09 20:22:48.168 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' has '3' columns.
+[INFO ] 2025-01-09 20:22:48.175 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'timePageTest'. Total rows: '1'
+[INFO ] 2025-01-09 20:22:48.212 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-09 20:22:48.212 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-09 20:22:48.212 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 20:22:48.212 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-09 20:22:48.212 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-09 20:22:50.942 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-09 20:22:56.852 [TestNG-tests-1] DataSupplier - The 'timePageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-09 20:22:56.866 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-09 20:22:56.881 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-09 20:22:57.502 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Page Load'
+[INFO ] 2025-01-09 20:22:57.560 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Header'
+[INFO ] 2025-01-09 20:22:57.623 [TestNG-tests-1] BasePage - Page header retrieved for 'Login Header': 'Login'
+[INFO ] 2025-01-09 20:22:57.747 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-09 20:22:57.867 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2025-01-09 20:22:57.992 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-09 20:23:00.008 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Page Load'
+[INFO ] 2025-01-09 20:23:00.065 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Header'
+[INFO ] 2025-01-09 20:23:00.095 [TestNG-tests-1] BasePage - Page header retrieved for 'Dashboard Header': 'Dashboard'
+[INFO ] 2025-01-09 20:23:01.354 [TestNG-tests-1] BasePage - Clicked the 'AdminSection' element
+[INFO ] 2025-01-09 20:23:01.933 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Timesheet Page Load'
+[INFO ] 2025-01-09 20:23:01.984 [TestNG-tests-1] DatePickerHandler - Element is visible: 'TimeSheets Header'
+[INFO ] 2025-01-09 20:23:02.026 [TestNG-tests-1] BasePage - Page header retrieved for 'TimeSheets Header': 'Time'
+[INFO ] 2025-01-09 20:23:02.080 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 20:23:02.888 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 20:23:03.571 [TestNG-tests-1] DropDownHandler - The option 'Punch In/Out' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 20:23:04.206 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In Section Load'
+[INFO ] 2025-01-09 20:23:04.250 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 20:23:04.322 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 20:23:05.188 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 20:23:05.344 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 20:23:05.566 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 20:23:05.705 [TestNG-tests-1] BasePage - Clicked the 'Time Input' element
+[INFO ] 2025-01-09 20:23:05.769 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Hour Input'
+[INFO ] 2025-01-09 20:23:05.982 [TestNG-tests-1] InteractionHandler - Cleared the content of 'Hour Input' element using Actions
+[INFO ] 2025-01-09 20:23:06.061 [TestNG-tests-1] BasePage - Entered '08' text into the 'Hour Input' element
+[INFO ] 2025-01-09 20:23:06.238 [TestNG-tests-1] BasePage - Clicked the 'PM Button' element
+[INFO ] 2025-01-09 20:23:06.365 [TestNG-tests-1] BasePage - Entered 'Attendance' text into the 'Note Section' element
+[INFO ] 2025-01-09 20:23:06.476 [TestNG-tests-1] BasePage - Clicked the 'PunchIn/Out Button' element
+[INFO ] 2025-01-09 20:23:08.334 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch Out Section Load'
+[INFO ] 2025-01-09 20:23:08.376 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 20:23:08.450 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 20:23:10.557 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\09_01_2025_08_23_10_af83890b-e231-4c6e-b443-08aca49c1c7a.png'
+[ERROR] 2025-01-09 20:23:11.456 [TestNG-tests-1] TestListener - Test Failed: 'TimePageTest'
+[INFO ] 2025-01-09 20:23:11.972 [TestNG-tests-1] TestListener - Test Context finished: 'TimePageTest'
+[INFO ] 2025-01-09 20:23:13.301 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-09 20:36:27.884 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-09 20:36:27.916 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-09 20:36:27.924 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_09_01_2025_08_36_27.html'
+[INFO ] 2025-01-09 20:36:27.948 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_09_01_2025_08_36_27.html'
+[INFO ] 2025-01-09 20:36:28.294 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 20:36:28.294 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-09 20:36:28.294 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-09 20:36:28.294 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-09 20:36:28.318 [TestNG-tests-1] TestListener - Test Context started: 'TimePageTest'
+[INFO ] 2025-01-09 20:36:28.374 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' found in the workbook.
+[INFO ] 2025-01-09 20:36:28.374 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' has '3' columns.
+[INFO ] 2025-01-09 20:36:28.382 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'timePageTest'. Total rows: '1'
+[INFO ] 2025-01-09 20:36:28.422 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-09 20:36:28.422 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-09 20:36:28.422 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 20:36:28.422 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-09 20:36:28.422 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-09 20:36:30.795 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-09 20:36:35.383 [TestNG-tests-1] DataSupplier - The 'timePageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-09 20:36:35.402 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-09 20:36:35.415 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-09 20:36:36.000 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Page Load'
+[INFO ] 2025-01-09 20:36:36.039 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Header'
+[INFO ] 2025-01-09 20:36:36.093 [TestNG-tests-1] BasePage - Page header retrieved for 'Login Header': 'Login'
+[INFO ] 2025-01-09 20:36:36.197 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-09 20:36:36.333 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2025-01-09 20:36:37.677 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-09 20:36:38.234 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Page Load'
+[INFO ] 2025-01-09 20:36:38.287 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Header'
+[INFO ] 2025-01-09 20:36:38.305 [TestNG-tests-1] BasePage - Page header retrieved for 'Dashboard Header': 'Dashboard'
+[INFO ] 2025-01-09 20:36:39.504 [TestNG-tests-1] BasePage - Clicked the 'AdminSection' element
+[INFO ] 2025-01-09 20:36:40.067 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Timesheet Page Load'
+[INFO ] 2025-01-09 20:36:40.116 [TestNG-tests-1] DatePickerHandler - Element is visible: 'TimeSheets Header'
+[INFO ] 2025-01-09 20:36:40.139 [TestNG-tests-1] BasePage - Page header retrieved for 'TimeSheets Header': 'Time'
+[INFO ] 2025-01-09 20:36:40.177 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 20:36:40.910 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 20:36:41.901 [TestNG-tests-1] DropDownHandler - The option 'Punch In/Out' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 20:36:42.438 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In Section Load'
+[INFO ] 2025-01-09 20:36:42.481 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 20:36:42.542 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 20:36:43.393 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 20:36:43.525 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 20:36:43.700 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 20:36:43.823 [TestNG-tests-1] BasePage - Clicked the 'Time Input' element
+[INFO ] 2025-01-09 20:36:43.882 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Hour Input'
+[INFO ] 2025-01-09 20:36:44.035 [TestNG-tests-1] InteractionHandler - Cleared the content of 'Hour Input' element using Actions
+[INFO ] 2025-01-09 20:36:44.079 [TestNG-tests-1] BasePage - Entered '08' text into the 'Hour Input' element
+[INFO ] 2025-01-09 20:36:44.207 [TestNG-tests-1] BasePage - Clicked the 'PM Button' element
+[INFO ] 2025-01-09 20:36:44.304 [TestNG-tests-1] BasePage - Entered 'Attendance' text into the 'Note Section' element
+[INFO ] 2025-01-09 20:36:44.394 [TestNG-tests-1] BasePage - Clicked the 'PunchIn/Out Button' element
+[INFO ] 2025-01-09 20:36:45.029 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch Out Section Load'
+[INFO ] 2025-01-09 20:36:45.053 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 20:36:45.116 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 20:36:45.890 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 20:36:45.982 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 20:36:46.124 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 20:36:46.238 [TestNG-tests-1] BasePage - Clicked the 'Time Input' element
+[INFO ] 2025-01-09 20:36:46.268 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Hour Input'
+[INFO ] 2025-01-09 20:36:46.421 [TestNG-tests-1] InteractionHandler - Cleared the content of 'Hour Input' element using Actions
+[INFO ] 2025-01-09 20:36:46.469 [TestNG-tests-1] BasePage - Entered '09' text into the 'Hour Input' element
+[INFO ] 2025-01-09 20:36:46.556 [TestNG-tests-1] BasePage - Clicked the 'PM Button' element
+[INFO ] 2025-01-09 20:36:46.645 [TestNG-tests-1] BasePage - Entered 'Attendance' text into the 'Note Section' element
+[INFO ] 2025-01-09 20:36:46.726 [TestNG-tests-1] BasePage - Clicked the 'PunchIn/Out Button' element
+[INFO ] 2025-01-09 20:36:48.460 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 20:36:49.176 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 20:36:49.779 [TestNG-tests-1] DropDownHandler - The option 'Employee Records' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 20:36:50.349 [TestNG-tests-1] DatePickerHandler - Element is visible: 'UserName'
+[INFO ] 2025-01-09 20:36:50.399 [TestNG-tests-1] VerificationHandler - The 'UserName' element's text is: 'Test67 sanda'
+[INFO ] 2025-01-09 20:36:50.418 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Employee Attendance Section Load'
+[INFO ] 2025-01-09 20:36:50.440 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Employee Attendance Records Header'
+[INFO ] 2025-01-09 20:36:51.761 [TestNG-tests-1] BasePage - Entered 'Test67 sanda' text into the 'Employee Name' element
+[INFO ] 2025-01-09 20:36:51.807 [TestNG-tests-1] DatePickerHandler - Element is visible: 'EmployeeNameSuggestion'
+[INFO ] 2025-01-09 20:36:52.017 [TestNG-tests-1] BasePage - Clicked the 'EmployeeNameSuggestion' element
+[INFO ] 2025-01-09 20:36:52.745 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 20:36:52.853 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 20:36:53.000 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 20:36:53.499 [TestNG-tests-1] BasePage - Clicked the 'View Button' element
+[INFO ] 2025-01-09 20:36:58.553 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Employee Result Section'
+[INFO ] 2025-01-09 20:36:58.714 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\09_01_2025_08_36_58_5ebb2d34-7d16-4ab2-8df7-a81561dd1adc.png'
+[INFO ] 2025-01-09 20:36:58.838 [TestNG-tests-1] TestListener - Test Passed: 'TimePageTest'
+[INFO ] 2025-01-09 20:36:59.237 [TestNG-tests-1] TestListener - Test Context finished: 'TimePageTest'
+[INFO ] 2025-01-09 20:37:00.540 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-09 20:38:00.886 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-09 20:38:00.918 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-09 20:38:00.926 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_09_01_2025_08_38_00.html'
+[INFO ] 2025-01-09 20:38:00.950 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_09_01_2025_08_38_00.html'
+[INFO ] 2025-01-09 20:38:01.286 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 20:38:01.286 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-09 20:38:01.286 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-09 20:38:01.286 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-09 20:38:01.302 [TestNG-tests-1] TestListener - Test Context started: 'TimePageTest'
+[INFO ] 2025-01-09 20:38:01.366 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' found in the workbook.
+[INFO ] 2025-01-09 20:38:01.366 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' has '3' columns.
+[INFO ] 2025-01-09 20:38:01.382 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'timePageTest'. Total rows: '1'
+[INFO ] 2025-01-09 20:38:01.414 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-09 20:38:01.414 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-09 20:38:01.414 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 20:38:01.414 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-09 20:38:01.414 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-09 20:38:03.821 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-09 20:38:09.846 [TestNG-tests-1] DataSupplier - The 'timePageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-09 20:38:09.854 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-09 20:38:09.870 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-09 20:38:10.464 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Page Load'
+[INFO ] 2025-01-09 20:38:10.519 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Header'
+[INFO ] 2025-01-09 20:38:10.569 [TestNG-tests-1] BasePage - Page header retrieved for 'Login Header': 'Login'
+[INFO ] 2025-01-09 20:38:10.688 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-09 20:38:10.853 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2025-01-09 20:38:12.412 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-09 20:38:12.974 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Page Load'
+[INFO ] 2025-01-09 20:38:13.020 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Header'
+[INFO ] 2025-01-09 20:38:13.050 [TestNG-tests-1] BasePage - Page header retrieved for 'Dashboard Header': 'Dashboard'
+[INFO ] 2025-01-09 20:38:14.123 [TestNG-tests-1] BasePage - Clicked the 'AdminSection' element
+[INFO ] 2025-01-09 20:38:14.703 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Timesheet Page Load'
+[INFO ] 2025-01-09 20:38:14.745 [TestNG-tests-1] DatePickerHandler - Element is visible: 'TimeSheets Header'
+[INFO ] 2025-01-09 20:38:14.770 [TestNG-tests-1] BasePage - Page header retrieved for 'TimeSheets Header': 'Time'
+[INFO ] 2025-01-09 20:38:14.805 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 20:38:15.524 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 20:38:16.454 [TestNG-tests-1] DropDownHandler - The option 'Punch In/Out' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 20:38:16.987 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In Section Load'
+[INFO ] 2025-01-09 20:38:17.024 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 20:38:17.095 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 20:38:18.545 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 20:38:18.706 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 20:38:18.881 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 20:38:19.016 [TestNG-tests-1] BasePage - Clicked the 'Time Input' element
+[INFO ] 2025-01-09 20:38:19.073 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Hour Input'
+[INFO ] 2025-01-09 20:38:19.222 [TestNG-tests-1] InteractionHandler - Cleared the content of 'Hour Input' element using Actions
+[INFO ] 2025-01-09 20:38:19.264 [TestNG-tests-1] BasePage - Entered '08' text into the 'Hour Input' element
+[INFO ] 2025-01-09 20:38:19.361 [TestNG-tests-1] BasePage - Clicked the 'PM Button' element
+[INFO ] 2025-01-09 20:38:19.464 [TestNG-tests-1] BasePage - Entered 'Attendance' text into the 'Note Section' element
+[INFO ] 2025-01-09 20:38:19.571 [TestNG-tests-1] BasePage - Clicked the 'PunchIn/Out Button' element
+[INFO ] 2025-01-09 20:38:20.289 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch Out Section Load'
+[INFO ] 2025-01-09 20:38:20.313 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 20:38:20.376 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 20:38:21.715 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 20:38:21.808 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 20:38:21.976 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 20:38:22.069 [TestNG-tests-1] BasePage - Clicked the 'Time Input' element
+[INFO ] 2025-01-09 20:38:22.109 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Hour Input'
+[INFO ] 2025-01-09 20:38:22.280 [TestNG-tests-1] InteractionHandler - Cleared the content of 'Hour Input' element using Actions
+[INFO ] 2025-01-09 20:38:22.329 [TestNG-tests-1] BasePage - Entered '09' text into the 'Hour Input' element
+[INFO ] 2025-01-09 20:38:22.422 [TestNG-tests-1] BasePage - Clicked the 'PM Button' element
+[INFO ] 2025-01-09 20:38:22.513 [TestNG-tests-1] BasePage - Entered 'Attendance' text into the 'Note Section' element
+[INFO ] 2025-01-09 20:38:22.596 [TestNG-tests-1] BasePage - Clicked the 'PunchIn/Out Button' element
+[INFO ] 2025-01-09 20:38:24.368 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 20:38:25.032 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 20:38:25.668 [TestNG-tests-1] DropDownHandler - The option 'Employee Records' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 20:38:26.246 [TestNG-tests-1] DatePickerHandler - Element is visible: 'UserName'
+[INFO ] 2025-01-09 20:38:26.301 [TestNG-tests-1] VerificationHandler - The 'UserName' element's text is: 'Test67 sanda'
+[INFO ] 2025-01-09 20:38:26.330 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Employee Attendance Section Load'
+[INFO ] 2025-01-09 20:38:26.363 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Employee Attendance Records Header'
+[INFO ] 2025-01-09 20:38:27.546 [TestNG-tests-1] BasePage - Entered 'Test67 sanda' text into the 'Employee Name' element
+[INFO ] 2025-01-09 20:38:27.571 [TestNG-tests-1] DatePickerHandler - Element is visible: 'EmployeeNameSuggestion'
+[INFO ] 2025-01-09 20:38:27.670 [TestNG-tests-1] BasePage - Clicked the 'EmployeeNameSuggestion' element
+[INFO ] 2025-01-09 20:38:28.320 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 20:38:28.412 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 20:38:28.561 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 20:38:29.181 [TestNG-tests-1] BasePage - Clicked the 'View Button' element
+[INFO ] 2025-01-09 20:38:34.233 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Employee Result Section'
+[INFO ] 2025-01-09 20:38:34.416 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\09_01_2025_08_38_34_13bc846e-6211-400b-aa93-9079fa7807bf.png'
+[INFO ] 2025-01-09 20:38:34.535 [TestNG-tests-1] TestListener - Test Passed: 'TimePageTest'
+[INFO ] 2025-01-09 20:38:34.910 [TestNG-tests-1] TestListener - Test Context finished: 'TimePageTest'
+[INFO ] 2025-01-09 20:38:36.396 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-09 20:40:48.388 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-09 20:40:48.412 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-09 20:40:48.420 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_09_01_2025_08_40_48.html'
+[INFO ] 2025-01-09 20:40:48.460 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_09_01_2025_08_40_48.html'
+[INFO ] 2025-01-09 20:40:48.772 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 20:40:48.772 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-09 20:40:48.772 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-09 20:40:48.780 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-09 20:40:48.796 [TestNG-tests-1] TestListener - Test Context started: 'TimePageTest'
+[INFO ] 2025-01-09 20:40:48.844 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' found in the workbook.
+[INFO ] 2025-01-09 20:40:48.844 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' has '3' columns.
+[INFO ] 2025-01-09 20:40:48.852 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'timePageTest'. Total rows: '1'
+[INFO ] 2025-01-09 20:40:48.892 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-09 20:40:48.892 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-09 20:40:48.900 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 20:40:48.900 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-09 20:40:48.900 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-09 20:40:51.600 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-09 20:40:57.164 [TestNG-tests-1] DataSupplier - The 'timePageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-09 20:40:57.175 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-09 20:40:57.188 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-09 20:40:57.764 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Page Load'
+[INFO ] 2025-01-09 20:40:57.830 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Header'
+[INFO ] 2025-01-09 20:40:57.864 [TestNG-tests-1] BasePage - Page header retrieved for 'Login Header': 'Login'
+[INFO ] 2025-01-09 20:40:57.969 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-09 20:40:58.121 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2025-01-09 20:40:59.477 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-09 20:41:00.046 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Page Load'
+[INFO ] 2025-01-09 20:41:00.087 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Header'
+[INFO ] 2025-01-09 20:41:00.116 [TestNG-tests-1] BasePage - Page header retrieved for 'Dashboard Header': 'Dashboard'
+[INFO ] 2025-01-09 20:41:01.268 [TestNG-tests-1] BasePage - Clicked the 'AdminSection' element
+[INFO ] 2025-01-09 20:41:01.827 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Timesheet Page Load'
+[INFO ] 2025-01-09 20:41:01.865 [TestNG-tests-1] DatePickerHandler - Element is visible: 'TimeSheets Header'
+[INFO ] 2025-01-09 20:41:01.889 [TestNG-tests-1] BasePage - Page header retrieved for 'TimeSheets Header': 'Time'
+[INFO ] 2025-01-09 20:41:01.925 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 20:41:02.646 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 20:41:03.250 [TestNG-tests-1] DropDownHandler - The option 'Punch In/Out' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 20:41:03.779 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In Section Load'
+[INFO ] 2025-01-09 20:41:03.811 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 20:41:03.881 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 20:41:04.712 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 20:41:04.837 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 20:41:04.998 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 20:41:05.122 [TestNG-tests-1] BasePage - Clicked the 'Time Input' element
+[INFO ] 2025-01-09 20:41:05.178 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Hour Input'
+[INFO ] 2025-01-09 20:41:05.341 [TestNG-tests-1] InteractionHandler - Cleared the content of 'Hour Input' element using Actions
+[INFO ] 2025-01-09 20:41:05.387 [TestNG-tests-1] BasePage - Entered '10' text into the 'Hour Input' element
+[INFO ] 2025-01-09 20:41:05.488 [TestNG-tests-1] BasePage - Clicked the 'PM Button' element
+[INFO ] 2025-01-09 20:41:05.592 [TestNG-tests-1] BasePage - Entered 'Attendance' text into the 'Note Section' element
+[INFO ] 2025-01-09 20:41:05.681 [TestNG-tests-1] BasePage - Clicked the 'PunchIn/Out Button' element
+[INFO ] 2025-01-09 20:41:06.921 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch Out Section Load'
+[INFO ] 2025-01-09 20:41:06.945 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 20:41:07.004 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 20:41:09.040 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\09_01_2025_08_41_08_f0b7fb80-22b4-4a80-89f1-1d81b40a5331.png'
+[ERROR] 2025-01-09 20:41:09.239 [TestNG-tests-1] TestListener - Test Failed: 'TimePageTest'
+[INFO ] 2025-01-09 20:41:09.557 [TestNG-tests-1] TestListener - Test Context finished: 'TimePageTest'
+[INFO ] 2025-01-09 20:41:10.751 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-09 20:43:16.572 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-09 20:43:16.596 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-09 20:43:16.604 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_09_01_2025_08_43_16.html'
+[INFO ] 2025-01-09 20:43:16.628 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_09_01_2025_08_43_16.html'
+[INFO ] 2025-01-09 20:43:16.892 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 20:43:16.892 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-09 20:43:16.892 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-09 20:43:16.892 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-09 20:43:16.916 [TestNG-tests-1] TestListener - Test Context started: 'TimePageTest'
+[INFO ] 2025-01-09 20:43:16.956 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' found in the workbook.
+[INFO ] 2025-01-09 20:43:16.956 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' has '3' columns.
+[INFO ] 2025-01-09 20:43:16.972 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'timePageTest'. Total rows: '1'
+[INFO ] 2025-01-09 20:43:17.004 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-09 20:43:17.004 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-09 20:43:17.004 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 20:43:17.004 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-09 20:43:17.004 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-09 20:43:19.502 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-09 20:43:25.165 [TestNG-tests-1] DataSupplier - The 'timePageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-09 20:43:25.173 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-09 20:43:25.191 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-09 20:43:25.778 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Page Load'
+[INFO ] 2025-01-09 20:43:25.828 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Header'
+[INFO ] 2025-01-09 20:43:25.868 [TestNG-tests-1] BasePage - Page header retrieved for 'Login Header': 'Login'
+[INFO ] 2025-01-09 20:43:25.981 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-09 20:43:26.119 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2025-01-09 20:43:26.237 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-09 20:43:28.256 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Page Load'
+[INFO ] 2025-01-09 20:43:28.304 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Header'
+[INFO ] 2025-01-09 20:43:28.334 [TestNG-tests-1] BasePage - Page header retrieved for 'Dashboard Header': 'Dashboard'
+[INFO ] 2025-01-09 20:43:29.361 [TestNG-tests-1] BasePage - Clicked the 'AdminSection' element
+[INFO ] 2025-01-09 20:43:30.135 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Timesheet Page Load'
+[INFO ] 2025-01-09 20:43:30.196 [TestNG-tests-1] DatePickerHandler - Element is visible: 'TimeSheets Header'
+[INFO ] 2025-01-09 20:43:30.224 [TestNG-tests-1] BasePage - Page header retrieved for 'TimeSheets Header': 'Time'
+[INFO ] 2025-01-09 20:43:30.254 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 20:43:30.970 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 20:43:31.520 [TestNG-tests-1] DropDownHandler - The option 'Punch In/Out' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 20:43:32.054 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In Section Load'
+[INFO ] 2025-01-09 20:43:32.083 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 20:43:32.151 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 20:43:32.996 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 20:43:33.121 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 20:43:33.295 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 20:43:33.432 [TestNG-tests-1] BasePage - Clicked the 'Time Input' element
+[INFO ] 2025-01-09 20:43:33.488 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Hour Input'
+[INFO ] 2025-01-09 20:43:33.639 [TestNG-tests-1] InteractionHandler - Cleared the content of 'Hour Input' element using Actions
+[INFO ] 2025-01-09 20:43:33.686 [TestNG-tests-1] BasePage - Entered '10' text into the 'Hour Input' element
+[INFO ] 2025-01-09 20:43:33.791 [TestNG-tests-1] BasePage - Clicked the 'PM Button' element
+[INFO ] 2025-01-09 20:43:33.950 [TestNG-tests-1] BasePage - Entered 'Attendance' text into the 'Note Section' element
+[INFO ] 2025-01-09 20:43:34.096 [TestNG-tests-1] BasePage - Clicked the 'PunchIn/Out Button' element
+[INFO ] 2025-01-09 20:43:35.322 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch Out Section Load'
+[INFO ] 2025-01-09 20:43:35.347 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 20:43:35.405 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 20:43:46.487 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\09_01_2025_08_43_46_34b87af9-472f-4552-8c03-eba268560f6e.png'
+[ERROR] 2025-01-09 20:43:46.603 [TestNG-tests-1] TestListener - Test Failed: 'TimePageTest'
+[INFO ] 2025-01-09 20:43:47.034 [TestNG-tests-1] TestListener - Test Context finished: 'TimePageTest'
+[INFO ] 2025-01-09 20:43:48.347 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-09 20:53:54.312 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-09 20:53:54.344 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-09 20:53:54.360 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_09_01_2025_08_53_54.html'
+[INFO ] 2025-01-09 20:53:54.384 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_09_01_2025_08_53_54.html'
+[INFO ] 2025-01-09 20:53:54.723 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 20:53:54.723 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-09 20:53:54.723 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-09 20:53:54.723 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-09 20:53:54.747 [TestNG-tests-1] TestListener - Test Context started: 'TimePageTest'
+[INFO ] 2025-01-09 20:53:54.803 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' found in the workbook.
+[INFO ] 2025-01-09 20:53:54.803 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' has '3' columns.
+[INFO ] 2025-01-09 20:53:54.811 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'timePageTest'. Total rows: '1'
+[INFO ] 2025-01-09 20:53:54.878 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-09 20:53:54.878 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-09 20:53:54.878 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 20:53:54.878 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-09 20:53:54.878 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-09 20:53:57.491 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-09 20:54:02.731 [TestNG-tests-1] DataSupplier - The 'timePageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-09 20:54:02.744 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-09 20:54:02.760 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-09 20:54:03.344 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Page Load'
+[INFO ] 2025-01-09 20:54:03.407 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Header'
+[INFO ] 2025-01-09 20:54:03.447 [TestNG-tests-1] BasePage - Page header retrieved for 'Login Header': 'Login'
+[INFO ] 2025-01-09 20:54:03.558 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-09 20:54:03.703 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2025-01-09 20:54:05.328 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-09 20:54:05.884 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Page Load'
+[INFO ] 2025-01-09 20:54:05.923 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Header'
+[INFO ] 2025-01-09 20:54:05.954 [TestNG-tests-1] BasePage - Page header retrieved for 'Dashboard Header': 'Dashboard'
+[INFO ] 2025-01-09 20:54:06.974 [TestNG-tests-1] BasePage - Clicked the 'AdminSection' element
+[INFO ] 2025-01-09 20:54:07.635 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Timesheet Page Load'
+[INFO ] 2025-01-09 20:54:07.667 [TestNG-tests-1] DatePickerHandler - Element is visible: 'TimeSheets Header'
+[INFO ] 2025-01-09 20:54:07.692 [TestNG-tests-1] BasePage - Page header retrieved for 'TimeSheets Header': 'Time'
+[INFO ] 2025-01-09 20:54:07.726 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 20:54:08.451 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 20:54:09.402 [TestNG-tests-1] DropDownHandler - The option 'Punch In/Out' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 20:54:09.933 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In Section Load'
+[INFO ] 2025-01-09 20:54:09.966 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 20:54:10.037 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 20:54:11.425 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 20:54:11.550 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 20:54:11.734 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 20:54:11.856 [TestNG-tests-1] BasePage - Clicked the 'Time Input' element
+[INFO ] 2025-01-09 20:54:11.895 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Hour Input'
+[INFO ] 2025-01-09 20:54:12.046 [TestNG-tests-1] InteractionHandler - Cleared the content of 'Hour Input' element using Actions
+[INFO ] 2025-01-09 20:54:12.093 [TestNG-tests-1] BasePage - Entered '10' text into the 'Hour Input' element
+[INFO ] 2025-01-09 20:54:12.192 [TestNG-tests-1] BasePage - Clicked the 'PM Button' element
+[INFO ] 2025-01-09 20:54:12.291 [TestNG-tests-1] BasePage - Entered 'Attendance' text into the 'Note Section' element
+[INFO ] 2025-01-09 20:54:12.412 [TestNG-tests-1] BasePage - Clicked the 'PunchIn/Out Button' element
+[INFO ] 2025-01-09 20:54:12.600 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\09_01_2025_08_54_12_af617005-ec0d-4033-8120-f075e9c56e74.png'
+[ERROR] 2025-01-09 20:54:12.733 [TestNG-tests-1] TestListener - Test Failed: 'TimePageTest'
+[INFO ] 2025-01-09 20:54:12.993 [TestNG-tests-1] TestListener - Test Context finished: 'TimePageTest'
+[INFO ] 2025-01-09 20:54:13.633 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-09 21:03:12.589 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-09 21:03:12.613 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-09 21:03:12.621 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_09_01_2025_09_03_12.html'
+[INFO ] 2025-01-09 21:03:12.653 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_09_01_2025_09_03_12.html'
+[INFO ] 2025-01-09 21:03:12.933 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 21:03:12.941 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-09 21:03:12.941 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-09 21:03:12.941 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-09 21:03:12.957 [TestNG-tests-1] TestListener - Test Context started: 'TimePageTest'
+[INFO ] 2025-01-09 21:03:12.997 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' found in the workbook.
+[INFO ] 2025-01-09 21:03:12.997 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' has '3' columns.
+[INFO ] 2025-01-09 21:03:13.005 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'timePageTest'. Total rows: '1'
+[INFO ] 2025-01-09 21:03:13.045 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-09 21:03:13.045 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-09 21:03:13.045 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 21:03:13.045 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-09 21:03:13.045 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-09 21:03:15.413 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-09 21:03:19.857 [TestNG-tests-1] DataSupplier - The 'timePageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-09 21:03:19.871 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-09 21:03:19.884 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-09 21:03:20.467 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Page Load'
+[INFO ] 2025-01-09 21:03:20.521 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Header'
+[INFO ] 2025-01-09 21:03:20.578 [TestNG-tests-1] BasePage - Page header retrieved for 'Login Header': 'Login'
+[INFO ] 2025-01-09 21:03:20.692 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-09 21:03:20.826 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2025-01-09 21:03:22.132 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-09 21:03:22.702 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Page Load'
+[INFO ] 2025-01-09 21:03:22.732 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Header'
+[INFO ] 2025-01-09 21:03:22.767 [TestNG-tests-1] BasePage - Page header retrieved for 'Dashboard Header': 'Dashboard'
+[INFO ] 2025-01-09 21:03:23.970 [TestNG-tests-1] BasePage - Clicked the 'AdminSection' element
+[INFO ] 2025-01-09 21:03:24.543 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Timesheet Page Load'
+[INFO ] 2025-01-09 21:03:24.583 [TestNG-tests-1] DatePickerHandler - Element is visible: 'TimeSheets Header'
+[INFO ] 2025-01-09 21:03:24.614 [TestNG-tests-1] BasePage - Page header retrieved for 'TimeSheets Header': 'Time'
+[INFO ] 2025-01-09 21:03:24.653 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:03:25.376 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:03:25.990 [TestNG-tests-1] DropDownHandler - The option 'Punch In/Out' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 21:03:26.524 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In Section Load'
+[INFO ] 2025-01-09 21:03:26.565 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 21:03:26.640 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 21:03:27.468 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 21:03:27.593 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 21:03:27.753 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 21:03:27.920 [TestNG-tests-1] BasePage - Clicked the 'Time Input' element
+[INFO ] 2025-01-09 21:03:27.968 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Hour Input'
+[INFO ] 2025-01-09 21:03:28.125 [TestNG-tests-1] InteractionHandler - Cleared the content of 'Hour Input' element using Actions
+[INFO ] 2025-01-09 21:03:28.166 [TestNG-tests-1] BasePage - Entered '10' text into the 'Hour Input' element
+[INFO ] 2025-01-09 21:03:28.269 [TestNG-tests-1] BasePage - Clicked the 'PM Button' element
+[INFO ] 2025-01-09 21:03:28.367 [TestNG-tests-1] BasePage - Entered 'Attendance' text into the 'Note Section' element
+[INFO ] 2025-01-09 21:03:28.459 [TestNG-tests-1] BasePage - Clicked the 'PunchIn/Out Button' element
+[INFO ] 2025-01-09 21:03:30.275 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\09_01_2025_09_03_30_ec2bec1a-609d-43c3-a410-ec2ccd9fc400.png'
+[ERROR] 2025-01-09 21:03:30.433 [TestNG-tests-1] TestListener - Test Failed: 'TimePageTest'
+[INFO ] 2025-01-09 21:03:30.775 [TestNG-tests-1] TestListener - Test Context finished: 'TimePageTest'
+[INFO ] 2025-01-09 21:03:32.066 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-09 21:05:18.614 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-09 21:05:18.646 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-09 21:05:18.646 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_09_01_2025_09_05_18.html'
+[INFO ] 2025-01-09 21:05:18.677 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_09_01_2025_09_05_18.html'
+[INFO ] 2025-01-09 21:05:18.978 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 21:05:18.978 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-09 21:05:18.978 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-09 21:05:18.978 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-09 21:05:19.000 [TestNG-tests-1] TestListener - Test Context started: 'TimePageTest'
+[INFO ] 2025-01-09 21:05:19.062 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' found in the workbook.
+[INFO ] 2025-01-09 21:05:19.062 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' has '3' columns.
+[INFO ] 2025-01-09 21:05:19.078 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'timePageTest'. Total rows: '1'
+[INFO ] 2025-01-09 21:05:19.116 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-09 21:05:19.116 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-09 21:05:19.116 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 21:05:19.116 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-09 21:05:19.116 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-09 21:05:22.015 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-09 21:05:28.537 [TestNG-tests-1] DataSupplier - The 'timePageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-09 21:05:28.537 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-09 21:05:28.564 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-09 21:05:29.151 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Page Load'
+[INFO ] 2025-01-09 21:05:29.204 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Header'
+[INFO ] 2025-01-09 21:05:29.241 [TestNG-tests-1] BasePage - Page header retrieved for 'Login Header': 'Login'
+[INFO ] 2025-01-09 21:05:29.371 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-09 21:05:29.503 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2025-01-09 21:05:30.928 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-09 21:05:32.063 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Page Load'
+[INFO ] 2025-01-09 21:05:32.094 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Header'
+[INFO ] 2025-01-09 21:05:32.119 [TestNG-tests-1] BasePage - Page header retrieved for 'Dashboard Header': 'Dashboard'
+[INFO ] 2025-01-09 21:05:33.378 [TestNG-tests-1] BasePage - Clicked the 'AdminSection' element
+[INFO ] 2025-01-09 21:05:33.943 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Timesheet Page Load'
+[INFO ] 2025-01-09 21:05:33.982 [TestNG-tests-1] DatePickerHandler - Element is visible: 'TimeSheets Header'
+[INFO ] 2025-01-09 21:05:34.002 [TestNG-tests-1] BasePage - Page header retrieved for 'TimeSheets Header': 'Time'
+[INFO ] 2025-01-09 21:05:34.039 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:05:34.802 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:05:35.466 [TestNG-tests-1] DropDownHandler - The option 'Punch In/Out' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 21:05:36.015 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In Section Load'
+[INFO ] 2025-01-09 21:05:36.048 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 21:05:36.108 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 21:05:36.938 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 21:05:37.071 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 21:05:37.224 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 21:05:37.372 [TestNG-tests-1] BasePage - Clicked the 'Time Input' element
+[INFO ] 2025-01-09 21:05:37.404 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Hour Input'
+[INFO ] 2025-01-09 21:05:37.556 [TestNG-tests-1] InteractionHandler - Cleared the content of 'Hour Input' element using Actions
+[INFO ] 2025-01-09 21:05:37.608 [TestNG-tests-1] BasePage - Entered '10' text into the 'Hour Input' element
+[INFO ] 2025-01-09 21:05:37.739 [TestNG-tests-1] BasePage - Clicked the 'PM Button' element
+[INFO ] 2025-01-09 21:05:37.845 [TestNG-tests-1] BasePage - Entered 'Attendance' text into the 'Note Section' element
+[INFO ] 2025-01-09 21:05:37.938 [TestNG-tests-1] BasePage - Clicked the 'PunchIn/Out Button' element
+[INFO ] 2025-01-09 21:05:38.126 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\09_01_2025_09_05_37_0ace5ca1-2f53-4015-9790-cfdef23000d2.png'
+[ERROR] 2025-01-09 21:05:38.266 [TestNG-tests-1] TestListener - Test Failed: 'TimePageTest'
+[INFO ] 2025-01-09 21:05:38.573 [TestNG-tests-1] TestListener - Test Context finished: 'TimePageTest'
+[INFO ] 2025-01-09 21:05:39.922 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-09 21:08:02.129 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-09 21:08:02.160 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-09 21:08:02.167 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_09_01_2025_09_08_02.html'
+[INFO ] 2025-01-09 21:08:02.182 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_09_01_2025_09_08_02.html'
+[INFO ] 2025-01-09 21:08:02.467 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 21:08:02.467 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-09 21:08:02.467 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-09 21:08:02.467 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-09 21:08:02.499 [TestNG-tests-1] TestListener - Test Context started: 'TimePageTest'
+[INFO ] 2025-01-09 21:08:02.546 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' found in the workbook.
+[INFO ] 2025-01-09 21:08:02.546 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' has '3' columns.
+[INFO ] 2025-01-09 21:08:02.561 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'timePageTest'. Total rows: '1'
+[INFO ] 2025-01-09 21:08:02.599 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-09 21:08:02.599 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-09 21:08:02.599 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 21:08:02.599 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-09 21:08:02.599 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-09 21:08:05.523 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-09 21:08:10.263 [TestNG-tests-1] DataSupplier - The 'timePageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-09 21:08:10.287 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-09 21:08:10.296 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-09 21:08:10.876 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Page Load'
+[INFO ] 2025-01-09 21:08:10.928 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Header'
+[INFO ] 2025-01-09 21:08:10.964 [TestNG-tests-1] BasePage - Page header retrieved for 'Login Header': 'Login'
+[INFO ] 2025-01-09 21:08:11.078 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-09 21:08:11.213 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2025-01-09 21:08:12.739 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-09 21:08:13.313 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Page Load'
+[INFO ] 2025-01-09 21:08:13.358 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Header'
+[INFO ] 2025-01-09 21:08:13.390 [TestNG-tests-1] BasePage - Page header retrieved for 'Dashboard Header': 'Dashboard'
+[INFO ] 2025-01-09 21:08:14.413 [TestNG-tests-1] BasePage - Clicked the 'AdminSection' element
+[INFO ] 2025-01-09 21:08:15.028 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Timesheet Page Load'
+[INFO ] 2025-01-09 21:08:15.071 [TestNG-tests-1] DatePickerHandler - Element is visible: 'TimeSheets Header'
+[INFO ] 2025-01-09 21:08:15.129 [TestNG-tests-1] BasePage - Page header retrieved for 'TimeSheets Header': 'Time'
+[INFO ] 2025-01-09 21:08:15.162 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:08:15.889 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:08:16.483 [TestNG-tests-1] DropDownHandler - The option 'Punch In/Out' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 21:08:17.011 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In Section Load'
+[INFO ] 2025-01-09 21:08:17.043 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 21:08:17.126 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 21:08:17.945 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 21:08:18.062 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 21:08:18.216 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 21:08:18.351 [TestNG-tests-1] BasePage - Clicked the 'Time Input' element
+[INFO ] 2025-01-09 21:08:18.397 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Hour Input'
+[INFO ] 2025-01-09 21:08:18.566 [TestNG-tests-1] InteractionHandler - Cleared the content of 'Hour Input' element using Actions
+[INFO ] 2025-01-09 21:08:18.611 [TestNG-tests-1] BasePage - Entered '10' text into the 'Hour Input' element
+[INFO ] 2025-01-09 21:08:18.721 [TestNG-tests-1] BasePage - Clicked the 'PM Button' element
+[INFO ] 2025-01-09 21:08:18.857 [TestNG-tests-1] BasePage - Entered 'Attendance' text into the 'Note Section' element
+[INFO ] 2025-01-09 21:08:18.953 [TestNG-tests-1] BasePage - Clicked the 'PunchIn/Out Button' element
+[INFO ] 2025-01-09 21:08:19.145 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\09_01_2025_09_08_18_e5405f36-bdda-4f88-b706-954a4b034e7a.png'
+[ERROR] 2025-01-09 21:08:19.324 [TestNG-tests-1] TestListener - Test Failed: 'TimePageTest'
+[INFO ] 2025-01-09 21:08:19.754 [TestNG-tests-1] TestListener - Test Context finished: 'TimePageTest'
+[INFO ] 2025-01-09 21:08:20.858 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-09 21:10:45.509 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-09 21:10:45.535 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-09 21:10:45.542 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_09_01_2025_09_10_45.html'
+[INFO ] 2025-01-09 21:10:45.566 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_09_01_2025_09_10_45.html'
+[INFO ] 2025-01-09 21:10:45.847 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 21:10:45.848 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-09 21:10:45.848 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-09 21:10:45.849 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-09 21:10:45.873 [TestNG-tests-1] TestListener - Test Context started: 'TimePageTest'
+[INFO ] 2025-01-09 21:10:45.916 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' found in the workbook.
+[INFO ] 2025-01-09 21:10:45.917 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' has '3' columns.
+[INFO ] 2025-01-09 21:10:45.929 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'timePageTest'. Total rows: '1'
+[INFO ] 2025-01-09 21:10:45.976 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-09 21:10:45.976 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-09 21:10:45.977 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 21:10:45.977 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-09 21:10:45.977 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-09 21:10:48.501 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-09 21:10:52.927 [TestNG-tests-1] DataSupplier - The 'timePageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-09 21:10:52.939 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-09 21:10:52.952 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-09 21:10:53.535 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Page Load'
+[INFO ] 2025-01-09 21:10:53.591 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Header'
+[INFO ] 2025-01-09 21:10:53.635 [TestNG-tests-1] BasePage - Page header retrieved for 'Login Header': 'Login'
+[INFO ] 2025-01-09 21:10:53.735 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-09 21:10:53.865 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2025-01-09 21:10:55.214 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-09 21:10:55.772 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Page Load'
+[INFO ] 2025-01-09 21:10:55.811 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Header'
+[INFO ] 2025-01-09 21:10:55.848 [TestNG-tests-1] BasePage - Page header retrieved for 'Dashboard Header': 'Dashboard'
+[INFO ] 2025-01-09 21:10:57.049 [TestNG-tests-1] BasePage - Clicked the 'AdminSection' element
+[INFO ] 2025-01-09 21:10:57.621 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Timesheet Page Load'
+[INFO ] 2025-01-09 21:10:57.655 [TestNG-tests-1] DatePickerHandler - Element is visible: 'TimeSheets Header'
+[INFO ] 2025-01-09 21:10:57.680 [TestNG-tests-1] BasePage - Page header retrieved for 'TimeSheets Header': 'Time'
+[INFO ] 2025-01-09 21:10:57.715 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:10:58.401 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:10:59.008 [TestNG-tests-1] DropDownHandler - The option 'Punch In/Out' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 21:10:59.553 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In Section Load'
+[INFO ] 2025-01-09 21:10:59.590 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 21:10:59.662 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 21:11:00.505 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 21:11:00.638 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 21:11:00.892 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 21:11:01.031 [TestNG-tests-1] BasePage - Clicked the 'Time Input' element
+[INFO ] 2025-01-09 21:11:01.090 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Hour Input'
+[INFO ] 2025-01-09 21:11:01.235 [TestNG-tests-1] InteractionHandler - Cleared the content of 'Hour Input' element using Actions
+[INFO ] 2025-01-09 21:11:01.281 [TestNG-tests-1] BasePage - Entered '10' text into the 'Hour Input' element
+[INFO ] 2025-01-09 21:11:01.383 [TestNG-tests-1] BasePage - Clicked the 'PM Button' element
+[INFO ] 2025-01-09 21:11:01.482 [TestNG-tests-1] BasePage - Entered 'Attendance' text into the 'Note Section' element
+[INFO ] 2025-01-09 21:11:01.573 [TestNG-tests-1] BasePage - Clicked the 'PunchIn/Out Button' element
+[INFO ] 2025-01-09 21:11:01.757 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\09_01_2025_09_11_01_1b80bd44-fca7-41dd-9f74-778c4663b107.png'
+[ERROR] 2025-01-09 21:11:01.908 [TestNG-tests-1] TestListener - Test Failed: 'TimePageTest'
+[INFO ] 2025-01-09 21:11:02.216 [TestNG-tests-1] TestListener - Test Context finished: 'TimePageTest'
+[INFO ] 2025-01-09 21:11:03.370 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-09 21:12:53.309 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-09 21:12:53.334 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-09 21:12:53.343 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_09_01_2025_09_12_53.html'
+[INFO ] 2025-01-09 21:12:53.368 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_09_01_2025_09_12_53.html'
+[INFO ] 2025-01-09 21:12:53.675 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 21:12:53.675 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-09 21:12:53.676 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-09 21:12:53.676 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-09 21:12:53.693 [TestNG-tests-1] TestListener - Test Context started: 'TimePageTest'
+[INFO ] 2025-01-09 21:12:53.744 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' found in the workbook.
+[INFO ] 2025-01-09 21:12:53.745 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' has '3' columns.
+[INFO ] 2025-01-09 21:12:53.761 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'timePageTest'. Total rows: '1'
+[INFO ] 2025-01-09 21:12:53.811 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-09 21:12:53.813 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-09 21:12:53.813 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 21:12:53.813 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-09 21:12:53.814 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-09 21:12:56.350 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-09 21:13:00.979 [TestNG-tests-1] DataSupplier - The 'timePageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-09 21:13:00.993 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-09 21:13:01.009 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-09 21:13:01.591 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Page Load'
+[INFO ] 2025-01-09 21:13:01.638 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Header'
+[INFO ] 2025-01-09 21:13:01.685 [TestNG-tests-1] BasePage - Page header retrieved for 'Login Header': 'Login'
+[INFO ] 2025-01-09 21:13:01.820 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-09 21:13:01.937 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2025-01-09 21:13:03.461 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-09 21:13:04.021 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Page Load'
+[INFO ] 2025-01-09 21:13:04.073 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Header'
+[INFO ] 2025-01-09 21:13:04.100 [TestNG-tests-1] BasePage - Page header retrieved for 'Dashboard Header': 'Dashboard'
+[INFO ] 2025-01-09 21:13:05.113 [TestNG-tests-1] BasePage - Clicked the 'AdminSection' element
+[INFO ] 2025-01-09 21:13:05.695 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Timesheet Page Load'
+[INFO ] 2025-01-09 21:13:05.733 [TestNG-tests-1] DatePickerHandler - Element is visible: 'TimeSheets Header'
+[INFO ] 2025-01-09 21:13:05.757 [TestNG-tests-1] BasePage - Page header retrieved for 'TimeSheets Header': 'Time'
+[INFO ] 2025-01-09 21:13:05.790 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:13:06.500 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:13:07.110 [TestNG-tests-1] DropDownHandler - The option 'Punch In/Out' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 21:13:07.659 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In Section Load'
+[INFO ] 2025-01-09 21:13:07.690 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 21:13:07.763 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 21:13:08.591 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 21:13:08.718 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 21:13:08.885 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 21:13:09.008 [TestNG-tests-1] BasePage - Clicked the 'Time Input' element
+[INFO ] 2025-01-09 21:13:09.064 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Hour Input'
+[INFO ] 2025-01-09 21:13:09.220 [TestNG-tests-1] InteractionHandler - Cleared the content of 'Hour Input' element using Actions
+[INFO ] 2025-01-09 21:13:09.302 [TestNG-tests-1] BasePage - Entered '10' text into the 'Hour Input' element
+[INFO ] 2025-01-09 21:13:09.407 [TestNG-tests-1] BasePage - Clicked the 'AM Button' element
+[INFO ] 2025-01-09 21:13:09.506 [TestNG-tests-1] BasePage - Entered 'Attendance' text into the 'Note Section' element
+[INFO ] 2025-01-09 21:13:09.597 [TestNG-tests-1] BasePage - Clicked the 'PunchIn/Out Button' element
+[INFO ] 2025-01-09 21:13:09.781 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\09_01_2025_09_13_09_2e219999-9d95-42ba-966f-b795fa5a15b3.png'
+[ERROR] 2025-01-09 21:13:09.935 [TestNG-tests-1] TestListener - Test Failed: 'TimePageTest'
+[INFO ] 2025-01-09 21:13:10.248 [TestNG-tests-1] TestListener - Test Context finished: 'TimePageTest'
+[INFO ] 2025-01-09 21:13:11.339 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-09 21:15:03.378 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-09 21:15:03.408 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-09 21:15:03.416 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_09_01_2025_09_15_03.html'
+[INFO ] 2025-01-09 21:15:03.445 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_09_01_2025_09_15_03.html'
+[INFO ] 2025-01-09 21:15:03.896 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 21:15:03.896 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-09 21:15:03.896 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-09 21:15:03.897 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-09 21:15:03.914 [TestNG-tests-1] TestListener - Test Context started: 'TimePageTest'
+[INFO ] 2025-01-09 21:15:03.950 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' found in the workbook.
+[INFO ] 2025-01-09 21:15:03.951 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' has '3' columns.
+[INFO ] 2025-01-09 21:15:03.967 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'timePageTest'. Total rows: '1'
+[INFO ] 2025-01-09 21:15:04.007 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-09 21:15:04.008 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-09 21:15:04.008 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 21:15:04.009 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-09 21:15:04.010 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-09 21:15:06.419 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-09 21:15:11.050 [TestNG-tests-1] DataSupplier - The 'timePageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-09 21:15:11.064 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-09 21:15:11.077 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-09 21:15:11.665 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Page Load'
+[INFO ] 2025-01-09 21:15:11.718 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Header'
+[INFO ] 2025-01-09 21:15:11.761 [TestNG-tests-1] BasePage - Page header retrieved for 'Login Header': 'Login'
+[INFO ] 2025-01-09 21:15:11.884 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-09 21:15:12.003 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2025-01-09 21:15:13.365 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-09 21:15:13.933 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Page Load'
+[INFO ] 2025-01-09 21:15:13.976 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Header'
+[INFO ] 2025-01-09 21:15:14.001 [TestNG-tests-1] BasePage - Page header retrieved for 'Dashboard Header': 'Dashboard'
+[INFO ] 2025-01-09 21:15:15.020 [TestNG-tests-1] BasePage - Clicked the 'AdminSection' element
+[INFO ] 2025-01-09 21:15:15.576 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Timesheet Page Load'
+[INFO ] 2025-01-09 21:15:15.605 [TestNG-tests-1] DatePickerHandler - Element is visible: 'TimeSheets Header'
+[INFO ] 2025-01-09 21:15:15.628 [TestNG-tests-1] BasePage - Page header retrieved for 'TimeSheets Header': 'Time'
+[INFO ] 2025-01-09 21:15:15.663 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:15:16.386 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:15:17.009 [TestNG-tests-1] DropDownHandler - The option 'Punch In/Out' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 21:15:17.545 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In Section Load'
+[INFO ] 2025-01-09 21:15:17.575 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 21:15:17.640 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 21:15:18.462 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 21:15:18.753 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 21:15:18.916 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 21:15:19.048 [TestNG-tests-1] BasePage - Clicked the 'Time Input' element
+[INFO ] 2025-01-09 21:15:19.102 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Hour Input'
+[INFO ] 2025-01-09 21:15:19.263 [TestNG-tests-1] InteractionHandler - Cleared the content of 'Hour Input' element using Actions
+[INFO ] 2025-01-09 21:15:19.307 [TestNG-tests-1] BasePage - Entered '10' text into the 'Hour Input' element
+[INFO ] 2025-01-09 21:15:19.451 [TestNG-tests-1] BasePage - Clicked the 'AM Button' element
+[INFO ] 2025-01-09 21:15:19.552 [TestNG-tests-1] BasePage - Entered 'Attendance' text into the 'Note Section' element
+[INFO ] 2025-01-09 21:15:19.642 [TestNG-tests-1] BasePage - Clicked the 'PunchIn/Out Button' element
+[INFO ] 2025-01-09 21:15:19.831 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\09_01_2025_09_15_19_801a9a57-f867-4892-8710-365d1fd781a0.png'
+[ERROR] 2025-01-09 21:15:19.997 [TestNG-tests-1] TestListener - Test Failed: 'TimePageTest'
+[INFO ] 2025-01-09 21:15:20.324 [TestNG-tests-1] TestListener - Test Context finished: 'TimePageTest'
+[INFO ] 2025-01-09 21:15:21.378 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-09 21:19:07.440 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-09 21:19:07.467 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-09 21:19:07.474 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_09_01_2025_09_19_07.html'
+[INFO ] 2025-01-09 21:19:07.499 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_09_01_2025_09_19_07.html'
+[INFO ] 2025-01-09 21:19:07.776 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 21:19:07.777 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-09 21:19:07.777 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-09 21:19:07.777 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-09 21:19:07.793 [TestNG-tests-1] TestListener - Test Context started: 'TimePageTest'
+[INFO ] 2025-01-09 21:19:07.828 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' found in the workbook.
+[INFO ] 2025-01-09 21:19:07.828 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' has '3' columns.
+[INFO ] 2025-01-09 21:19:07.839 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'timePageTest'. Total rows: '1'
+[INFO ] 2025-01-09 21:19:07.868 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-09 21:19:07.868 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-09 21:19:07.869 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 21:19:07.869 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-09 21:19:07.869 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-09 21:19:10.700 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-09 21:19:15.254 [TestNG-tests-1] DataSupplier - The 'timePageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-09 21:19:15.265 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-09 21:19:15.277 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-09 21:19:15.864 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Page Load'
+[INFO ] 2025-01-09 21:19:15.913 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Header'
+[INFO ] 2025-01-09 21:19:15.956 [TestNG-tests-1] BasePage - Page header retrieved for 'Login Header': 'Login'
+[INFO ] 2025-01-09 21:19:16.060 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-09 21:19:16.192 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2025-01-09 21:19:16.305 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-09 21:19:18.385 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Page Load'
+[INFO ] 2025-01-09 21:19:18.433 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Header'
+[INFO ] 2025-01-09 21:19:18.465 [TestNG-tests-1] BasePage - Page header retrieved for 'Dashboard Header': 'Dashboard'
+[INFO ] 2025-01-09 21:19:19.812 [TestNG-tests-1] BasePage - Clicked the 'AdminSection' element
+[INFO ] 2025-01-09 21:19:20.366 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Timesheet Page Load'
+[INFO ] 2025-01-09 21:19:20.425 [TestNG-tests-1] DatePickerHandler - Element is visible: 'TimeSheets Header'
+[INFO ] 2025-01-09 21:19:20.449 [TestNG-tests-1] BasePage - Page header retrieved for 'TimeSheets Header': 'Time'
+[INFO ] 2025-01-09 21:19:20.482 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:19:21.187 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:19:21.783 [TestNG-tests-1] DropDownHandler - The option 'Punch In/Out' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 21:19:22.321 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In Section Load'
+[INFO ] 2025-01-09 21:19:22.356 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 21:19:22.428 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 21:19:23.243 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 21:19:23.533 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 21:19:23.734 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 21:19:23.865 [TestNG-tests-1] BasePage - Clicked the 'Time Input' element
+[INFO ] 2025-01-09 21:19:23.917 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Hour Input'
+[INFO ] 2025-01-09 21:19:24.071 [TestNG-tests-1] InteractionHandler - Cleared the content of 'Hour Input' element using Actions
+[INFO ] 2025-01-09 21:19:24.116 [TestNG-tests-1] BasePage - Entered '9' text into the 'Hour Input' element
+[INFO ] 2025-01-09 21:19:24.252 [TestNG-tests-1] BasePage - Clicked the 'AM Button' element
+[INFO ] 2025-01-09 21:19:32.398 [TestNG-tests-1] BasePage - Entered 'Attendance' text into the 'Note Section' element
+[INFO ] 2025-01-09 21:19:32.497 [TestNG-tests-1] BasePage - Clicked the 'PunchIn/Out Button' element
+[INFO ] 2025-01-09 21:19:32.668 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\09_01_2025_09_19_32_4accc4cb-5f29-4f6d-a0c9-d24731030675.png'
+[ERROR] 2025-01-09 21:19:32.836 [TestNG-tests-1] TestListener - Test Failed: 'TimePageTest'
+[INFO ] 2025-01-09 21:19:33.255 [TestNG-tests-1] TestListener - Test Context finished: 'TimePageTest'
+[INFO ] 2025-01-09 21:19:34.531 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-09 21:20:31.420 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-09 21:20:31.448 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-09 21:20:31.456 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_09_01_2025_09_20_31.html'
+[INFO ] 2025-01-09 21:20:31.482 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_09_01_2025_09_20_31.html'
+[INFO ] 2025-01-09 21:20:31.758 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 21:20:31.759 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-09 21:20:31.759 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-09 21:20:31.759 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-09 21:20:31.781 [TestNG-tests-1] TestListener - Test Context started: 'TimePageTest'
+[INFO ] 2025-01-09 21:20:31.822 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' found in the workbook.
+[INFO ] 2025-01-09 21:20:31.822 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' has '3' columns.
+[INFO ] 2025-01-09 21:20:31.834 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'timePageTest'. Total rows: '1'
+[INFO ] 2025-01-09 21:20:31.864 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-09 21:20:31.865 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-09 21:20:31.865 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 21:20:31.866 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-09 21:20:31.866 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-09 21:20:34.142 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-09 21:20:39.399 [TestNG-tests-1] DataSupplier - The 'timePageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-09 21:20:39.411 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-09 21:20:39.424 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-09 21:20:40.010 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Page Load'
+[INFO ] 2025-01-09 21:20:40.058 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Header'
+[INFO ] 2025-01-09 21:20:40.101 [TestNG-tests-1] BasePage - Page header retrieved for 'Login Header': 'Login'
+[INFO ] 2025-01-09 21:20:40.226 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-09 21:20:40.361 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2025-01-09 21:20:41.756 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-09 21:20:42.314 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Page Load'
+[INFO ] 2025-01-09 21:20:42.357 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Header'
+[INFO ] 2025-01-09 21:20:42.400 [TestNG-tests-1] BasePage - Page header retrieved for 'Dashboard Header': 'Dashboard'
+[INFO ] 2025-01-09 21:20:43.396 [TestNG-tests-1] BasePage - Clicked the 'AdminSection' element
+[INFO ] 2025-01-09 21:20:43.935 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Timesheet Page Load'
+[INFO ] 2025-01-09 21:20:43.968 [TestNG-tests-1] DatePickerHandler - Element is visible: 'TimeSheets Header'
+[INFO ] 2025-01-09 21:20:43.993 [TestNG-tests-1] BasePage - Page header retrieved for 'TimeSheets Header': 'Time'
+[INFO ] 2025-01-09 21:20:44.028 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:20:44.759 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:20:45.374 [TestNG-tests-1] DropDownHandler - The option 'Punch In/Out' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 21:20:45.914 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In Section Load'
+[INFO ] 2025-01-09 21:20:45.949 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 21:20:46.019 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 21:20:46.856 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 21:20:46.995 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 21:20:47.172 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 21:20:47.296 [TestNG-tests-1] BasePage - Clicked the 'Time Input' element
+[INFO ] 2025-01-09 21:20:47.352 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Hour Input'
+[INFO ] 2025-01-09 21:20:47.501 [TestNG-tests-1] InteractionHandler - Cleared the content of 'Hour Input' element using Actions
+[INFO ] 2025-01-09 21:20:47.545 [TestNG-tests-1] BasePage - Entered '9' text into the 'Hour Input' element
+[INFO ] 2025-01-09 21:20:47.648 [TestNG-tests-1] BasePage - Clicked the 'AM Button' element
+[INFO ] 2025-01-09 21:20:55.795 [TestNG-tests-1] BasePage - Entered 'Attendance' text into the 'Note Section' element
+[INFO ] 2025-01-09 21:20:55.956 [TestNG-tests-1] BasePage - Clicked the 'PunchIn/Out Button' element
+[INFO ] 2025-01-09 21:20:56.155 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\09_01_2025_09_20_55_b6d3acac-3b59-4d26-aad0-4561f517758a.png'
+[ERROR] 2025-01-09 21:20:56.330 [TestNG-tests-1] TestListener - Test Failed: 'TimePageTest'
+[INFO ] 2025-01-09 21:20:58.590 [TestNG-tests-1] TestListener - Test Context finished: 'TimePageTest'
+[INFO ] 2025-01-09 21:20:59.173 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-09 21:25:15.492 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-09 21:25:15.526 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-09 21:25:15.535 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_09_01_2025_09_25_15.html'
+[INFO ] 2025-01-09 21:25:15.565 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_09_01_2025_09_25_15.html'
+[INFO ] 2025-01-09 21:25:15.915 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 21:25:15.916 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-09 21:25:15.916 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-09 21:25:15.917 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-09 21:25:15.942 [TestNG-tests-1] TestListener - Test Context started: 'TimePageTest'
+[INFO ] 2025-01-09 21:25:15.983 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' found in the workbook.
+[INFO ] 2025-01-09 21:25:15.984 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' has '3' columns.
+[INFO ] 2025-01-09 21:25:15.996 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'timePageTest'. Total rows: '1'
+[INFO ] 2025-01-09 21:25:16.033 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-09 21:25:16.033 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-09 21:25:16.034 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 21:25:16.034 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-09 21:25:16.034 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-09 21:25:19.127 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-09 21:25:24.249 [TestNG-tests-1] DataSupplier - The 'timePageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-09 21:25:24.260 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-09 21:25:24.275 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-09 21:25:24.855 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Page Load'
+[INFO ] 2025-01-09 21:25:24.909 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Header'
+[INFO ] 2025-01-09 21:25:24.955 [TestNG-tests-1] BasePage - Page header retrieved for 'Login Header': 'Login'
+[INFO ] 2025-01-09 21:25:25.077 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-09 21:25:25.199 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2025-01-09 21:25:25.312 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-09 21:25:27.131 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Page Load'
+[INFO ] 2025-01-09 21:25:27.173 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Header'
+[INFO ] 2025-01-09 21:25:27.201 [TestNG-tests-1] BasePage - Page header retrieved for 'Dashboard Header': 'Dashboard'
+[INFO ] 2025-01-09 21:25:28.427 [TestNG-tests-1] BasePage - Clicked the 'AdminSection' element
+[INFO ] 2025-01-09 21:25:28.983 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Timesheet Page Load'
+[INFO ] 2025-01-09 21:25:29.016 [TestNG-tests-1] DatePickerHandler - Element is visible: 'TimeSheets Header'
+[INFO ] 2025-01-09 21:25:29.040 [TestNG-tests-1] BasePage - Page header retrieved for 'TimeSheets Header': 'Time'
+[INFO ] 2025-01-09 21:25:29.077 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:25:29.787 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:25:30.360 [TestNG-tests-1] DropDownHandler - The option 'Punch In/Out' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 21:25:30.907 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In Section Load'
+[INFO ] 2025-01-09 21:25:30.942 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 21:25:31.039 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 21:25:31.853 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 21:25:31.976 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 21:25:32.161 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 21:25:32.278 [TestNG-tests-1] BasePage - Clicked the 'Time Input' element
+[INFO ] 2025-01-09 21:25:32.335 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Hour Input'
+[INFO ] 2025-01-09 21:25:32.492 [TestNG-tests-1] InteractionHandler - Cleared the content of 'Hour Input' element using Actions
+[INFO ] 2025-01-09 21:25:32.536 [TestNG-tests-1] BasePage - Entered '9' text into the 'Hour Input' element
+[INFO ] 2025-01-09 21:25:32.635 [TestNG-tests-1] BasePage - Clicked the 'AM Button' element
+[INFO ] 2025-01-09 21:25:40.769 [TestNG-tests-1] BasePage - Entered 'Attendance' text into the 'Note Section' element
+[INFO ] 2025-01-09 21:25:40.882 [TestNG-tests-1] BasePage - Clicked the 'PunchIn/Out Button' element
+[INFO ] 2025-01-09 21:25:42.159 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch Out Section Load'
+[INFO ] 2025-01-09 21:25:42.193 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 21:25:42.264 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 21:25:53.248 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 21:25:53.353 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 21:25:53.517 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 21:25:53.626 [TestNG-tests-1] BasePage - Clicked the 'Time Input' element
+[INFO ] 2025-01-09 21:25:53.652 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Hour Input'
+[INFO ] 2025-01-09 21:25:53.801 [TestNG-tests-1] InteractionHandler - Cleared the content of 'Hour Input' element using Actions
+[INFO ] 2025-01-09 21:25:53.891 [TestNG-tests-1] BasePage - Entered '9' text into the 'Hour Input' element
+[INFO ] 2025-01-09 21:25:53.983 [TestNG-tests-1] BasePage - Clicked the 'PM Button' element
+[INFO ] 2025-01-09 21:25:54.077 [TestNG-tests-1] BasePage - Entered 'Attendance' text into the 'Note Section' element
+[INFO ] 2025-01-09 21:25:54.154 [TestNG-tests-1] BasePage - Clicked the 'PunchIn/Out Button' element
+[INFO ] 2025-01-09 21:25:54.821 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:25:55.510 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:25:56.099 [TestNG-tests-1] DropDownHandler - The option 'Employee Records' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 21:25:56.677 [TestNG-tests-1] DatePickerHandler - Element is visible: 'UserName'
+[INFO ] 2025-01-09 21:25:56.723 [TestNG-tests-1] VerificationHandler - The 'UserName' element's text is: 'Sachini II'
+[INFO ] 2025-01-09 21:25:56.739 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Employee Attendance Section Load'
+[INFO ] 2025-01-09 21:25:56.765 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Employee Attendance Records Header'
+[INFO ] 2025-01-09 21:25:57.944 [TestNG-tests-1] BasePage - Entered 'Sachini II' text into the 'Employee Name' element
+[INFO ] 2025-01-09 21:25:57.974 [TestNG-tests-1] DatePickerHandler - Element is visible: 'EmployeeNameSuggestion'
+[INFO ] 2025-01-09 21:25:58.085 [TestNG-tests-1] BasePage - Clicked the 'EmployeeNameSuggestion' element
+[INFO ] 2025-01-09 21:25:58.220 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 21:25:58.365 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 21:25:58.532 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 21:25:59.083 [TestNG-tests-1] BasePage - Clicked the 'View Button' element
+[INFO ] 2025-01-09 21:26:04.150 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Employee Result Section'
+[INFO ] 2025-01-09 21:26:04.310 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\09_01_2025_09_26_04_c1e47360-8977-4b2d-9ab7-0512cf6b2b8c.png'
+[INFO ] 2025-01-09 21:26:04.439 [TestNG-tests-1] TestListener - Test Passed: 'TimePageTest'
+[INFO ] 2025-01-09 21:26:04.824 [TestNG-tests-1] TestListener - Test Context finished: 'TimePageTest'
+[INFO ] 2025-01-09 21:26:06.068 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-09 21:28:47.046 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-09 21:28:47.071 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-09 21:28:47.080 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_09_01_2025_09_28_47.html'
+[INFO ] 2025-01-09 21:28:47.101 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_09_01_2025_09_28_47.html'
+[INFO ] 2025-01-09 21:28:47.398 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 21:28:47.399 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-09 21:28:47.400 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-09 21:28:47.401 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-09 21:28:47.423 [TestNG-tests-1] TestListener - Test Context started: 'TimePageTest'
+[INFO ] 2025-01-09 21:28:47.465 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' found in the workbook.
+[INFO ] 2025-01-09 21:28:47.466 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' has '3' columns.
+[INFO ] 2025-01-09 21:28:47.483 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'timePageTest'. Total rows: '1'
+[INFO ] 2025-01-09 21:28:47.516 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-09 21:28:47.516 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-09 21:28:47.517 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 21:28:47.517 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-09 21:28:47.517 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-09 21:28:50.440 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-09 21:28:54.567 [TestNG-tests-1] DataSupplier - The 'timePageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-09 21:28:54.581 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-09 21:28:54.594 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-09 21:28:55.244 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Page Load'
+[INFO ] 2025-01-09 21:28:55.305 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Header'
+[INFO ] 2025-01-09 21:28:55.343 [TestNG-tests-1] BasePage - Page header retrieved for 'Login Header': 'Login'
+[INFO ] 2025-01-09 21:28:55.442 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-09 21:28:55.588 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2025-01-09 21:28:57.030 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-09 21:28:57.586 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Page Load'
+[INFO ] 2025-01-09 21:28:57.624 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Header'
+[INFO ] 2025-01-09 21:28:57.655 [TestNG-tests-1] BasePage - Page header retrieved for 'Dashboard Header': 'Dashboard'
+[INFO ] 2025-01-09 21:28:58.675 [TestNG-tests-1] BasePage - Clicked the 'AdminSection' element
+[INFO ] 2025-01-09 21:28:59.279 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Timesheet Page Load'
+[INFO ] 2025-01-09 21:28:59.308 [TestNG-tests-1] DatePickerHandler - Element is visible: 'TimeSheets Header'
+[INFO ] 2025-01-09 21:28:59.333 [TestNG-tests-1] BasePage - Page header retrieved for 'TimeSheets Header': 'Time'
+[INFO ] 2025-01-09 21:28:59.367 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:29:00.088 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:29:00.668 [TestNG-tests-1] DropDownHandler - The option 'Punch In/Out' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 21:29:01.209 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In Section Load'
+[INFO ] 2025-01-09 21:29:01.245 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 21:29:01.318 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 21:29:02.126 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 21:29:02.257 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 21:29:02.419 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 21:29:02.541 [TestNG-tests-1] BasePage - Clicked the 'Time Input' element
+[INFO ] 2025-01-09 21:29:02.597 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Hour Input'
+[INFO ] 2025-01-09 21:29:02.759 [TestNG-tests-1] InteractionHandler - Cleared the content of 'Hour Input' element using Actions
+[INFO ] 2025-01-09 21:29:02.800 [TestNG-tests-1] BasePage - Entered '9' text into the 'Hour Input' element
+[INFO ] 2025-01-09 21:29:02.910 [TestNG-tests-1] BasePage - Clicked the 'AM Button' element
+[INFO ] 2025-01-09 21:29:10.996 [TestNG-tests-1] BasePage - Entered 'Attendance' text into the 'Note Section' element
+[INFO ] 2025-01-09 21:29:11.104 [TestNG-tests-1] BasePage - Clicked the 'PunchIn/Out Button' element
+[INFO ] 2025-01-09 21:29:12.890 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch Out Section Load'
+[INFO ] 2025-01-09 21:29:12.915 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 21:29:12.980 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 21:29:23.829 [TestNG-tests-1] DatePickerHandler - $$$$$$$$$$$$$$$$$$ TIMEOUT EXCEPTION
+[INFO ] 2025-01-09 21:29:23.987 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 21:29:24.088 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 21:29:24.247 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 21:29:24.423 [TestNG-tests-1] BasePage - Clicked the 'Time Input' element
+[INFO ] 2025-01-09 21:29:24.448 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Hour Input'
+[INFO ] 2025-01-09 21:29:24.589 [TestNG-tests-1] InteractionHandler - Cleared the content of 'Hour Input' element using Actions
+[INFO ] 2025-01-09 21:29:24.635 [TestNG-tests-1] BasePage - Entered '10' text into the 'Hour Input' element
+[INFO ] 2025-01-09 21:29:24.732 [TestNG-tests-1] BasePage - Clicked the 'PM Button' element
+[INFO ] 2025-01-09 21:29:32.870 [TestNG-tests-1] BasePage - Entered 'Attendance' text into the 'Note Section' element
+[INFO ] 2025-01-09 21:29:32.957 [TestNG-tests-1] BasePage - Clicked the 'PunchIn/Out Button' element
+[INFO ] 2025-01-09 21:29:34.736 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:29:35.399 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:29:35.982 [TestNG-tests-1] DropDownHandler - The option 'Employee Records' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 21:29:36.564 [TestNG-tests-1] DatePickerHandler - Element is visible: 'UserName'
+[INFO ] 2025-01-09 21:29:36.610 [TestNG-tests-1] VerificationHandler - The 'UserName' element's text is: 'Sachini II'
+[INFO ] 2025-01-09 21:29:36.627 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Employee Attendance Section Load'
+[INFO ] 2025-01-09 21:29:36.661 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Employee Attendance Records Header'
+[INFO ] 2025-01-09 21:29:37.828 [TestNG-tests-1] BasePage - Entered 'Sachini II' text into the 'Employee Name' element
+[INFO ] 2025-01-09 21:29:37.858 [TestNG-tests-1] DatePickerHandler - Element is visible: 'EmployeeNameSuggestion'
+[INFO ] 2025-01-09 21:29:37.965 [TestNG-tests-1] BasePage - Clicked the 'EmployeeNameSuggestion' element
+[INFO ] 2025-01-09 21:29:38.097 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 21:29:38.189 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 21:29:38.349 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 21:29:38.855 [TestNG-tests-1] BasePage - Clicked the 'View Button' element
+[INFO ] 2025-01-09 21:29:43.914 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Employee Result Section'
+[INFO ] 2025-01-09 21:29:44.066 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\09_01_2025_09_29_43_7d97b99c-fee4-4d17-8043-340c0faec22f.png'
+[INFO ] 2025-01-09 21:29:44.201 [TestNG-tests-1] TestListener - Test Passed: 'TimePageTest'
+[INFO ] 2025-01-09 21:29:44.970 [TestNG-tests-1] TestListener - Test Context finished: 'TimePageTest'
+[INFO ] 2025-01-09 21:29:46.209 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-09 21:35:17.551 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-09 21:35:17.583 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-09 21:35:17.592 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_09_01_2025_09_35_17.html'
+[INFO ] 2025-01-09 21:35:17.621 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_09_01_2025_09_35_17.html'
+[INFO ] 2025-01-09 21:35:17.967 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 21:35:17.968 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-09 21:35:17.968 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-09 21:35:17.969 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-09 21:35:17.990 [TestNG-tests-1] TestListener - Test Context started: 'TimePageTest'
+[INFO ] 2025-01-09 21:35:18.035 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' found in the workbook.
+[INFO ] 2025-01-09 21:35:18.036 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' has '3' columns.
+[INFO ] 2025-01-09 21:35:18.050 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'timePageTest'. Total rows: '1'
+[INFO ] 2025-01-09 21:35:18.083 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-09 21:35:18.084 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-09 21:35:18.084 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 21:35:18.084 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-09 21:35:18.085 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-09 21:35:20.589 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-09 21:35:24.501 [TestNG-tests-1] DataSupplier - The 'timePageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-09 21:35:24.514 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-09 21:35:24.529 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-09 21:35:25.126 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Page Load'
+[INFO ] 2025-01-09 21:35:25.189 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Header'
+[INFO ] 2025-01-09 21:35:25.236 [TestNG-tests-1] BasePage - Page header retrieved for 'Login Header': 'Login'
+[INFO ] 2025-01-09 21:35:25.344 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-09 21:35:25.495 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2025-01-09 21:35:25.609 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-09 21:35:27.369 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Page Load'
+[INFO ] 2025-01-09 21:35:27.405 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Header'
+[INFO ] 2025-01-09 21:35:27.434 [TestNG-tests-1] BasePage - Page header retrieved for 'Dashboard Header': 'Dashboard'
+[INFO ] 2025-01-09 21:35:28.552 [TestNG-tests-1] BasePage - Clicked the 'AdminSection' element
+[INFO ] 2025-01-09 21:35:29.112 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Timesheet Page Load'
+[INFO ] 2025-01-09 21:35:29.145 [TestNG-tests-1] DatePickerHandler - Element is visible: 'TimeSheets Header'
+[INFO ] 2025-01-09 21:35:29.170 [TestNG-tests-1] BasePage - Page header retrieved for 'TimeSheets Header': 'Time'
+[INFO ] 2025-01-09 21:35:29.203 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:35:29.892 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:35:30.482 [TestNG-tests-1] DropDownHandler - The option 'Punch In/Out' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 21:35:31.047 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In Section Load'
+[INFO ] 2025-01-09 21:35:31.080 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 21:35:31.156 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 21:35:32.011 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 21:35:32.139 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 21:35:32.331 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 21:35:32.471 [TestNG-tests-1] BasePage - Clicked the 'Time Input' element
+[INFO ] 2025-01-09 21:35:32.526 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Hour Input'
+[INFO ] 2025-01-09 21:35:32.686 [TestNG-tests-1] InteractionHandler - Cleared the content of 'Hour Input' element using Actions
+[INFO ] 2025-01-09 21:35:32.728 [TestNG-tests-1] BasePage - Entered '9' text into the 'Hour Input' element
+[INFO ] 2025-01-09 21:35:32.860 [TestNG-tests-1] BasePage - Clicked the 'AM Button' element
+[INFO ] 2025-01-09 21:35:40.978 [TestNG-tests-1] BasePage - Entered 'Attendance' text into the 'Note Section' element
+[INFO ] 2025-01-09 21:35:41.105 [TestNG-tests-1] BasePage - Clicked the 'PunchIn/Out Button' element
+[INFO ] 2025-01-09 21:35:46.557 [TestNG-tests-1] DatePickerHandler - $$$$$$$$$$$$$$$$$$ TIMEOUT EXCEPTION
+[INFO ] 2025-01-09 21:35:46.588 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch Out Section Load'
+[INFO ] 2025-01-09 21:35:46.609 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 21:35:46.679 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 21:35:48.544 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 21:35:48.636 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 21:35:48.798 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 21:35:48.905 [TestNG-tests-1] BasePage - Clicked the 'Time Input' element
+[INFO ] 2025-01-09 21:35:48.935 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Hour Input'
+[INFO ] 2025-01-09 21:35:49.082 [TestNG-tests-1] InteractionHandler - Cleared the content of 'Hour Input' element using Actions
+[INFO ] 2025-01-09 21:35:49.134 [TestNG-tests-1] BasePage - Entered '10' text into the 'Hour Input' element
+[INFO ] 2025-01-09 21:35:49.274 [TestNG-tests-1] BasePage - Clicked the 'PM Button' element
+[INFO ] 2025-01-09 21:35:57.405 [TestNG-tests-1] BasePage - Entered 'Attendance' text into the 'Note Section' element
+[INFO ] 2025-01-09 21:35:57.505 [TestNG-tests-1] BasePage - Clicked the 'PunchIn/Out Button' element
+[INFO ] 2025-01-09 21:36:02.915 [TestNG-tests-1] DatePickerHandler - $$$$$$$$$$$$$$$$$$ TIMEOUT EXCEPTION
+[INFO ] 2025-01-09 21:36:02.949 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:36:03.606 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:36:04.203 [TestNG-tests-1] DropDownHandler - The option 'Employee Records' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 21:36:04.759 [TestNG-tests-1] DatePickerHandler - Element is visible: 'UserName'
+[INFO ] 2025-01-09 21:36:04.811 [TestNG-tests-1] VerificationHandler - The 'UserName' element's text is: 'manda user'
+[INFO ] 2025-01-09 21:36:04.833 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Employee Attendance Section Load'
+[INFO ] 2025-01-09 21:36:04.867 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Employee Attendance Records Header'
+[INFO ] 2025-01-09 21:36:06.052 [TestNG-tests-1] BasePage - Entered 'manda user' text into the 'Employee Name' element
+[INFO ] 2025-01-09 21:36:06.078 [TestNG-tests-1] DatePickerHandler - Element is visible: 'EmployeeNameSuggestion'
+[INFO ] 2025-01-09 21:36:06.097 [TestNG-tests-1] DatePickerHandler - Element is visible: 'EmployeeNameSuggestion'
+[INFO ] 2025-01-09 21:36:06.195 [TestNG-tests-1] BasePage - Clicked the 'EmployeeNameSuggestion' element
+[INFO ] 2025-01-09 21:36:06.854 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 21:36:06.948 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 21:36:07.094 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 21:36:07.589 [TestNG-tests-1] BasePage - Clicked the 'View Button' element
+[INFO ] 2025-01-09 21:36:12.642 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Employee Result Section'
+[INFO ] 2025-01-09 21:36:12.804 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\09_01_2025_09_36_12_c4495214-3cfb-47c1-baec-8f53758ce81f.png'
+[INFO ] 2025-01-09 21:36:12.952 [TestNG-tests-1] TestListener - Test Passed: 'TimePageTest'
+[INFO ] 2025-01-09 21:36:13.369 [TestNG-tests-1] TestListener - Test Context finished: 'TimePageTest'
+[INFO ] 2025-01-09 21:36:14.544 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-09 21:38:17.528 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-09 21:38:17.555 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-09 21:38:17.563 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_09_01_2025_09_38_17.html'
+[INFO ] 2025-01-09 21:38:17.597 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_09_01_2025_09_38_17.html'
+[INFO ] 2025-01-09 21:38:17.935 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 21:38:17.936 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-09 21:38:17.936 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-09 21:38:17.936 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-09 21:38:17.959 [TestNG-tests-1] TestListener - Test Context started: 'TimePageTest'
+[INFO ] 2025-01-09 21:38:18.004 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' found in the workbook.
+[INFO ] 2025-01-09 21:38:18.005 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' has '3' columns.
+[INFO ] 2025-01-09 21:38:18.017 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'timePageTest'. Total rows: '1'
+[INFO ] 2025-01-09 21:38:18.049 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-09 21:38:18.049 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-09 21:38:18.050 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 21:38:18.051 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-09 21:38:18.051 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-09 21:38:20.489 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-09 21:38:25.650 [TestNG-tests-1] DataSupplier - The 'timePageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-09 21:38:25.663 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-09 21:38:25.676 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-09 21:38:26.263 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Page Load'
+[INFO ] 2025-01-09 21:38:26.321 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Header'
+[INFO ] 2025-01-09 21:38:26.370 [TestNG-tests-1] BasePage - Page header retrieved for 'Login Header': 'Login'
+[INFO ] 2025-01-09 21:38:26.480 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-09 21:38:26.630 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2025-01-09 21:38:28.418 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-09 21:38:28.989 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Page Load'
+[INFO ] 2025-01-09 21:38:29.028 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Header'
+[INFO ] 2025-01-09 21:38:29.060 [TestNG-tests-1] BasePage - Page header retrieved for 'Dashboard Header': 'Dashboard'
+[INFO ] 2025-01-09 21:38:30.165 [TestNG-tests-1] BasePage - Clicked the 'AdminSection' element
+[INFO ] 2025-01-09 21:38:31.530 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Timesheet Page Load'
+[INFO ] 2025-01-09 21:38:31.562 [TestNG-tests-1] DatePickerHandler - Element is visible: 'TimeSheets Header'
+[INFO ] 2025-01-09 21:38:31.589 [TestNG-tests-1] BasePage - Page header retrieved for 'TimeSheets Header': 'Time'
+[INFO ] 2025-01-09 21:38:31.625 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:38:32.382 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:38:33.026 [TestNG-tests-1] DropDownHandler - The option 'Punch In/Out' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 21:38:33.569 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In Section Load'
+[INFO ] 2025-01-09 21:38:33.603 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 21:38:33.670 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 21:38:34.189 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\09_01_2025_09_38_33_2bcf358e-7a49-4b1b-9ddf-3ed5f2a894a7.png'
+[ERROR] 2025-01-09 21:38:34.345 [TestNG-tests-1] TestListener - Test Failed: 'TimePageTest'
+[INFO ] 2025-01-09 21:38:34.651 [TestNG-tests-1] TestListener - Test Context finished: 'TimePageTest'
+[INFO ] 2025-01-09 21:38:35.871 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'
+[INFO ] 2025-01-09 21:39:47.400 [main] FileReader - The configuration file is loaded!!
+[INFO ] 2025-01-09 21:39:47.434 [main] ExtentReportManager - Initializing Extent Report setup.
+[INFO ] 2025-01-09 21:39:47.445 [main] ExtentReportManager - Report path set to: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework//src//test//resources//report//ExtentReport_09_01_2025_09_39_47.html'
+[INFO ] 2025-01-09 21:39:47.475 [main] ExtentReportManager - ExtentSparkReporter initialized with path: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\report\ExtentReport_09_01_2025_09_39_47.html'
+[INFO ] 2025-01-09 21:39:47.819 [main] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 21:39:47.820 [main] ExtentReportManager - System information added to the report.
+[INFO ] 2025-01-09 21:39:47.820 [main] ExtentReportManager - Extent Report setup completed successfully.
+[INFO ] 2025-01-09 21:39:47.820 [main] TestListener - Test Suite started: Data Driven Test Automation
+[INFO ] 2025-01-09 21:39:47.849 [TestNG-tests-1] TestListener - Test Context started: 'TimePageTest'
+[INFO ] 2025-01-09 21:39:47.903 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' found in the workbook.
+[INFO ] 2025-01-09 21:39:47.904 [TestNG-tests-1] ExcelReader - Sheet 'timePageTest' has '3' columns.
+[INFO ] 2025-01-09 21:39:47.917 [TestNG-tests-1] DataSupplier - Data fetched successfully from sheet 'timePageTest'. Total rows: '1'
+[INFO ] 2025-01-09 21:39:47.953 [TestNG-tests-1] FileReader - The 'Local' data fetched from the configuration file
+[INFO ] 2025-01-09 21:39:47.954 [TestNG-tests-1] EnvironmentManager - Local Environment is opted for test execution
+[INFO ] 2025-01-09 21:39:47.954 [TestNG-tests-1] FileReader - The 'Chrome' data fetched from the configuration file
+[INFO ] 2025-01-09 21:39:47.954 [TestNG-tests-1] BrowserManager - Chrome browser is set for test execution
+[INFO ] 2025-01-09 21:39:47.955 [TestNG-tests-1] DriverManager - Initializing Chrome driver for local execution.
+[INFO ] 2025-01-09 21:39:50.574 [TestNG-tests-1] FileReader - The 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login' data fetched from the configuration file
+[INFO ] 2025-01-09 21:39:54.931 [TestNG-tests-1] DataSupplier - The 'timePageTest' test case is runnable. Sheet: 'TestSuite', Run Mode: 'Y'
+[INFO ] 2025-01-09 21:39:54.944 [TestNG-tests-1] BasePage - Page URL retrieved: 'https://opensource-demo.orangehrmlive.com/web/index.php/auth/login'
+[INFO ] 2025-01-09 21:39:54.959 [TestNG-tests-1] BasePage - Page title retrieved: 'OrangeHRM'
+[INFO ] 2025-01-09 21:39:55.530 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Page Load'
+[INFO ] 2025-01-09 21:39:55.592 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Login Header'
+[INFO ] 2025-01-09 21:39:55.629 [TestNG-tests-1] BasePage - Page header retrieved for 'Login Header': 'Login'
+[INFO ] 2025-01-09 21:39:55.741 [TestNG-tests-1] BasePage - Entered 'Admin' text into the 'UserName' element
+[INFO ] 2025-01-09 21:39:55.884 [TestNG-tests-1] BasePage - Entered 'admin123' text into the 'Password' element
+[INFO ] 2025-01-09 21:39:57.241 [TestNG-tests-1] BasePage - Clicked the 'Login' element
+[INFO ] 2025-01-09 21:39:57.798 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Page Load'
+[INFO ] 2025-01-09 21:39:57.844 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Dashboard Header'
+[INFO ] 2025-01-09 21:39:57.869 [TestNG-tests-1] BasePage - Page header retrieved for 'Dashboard Header': 'Dashboard'
+[INFO ] 2025-01-09 21:39:58.495 [TestNG-tests-1] BasePage - Clicked the 'AdminSection' element
+[INFO ] 2025-01-09 21:39:59.161 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Timesheet Page Load'
+[INFO ] 2025-01-09 21:39:59.192 [TestNG-tests-1] DatePickerHandler - Element is visible: 'TimeSheets Header'
+[INFO ] 2025-01-09 21:39:59.214 [TestNG-tests-1] BasePage - Page header retrieved for 'TimeSheets Header': 'Time'
+[INFO ] 2025-01-09 21:39:59.249 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:39:59.977 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:40:00.572 [TestNG-tests-1] DropDownHandler - The option 'Punch In/Out' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 21:40:01.116 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In Section Load'
+[INFO ] 2025-01-09 21:40:01.149 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 21:40:02.062 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 21:40:02.215 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 21:40:02.392 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 21:40:02.531 [TestNG-tests-1] BasePage - Clicked the 'Time Input' element
+[INFO ] 2025-01-09 21:40:02.573 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Hour Input'
+[INFO ] 2025-01-09 21:40:02.727 [TestNG-tests-1] InteractionHandler - Cleared the content of 'Hour Input' element using Actions
+[INFO ] 2025-01-09 21:40:02.769 [TestNG-tests-1] BasePage - Entered '9' text into the 'Hour Input' element
+[INFO ] 2025-01-09 21:40:02.868 [TestNG-tests-1] BasePage - Clicked the 'AM Button' element
+[INFO ] 2025-01-09 21:40:02.975 [TestNG-tests-1] BasePage - Entered 'Attendance' text into the 'Note Section' element
+[INFO ] 2025-01-09 21:40:03.062 [TestNG-tests-1] BasePage - Clicked the 'PunchIn/Out Button' element
+[INFO ] 2025-01-09 21:40:08.369 [TestNG-tests-1] DatePickerHandler - $$$$$$$$$$$$$$$$$$ TIMEOUT EXCEPTION
+[INFO ] 2025-01-09 21:40:08.397 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch Out Section Load'
+[INFO ] 2025-01-09 21:40:08.428 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Header'
+[INFO ] 2025-01-09 21:40:08.491 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Punch In / Out Layout Load'
+[INFO ] 2025-01-09 21:40:08.615 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 21:40:08.703 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 21:40:08.887 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 21:40:09.017 [TestNG-tests-1] BasePage - Clicked the 'Time Input' element
+[INFO ] 2025-01-09 21:40:09.047 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Hour Input'
+[INFO ] 2025-01-09 21:40:09.232 [TestNG-tests-1] InteractionHandler - Cleared the content of 'Hour Input' element using Actions
+[INFO ] 2025-01-09 21:40:09.273 [TestNG-tests-1] BasePage - Entered '10' text into the 'Hour Input' element
+[INFO ] 2025-01-09 21:40:09.389 [TestNG-tests-1] BasePage - Clicked the 'PM Button' element
+[INFO ] 2025-01-09 21:40:09.497 [TestNG-tests-1] BasePage - Entered 'Attendance' text into the 'Note Section' element
+[INFO ] 2025-01-09 21:40:09.603 [TestNG-tests-1] BasePage - Clicked the 'PunchIn/Out Button' element
+[INFO ] 2025-01-09 21:40:14.875 [TestNG-tests-1] DatePickerHandler - $$$$$$$$$$$$$$$$$$ TIMEOUT EXCEPTION
+[INFO ] 2025-01-09 21:40:14.911 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:40:15.564 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Attendance Dropdown'
+[INFO ] 2025-01-09 21:40:16.165 [TestNG-tests-1] DropDownHandler - The option 'Employee Records' is selected from the 'Attendance Dropdown' dropdown
+[INFO ] 2025-01-09 21:40:16.743 [TestNG-tests-1] DatePickerHandler - Element is visible: 'UserName'
+[INFO ] 2025-01-09 21:40:16.791 [TestNG-tests-1] VerificationHandler - The 'UserName' element's text is: 'manda user'
+[INFO ] 2025-01-09 21:40:16.808 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Employee Attendance Section Load'
+[INFO ] 2025-01-09 21:40:16.836 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Employee Attendance Records Header'
+[INFO ] 2025-01-09 21:40:17.995 [TestNG-tests-1] BasePage - Entered 'manda user' text into the 'Employee Name' element
+[INFO ] 2025-01-09 21:40:18.024 [TestNG-tests-1] DatePickerHandler - Element is visible: 'EmployeeNameSuggestion'
+[INFO ] 2025-01-09 21:40:18.044 [TestNG-tests-1] DatePickerHandler - Element is visible: 'EmployeeNameSuggestion'
+[INFO ] 2025-01-09 21:40:18.140 [TestNG-tests-1] BasePage - Clicked the 'EmployeeNameSuggestion' element
+[INFO ] 2025-01-09 21:40:18.262 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Date Details Section'
+[INFO ] 2025-01-09 21:40:18.347 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Day'
+[INFO ] 2025-01-09 21:40:18.513 [TestNG-tests-1] InteractionHandler - Clicked the 'Day' element using Actions
+[INFO ] 2025-01-09 21:40:19.062 [TestNG-tests-1] BasePage - Clicked the 'View Button' element
+[INFO ] 2025-01-09 21:40:24.104 [TestNG-tests-1] DatePickerHandler - Element is visible: 'Employee Result Section'
+[INFO ] 2025-01-09 21:40:24.257 [TestNG-tests-1] TestListener - Screenshot saved: 'D:\Environment_Collection\Intellij_Env\SeleniumTestFramework\src\test\resources\screenshots\09_01_2025_09_40_24_96531994-51cb-4f09-b392-431111f40bd6.png'
+[INFO ] 2025-01-09 21:40:24.385 [TestNG-tests-1] TestListener - Test Passed: 'TimePageTest'
+[INFO ] 2025-01-09 21:40:24.796 [TestNG-tests-1] TestListener - Test Context finished: 'TimePageTest'
+[INFO ] 2025-01-09 21:40:26.040 [main] TestListener - Test Suite finished: 'Data Driven Test Automation'

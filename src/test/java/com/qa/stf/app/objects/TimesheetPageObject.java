@@ -33,11 +33,15 @@ public class TimesheetPageObject {
     protected List<WebElement> attendanceTopNavDropDownOptions;
     protected String attendanceTopNavDropDownOptionsLabel = "Attendance Dropdown Options";
 
-    protected By punchInSectionLoadCheck = By.xpath("//div[contains(@class,'oxd-grid-item')]");
+    //protected By punchInSectionLoadCheck = By.xpath("//div[contains(@class,'oxd-grid-item')]");
+    protected By punchInSectionLoadCheck = By.className("oxd-input-group__label-wrapper");
     protected String punchInSectionLoadCheckLabel = "Punch In Section Load";
 
-    protected By punchOutSectionLoadCheck = By.xpath("//div[contains(@class,'oxd-grid-item')]");
+    protected By punchOutSectionLoadCheck = By.className("oxd-input-group__label-wrapper");
     protected String punchOutSectionLoadCheckLabel = "Punch Out Section Load";
+
+    protected By punchInOutLayoutLoadCheck = By.xpath("//input");
+    protected String punchInOutLayoutLoadCheckLabel = "Punch In / Out Layout Load";
 
     @FindBy(xpath = "//h6[@class='oxd-text oxd-text--h6 orangehrm-main-title']")
     protected WebElement punchInOutSectionHeader;
@@ -121,7 +125,7 @@ public class TimesheetPageObject {
     protected WebElement employeeResultSection;
     protected String employeeResultSectionLabel = "Employee Result Section";
 
-    @FindBy(xpath = "//div[@class='oxd-loading-spinner']")
+    @FindBy(css = ".oxd-loading-spinner")
     protected WebElement loadSpinner;
     protected String loadSpinnerLabel = "Load Spinner";
 

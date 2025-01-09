@@ -69,6 +69,14 @@ public class TimesheetPageElement extends TimesheetPageObject {
         return punchOutSectionLoadCheckLabel;
     }
 
+    public By getPunchInOutLayoutLoadCheck() {
+        return punchInOutLayoutLoadCheck;
+    }
+
+    public String getPunchInOutLayoutLoadCheckLabel() {
+        return punchInOutLayoutLoadCheckLabel;
+    }
+
     public WebElement getPunchInOutSectionHeader() {
         return punchInOutSectionHeader;
     }

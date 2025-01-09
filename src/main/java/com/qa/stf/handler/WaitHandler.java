@@ -6,9 +6,8 @@ import com.qa.stf.report.ExtentReportManager;
 import com.qa.stf.util.ExceptionHub;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
+import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -17,7 +16,7 @@ import java.util.Objects;
 
 import static com.qa.stf.constant.TestConstants.*;
 
-// version 1.2
+// version 1.3
 
 public class WaitHandler {
 
@@ -106,7 +105,27 @@ public class WaitHandler {
 
     public void waitForDOMToBeStable() {
         String initialDom = driverManager.getDriver().getPageSource();
-        wait.until(driver -> !Objects.equals(driverManager.getDriver().getPageSource(), initialDom));
+        wait.until(_ -> !Objects.equals(driverManager.getDriver().getPageSource(), initialDom));
+    }
+
+    // App specific code
+    public void waitForPageToLoad() {
+        try {
+            new WebDriverWait(driverManager.getDriver(), Duration.ofSeconds(5)).until((ExpectedCondition<Boolean>) wd ->
+                    {
+                        assert wd != null;
+                        return Objects.requireNonNull(((JavascriptExecutor) wd).executeScript("return document.readyState")).toString().equals("loading");
+                    }
+            );
+        } catch (TimeoutException ex) {
+            log.info("$$$$$$$$$$$$$$$$$$ TIMEOUT EXCEPTION");
+            new WebDriverWait(driverManager.getDriver(), Duration.ofSeconds(5)).until((ExpectedCondition<Boolean>) wd ->
+                    {
+                        assert wd != null;
+                        return Objects.requireNonNull(((JavascriptExecutor) wd).executeScript("return document.readyState")).toString().equals("complete");
+                    }
+            );
+        }
     }
 
     /**
