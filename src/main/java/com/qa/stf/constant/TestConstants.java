@@ -13,7 +13,7 @@ package com.qa.stf.constant;
  * values, promoting reusability and reducing duplication in the codebase.
  *
  * @author Jagatheshwaran N
- * @version 1.7
+ * @version 1.8
  */
 public class TestConstants {
 
@@ -73,5 +73,9 @@ public class TestConstants {
 	public static final int EXPLICIT_WAIT_TIME = 10;
 	public static final int WAIT_SLEEP = 2;
 	public static final int WAIT_TIME = 5000;
+
+	// Date Time Details
+	public static final String MONTH_FORMAT = "MMMM";
+	public static final String TIME_HR_FORMAT = "hh";
 
 }

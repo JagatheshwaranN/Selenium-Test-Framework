@@ -7,10 +7,10 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
-import java.time.LocalDate;
+import java.time.*;
 import java.time.format.DateTimeFormatter;
 
-// version 1.2
+// version 1.3
 
 public class DatePickerHandler {
 
@@ -40,46 +40,85 @@ public class DatePickerHandler {
         verificationHandler = null;
     }
 
-    public void selectDateFromDatePicker(WebElement datePicker, WebElement dateDetailSection, WebElement monthDetail, WebElement yearDetail, WebElement monthNavigator, By dayLocator, String day, String month, String year, String dateDetailSectionLabel) {
+    public void selectDateFromSingleDatePicker(WebElement datePicker, WebElement dateDetailSection, WebElement monthDetail, WebElement yearDetail, WebElement monthNavigator, By dayLocator, String day, String month, String year, String dateDetailSectionLabel) {
         datePicker.click();
         verificationHandler.isElementDisplayed(dateDetailSection, dateDetailSectionLabel);
         String monthText = monthDetail.getText();
         String yearText = yearDetail.getText();
-//        System.out.println(monthText);
-//        System.out.println(yearText);
         while (!(monthText.equalsIgnoreCase(month) && yearText.equalsIgnoreCase(year))) {
             monthNavigator.click();
             monthText = monthDetail.getText();
             yearText = yearDetail.getText();
-//            System.out.println(monthText);
-//            System.out.println(yearText);
         }
         new InteractionHandler(driverManager, verificationHandler).clickElement(dayLocator, day, "Day");
     }
 
-    public void getDate() {
-        LocalDate currentDate = LocalDate.now();
-        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        String currentDateInFormat = currentDate.format(dateTimeFormatter);
-        System.out.println(currentDateInFormat);
+    public String getDate() {
+        // YYYY-MM-dd - Default Format
+        return LocalDate.now().toString();
     }
 
-    public void getMonth(String format) {
+    public String getCustomizedDate(String pattern) {
+        // dd-MM-yyyy - 01-01-2025
+        LocalDate currentDate = LocalDate.now();
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(pattern);
+        return currentDate.format(dateTimeFormatter);
+    }
+
+    public String getDay() {
+        LocalDate currentDate = LocalDate.now();
+        return String.valueOf(currentDate.getDayOfMonth());
+    }
+
+    public String getMonth(String format) {
+        // MMM - Jan & MMMM - January
         LocalDate currentDate = LocalDate.now();
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(format);
-        System.out.println(currentDate.format(dateTimeFormatter));
+        return currentDate.format(dateTimeFormatter);
     }
 
-    public void getYear() {
+    public String getYear() {
         LocalDate currentDate = LocalDate.now();
-        System.out.println(currentDate.getYear());
+        return String.valueOf(currentDate.getYear());
+    }
+    public String getTime() {
+        return LocalTime.now().toString();
+    }
+
+    public String getCustomizedTime(String pattern) {
+        // hh:mm:ss a - 09:10:40 AM
+        LocalTime currentTime = LocalTime.now();
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern(pattern);
+        return currentTime.format(dateTimeFormatter);
+    }
+
+    public String getTimeHour(String pattern) {
+        return getCustomizedTime(pattern);
+    }
+
+    public String getDateTime() {
+        return LocalDateTime.now().toString();
+    }
+
+    public String getZonedDateTime() {
+        return ZonedDateTime.now().toString();
+    }
+
+    public String getTimeStamp() {
+        return Instant.now().toString();
     }
 
     public static void main(String[] args) {
         DatePickerHandler datePickerHandler = new DatePickerHandler();
-        datePickerHandler.getDate();
+        System.out.println(datePickerHandler.getDate());
         datePickerHandler.getMonth("MMM");
         datePickerHandler.getYear();
+        datePickerHandler.getDay();
+        System.out.println(datePickerHandler.getTime());
+        System.out.println(datePickerHandler.getDateTime());
+        System.out.println(datePickerHandler.getZonedDateTime());
+        System.out.println(datePickerHandler.getTimeStamp());
+
     }
 
 }
