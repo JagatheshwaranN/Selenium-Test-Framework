@@ -315,4 +315,18 @@ public class ExceptionHub extends RuntimeException {
         }
     }
 
+    public static class DatePickerException extends ExceptionHub {
+
+        /**
+         * Constructs the exception with a message indicating that the specified date picker
+         * operation is not valid and needs to be checked.
+         *
+         * @param message The error message detailing the issue during Date Picker operation.
+         */
+
+        public DatePickerException(String message) {
+            super(message);
+        }
+    }
+
 }

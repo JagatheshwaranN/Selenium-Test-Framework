@@ -18,7 +18,7 @@ public class TimesheetPage extends TimesheetPageElement {
     private final String day = pageManager.getDatePickerHandler().getDay();
     private final String month = pageManager.getDatePickerHandler().getMonth(MONTH_FORMAT);
     private final String year = pageManager.getDatePickerHandler().getYear();
-    private String timeInHour = pageManager.getDatePickerHandler().getTimeHour(TIME_HR_FORMAT);
+    private String timeInHour = pageManager.getDatePickerHandler().getCustomizedTime(TIME_HR_FORMAT);
 
     public String verifyTimeSheetPageHeader() {
         pageManager.getWaitHandler().waitForPresenceOfElements(getTimesheetPageLoadCheck(), getTimesheetPageLoadCheckLabel());
