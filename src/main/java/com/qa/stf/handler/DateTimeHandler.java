@@ -53,10 +53,10 @@ import java.util.List;
  * @author Jagatheshwaran N
  * @version 1.5
  */
-public class DatePickerHandler {
+public class DateTimeHandler {
 
     // Logger instance for the DatePickerHandler class to enable logging during the execution
-    private static final Logger log = LogManager.getLogger(DatePickerHandler.class);
+    private static final Logger log = LogManager.getLogger(DateTimeHandler.class);
 
     // Constant for the label identifying the "Day" field in a date picker.
     private static final String DAY_LABEL = "Day";
@@ -82,7 +82,7 @@ public class DatePickerHandler {
      *                            tasks.
      * @throws IllegalArgumentException If the provided DriverManager is null.
      */
-    public DatePickerHandler(DriverManager driverManager, VerificationHandler verificationHandler) {
+    public DateTimeHandler(DriverManager driverManager, VerificationHandler verificationHandler) {
         if (driverManager == null) {
             throw new IllegalArgumentException("DriverManager cannot be null.");
         }
@@ -125,6 +125,7 @@ public class DatePickerHandler {
             String dateDetailSectionLabel) {
         int maxAttempts = 12;
         if (day == null || month == null || year == null) {
+            log.error("Day, Month, and Year must not be null.");
             throw new ExceptionHub.DatePickerException("Day, Month, and Year must not be null.");
         }
         try {
@@ -133,7 +134,8 @@ public class DatePickerHandler {
             // noinspection ResultOfMethodCallIgnored
             LocalDate.of(Integer.parseInt(year), Month.valueOf(month.toUpperCase()), Integer.parseInt(day));
         } catch (DateTimeException | IllegalArgumentException ex) {
-            throw new ExceptionHub.DatePickerException("Invalid date: " + day + "/" + month + "/" + year);
+            log.error("Invalid date: {}/{}/{}", day, month, year);
+            throw new ExceptionHub.DatePickerException(String.format("Invalid date: %s/%s/%s", day, month, year), ex);
         }
         log.info("Selecting date: {}/{}/{}", day, month, year);
         datePicker.click();
@@ -149,6 +151,7 @@ public class DatePickerHandler {
             monthText = monthDetail.getText();
             yearText = yearDetail.getText();
             if (maxAttempts <= 0) {
+                log.error("Could not find the desired month and year: {} & {}", month, year);
                 throw new ExceptionHub.DatePickerException(String.format("Could not find the desired month and year: %s & %s", month, year));
             }
         }
@@ -190,6 +193,7 @@ public class DatePickerHandler {
             String dateDetailSectionLabel) {
         int maxAttempts = 12;
         if (day == null || monthYear == null) {
+            log.error("Day, Month, and Year must not be null.");
             throw new ExceptionHub.DatePickerException("Day, Month, and Year must not be null.");
         }
         log.info("Selecting date: {} / {}", day, monthYear);
@@ -206,6 +210,7 @@ public class DatePickerHandler {
             leftMonthYearDetail = monthYearDetailList.get(0).getText();
             rightMonthYearDetail = monthYearDetailList.get(1).getText();
             if (maxAttempts <= 0) {
+                log.error("Could not find the desired month and year: {}", monthYear);
                 throw new ExceptionHub.DatePickerException("Could not find the desired month and year: " + monthYear);
             }
         }

@@ -29,7 +29,7 @@ public class TimesheetPage extends TimesheetPageElement {
         pageManager.getDropDownHandler().selectDropdownOption(getAttendanceTopNavDropDown(), getAttendanceTopNavDropDownLayout(), getAttendanceTopNavDropDownOptions(), "Punch In/Out", getAttendanceTopNavDropDownLabel());
     }
 
-    public void addPunchInDetail() {
+    public void addPunchInDetail(String notes) {
         pageManager.getWaitHandler().waitForDOMToBeStable();
         pageManager.getWaitHandler().waitForPresenceOfElements(getPunchInSectionLoadCheck(), getPunchInSectionLoadCheckLabel());
         pageManager.getVerificationHelper().isTextEqualTo(getPunchInOutSectionHeader(), TIMESHEET_PAGE_PUNCH_IN_HEADER, getPunchInOutSectionHeaderLabel());
@@ -41,11 +41,11 @@ public class TimesheetPage extends TimesheetPageElement {
         pageManager.getInteractionHandler().clearElement(getTimePickerHourInput(), getTimePickerHourInputLabel());
         pageManager.getPageComponent().typeText(getTimePickerHourInput(), timeInHour, getTimePickerHourInputLabel());
         pageManager.getPageComponent().clickElement(getTimePickerAMInput(), getTimePickerAMInputLabel());
-        pageManager.getPageComponent().typeText(getNoteSection(), "Attendance", getNoteSectionLabel());
+        pageManager.getPageComponent().typeText(getNoteSection(), notes, getNoteSectionLabel());
         pageManager.getPageComponent().clickElement(getSubmitButton(), getSubmitButtonLabel());
     }
 
-    public void addPunchOutDetail() {
+    public void addPunchOutDetail(String notes) {
         pageManager.getWaitHandler().waitForPageToLoad();
         pageManager.getWaitHandler().waitForPresenceOfElements(getPunchOutSectionLoadCheck(), getPunchOutSectionLoadCheckLabel());
         pageManager.getVerificationHelper().isTextEqualTo(getPunchInOutSectionHeader(), TIMESHEET_PAGE_PUNCH_OUT_HEADER, getPunchInOutSectionHeaderLabel());
@@ -59,7 +59,7 @@ public class TimesheetPage extends TimesheetPageElement {
         timeInHour = String.valueOf(Integer.parseInt(timeInHour) + 1);
         pageManager.getPageComponent().typeText(getTimePickerHourInput(), timeInHour, getTimePickerHourInputLabel());
         pageManager.getPageComponent().clickElement(getTimePickerPMInput(), getTimePickerPMInputLabel());
-        pageManager.getPageComponent().typeText(getNoteSection(), "Attendance", getNoteSectionLabel());
+        pageManager.getPageComponent().typeText(getNoteSection(), notes, getNoteSectionLabel());
         pageManager.getPageComponent().clickElement(getSubmitButton(), getSubmitButtonLabel());
         pageManager.getWaitHandler().waitForPageToLoad();
     }

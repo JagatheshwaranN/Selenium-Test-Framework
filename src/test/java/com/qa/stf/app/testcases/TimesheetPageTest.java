@@ -15,14 +15,14 @@ import java.util.Hashtable;
 
 import static com.qa.stf.app.constant.AppConstants.*;
 
-public class TimePageTest extends BaseTest {
+public class TimesheetPageTest extends BaseTest {
 
     PageManager pageManager;
 
     @Test(dataProviderClass = DataSupplier.class, dataProvider = "fetchData")
     public void timePageTest(Hashtable<String, String> data) {
 
-        var classObject = TimePageTest.class;
+        var classObject = TimesheetPageTest.class;
         Method[] methods = classObject.getMethods();
         if (!DataSupplier.isTestRunnable(methods[0].getName(), DriverManager.excelReader)) {
             throw new SkipException("Skipping the Test - " + StringUtils.capitalize(methods[0].getName())
@@ -41,8 +41,8 @@ public class TimePageTest extends BaseTest {
         pageManager.getDashboardPage().navigateToTimePage();
         Assert.assertEquals(pageManager.getTimePage().verifyTimeSheetPageHeader(), TIMESHEET_PAGE_HEADER);
         pageManager.getTimePage().navigateToPunchInOutSection();
-        pageManager.getTimePage().addPunchInDetail();
-        pageManager.getTimePage().addPunchOutDetail();
+        pageManager.getTimePage().addPunchInDetail(data.get("Notes"));
+        pageManager.getTimePage().addPunchOutDetail(data.get("Notes"));
         pageManager.getTimePage().navigateToEmployeeRecordsSection();
         String userName = pageManager.getDashboardPage().fetchUserNameFromDropDown();
         Assert.assertTrue(pageManager.getTimePage().searchEmployeeAttendanceRecord(userName));

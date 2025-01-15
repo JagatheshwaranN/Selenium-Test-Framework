@@ -18,7 +18,7 @@ public class PageManager {
 
 	private DropDownHandler dropDownHandler;
 
-	private DatePickerHandler datePickerHandler;
+	private DateTimeHandler datePickerHandler;
 
 	private InteractionHandler interactionHandler;
 
@@ -56,8 +56,8 @@ public class PageManager {
 		return (dropDownHandler == null) ? dropDownHandler = new DropDownHandler(new VerificationHandler()) : dropDownHandler;
 	}
 
-	public DatePickerHandler getDatePickerHandler() {
-		return (datePickerHandler == null) ? datePickerHandler = new DatePickerHandler(DriverManager.getInstance(), new VerificationHandler()) : datePickerHandler;
+	public DateTimeHandler getDatePickerHandler() {
+		return (datePickerHandler == null) ? datePickerHandler = new DateTimeHandler(DriverManager.getInstance(), new VerificationHandler()) : datePickerHandler;
 	}
 
 	public InteractionHandler getInteractionHandler() {

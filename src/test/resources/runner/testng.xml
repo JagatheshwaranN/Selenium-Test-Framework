@@ -19,7 +19,7 @@
 	</test>-->
 	<test thread-count="1" name="TimePageTest">
 		<classes>
-			<class name="com.qa.stf.app.testcases.TimePageTest" />
+			<class name="com.qa.stf.app.testcases.TimesheetPageTest" />
 		</classes>
 	</test>
 </suite>

@@ -327,6 +327,42 @@ public class ExceptionHub extends RuntimeException {
         public DatePickerException(String message) {
             super(message);
         }
+
+        /**
+         * Constructs the exception with a message explaining the date picker operation error
+         * and includes the underlying cause of the failure.
+         *
+         * @param message The error message detailing the issue during Date Picker operation.
+         * @param cause   The underlying cause of the exception.
+         */
+        public DatePickerException(String message, Throwable cause) {
+            super(message, cause);
+        }
+    }
+
+    public static class TimeoutException extends ExceptionHub {
+
+        /**
+         * Constructs the exception with a message indicating that the specified date picker
+         * operation is not valid and needs to be checked.
+         *
+         * @param message The error message detailing the issue during Date Picker operation.
+         */
+
+        public TimeoutException(String message) {
+            super(message);
+        }
+
+        /**
+         * Constructs the exception with a message explaining the date picker operation error
+         * and includes the underlying cause of the failure.
+         *
+         * @param message The error message detailing the issue during Date Picker operation.
+         * @param cause   The underlying cause of the exception.
+         */
+        public TimeoutException(String message, Throwable cause) {
+            super(message, cause);
+        }
     }
 
 }
