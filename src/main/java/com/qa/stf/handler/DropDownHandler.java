@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import com.aventstack.extentreports.Status;
-import com.qa.stf.base.BasePage;
 import com.qa.stf.base.DriverManager;
 import com.qa.stf.report.ExtentReportManager;
 import com.qa.stf.util.ExceptionHub;
