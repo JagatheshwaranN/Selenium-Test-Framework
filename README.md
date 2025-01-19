@@ -45,8 +45,6 @@ Alternatively, you can run specific TestNG XML suites for targeted test executio
 - TestNG will automatically generate an HTML report in the ```/test-output``` directory after test execution.
 - Additionally, screenshots will be captured for any failed test and stored in the ```/resources/screenshots``` folder.
 
-### Directory Structure
-
 ## Directory Structure
 
 ```plaintext
