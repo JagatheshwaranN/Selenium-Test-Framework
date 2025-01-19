@@ -3,6 +3,7 @@ package com.qa.stf.app.pages;
 import com.qa.stf.base.BasePage;
 import com.qa.stf.base.DriverManager;
 import com.qa.stf.handler.*;
+import com.qa.stf.util.EncryptionManager;
 
 public class PageManager {
 
@@ -13,6 +14,8 @@ public class PageManager {
 	private AdminPage adminPage;
 
 	private TimesheetPage timesheetPage;
+
+	private BasePage basePage;
 
 	private VerificationHandler verificationHelper;
 
@@ -26,7 +29,7 @@ public class PageManager {
 
 	private WaitHandler waitHandler;
 
-	private BasePage basePage;
+	private EncryptionManager encryptionManager;
 
 	public BasePage getPageComponent() {
 		return (basePage == null) ? basePage = new BasePage(DriverManager.getInstance()) : basePage;
@@ -70,6 +73,10 @@ public class PageManager {
 
 	public WaitHandler getWaitHandler() {
 		return (waitHandler == null) ? waitHandler = new WaitHandler(DriverManager.getInstance()) : waitHandler;
+	}
+
+	public EncryptionManager getEncryptionManager() {
+		return (encryptionManager == null) ? encryptionManager = new EncryptionManager() : encryptionManager;
 	}
 
 }

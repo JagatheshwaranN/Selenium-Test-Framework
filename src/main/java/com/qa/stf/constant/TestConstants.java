@@ -13,7 +13,7 @@ package com.qa.stf.constant;
  * values, promoting reusability and reducing duplication in the codebase.
  *
  * @author Jagatheshwaran N
- * @version 1.8
+ * @version 1.9
  */
 public class TestConstants {
 
@@ -77,5 +77,9 @@ public class TestConstants {
 	// Date Time Details
 	public static final String MONTH_FORMAT = "MMMM";
 	public static final String TIME_HR_FORMAT = "hh";
+
+	// Encryption Details
+	public static final String ALGORITHM = "AES";
+	public static final String SECRET_KEY = "MySecretKeyForSecurity25";
 
 }

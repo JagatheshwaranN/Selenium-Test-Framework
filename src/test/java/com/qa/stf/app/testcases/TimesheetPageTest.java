@@ -36,7 +36,7 @@ public class TimesheetPageTest extends BaseTest {
         Assert.assertEquals(pageManager.getPageComponent().getPageUrl(), LOGIN_PAGE_URL);
         Assert.assertEquals(pageManager.getPageComponent().getPageTitle(), LOGIN_PAGE_TITLE);
         Assert.assertEquals(pageManager.getLoginPage().verifyLoginPageHeader(), LOGIN_PAGE_HEADER);
-        pageManager.getLoginPage().doLogin(data.get("UserName"), data.get("Password"));
+        pageManager.getLoginPage().doLogin(data.get("UserName"), pageManager.getEncryptionManager().decryptData(data.get("Password")));
         Assert.assertEquals(pageManager.getDashboardPage().verifyDashboardPageHeader(), DASHBOARD_PAGE_HEADER);
         pageManager.getDashboardPage().navigateToTimePage();
         Assert.assertEquals(pageManager.getTimePage().verifyTimeSheetPageHeader(), TIMESHEET_PAGE_HEADER);

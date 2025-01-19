@@ -35,10 +35,11 @@ public class LoginPageTest extends BaseTest {
                     + " as the RunMode for the Test Data is set to N");
         }
 
+        pageManager = new PageManager();
         Assert.assertEquals(pageManager.getPageComponent().getPageUrl(), LOGIN_PAGE_URL);
         Assert.assertEquals(pageManager.getPageComponent().getPageTitle(), LOGIN_PAGE_TITLE);
         Assert.assertEquals(pageManager.getLoginPage().verifyLoginPageHeader(), LOGIN_PAGE_HEADER);
-        pageManager.getLoginPage().doLogin(data.get("UserName"), data.get("Password"));
+        pageManager.getLoginPage().doLogin(data.get("UserName"), pageManager.getEncryptionManager().decryptData(data.get("Password")));
         Assert.assertEquals(pageManager.getDashboardPage().verifyDashboardPageHeader(),DASHBOARD_PAGE_HEADER);
     }
 

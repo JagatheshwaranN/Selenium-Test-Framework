@@ -58,7 +58,7 @@ package com.qa.stf.util;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.2
+ * @version 1.4
  */
 public class ExceptionHub extends RuntimeException {
 
@@ -361,6 +361,20 @@ public class ExceptionHub extends RuntimeException {
          * @param cause   The underlying cause of the exception.
          */
         public TimeoutException(String message, Throwable cause) {
+            super(message, cause);
+        }
+    }
+
+    public static class EncryptionException extends ExceptionHub {
+
+        /**
+         * Constructs the exception with a message explaining the Encryption operation error
+         * and includes the underlying cause of the failure.
+         *
+         * @param message The error message detailing the issue during Encryption.
+         * @param cause The underlying cause of the exception.
+         */
+        public EncryptionException(String message, Throwable cause) {
             super(message, cause);
         }
     }
