@@ -101,7 +101,7 @@ SeleniumTestFramework/
     │   │                   ├── constant/
     │   │                   │   └── AppConstants
     │   │                   ├── elements/
-    │   │                   ├── AdminPageElement
+    │   │                   │   ├── AdminPageElement
     │   │                   │   ├── DashboardPageElement
     │   │                   │   ├── LoginPageElement
     │   │                   │   └── TimesheetPageElement
