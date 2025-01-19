@@ -27,7 +27,7 @@ Before running the framework, make sure to have the following installed:
 To get started with the framework, first clone the repository:
 
 ```bash
-git clone https://github.com/your-username/selenium-java-automation-framework.git
+git clone https://github.com/JagatheshwaranN/Selenium-Test-Framework.git
 ```
 
 ### 2. Set Up the Project
@@ -38,7 +38,7 @@ mvn clean install
 ### 3. Run Tests
 Alternatively, you can run specific TestNG XML suites for targeted test execution:
 ``` bash
-mvn test -DsuiteXmlFile=testng.xml
+ mvn test -DsuiteXmlFile='testng.xml' -'Dorg.freemarker.loggerLibrary=NONE'
 ```
 ### 4. Generating Reports
 - Extent will generate an HTML report in the ```/resources/report``` directory after test execution.
