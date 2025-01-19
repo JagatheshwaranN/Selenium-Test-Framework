@@ -45,3 +45,88 @@ Alternatively, you can run specific TestNG XML suites for targeted test executio
 - TestNG will automatically generate an HTML report in the ```/test-output``` directory after test execution.
 - Additionally, screenshots will be captured for any failed test and stored in the ```/resources/screenshots``` folder.
 
+### Directory Structure
+
+## Directory Structure
+
+```plaintext
+SeleniumTestFramework/
+└── src/
+    ├── main/
+    │   ├── java/
+    │   │   └── com/
+    │   │       └── qa/
+    │   │           └── stf/
+    │   │               ├── base/
+    │   │               │   ├── BasePage
+    │   │               │   ├── BrowserManager
+    │   │               │   ├── DriverManager
+    │   │               │   ├── ElementActions
+    │   │               │   └── EnvironmentManager
+    │   │               ├── constant/
+    │   │               │   ├── BrowserType
+    │   │               │   ├── EnvType
+    │   │               │   └── TestConstants
+    │   │               ├── handler/
+    │   │               │   ├── AlertHandler
+    │   │               │   ├── BrowserHandler
+    │   │               │   ├── DateTimeHandler
+    │   │               │   ├── DropDownHandler
+    │   │               │   ├── JavaScriptHandler
+    │   │               │   ├── VerificationHandler
+    │   │               │   └── WaitHandler
+    │   │               ├── listener/
+    │   │               ├── report/
+    │   │               │   └── ExtentReportManager
+    │   │               ├── util/
+    │   │               │   ├── DataSupplier
+    │   │               │   ├── EncryptionManager
+    │   │               │   ├── ExcelReader
+    │   │               │   ├── ExceptionHub
+    │   │               │   ├── ExtentUtil
+    │   │               │   └── FileReader
+    │   └── resources/
+    │       ├── config/
+    │       │   └── configuration.properties
+    │       └── log4j2.properties
+    ├── test/
+    │   ├── java/
+    │   │   └── com/
+    │   │       └── qa/
+    │   │           └── stf/
+    │   │               └── app/
+    │   │                   ├── base/
+    │   │                   │   └── BaseTest
+    │   │                   ├── constant/
+    │   │                   │   └── AppConstants
+    │   │                   ├── elements/
+    │   │                   ├── AdminPageElement
+    │   │                   │   ├── DashboardPageElement
+    │   │                   │   ├── LoginPageElement
+    │   │                   │   └── TimesheetPageElement
+    │   │                   ├── objects/
+    │   │                   │   ├── AdminPageObject
+    │   │                   │   ├── DashboardPageObject
+    │   │                   │   ├── LoginPageObject
+    │   │                   │   └── TimesheetPageObject
+    │   │                   ├── pages/
+    │   │                   │   ├── AdminPage
+    │   │                   │   ├── DashboardPage
+    │   │                   │   ├── PageManager
+    │   │                   │   └── TimesheetPage
+    │   │                   └── testcases/
+    │   │                       ├── AdminPageTest
+    │   │                       ├── LoginPageTest
+    │   │                       └── TimesheetPageTest
+    │   └── resources/
+    │       ├── data/
+    │       │   └── testData.xlsx
+    │       ├── logs/
+    │       │   └── AutomationExecution.log
+    │       ├── report/
+    │       │   └── ExtentReport.html
+    │       ├── runner/
+    │       │   └── testng.xml
+    │       └── screenshots/
+    │           └── 19_01_2025_11_21_07.png
+    └── pom.xml
