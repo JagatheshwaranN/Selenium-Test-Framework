@@ -41,7 +41,7 @@ import static com.qa.stf.constant.TestConstants.*;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.3
+ * @version 1.4
  */
 public class EnvironmentManager extends FileReader {
 
@@ -92,10 +92,15 @@ public class EnvironmentManager extends FileReader {
      *                                          not recognized.
      */
     public EnvType getEnvType() {
-        setEnv(getValue(EnvType.ENV.getEnvName())); // Set environment from value
-        properties.setProperty(EnvType.ENV.getEnvName(), getEnv()); // Store environment in properties
+        String envFromCmdLine = System.getProperty(EnvType.ENV.getEnvName());
+        if (envFromCmdLine != null) {
+            setEnv(envFromCmdLine);
+            log.error("Environment type is specified from mvn cmd line argument.");
+        } else {
+            setEnv(getValue(EnvType.ENV.getEnvName())); // Set environment from value
+            log.error("Environment type is specified from config file.");
+        }
 
-        // Validate and return the appropriate environment type
         if (getEnv() == null || getEnv().isEmpty()) {
             log.error("Environment type is not specified or is empty.");
             throw new ExceptionHub.ConfigTypeException("Environment type is not specified.");
