@@ -41,7 +41,7 @@ import static com.qa.stf.constant.TestConstants.*;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.4
+ * @version 1.5
  */
 public class EnvironmentManager extends FileReader {
 
@@ -92,20 +92,11 @@ public class EnvironmentManager extends FileReader {
      *                                          not recognized.
      */
     public EnvType getEnvType() {
-        String envFromCmdLine = System.getProperty(EnvType.ENV.getEnvName());
-        if (envFromCmdLine != null) {
-            setEnv(envFromCmdLine);
-            log.error("Environment type is specified from mvn cmd line argument.");
-        } else {
-            setEnv(getValue(EnvType.ENV.getEnvName())); // Set environment from value
-            log.error("Environment type is specified from config file.");
-        }
-
+        setEnv(getValue(EnvType.ENV.getEnvName())); // Set environment from value
         if (getEnv() == null || getEnv().isEmpty()) {
             log.error("Environment type is not specified or is empty.");
             throw new ExceptionHub.ConfigTypeException("Environment type is not specified.");
         }
-
         return switch (getEnv().toUpperCase()) {
             case LOCAL -> {
                 log.info("Local Environment is opted for test execution");
@@ -134,11 +125,13 @@ public class EnvironmentManager extends FileReader {
      * @return The value associated with the provided key.
      */
     private String getValue(String key) {
-        String value = System.getenv(key);
+        String value = System.getProperty(key);
         if (value != null && !value.isEmpty()) {
+            log.info("Environment is specified from mvn cmd line argument.");
             return value;
         }
         value = getDataFromPropFile(key);
+        log.info("Environment is specified from config file.");
         if (value == null || value.isEmpty()) {
             log.warn("Value for key '{}' not found in environment or property file.", key);
         }

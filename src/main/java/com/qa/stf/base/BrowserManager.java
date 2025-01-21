@@ -43,7 +43,7 @@ import static com.qa.stf.constant.TestConstants.*;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.3
+ * @version 1.4
  */
 public class BrowserManager extends FileReader {
 
@@ -96,6 +96,10 @@ public class BrowserManager extends FileReader {
      */
     public BrowserType getBrowserType() {
         setBrowser(getValue(BrowserType.BROWSER.getBrowserName()));
+        if (getBrowser() == null || getBrowser().isEmpty()) {
+            log.error("Browser is not specified or is empty.");
+            throw new ExceptionHub.ConfigTypeException("Browser is not specified.");
+        }
         return switch (getBrowser()) {
             case CHROME -> {
                 log.info("Chrome browser is set for test execution");
@@ -129,11 +133,13 @@ public class BrowserManager extends FileReader {
      * @return The value associated with the provided key.
      */
     private String getValue(String key) {
-        String value = System.getenv(key);
+        String value = System.getProperty(key);
         if (value != null && !value.isEmpty()) {
+            log.info("Browser is specified from mvn cmd line argument.");
             return value;
         }
         value = getDataFromPropFile(key);
+        log.info("Browser is specified from config file.");
         if (value == null || value.isEmpty()) {
             log.warn("Value for key '{}' not found in environment or property file.", key);
         }
