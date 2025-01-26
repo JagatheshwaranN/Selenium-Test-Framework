@@ -3,6 +3,9 @@ package com.qa.stf.app.testcases;
 import java.lang.reflect.Method;
 import java.util.Hashtable;
 
+import com.qa.stf.app.pages.DashboardPage;
+import com.qa.stf.app.pages.LoginPage;
+import com.qa.stf.base.BasePage;
 import com.qa.stf.constant.TestConstants;
 import org.apache.commons.lang3.StringUtils;
 import org.testng.Assert;
@@ -20,6 +23,9 @@ import static com.qa.stf.app.constant.AppConstants.*;
 public class LoginPageTest extends BaseTest {
 
     PageManager pageManager;
+    BasePage basePage;
+    LoginPage loginPage;
+    DashboardPage dashboardPage;
 
     @Test(dataProviderClass = DataSupplier.class, dataProvider = "fetchData")
     public void loginPageTest(Hashtable<String, String> data) {
@@ -36,11 +42,15 @@ public class LoginPageTest extends BaseTest {
         }
 
         pageManager = new PageManager();
-        Assert.assertEquals(pageManager.getPageComponent().getPageUrl(), LOGIN_PAGE_URL);
-        Assert.assertEquals(pageManager.getPageComponent().getPageTitle(), LOGIN_PAGE_TITLE);
-        Assert.assertEquals(pageManager.getLoginPage().verifyLoginPageHeader(), LOGIN_PAGE_HEADER);
-        pageManager.getLoginPage().doLogin(data.get("UserName"), pageManager.getEncryptionManager().decryptData(data.get("Password")));
-        Assert.assertEquals(pageManager.getDashboardPage().verifyDashboardPageHeader(),DASHBOARD_PAGE_HEADER);
+        basePage = pageManager.getPageComponent();
+        loginPage = pageManager.getLoginPage();
+        dashboardPage = pageManager.getDashboardPage();
+
+        Assert.assertEquals(basePage.getPageUrl(), LOGIN_PAGE_URL);
+        Assert.assertEquals(basePage.getPageTitle(), LOGIN_PAGE_TITLE);
+        Assert.assertEquals(loginPage.verifyLoginPageHeader(), LOGIN_PAGE_HEADER);
+        loginPage.doLogin(data.get("UserName"), pageManager.getEncryptionManager().decryptData(data.get("Password")));
+        Assert.assertEquals(dashboardPage.verifyDashboardPageHeader(),DASHBOARD_PAGE_HEADER);
     }
 
 }

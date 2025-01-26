@@ -57,8 +57,8 @@ import static com.qa.stf.constant.TestConstants.*;
  */
 public class WaitHandler {
 
-    // Logger instance for the DropDownHandler class to enable logging during the execution
-    private static final Logger log = LogManager.getLogger(DateTimeHandler.class);
+    // Logger instance for the WaitHandler class to enable logging during the execution
+    private static final Logger log = LogManager.getLogger(WaitHandler.class);
 
     // Instance of WebDriverWait to handle waiting for elements to appear on the page
     protected WebDriverWait wait;

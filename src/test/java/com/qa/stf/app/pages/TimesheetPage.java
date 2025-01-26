@@ -1,7 +1,9 @@
 package com.qa.stf.app.pages;
 
 import com.qa.stf.app.elements.TimesheetPageElement;
+import com.qa.stf.base.BasePage;
 import com.qa.stf.base.DriverManager;
+import com.qa.stf.handler.*;
 
 import static com.qa.stf.constant.TestConstants.*;
 import static com.qa.stf.app.constant.AppConstants.*;
@@ -10,6 +12,12 @@ import static com.qa.stf.app.constant.AppConstants.*;
 public class TimesheetPage extends TimesheetPageElement {
 
     PageManager pageManager = new PageManager();
+    BasePage basePage = pageManager.getPageComponent();
+    DateTimeHandler dateTimeHandler = pageManager.getDatePickerHandler();
+    DropDownHandler dropDownHandler = pageManager.getDropDownHandler();
+    InteractionHandler interactionHandler = pageManager.getInteractionHandler();
+    VerificationHandler verificationHandler = pageManager.getVerificationHelper();
+    WaitHandler waitHandler = pageManager.getWaitHandler();
 
     public TimesheetPage(DriverManager driverManager) {
         super(driverManager);
@@ -21,68 +29,68 @@ public class TimesheetPage extends TimesheetPageElement {
     private String timeInHour = pageManager.getDatePickerHandler().getCustomizedTime(TIME_HR_FORMAT);
 
     public String verifyTimeSheetPageHeader() {
-        pageManager.getWaitHandler().waitForPresenceOfElements(getTimesheetPageLoadCheck(), getTimesheetPageLoadCheckLabel());
-        return pageManager.getPageComponent().getPageHeader(getTimesheetHeader(), getTimesheetHeaderLabel());
+        waitHandler.waitForPresenceOfElements(getTimesheetPageLoadCheck(), getTimesheetPageLoadCheckLabel());
+        return basePage.getPageHeader(getTimesheetHeader(), getTimesheetHeaderLabel());
     }
 
     public void navigateToPunchInOutSection() {
-        pageManager.getDropDownHandler().selectDropdownOption(getAttendanceTopNavDropDown(), getAttendanceTopNavDropDownLayout(), getAttendanceTopNavDropDownOptions(), "Punch In/Out", getAttendanceTopNavDropDownLabel());
+        dropDownHandler.selectDropdownOption(getAttendanceTopNavDropDown(), getAttendanceTopNavDropDownLayout(), getAttendanceTopNavDropDownOptions(), "Punch In/Out", getAttendanceTopNavDropDownLabel());
     }
 
     public void addPunchInDetail(String notes) {
-        pageManager.getWaitHandler().waitForDOMToBeStable();
-        pageManager.getWaitHandler().waitForPresenceOfElements(getPunchInSectionLoadCheck(), getPunchInSectionLoadCheckLabel());
-        pageManager.getVerificationHelper().isTextEqualTo(getPunchInOutSectionHeader(), TIMESHEET_PAGE_PUNCH_IN_HEADER, getPunchInOutSectionHeaderLabel());
-        pageManager.getWaitHandler().waitForPresenceOfElements(getPunchInOutLayoutLoadCheck(), getPunchInOutLayoutLoadCheckLabel());
-        pageManager.getDatePickerHandler().selectDateFromSingleDatePicker(getDatePicker(), getDatePickerDetailSection(),
+        waitHandler.waitForDOMToBeStable();
+        waitHandler.waitForPresenceOfElements(getPunchInSectionLoadCheck(), getPunchInSectionLoadCheckLabel());
+        verificationHandler.isTextEqualTo(getPunchInOutSectionHeader(), TIMESHEET_PAGE_PUNCH_IN_HEADER, getPunchInOutSectionHeaderLabel());
+        waitHandler.waitForPresenceOfElements(getPunchInOutLayoutLoadCheck(), getPunchInOutLayoutLoadCheckLabel());
+        dateTimeHandler.selectDateFromSingleDatePicker(getDatePicker(), getDatePickerDetailSection(),
                 getMonthDetail(), getYearDetail(), getMonthNavigator(), getDayOfMonth(),
                 day, month, year, getDatePickerDetailSectionLabel());
-        pageManager.getPageComponent().clickElement(getTimePicker(), getTimePickerLabel());
-        pageManager.getInteractionHandler().clearElement(getTimePickerHourInput(), getTimePickerHourInputLabel());
-        pageManager.getPageComponent().typeText(getTimePickerHourInput(), timeInHour, getTimePickerHourInputLabel());
-        pageManager.getPageComponent().clickElement(getTimePickerAMInput(), getTimePickerAMInputLabel());
-        pageManager.getPageComponent().typeText(getNoteSection(), notes, getNoteSectionLabel());
-        pageManager.getPageComponent().clickElement(getSubmitButton(), getSubmitButtonLabel());
+        basePage.clickElement(getTimePicker(), getTimePickerLabel());
+        interactionHandler.clearElement(getTimePickerHourInput(), getTimePickerHourInputLabel());
+        basePage.typeText(getTimePickerHourInput(), timeInHour, getTimePickerHourInputLabel());
+        basePage.clickElement(getTimePickerAMInput(), getTimePickerAMInputLabel());
+        basePage.typeText(getNoteSection(), notes, getNoteSectionLabel());
+        basePage.clickElement(getSubmitButton(), getSubmitButtonLabel());
     }
 
     public void addPunchOutDetail(String notes) {
-        pageManager.getWaitHandler().waitForPageToLoad();
-        pageManager.getWaitHandler().waitForPresenceOfElements(getPunchOutSectionLoadCheck(), getPunchOutSectionLoadCheckLabel());
-        pageManager.getVerificationHelper().isTextEqualTo(getPunchInOutSectionHeader(), TIMESHEET_PAGE_PUNCH_OUT_HEADER, getPunchInOutSectionHeaderLabel());
-        pageManager.getWaitHandler().waitForPresenceOfElements(getPunchInOutLayoutLoadCheck(), getPunchInOutLayoutLoadCheckLabel());
+        waitHandler.waitForPageToLoad();
+        waitHandler.waitForPresenceOfElements(getPunchOutSectionLoadCheck(), getPunchOutSectionLoadCheckLabel());
+        verificationHandler.isTextEqualTo(getPunchInOutSectionHeader(), TIMESHEET_PAGE_PUNCH_OUT_HEADER, getPunchInOutSectionHeaderLabel());
+        waitHandler.waitForPresenceOfElements(getPunchInOutLayoutLoadCheck(), getPunchInOutLayoutLoadCheckLabel());
         //pageManager.getWaitHandler().waitForDOMToBeStable();
-        pageManager.getDatePickerHandler().selectDateFromSingleDatePicker(getDatePicker(), getDatePickerDetailSection(),
+        dateTimeHandler.selectDateFromSingleDatePicker(getDatePicker(), getDatePickerDetailSection(),
                 getMonthDetail(), getYearDetail(), getMonthNavigator(), getDayOfMonth(),
                 day, month, year, getDatePickerDetailSectionLabel());
-        pageManager.getPageComponent().clickElement(getTimePicker(), getTimePickerLabel());
-        pageManager.getInteractionHandler().clearElement(getTimePickerHourInput(), getTimePickerHourInputLabel());
+        basePage.clickElement(getTimePicker(), getTimePickerLabel());
+        interactionHandler.clearElement(getTimePickerHourInput(), getTimePickerHourInputLabel());
         timeInHour = String.valueOf(Integer.parseInt(timeInHour) + 1);
-        pageManager.getPageComponent().typeText(getTimePickerHourInput(), timeInHour, getTimePickerHourInputLabel());
-        pageManager.getPageComponent().clickElement(getTimePickerPMInput(), getTimePickerPMInputLabel());
-        pageManager.getPageComponent().typeText(getNoteSection(), notes, getNoteSectionLabel());
-        pageManager.getPageComponent().clickElement(getSubmitButton(), getSubmitButtonLabel());
-        pageManager.getWaitHandler().waitForPageToLoad();
+        basePage.typeText(getTimePickerHourInput(), timeInHour, getTimePickerHourInputLabel());
+        basePage.clickElement(getTimePickerPMInput(), getTimePickerPMInputLabel());
+        basePage.typeText(getNoteSection(), notes, getNoteSectionLabel());
+        basePage.clickElement(getSubmitButton(), getSubmitButtonLabel());
+        waitHandler.waitForPageToLoad();
     }
 
     public void navigateToEmployeeRecordsSection() {
-        pageManager.getDropDownHandler().selectDropdownOption(getAttendanceTopNavDropDown(), getAttendanceTopNavDropDownLayout(), getAttendanceTopNavDropDownOptions(), "Employee Records", getAttendanceTopNavDropDownLabel());
+        dropDownHandler.selectDropdownOption(getAttendanceTopNavDropDown(), getAttendanceTopNavDropDownLayout(), getAttendanceTopNavDropDownOptions(), "Employee Records", getAttendanceTopNavDropDownLabel());
     }
 
     public boolean searchEmployeeAttendanceRecord(String userName) {
-        pageManager.getWaitHandler().waitForDOMToBeStable();
-        pageManager.getWaitHandler().waitForPresenceOfElements(getEmployeeAttendanceSectionLoadCheck(), getEmployeeAttendanceSectionLoadCheckLabel());
-        pageManager.getVerificationHelper().isElementDisplayed(getEmployeeAttendanceRecordsHeader(), getEmployeeAttendanceRecordsHeaderLabel());
-        pageManager.getPageComponent().typeTextInSequence(getEmployeeNameInput(), userName, getEmployeeNameInputLabel());
-        pageManager.getWaitHandler().waitForElementVisible(getEmployeeNameSuggestion(), getEmployeeNameSuggestionLabel());
-        pageManager.getVerificationHelper().isElementDisplayed(getEmployeeNameSuggestion(), getEmployeeNameSuggestionLabel());
-        pageManager.getPageComponent().clickElement(getEmployeeNameSuggestion(), getEmployeeNameSuggestionLabel());
-        pageManager.getDatePickerHandler().selectDateFromSingleDatePicker(getDatePicker(), getDatePickerDetailSection(),
+        waitHandler.waitForDOMToBeStable();
+        waitHandler.waitForPresenceOfElements(getEmployeeAttendanceSectionLoadCheck(), getEmployeeAttendanceSectionLoadCheckLabel());
+        verificationHandler.isElementDisplayed(getEmployeeAttendanceRecordsHeader(), getEmployeeAttendanceRecordsHeaderLabel());
+        basePage.typeTextInSequence(getEmployeeNameInput(), userName, getEmployeeNameInputLabel());
+        waitHandler.waitForElementVisible(getEmployeeNameSuggestion(), getEmployeeNameSuggestionLabel());
+        verificationHandler.isElementDisplayed(getEmployeeNameSuggestion(), getEmployeeNameSuggestionLabel());
+        basePage.clickElement(getEmployeeNameSuggestion(), getEmployeeNameSuggestionLabel());
+        dateTimeHandler.selectDateFromSingleDatePicker(getDatePicker(), getDatePickerDetailSection(),
                 getMonthDetail(), getYearDetail(), getMonthNavigator(), getDayOfMonth(),
                 day, month, year, getDatePickerDetailSectionLabel());
-        pageManager.getPageComponent().clickElement(getViewButton(), getViewButtonLabel());
+        basePage.clickElement(getViewButton(), getViewButtonLabel());
         // Temp check
-        pageManager.getWaitHandler().waitForSeconds();
-        return pageManager.getVerificationHelper().isElementDisplayed(getEmployeeResultSection(), getEmployeeResultSectionLabel());
+        waitHandler.waitForSeconds();
+        return verificationHandler.isElementDisplayed(getEmployeeResultSection(), getEmployeeResultSectionLabel());
     }
 
 }

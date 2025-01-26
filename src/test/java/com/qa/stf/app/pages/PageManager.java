@@ -7,6 +7,20 @@ import com.qa.stf.util.EncryptionManager;
 
 public class PageManager {
 
+	private BasePage basePage;
+
+	private DateTimeHandler datePickerHandler;
+
+	private DropDownHandler dropDownHandler;
+
+	private InteractionHandler interactionHandler;
+
+	private VerificationHandler verificationHelper;
+
+	private WaitHandler waitHandler;
+
+	private EncryptionManager encryptionManager;
+
 	private LoginPage loginPage;
 
 	private DashboardPage dashboardPage;
@@ -15,24 +29,32 @@ public class PageManager {
 
 	private TimesheetPage timesheetPage;
 
-	private BasePage basePage;
-
-	private VerificationHandler verificationHelper;
-
-	private DropDownHandler dropDownHandler;
-
-	private DateTimeHandler datePickerHandler;
-
-	private InteractionHandler interactionHandler;
-
-	private JavaScriptHandler javaScriptHandler;
-
-	private WaitHandler waitHandler;
-
-	private EncryptionManager encryptionManager;
-
 	public BasePage getPageComponent() {
 		return (basePage == null) ? basePage = new BasePage(DriverManager.getInstance()) : basePage;
+	}
+
+	public DateTimeHandler getDatePickerHandler() {
+		return (datePickerHandler == null) ? datePickerHandler = new DateTimeHandler(DriverManager.getInstance(), new VerificationHandler()) : datePickerHandler;
+	}
+
+	public DropDownHandler getDropDownHandler() {
+		return (dropDownHandler == null) ? dropDownHandler = new DropDownHandler(new VerificationHandler()) : dropDownHandler;
+	}
+
+	public InteractionHandler getInteractionHandler() {
+		return (interactionHandler == null) ? interactionHandler = new InteractionHandler(DriverManager.getInstance(), new VerificationHandler()) : interactionHandler;
+	}
+
+	public VerificationHandler getVerificationHelper() {
+		return (verificationHelper == null) ? verificationHelper = new VerificationHandler() : verificationHelper;
+	}
+
+	public WaitHandler getWaitHandler() {
+		return (waitHandler == null) ? waitHandler = new WaitHandler(DriverManager.getInstance()) : waitHandler;
+	}
+
+	public EncryptionManager getEncryptionManager() {
+		return (encryptionManager == null) ? encryptionManager = new EncryptionManager() : encryptionManager;
 	}
 
 	public LoginPage getLoginPage() {
@@ -47,36 +69,8 @@ public class PageManager {
 		return (adminPage == null) ? adminPage = new AdminPage(DriverManager.getInstance()) : adminPage;
 	}
 
-	public TimesheetPage getTimePage() {
+	public TimesheetPage getTimesheetPage() {
 		return (timesheetPage == null) ? timesheetPage = new TimesheetPage(DriverManager.getInstance()) : timesheetPage;
-	}
-
-	public VerificationHandler getVerificationHelper() {
-		return (verificationHelper == null) ? verificationHelper = new VerificationHandler() : verificationHelper;
-	}
-
-	public DropDownHandler getDropDownHandler() {
-		return (dropDownHandler == null) ? dropDownHandler = new DropDownHandler(new VerificationHandler()) : dropDownHandler;
-	}
-
-	public DateTimeHandler getDatePickerHandler() {
-		return (datePickerHandler == null) ? datePickerHandler = new DateTimeHandler(DriverManager.getInstance(), new VerificationHandler()) : datePickerHandler;
-	}
-
-	public InteractionHandler getInteractionHandler() {
-		return (interactionHandler == null) ? interactionHandler = new InteractionHandler(DriverManager.getInstance(), new VerificationHandler()) : interactionHandler;
-	}
-
-	public JavaScriptHandler getJavaScriptHandler() {
-		return (javaScriptHandler == null) ? javaScriptHandler = new JavaScriptHandler(DriverManager.getInstance(), new VerificationHandler()) : javaScriptHandler;
-	}
-
-	public WaitHandler getWaitHandler() {
-		return (waitHandler == null) ? waitHandler = new WaitHandler(DriverManager.getInstance()) : waitHandler;
-	}
-
-	public EncryptionManager getEncryptionManager() {
-		return (encryptionManager == null) ? encryptionManager = new EncryptionManager() : encryptionManager;
 	}
 
 }

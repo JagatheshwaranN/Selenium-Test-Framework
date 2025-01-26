@@ -1,7 +1,8 @@
 package com.qa.stf.app.testcases;
 
 import com.qa.stf.app.base.BaseTest;
-import com.qa.stf.app.pages.PageManager;
+import com.qa.stf.app.pages.*;
+import com.qa.stf.base.BasePage;
 import com.qa.stf.base.DriverManager;
 import com.qa.stf.constant.TestConstants;
 import com.qa.stf.util.DataSupplier;
@@ -18,6 +19,10 @@ import static com.qa.stf.app.constant.AppConstants.*;
 public class TimesheetPageTest extends BaseTest {
 
     PageManager pageManager;
+    BasePage basePage;
+    LoginPage loginPage;
+    DashboardPage dashboardPage;
+    TimesheetPage timesheetPage;
 
     @Test(dataProviderClass = DataSupplier.class, dataProvider = "fetchData")
     public void timePageTest(Hashtable<String, String> data) {
@@ -32,20 +37,26 @@ public class TimesheetPageTest extends BaseTest {
             throw new SkipException("Skipping the TestCase - " + StringUtils.capitalize(methods[0].getName())
                     + " as the RunMode for the Test Data is set to N");
         }
+
         pageManager = new PageManager();
-        Assert.assertEquals(pageManager.getPageComponent().getPageUrl(), LOGIN_PAGE_URL);
-        Assert.assertEquals(pageManager.getPageComponent().getPageTitle(), LOGIN_PAGE_TITLE);
-        Assert.assertEquals(pageManager.getLoginPage().verifyLoginPageHeader(), LOGIN_PAGE_HEADER);
-        pageManager.getLoginPage().doLogin(data.get("UserName"), pageManager.getEncryptionManager().decryptData(data.get("Password")));
-        Assert.assertEquals(pageManager.getDashboardPage().verifyDashboardPageHeader(), DASHBOARD_PAGE_HEADER);
-        pageManager.getDashboardPage().navigateToTimePage();
-        Assert.assertEquals(pageManager.getTimePage().verifyTimeSheetPageHeader(), TIMESHEET_PAGE_HEADER);
-        pageManager.getTimePage().navigateToPunchInOutSection();
-        pageManager.getTimePage().addPunchInDetail(data.get("Notes"));
-        pageManager.getTimePage().addPunchOutDetail(data.get("Notes"));
-        pageManager.getTimePage().navigateToEmployeeRecordsSection();
+        basePage = pageManager.getPageComponent();
+        loginPage = pageManager.getLoginPage();
+        dashboardPage = pageManager.getDashboardPage();
+        timesheetPage = pageManager.getTimesheetPage();
+
+        Assert.assertEquals(basePage.getPageUrl(), LOGIN_PAGE_URL);
+        Assert.assertEquals(basePage.getPageTitle(), LOGIN_PAGE_TITLE);
+        Assert.assertEquals(loginPage.verifyLoginPageHeader(), LOGIN_PAGE_HEADER);
+        loginPage.doLogin(data.get("UserName"), pageManager.getEncryptionManager().decryptData(data.get("Password")));
+        Assert.assertEquals(dashboardPage.verifyDashboardPageHeader(), DASHBOARD_PAGE_HEADER);
+        dashboardPage.navigateToTimePage();
+        Assert.assertEquals(timesheetPage.verifyTimeSheetPageHeader(), TIMESHEET_PAGE_HEADER);
+        timesheetPage.navigateToPunchInOutSection();
+        timesheetPage.addPunchInDetail(data.get("Notes"));
+        timesheetPage.addPunchOutDetail(data.get("Notes"));
+        timesheetPage.navigateToEmployeeRecordsSection();
         String userName = pageManager.getDashboardPage().fetchUserNameFromDropDown();
-        Assert.assertTrue(pageManager.getTimePage().searchEmployeeAttendanceRecord(userName));
+        Assert.assertTrue(timesheetPage.searchEmployeeAttendanceRecord(userName));
     }
 
 }

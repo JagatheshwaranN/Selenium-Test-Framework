@@ -1,31 +1,39 @@
 package com.qa.stf.app.pages;
 
+import com.qa.stf.base.BasePage;
 import com.qa.stf.base.DriverManager;
 import com.qa.stf.app.elements.AdminPageElement;
+import com.qa.stf.handler.DropDownHandler;
+import com.qa.stf.handler.VerificationHandler;
+import com.qa.stf.handler.WaitHandler;
 
 public class AdminPage extends AdminPageElement {
 
 	PageManager pageManager = new PageManager();
+	BasePage basePage = pageManager.getPageComponent();
+	DropDownHandler dropDownHandler = pageManager.getDropDownHandler();
+	VerificationHandler verificationHandler = pageManager.getVerificationHelper();
+	WaitHandler waitHandler = pageManager.getWaitHandler();
 
 	public AdminPage(DriverManager driverManager) {
 		super(driverManager);
 	}
 
 	public String verifyAdminPageHeader() {
-		pageManager.getWaitHandler().waitForPresenceOfElements(getAdminPageLoadCheck(), getAdminPageLoadCheckLabel());
-		return pageManager.getPageComponent().getPageHeader(getAdminHeader(), getAdminHeaderLabel());
+		waitHandler.waitForPresenceOfElements(getAdminPageLoadCheck(), getAdminPageLoadCheckLabel());
+		return basePage.getPageHeader(getAdminHeader(), getAdminHeaderLabel());
 	}
 
 	public boolean searchUser(String user, String status) {
-		pageManager.getPageComponent().getPageHeader(getAdminHeader(), getAdminHeaderLabel());
-		pageManager.getPageComponent().typeText(getAdminSearchUserName(), user, getAdminSearchUserNameLabel());
-		pageManager.getDropDownHandler().selectDropdownOption(getAdminUserRoleDropDown(), getAdminSearchDropDownLayout(), getAdminUserRoleDropDownOptions(),
+		basePage.getPageHeader(getAdminHeader(), getAdminHeaderLabel());
+		basePage.typeText(getAdminSearchUserName(), user, getAdminSearchUserNameLabel());
+		dropDownHandler.selectDropdownOption(getAdminUserRoleDropDown(), getAdminSearchDropDownLayout(), getAdminUserRoleDropDownOptions(),
 				user, getAdminUserRoleDropDownLabel());
-		pageManager.getDropDownHandler().selectDropdownOption(getAdminUserStatusDropDown(), getAdminSearchDropDownLayout(), getAdminUserStatusDropDownOptions(),
+		dropDownHandler.selectDropdownOption(getAdminUserStatusDropDown(), getAdminSearchDropDownLayout(), getAdminUserStatusDropDownOptions(),
 				status, getAdminUserStatusDropDownLabel());
-		pageManager.getPageComponent().clickElement(getAdminSearch(), getAdminSearchLabel());
-		pageManager.getVerificationHelper().isElementDisplayed(getAdminSearchResultSection(), getAdminSearchResultSectionLabel());
-		return pageManager.getVerificationHelper().isElementDisplayed(getAdminSearchResultData(),
+		basePage.clickElement(getAdminSearch(), getAdminSearchLabel());
+		verificationHandler.isElementDisplayed(getAdminSearchResultSection(), getAdminSearchResultSectionLabel());
+		return verificationHandler.isElementDisplayed(getAdminSearchResultData(),
 				getAdminSearchResultDataLabel());
 	}
 

@@ -55,7 +55,7 @@ import java.util.List;
  */
 public class DateTimeHandler {
 
-    // Logger instance for the DatePickerHandler class to enable logging during the execution
+    // Logger instance for the DateTimeHandler class to enable logging during the execution
     private static final Logger log = LogManager.getLogger(DateTimeHandler.class);
 
     // Constant for the label identifying the "Day" field in a date picker.

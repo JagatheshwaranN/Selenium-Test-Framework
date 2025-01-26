@@ -3,6 +3,10 @@ package com.qa.stf.app.testcases;
 import java.lang.reflect.Method;
 import java.util.Hashtable;
 
+import com.qa.stf.app.pages.AdminPage;
+import com.qa.stf.app.pages.DashboardPage;
+import com.qa.stf.app.pages.LoginPage;
+import com.qa.stf.base.BasePage;
 import com.qa.stf.constant.TestConstants;
 import org.apache.commons.lang3.StringUtils;
 import org.testng.Assert;
@@ -20,6 +24,10 @@ import static com.qa.stf.app.constant.AppConstants.*;
 public class AdminPageTest extends BaseTest {
 
     PageManager pageManager;
+    BasePage basePage;
+    LoginPage loginPage;
+    DashboardPage dashboardPage;
+    AdminPage adminPage;
 
     @Test(dataProviderClass = DataSupplier.class, dataProvider = "fetchData")
     public void adminPageTest(Hashtable<String, String> data) {
@@ -36,13 +44,19 @@ public class AdminPageTest extends BaseTest {
         }
 
         pageManager = new PageManager();
-        Assert.assertEquals(pageManager.getPageComponent().getPageUrl(), LOGIN_PAGE_URL);
-        Assert.assertEquals(pageManager.getPageComponent().getPageTitle(), LOGIN_PAGE_TITLE);
-        pageManager.getLoginPage().doLogin(data.get("UserName"), pageManager.getEncryptionManager().decryptData(data.get("Password")));
-        Assert.assertEquals(pageManager.getDashboardPage().verifyDashboardPageHeader(),DASHBOARD_PAGE_HEADER);
-        pageManager.getDashboardPage().navigateToAdminPage();
-        Assert.assertEquals(pageManager.getAdminPage().verifyAdminPageHeader(), ADMIN_PAGE_HEADER);
-        Assert.assertTrue(pageManager.getAdminPage().searchUser(data.get("User"), data.get("SearchCriteria")));
+        basePage = pageManager.getPageComponent();
+        loginPage = pageManager.getLoginPage();
+        dashboardPage = pageManager.getDashboardPage();
+        adminPage = pageManager.getAdminPage();
+
+        Assert.assertEquals(basePage.getPageUrl(), LOGIN_PAGE_URL);
+        Assert.assertEquals(basePage.getPageTitle(), LOGIN_PAGE_TITLE);
+        Assert.assertEquals(loginPage.verifyLoginPageHeader(), LOGIN_PAGE_HEADER);
+        loginPage.doLogin(data.get("UserName"), pageManager.getEncryptionManager().decryptData(data.get("Password")));
+        Assert.assertEquals(dashboardPage.verifyDashboardPageHeader(),DASHBOARD_PAGE_HEADER);
+        dashboardPage.navigateToAdminPage();
+        Assert.assertEquals(adminPage.verifyAdminPageHeader(), ADMIN_PAGE_HEADER);
+        Assert.assertTrue(adminPage.searchUser(data.get("User"), data.get("SearchCriteria")));
     }
 
 }
