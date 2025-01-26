@@ -4,7 +4,6 @@ import java.net.MalformedURLException;
 import java.net.URI;
 
 import com.qa.stf.constant.BrowserType;
-import com.qa.stf.report.ExtentReportManager;
 import com.qa.stf.util.ExcelReader;
 import com.qa.stf.util.ExceptionHub;
 import org.apache.logging.log4j.LogManager;
@@ -68,7 +67,7 @@ import static com.qa.stf.constant.TestConstants.*;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.6
+ * @version 1.7
  */
 public class DriverManager extends BrowserManager {
 
@@ -217,18 +216,27 @@ public class DriverManager extends BrowserManager {
             case CHROME -> {
                 log.info("Initializing Chrome driver for local execution.");
                 gcOptions = new ChromeOptions();
+                if(getSystemProperty(BROWSER_PRIVATE_MODE).equalsIgnoreCase(BROWSER_PRIVATE_MODE_YES)){
+                    gcOptions.addArguments(CHROME_INCOGNITO);
+                }
                 gcOptions.addArguments(BROWSER_MAXIMIZE);
                 yield new ChromeDriver(gcOptions);
             }
             case FIREFOX -> {
                 log.info("Initializing Firefox driver for local execution.");
                 ffOptions = new FirefoxOptions();
+                if(getSystemProperty(BROWSER_PRIVATE_MODE).equalsIgnoreCase(BROWSER_PRIVATE_MODE_YES)){
+                    ffOptions.addArguments(FIREFOX_PRIVATE);
+                }
                 ffOptions.addArguments(BROWSER_MAXIMIZE);
                 yield new FirefoxDriver(ffOptions);
             }
             case EDGE -> {
                 log.info("Initializing Edge driver for local execution.");
                 meOptions = new EdgeOptions();
+                if(getSystemProperty(BROWSER_PRIVATE_MODE).equalsIgnoreCase(BROWSER_PRIVATE_MODE_YES)){
+                    meOptions.addArguments(EDGE_PRIVATE);
+                }
                 meOptions.addArguments(EDGE_BROWSER_MAXIMIZE);
                 yield new EdgeDriver(meOptions);
             }
@@ -258,6 +266,9 @@ public class DriverManager extends BrowserManager {
                     gcOptions = new ChromeOptions();
                     gcOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.WINDOWS);
                     gcOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.CHROME.getBrowserName().toLowerCase());
+                    if(getSystemProperty(BROWSER_PRIVATE_MODE).equalsIgnoreCase(BROWSER_PRIVATE_MODE_YES)){
+                        gcOptions.addArguments(CHROME_INCOGNITO);
+                    }
                     gcOptions.addArguments(BROWSER_MAXIMIZE);
                     yield new RemoteWebDriver((URI.create(getDataFromPropFile(GRID_URL)).toURL()), gcOptions);
                 }
@@ -266,6 +277,9 @@ public class DriverManager extends BrowserManager {
                     ffOptions = new FirefoxOptions();
                     ffOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.WINDOWS);
                     ffOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.FIREFOX.getBrowserName().toLowerCase());
+                    if(getSystemProperty(BROWSER_PRIVATE_MODE).equalsIgnoreCase(BROWSER_PRIVATE_MODE_YES)){
+                        ffOptions.addArguments(FIREFOX_PRIVATE);
+                    }
                     yield new RemoteWebDriver(URI.create(getDataFromPropFile(GRID_URL)).toURL(), ffOptions);
                 }
                 case EDGE -> {
@@ -273,6 +287,9 @@ public class DriverManager extends BrowserManager {
                     meOptions = new EdgeOptions();
                     meOptions.setCapability(CapabilityType.PLATFORM_NAME, Platform.WINDOWS);
                     meOptions.setCapability(CapabilityType.BROWSER_NAME, BrowserType.EDGE.getBrowserName());
+                    if(getSystemProperty(BROWSER_PRIVATE_MODE).equalsIgnoreCase(BROWSER_PRIVATE_MODE_YES)){
+                        meOptions.addArguments(EDGE_PRIVATE);
+                    }
                     meOptions.addArguments(EDGE_BROWSER_MAXIMIZE);
                     yield new RemoteWebDriver(URI.create(getDataFromPropFile(GRID_URL)).toURL(), meOptions);
                 }

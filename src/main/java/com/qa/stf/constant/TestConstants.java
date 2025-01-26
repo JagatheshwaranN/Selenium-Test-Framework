@@ -13,7 +13,7 @@ package com.qa.stf.constant;
  * values, promoting reusability and reducing duplication in the codebase.
  *
  * @author Jagatheshwaran N
- * @version 1.9
+ * @version 1.10
  */
 public class TestConstants {
 
@@ -27,9 +27,17 @@ public class TestConstants {
 	public static final String REMOTE = "REMOTE";
 
 	// Browser Option Details
+	public static final String BROWSER_PRIVATE_MODE = "Private";
+	public static final String BROWSER_PRIVATE_MODE_YES = "Yes";
 	public static final String CHROME_REMOTE_ORIGIN = "--remote-allow-origins=*";
 	public static final String BROWSER_MAXIMIZE = "--start-maximized";
 	public static final String EDGE_BROWSER_MAXIMIZE = "start-maximized";
+	public static final String CHROME_INCOGNITO = "incognito";
+	public static final String EDGE_PRIVATE = "-inprivate";
+	public static final String FIREFOX_PRIVATE = "--private";
+
+
+
 
 	// User Directory
 	public static final String CWD = System.getProperty("user.dir");

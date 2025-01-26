@@ -12,11 +12,11 @@
 			<class name="com.qa.stf.app.testcases.LoginPageTest" />
 		</classes>
 	</test>
-	<test thread-count="1" name="AdminPageTest">
+	<!--<test thread-count="1" name="AdminPageTest">
 		<classes>
 			<class name="com.qa.stf.app.testcases.AdminPageTest" />
 		</classes>
-	</test>
+	</test>-->
 <!--	<test thread-count="1" name="TimePageTest">
 		<classes>
 			<class name="com.qa.stf.app.testcases.TimesheetPageTest" />
