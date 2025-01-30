@@ -33,13 +33,15 @@ import java.util.List;
  * <ul>
  *   <li>Custom exceptions from the {@link ExceptionHub} class are thrown to provide
  *   descriptive error messages during failures.</li>
- *   <li>Comprehensive logging for troubleshooting issues related to date picker interactions.</li>
+ *   <li>Comprehensive logging for troubleshooting issues related to date picker
+ *   interactions.</li>
  * </ul>
  *
  * <p>Note:
  * Ensure that the WebDriver instance is properly initialized and points to a web page
  * containing the target date picker element. The class assumes that date picker widgets
- * on the web page follow standard HTML structures or are compatible with JavaScript interactions.
+ * on the web page follow standard HTML structures or are compatible with JavaScript
+ * interactions.
  *
  * <p>Example:
  * <pre>

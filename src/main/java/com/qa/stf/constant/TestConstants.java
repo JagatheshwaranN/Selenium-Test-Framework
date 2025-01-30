@@ -13,7 +13,7 @@ package com.qa.stf.constant;
  * values, promoting reusability and reducing duplication in the codebase.
  *
  * @author Jagatheshwaran N
- * @version 1.10
+ * @version 1.11
  */
 public class TestConstants {
 
@@ -26,18 +26,17 @@ public class TestConstants {
 	public static final String LOCAL = "LOCAL";
 	public static final String REMOTE = "REMOTE";
 
+	// Common Details
+	public static final String OPTION_YES = "Yes";
+
 	// Browser Option Details
 	public static final String BROWSER_PRIVATE_MODE = "Private";
-	public static final String BROWSER_PRIVATE_MODE_YES = "Yes";
-	public static final String CHROME_REMOTE_ORIGIN = "--remote-allow-origins=*";
+	// public static final String CHROME_REMOTE_ORIGIN = "--remote-allow-origins=*";
 	public static final String BROWSER_MAXIMIZE = "--start-maximized";
 	public static final String EDGE_BROWSER_MAXIMIZE = "start-maximized";
 	public static final String CHROME_INCOGNITO = "incognito";
 	public static final String EDGE_PRIVATE = "-inprivate";
 	public static final String FIREFOX_PRIVATE = "--private";
-
-
-
 
 	// User Directory
 	public static final String CWD = System.getProperty("user.dir");
@@ -45,10 +44,12 @@ public class TestConstants {
 	// File Path Details
 	public static final String CONFIG_FILE_PATH = "/src/main/resources/config/configuration.properties";
 	public static final String EXCEL_FILE_PATH = "/src/test/resources/data/testData.xlsx";
-	public static final String EXTENT_REPORT_CONFIG_FILE_PATH = "//src//main//resources//config//report-config.xml";
 	public static final String EXTENT_REPORT_PATH = "//src//test//resources//report//";
 	public static final String EXTENT_REPORT_FILE_NAME = "ExtentReport_%s.html";
+
+	// Screenshot Details
 	public static final String SNAPSHOT_PATH = "//src//test//resources//screenshots//";
+	public static final String FULL_PAGE_SCREENSHOT = "FullPageScreenShot";
 
 	// Excel Test Case Details
 	public static final String TEST_SUITE_NAME = "TestSuite";
@@ -79,7 +80,7 @@ public class TestConstants {
 
 	// Wait Time Details
 	public static final int EXPLICIT_WAIT_TIME = 5;
-	public static final int WAIT_SLEEP = 2;
+	// public static final int WAIT_SLEEP = 2;
 	public static final int WAIT_TIME = 5000;
 
 	// Date Time Details

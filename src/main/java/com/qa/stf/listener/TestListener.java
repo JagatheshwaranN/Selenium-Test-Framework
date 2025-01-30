@@ -4,10 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.text.SimpleDateFormat;
 import java.util.Base64;
-import java.util.Calendar;
-import java.util.UUID;
 
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
@@ -15,12 +12,11 @@ import com.qa.stf.constant.TestConstants;
 import com.qa.stf.report.ExtentReportManager;
 import com.qa.stf.util.ExceptionHub;
 import com.qa.stf.util.FileReader;
+import com.qa.stf.util.ScreenCapture;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.testng.ISuite;
 import org.testng.ISuiteListener;
 import org.testng.ITestContext;
@@ -75,7 +71,7 @@ import static com.qa.stf.constant.TestConstants.*;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.9
+ * @version 1.10
  */
 public class TestListener extends DriverManager implements ITestListener, ISuiteListener {
 
@@ -100,14 +96,11 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
     // Value for the REPORT_CONFIG_KEY to disable output escaping
     private static final String REPORT_CONFIG_VALUE = "false";
 
-    // Path to store the screenshot files, constructed using the project's root directory and a constant path
-    private static final String SCREENSHOT_PATH = CWD + SNAPSHOT_PATH;
-
-    // Constant representing the image format for the screenshots
-    private static final String IMG_FORMAT = ".png";
-
     // Constant representing the base64 image format for the screenshots
     private static final String BASE64_ENCODE = "data:image/png;base64,";
+
+    // Path to store the screenshot files, constructed using the project's root directory and a constant path
+    private static final String SCREENSHOT_PATH = CWD + SNAPSHOT_PATH;
 
     // Default constructor for the TestListener class
     public TestListener() {
@@ -222,38 +215,18 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
      */
     private void handleTestResult(ITestResult result, Status status, String message) {
         System.setProperty(REPORT_CONFIG_KEY, REPORT_CONFIG_VALUE);
-        String snapshotPath = captureScreenshot();
+        String snapshotPath = new ScreenCapture(driverManager).takeScreenshot();
         try {
-            String base64Snapshot = ((TakesScreenshot) driverManager.getDriver()).getScreenshotAs(OutputType.BASE64);
+            byte[] imageBytes = Files.readAllBytes(Paths.get(snapshotPath));
+            String base64Image = Base64.getEncoder().encodeToString(imageBytes);
             extentReportManager.getExtentTest().log(status, StringUtils.capitalize(result.getName()) + message,
-                    MediaEntityBuilder.createScreenCaptureFromBase64String(base64Snapshot).build());
+                    MediaEntityBuilder.createScreenCaptureFromBase64String(base64Image).build());
         } catch (Exception ex) {
             log.error("Failed to capture Base64 screenshot: {}", ex.getMessage(), ex);
             throw new ExceptionHub.ScreenshotException("Failed to create the Base64 screenshot", ex);
         }
         // BasePage.waitForSeconds();
         testNGReporterUpdate(StringUtils.capitalize(result.getName()) + message, snapshotPath);
-    }
-
-    /**
-     * Captures a screenshot and saves it to the predefined snapshot path.
-     *
-     * @return The absolute path of the saved screenshot.
-     * @throws ExceptionHub.ScreenshotException If the screenshot cannot be saved.
-     */
-    private String captureScreenshot() {
-        String timestamp = new SimpleDateFormat(DATE_FORMAT).format(Calendar.getInstance().getTime());
-        String uniqueId = UUID.randomUUID().toString();
-        File source = ((TakesScreenshot) driverManager.getDriver()).getScreenshotAs(OutputType.FILE);
-        File destination = new File(SCREENSHOT_PATH + timestamp + "_" + uniqueId + IMG_FORMAT);
-        try {
-            FileUtils.copyFile(source, destination);
-            log.info("Screenshot saved: '{}'", destination.getAbsolutePath());
-        } catch (IOException ex) {
-            log.error("Failed to save screenshot: {}", ex.getMessage(), ex);
-            throw new ExceptionHub.ScreenshotException("Failed to create the screenshot", ex);
-        }
-        return destination.getAbsolutePath();
     }
 
     /**
