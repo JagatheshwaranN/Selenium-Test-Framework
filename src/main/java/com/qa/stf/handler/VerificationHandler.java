@@ -64,7 +64,7 @@ public class VerificationHandler {
     private static final Logger log = LogManager.getLogger(VerificationHandler.class);
 
     // Instance of ExtentReportManager to manage the extent report
-    protected ExtentReportManager extentReportManager;
+    private final ExtentReportManager extentReportManager;
 
     /**
      * Constructs an VerificationHandler instance and initializes it with the

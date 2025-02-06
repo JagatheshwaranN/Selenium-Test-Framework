@@ -57,10 +57,10 @@ public class BrowserHandler {
     private static final Logger log = LogManager.getLogger(BrowserHandler.class);
 
     // Instance of DriverManager to manage the WebDriver for interacting with the browser
-    protected DriverManager driverManager;
+    private final DriverManager driverManager;
 
     // Instance of ExtentReportManager to manage the extent report
-    protected ExtentReportManager extentReportManager;
+    private final ExtentReportManager extentReportManager;
 
     /**
      * Constructs a BrowserHandler instance and initializes it with the provided

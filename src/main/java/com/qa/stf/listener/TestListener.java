@@ -78,18 +78,18 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
     // Importing the logger to enable logging for the TestListener class
     private static final Logger log = LogManager.getLogger(TestListener.class);
 
-    // Instance of ExtentReports to manage and generate test execution reports
-    ExtentReports extentReports;
-
-    // Instance of ExtentTest to log individual test steps and results in the reports
-    ExtentTest extentTest;
-
     // Singleton instance of DriverManager to handle WebDriver management
     DriverManager driverManager = DriverManager.getInstance();
 
     // Singleton instance of ExtentReportManager to handle Extent Report management
     ExtentReportManager extentReportManager = ExtentReportManager.getInstance();
 
+    // Instance of ExtentReports to manage and generate test execution reports
+    ExtentReports extentReports;
+
+    // Instance of ExtentTest to log individual test steps and results in the reports
+    ExtentTest extentTest;
+    
     // Constant key to configure the ReportNG property to disable output escaping in reports
     private static final String REPORT_CONFIG_KEY = "org.uncommons.reportng.escape-output";
 

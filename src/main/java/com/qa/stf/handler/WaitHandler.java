@@ -61,13 +61,13 @@ public class WaitHandler {
     private static final Logger log = LogManager.getLogger(WaitHandler.class);
 
     // Instance of WebDriverWait to handle waiting for elements to appear on the page
-    protected WebDriverWait wait;
+    private final WebDriverWait wait;
 
     // Instance of DriverManager to manage the WebDriver for interacting with the browser
     private final DriverManager driverManager;
 
     // Instance of ExtentReportManager to manage the extent report
-    protected ExtentReportManager extentReportManager;
+    private final ExtentReportManager extentReportManager;
 
     /**
      * Constructs a WaitHandler instance and initializes it with the provided

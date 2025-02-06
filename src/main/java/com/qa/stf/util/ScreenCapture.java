@@ -114,7 +114,7 @@ public class ScreenCapture {
         String uniqueId = UUID.randomUUID().toString();
         File destination = new File(SCREENSHOT_PATH + timestamp + "_" + uniqueId + IMG_FORMAT);
         try {
-            if(System.getProperty(FULL_PAGE_SCREENSHOT).equalsIgnoreCase("Yes")) {
+            if(System.getProperty(FULL_PAGE_SCREENSHOT).equalsIgnoreCase(OPTION_YES)) {
                 Screenshot screenshot = new AShot().shootingStrategy(ShootingStrategies.viewportPasting(100)).takeScreenshot(driverManager.getDriver());
                 ImageIO.write(screenshot.getImage(), PNG_IMG_FORMAT, destination);
                 log.info("Full page screenshot saved: '{}'", destination.getAbsolutePath());

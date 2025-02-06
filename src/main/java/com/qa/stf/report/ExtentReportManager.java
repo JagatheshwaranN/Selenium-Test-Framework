@@ -65,9 +65,6 @@ public class ExtentReportManager {
     // Logger instance for the ExtentReport class to enable logging during the execution
     private static final Logger log = LogManager.getLogger(ExtentReportManager.class);
 
-    // Static instance of ExtentReports to manage and generate test execution reports
-    public static ExtentReports extentReports;
-
     // ThreadLocal variable to store ExtentTest instance specific to the current thread (for multithreaded execution)
     private static final ThreadLocal<ExtentTest> extentTestTL = new ThreadLocal<>();
 
@@ -119,7 +116,8 @@ public class ExtentReportManager {
             ExtentSparkReporter extentSparkReporter = getExtentSparkReporter(actualDate);
             log.info("ExtentSparkReporter initialized with path: '{}'", extentSparkReporter.getFile().getAbsolutePath());
 
-            extentReports = new ExtentReports();
+            // Static instance of ExtentReports to manage and generate test execution reports
+            ExtentReports extentReports = new ExtentReports();
             extentReports.attachReporter(extentSparkReporter);
 
             extentSparkReporter.config().setDocumentTitle(EXTENT_REPORT_TITLE);

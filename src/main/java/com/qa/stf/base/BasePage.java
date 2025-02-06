@@ -8,6 +8,10 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.*;
 
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 /**
  * The BasePage class serves as a foundational class for interacting with
  * web pages using Selenium WebDriver. It provides utility methods for common
@@ -51,7 +55,7 @@ import org.openqa.selenium.*;
  * </pre>
  *
  * @author Jagatheshwaran N
- * @version 1.5
+ * @version 1.6
  */
 public class BasePage extends Page implements ElementActions {
 
@@ -59,11 +63,22 @@ public class BasePage extends Page implements ElementActions {
     private static final Logger log = LogManager.getLogger(BasePage.class);
 
     // Instance of DriverManager to manage the WebDriver for interacting with the browser
-    protected DriverManager driverManager;
+    private final DriverManager driverManager;
 
     // Instance of ExtentReportManager to manage the extent report
-    protected ExtentReportManager extentReportManager;
+    private final ExtentReportManager extentReportManager;
 
+    // HashMap to store key-value pairs of string data
+    public static HashMap<String, String> anyObject;
+
+    // List instance to hold string values, initialized as null
+    List<String> list = null;
+
+    // Static string variable to store an object value
+    public static String objValue;
+
+    // Static string variable to store an object key
+    public static String objKey;
 
     /**
      * Constructs a BasePage instance and initializes the WebDriver and WebDriverWait.
@@ -294,6 +309,54 @@ public class BasePage extends Page implements ElementActions {
             log.info("Entered '{}' text into the '{}' element", text, elementLabel);
             extentReportManager.getExtentTest().log(Status.PASS, String.format("Entered '%s' text into the '%s' element", text, elementLabel));
         }
+    }
+
+    /**
+     * Stores a key-value pair in the `anyObject` map.
+     * If the key already exists, its value will be updated.
+     *
+     * @param key   The key to store.
+     * @param value The value to associate with the key.
+     */
+    public static void setAnyElement(String key, String value) {
+        try {
+            if (key == null || value == null) {
+                throw new IllegalArgumentException("Key or Value cannot be null.");
+            }
+            anyObject.put(key, value);
+            log.info("Stored object: {}", anyObject);
+        } catch (IllegalArgumentException ex) {
+            log.error("Invalid input: {}", ex.getMessage(), ex);
+        } catch (Exception ex) {
+            log.error("Unexpected error while setting an object value", ex);
+        }
+    }
+
+    /**
+     * Retrieves the map containing all stored key-value pairs.
+     *
+     * @return The static map `anyObject` containing stored elements.
+     */
+    public static Map<String, String> getAnyElement() {
+        return new HashMap<>(anyObject); // Return a copy to avoid direct modification
+    }
+
+    /**
+     * Gets the list.
+     *
+     * @return The list of strings.
+     */
+    public List<String> getList() {
+        return list;
+    }
+
+    /**
+     * Sets the list.
+     *
+     * @param list The list to be set.
+     */
+    public void setList(List<String> list) {
+        this.list = list;
     }
 
 }

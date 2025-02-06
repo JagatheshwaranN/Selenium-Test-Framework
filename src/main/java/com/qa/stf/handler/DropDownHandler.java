@@ -65,7 +65,7 @@ public class DropDownHandler {
     private final VerificationHandler verificationHandler;
 
     // Instance of ExtentReportManager to manage the extent report
-    protected ExtentReportManager extentReportManager;
+    private final ExtentReportManager extentReportManager;
 
     /**
      * Constructs a DropDownHandler instance and initializes it with the provided

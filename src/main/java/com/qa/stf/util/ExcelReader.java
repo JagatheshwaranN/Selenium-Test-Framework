@@ -63,10 +63,10 @@ public class ExcelReader {
     private static final Logger log = LogManager.getLogger(ExcelReader.class);
 
     // Path to the Excel file
-    public String path;
+    private final String path;
 
     // FileInputStream to read data from the Excel file
-    public FileInputStream fis = null;
+    private final FileInputStream fileIn = null;
 
     // FileOutputStream to write data to the Excel file
     public FileOutputStream fileOut = null;
@@ -97,8 +97,8 @@ public class ExcelReader {
      */
     public ExcelReader(String path) {
         this.path = path;
-        try (FileInputStream fis = new FileInputStream(path)) { // Use try-with-resources
-            workbook = new XSSFWorkbook(fis);
+        try (FileInputStream fileIn = new FileInputStream(path)) { // Use try-with-resources
+            workbook = new XSSFWorkbook(fileIn);
             sheet = workbook.getSheetAt(0); // Default to the first sheet
         } catch (FileNotFoundException ex) {
             log.error("The excel file was not found at the given path: '{}'", path, ex);
@@ -331,10 +331,10 @@ public class ExcelReader {
             return false;
         }
 
-        try (FileInputStream fis = new FileInputStream(path);
+        try (FileInputStream fileIn = new FileInputStream(path);
              FileOutputStream fileOut = new FileOutputStream(path)) {
 
-            workbook = new XSSFWorkbook(fis);
+            workbook = new XSSFWorkbook(fileIn);
             XSSFSheet sheet = workbook.getSheet(sheetName);
 
             if (sheet == null) {
@@ -395,10 +395,10 @@ public class ExcelReader {
             return;
         }
 
-        try (FileInputStream fis = new FileInputStream(path);
+        try (FileInputStream fileIn = new FileInputStream(path);
              FileOutputStream fileOut = new FileOutputStream(path)) {
 
-            workbook = new XSSFWorkbook(fis);
+            workbook = new XSSFWorkbook(fileIn);
             XSSFSheet sheet = workbook.getSheet(sheetName);
 
             if (sheet == null) {
@@ -598,10 +598,10 @@ public class ExcelReader {
             return false;
         }
 
-        try (FileInputStream fis = new FileInputStream(path);
+        try (FileInputStream fileIn = new FileInputStream(path);
              FileOutputStream fileOut = new FileOutputStream(path)) {
 
-            workbook = new XSSFWorkbook(fis);
+            workbook = new XSSFWorkbook(fileIn);
             int index = workbook.getSheetIndex(sheetName);
 
             if (index == -1) {
@@ -668,7 +668,7 @@ public class ExcelReader {
             return false;
         }
 
-        try (FileInputStream fis = new FileInputStream(path);
+        try (FileInputStream fileIn = new FileInputStream(path);
              FileOutputStream fileOut = new FileOutputStream(path)) {
 
             if (!isSheetExist(sheetName)) {
@@ -676,7 +676,7 @@ public class ExcelReader {
                 return false;
             }
 
-            workbook = new XSSFWorkbook(fis);
+            workbook = new XSSFWorkbook(fileIn);
             sheet = workbook.getSheet(sheetName);
 
             if (sheet == null) {

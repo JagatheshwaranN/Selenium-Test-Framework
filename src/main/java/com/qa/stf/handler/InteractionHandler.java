@@ -80,7 +80,7 @@ public class InteractionHandler implements ElementActions {
     private final VerificationHandler verificationHandler;
 
     // Instance of ExtentReportManager to manage the extent report
-    protected ExtentReportManager extentReportManager;
+    private final ExtentReportManager extentReportManager;
 
     /**
      * Constructs an InteractionHandler instance and initializes it with the provided
