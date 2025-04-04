@@ -12,7 +12,7 @@ The framework is adaptable to meet the requirements of any automation project.
 - Parallel Execution with TestNG to run tests across multiple browsers and configurations.
 - Screenshots capture during test execution for failure analysis.
 - Logging using Log4j for enhanced test result reporting.
-- Extent Report for customized reproting.
+- Extent Report for customized reporting.
 - AES encryption for encryption and decryption of sensitive data.
 
 ## Prerequisites
