@@ -36,7 +36,7 @@ import static com.qa.stf.constant.TestConstants.*;
  *     <li>Provides thread-safe WebDriver and ExtentTest instances using thread-local
  *         storage.</li>
  *     <li>Supports integration with ExtentReports for logging test results.</li>
- *     <li>Handles initialization and closing of WebDriver instances in multi-threaded
+ *     <li>Handles initialization and closing of WebDriver instances in multithreaded
  *         test environments.</li>
  * </ul>
  *
@@ -138,7 +138,7 @@ public class DriverManager extends BrowserManager {
      * <p>
      * This method stores the WebDriver instance in a thread-local variable
      * to ensure that each thread gets its own instance of WebDriver,
-     * avoiding concurrency issues in a multi-threaded test environment.
+     * avoiding concurrency issues in a multithreaded test environment.
      * </p>
      *
      * @param driver The WebDriver instance to be set for the current thread.

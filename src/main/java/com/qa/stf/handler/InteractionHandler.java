@@ -144,7 +144,7 @@ public class InteractionHandler implements ElementActions {
             WebElement element = driverManager.getDriver().findElement(By.xpath(String.format(locator.toString().replace("By.xpath: ", ""), value)));
             if (verificationHandler.isElementDisplayed(element, elementLabel)) {
                 builder.click(element).perform();
-                log.info("Clicked the '{}' element using Actions", elementLabel);
+                log.info("Clicked the dynamic '{}' element using Actions", elementLabel);
                 extentReportManager.getExtentTest().log(Status.PASS, String.format("Clicked the '%s' element using Actions", elementLabel));
             }
         } catch (ElementClickInterceptedException ex) {
@@ -206,7 +206,7 @@ public class InteractionHandler implements ElementActions {
     public void hoverOverElement(WebElement element, String elementLabel) {
         if (verificationHandler.isElementDisplayed(element, elementLabel)) {
             builder.moveToElement(element).perform();
-            log.info("The mouse hovered and clicked on the '{}' element", elementLabel);
+            log.info("The mouse hovered on the '{}' element", elementLabel);
             extentReportManager.getExtentTest().log(Status.PASS, String.format("The mouse hovered and clicked on the '%s' element", elementLabel));
         }
     }
@@ -338,7 +338,7 @@ public class InteractionHandler implements ElementActions {
     public void dragAndDropUsingActions(WebElement draggableElement, WebElement droppableElement, String elementLabel1, String elementLabel2) {
         if (verificationHandler.isElementDisplayed(draggableElement, elementLabel1) && verificationHandler.isElementDisplayed(droppableElement, elementLabel2)) {
             builder.dragAndDrop(draggableElement, droppableElement).perform();
-            log.info("The '{}' element is drag and dropped on the '{}' element", elementLabel1, elementLabel2);
+            log.info("The '{}' element is drag and dropped on the '{}' element using dragAndDrop method", elementLabel1, elementLabel2);
             extentReportManager.getExtentTest().log(Status.PASS, String.format("The '%s' element is drag and dropped on the '%s' element", elementLabel1, elementLabel2));
         }
     }
@@ -408,7 +408,7 @@ public class InteractionHandler implements ElementActions {
             int xAxis = 0;
             int yAxis = element.getRect().y;
             builder.scrollByAmount(xAxis, yAxis).perform();
-            log.info("Scrolled to the '{}' element using Actions", elementLabel);
+            log.info("Scrolled to the '{}' element by pixels using Actions", elementLabel);
             extentReportManager.getExtentTest().log(Status.PASS, String.format("Scrolled to the '%s' element using Actions", elementLabel));
         }
     }

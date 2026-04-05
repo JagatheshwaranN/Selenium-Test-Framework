@@ -57,6 +57,7 @@ import org.apache.poi.xssf.usermodel.XSSFWorkbook;
  * @author Jagatheshwaran N
  * @version 1.3
  */
+@SuppressWarnings("unused")
 public class ExcelReader {
 
     // Logger instance for the ExcelReader class to enable logging during the execution
@@ -72,10 +73,10 @@ public class ExcelReader {
     public FileOutputStream fileOut = null;
 
     // XSSFWorkbook to represent the Excel workbook in memory
-    private XSSFWorkbook workbook = null;
+    private XSSFWorkbook workbook;
 
     // XSSFSheet to represent a specific sheet in the Excel workbook
-    private XSSFSheet sheet = null;
+    private XSSFSheet sheet;
 
     // XSSFRow to represent a row within a specific sheet in the workbook
     private XSSFRow row = null;
@@ -125,7 +126,7 @@ public class ExcelReader {
         try {
             XSSFSheet sheet = workbook.getSheet(sheetName); // Get sheet by name
             if (sheet == null) {
-                log.warn("Sheet '{}' does not exist in the workbook", sheetName);
+                sheetLogger(sheetName);
                 return 0;
             }
             return sheet.getLastRowNum() + 1; // LastRowNum is zero-based
@@ -155,13 +156,13 @@ public class ExcelReader {
     public String getCellData(String sheetName, String colName, int rowNum) {
         try {
             if (rowNum <= 0) {
-                log.warn("Row number must be greater than 0. Provided: '{}'", rowNum);
+                rowLogger(rowNum);
                 return "";
             }
 
             XSSFSheet sheet = workbook.getSheet(sheetName);
             if (sheet == null) {
-                log.warn("Sheet '{}' does not exist in the workbook", sheetName);
+                sheetLogger(sheetName);
                 return "";
             }
 
@@ -174,7 +175,7 @@ public class ExcelReader {
 
             int colNum = findColumnIndex(headerRow, colName);
             if (colNum == -1) {
-                log.warn("Column '{}' does not exist in sheet '{}'", colName, sheetName);
+                columnLogger(sheetName, colName);
                 return "";
             }
 
@@ -232,13 +233,13 @@ public class ExcelReader {
     public String getCellData(String sheetName, int colNum, int rowNum) {
         try {
             if (rowNum <= 0) {
-                log.warn("Row number must be greater than 0. Provided: '{}'", rowNum);
+                rowLogger(rowNum);
                 return "";
             }
 
             XSSFSheet sheet = workbook.getSheet(sheetName);
             if (sheet == null) {
-                log.warn("Sheet '{}' does not exist in the workbook", sheetName);
+                sheetLogger(sheetName);
                 return "";
             }
 
@@ -327,7 +328,7 @@ public class ExcelReader {
      */
     public boolean setCellData(String sheetName, String colName, int rowNum, String data) {
         if (rowNum <= 0) {
-            log.warn("Row number must be greater than 0. Provided: '{}'", rowNum);
+            rowLogger(rowNum);
             return false;
         }
 
@@ -338,14 +339,14 @@ public class ExcelReader {
             XSSFSheet sheet = workbook.getSheet(sheetName);
 
             if (sheet == null) {
-                log.warn("Sheet '{}' does not exist in the workbook", sheetName);
+                sheetLogger(sheetName);
                 return false;
             }
 
             // Determine the column index for the given column name
             int colNum = getColumnIndex(sheet, colName);
             if (colNum == -1) {
-                log.warn("Column '{}' does not exist in sheet '{}'", colName, sheetName);
+                columnLogger(sheetName, colName);
                 return false;
             }
 
@@ -361,7 +362,7 @@ public class ExcelReader {
 
             // Write changes back to the file
             workbook.write(fileOut);
-            log.info("Data successfully updated in sheet '{}', column '{}', row '{}'", sheetName, colName, rowNum);
+            writeLogger(sheetName, colName, rowNum);
 
             return true;
 
@@ -402,14 +403,14 @@ public class ExcelReader {
             XSSFSheet sheet = workbook.getSheet(sheetName);
 
             if (sheet == null) {
-                log.warn("Sheet '{}' does not exist in the workbook", sheetName);
+                sheetLogger(sheetName);
                 return;
             }
 
             // Get the column index for the specified column name
             int colNum = getColumnIndex(sheet, colName);
             if (colNum == -1) {
-                log.warn("Column '{}' does not exist in sheet '{}'", colName, sheetName);
+                columnLogger(sheetName, colName);
                 return;
             }
 
@@ -430,7 +431,7 @@ public class ExcelReader {
 
             // Write changes back to the file
             workbook.write(fileOut);
-            log.info("Data successfully updated in sheet '{}', column '{}', row '{}'", sheetName, colName, rowNum);
+            writeLogger(sheetName, colName, rowNum);
 
         } catch (IOException ex) {
             log.error("Error occurred while updating the Excel sheet", ex);
@@ -882,6 +883,26 @@ public class ExcelReader {
             log.error("Error occurred while searching for cell value '{}' in column '{}' of sheet '{}'.", cellValue, colName, sheetName, ex);
             throw new ExceptionHub.ExcelException("Error occurred while searching for cell value in the excel sheet", ex);
         }
+    }
+
+    // Logs a successful data update operation with sheet, column, and row details
+    private static void writeLogger(String sheetName, String colName, int rowNum) {
+        log.info("Data successfully updated in sheet '{}', column '{}', row '{}'", sheetName, colName, rowNum);
+    }
+
+    // Logs a warning when the specified column does not exist in the given sheet
+    private static void columnLogger(String sheetName, String colName) {
+        log.warn("Column '{}' does not exist in sheet '{}'", colName, sheetName);
+    }
+
+    // Logs a warning when an invalid row number (less than or equal to 0) is provided
+    private static void rowLogger(int rowNum) {
+        log.warn("Row number must be greater than 0. Provided: '{}'", rowNum);
+    }
+
+    // Logs a warning when the specified sheet is not found in the workbook
+    private static void sheetLogger(String sheetName) {
+        log.warn("Sheet '{}' does not exist in the workbook", sheetName);
     }
 
 }

@@ -55,6 +55,7 @@ import com.qa.stf.base.ElementActions;
  * @author Jagatheshwaran N
  * @version 1.6
  */
+@SuppressWarnings("unused")
 public class JavaScriptHandler implements ElementActions {
 
     // Logger instance for the JavaScriptHandler class to enable logging during the execution
@@ -160,7 +161,7 @@ public class JavaScriptHandler implements ElementActions {
             WebElement element = driverManager.getDriver().findElement(By.xpath(String.format(locator.toString().replace("By.xpath: ", ""), value)));
             if (verificationHandler.isElementDisplayed(element, elementLabel)) {
                 executor.executeScript(CLICK_ELEMENT, element);
-                log.info("Clicked the '{}' element using JavaScriptExecutor", elementLabel);
+                log.info("Clicked the dynamic '{}' element using JavaScriptExecutor", elementLabel);
                 extentReportManager.getExtentTest().log(Status.PASS, String.format("Clicked the '%s' element using JavaScriptExecutor", elementLabel));
             }
         } catch (ElementClickInterceptedException ex) {

@@ -259,7 +259,7 @@ public class BasePage extends Page implements ElementActions {
         try {
             WebElement element = driverManager.getDriver().findElement(By.xpath(String.format(locator.toString().replace("By.xpath: ", ""), value)));
             element.click();
-            log.info("Clicked the '{}' element", elementLabel);
+            log.info("Clicked the dynamic '{}' element", elementLabel);
             extentReportManager.getExtentTest().log(Status.PASS, String.format("Clicked the '%s' element", elementLabel));
         } catch (ElementClickInterceptedException ex) {
             log.error("Failed to click the '{}' element", elementLabel, ex);
@@ -306,7 +306,7 @@ public class BasePage extends Page implements ElementActions {
             for(char ch : text.toCharArray()){
                 element.sendKeys(String.valueOf(ch));
             }
-            log.info("Entered '{}' text into the '{}' element", text, elementLabel);
+            log.info("Typed '{}' text into the '{}' element", text, elementLabel);
             extentReportManager.getExtentTest().log(Status.PASS, String.format("Entered '%s' text into the '%s' element", text, elementLabel));
         }
     }

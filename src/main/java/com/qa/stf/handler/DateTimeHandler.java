@@ -55,6 +55,7 @@ import java.util.List;
  * @author Jagatheshwaran N
  * @version 1.5
  */
+@SuppressWarnings("unused")
 public class DateTimeHandler {
 
     // Logger instance for the DateTimeHandler class to enable logging during the execution
@@ -127,7 +128,7 @@ public class DateTimeHandler {
             String dateDetailSectionLabel) {
         int maxAttempts = 12;
         if (day == null || month == null || year == null) {
-            log.error("Day, Month, and Year must not be null.");
+            log.error("Day, Month, and Year of single date picker must not be null.");
             throw new ExceptionHub.DatePickerException("Day, Month, and Year must not be null.");
         }
         try {
@@ -157,7 +158,7 @@ public class DateTimeHandler {
                 throw new ExceptionHub.DatePickerException(String.format("Could not find the desired month and year: %s & %s", month, year));
             }
         }
-        log.info("Selecting day: {}", day);
+        log.info("Selecting day '{}' from single date picker", day);
         interactionHandler.clickElement(dayLocator, day, DAY_LABEL);
     }
 
@@ -195,7 +196,7 @@ public class DateTimeHandler {
             String dateDetailSectionLabel) {
         int maxAttempts = 12;
         if (day == null || monthYear == null) {
-            log.error("Day, Month, and Year must not be null.");
+            log.error("Day, Month, and Year of dual date picker must not be null.");
             throw new ExceptionHub.DatePickerException("Day, Month, and Year must not be null.");
         }
         log.info("Selecting date: {} / {}", day, monthYear);
@@ -216,7 +217,7 @@ public class DateTimeHandler {
                 throw new ExceptionHub.DatePickerException("Could not find the desired month and year: " + monthYear);
             }
         }
-        log.info("Selecting day: {}", day);
+        log.info("Selecting day '{}' from dual date picker", day);
         interactionHandler.clickElement(dayLocator, day, DAY_LABEL);
     }
 

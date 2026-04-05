@@ -91,6 +91,7 @@ public class EncryptionManager {
      * @throws ExceptionHub.EncryptionException If an error occurs during the encryption
      *                                          process.
      */
+    @SuppressWarnings("unused")
     public String encryptData(String data) {
         if (data == null || data.isEmpty()) {
             log.error("Data - '{}' cannot be null or empty.", data);
@@ -127,7 +128,7 @@ public class EncryptionManager {
      */
     public String decryptData(String encryptedData) {
         if (encryptedData == null || encryptedData.isEmpty()) {
-            log.error("Data - '{}' cannot be null or empty.", encryptedData);
+            log.error("Encrypted Data - '{}' cannot be null or empty.", encryptedData);
             throw new ExceptionHub.InvalidDataException(encryptedData);
         }
         SecretKey key = generateSecretKey(secretKey);
