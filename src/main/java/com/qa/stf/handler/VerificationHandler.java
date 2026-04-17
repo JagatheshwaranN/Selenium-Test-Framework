@@ -193,7 +193,7 @@ public class VerificationHandler {
     private boolean isElementNotNull(WebElement element, String elementLabel) {
         if (element == null) {
             log.error("The '{}' element is null.", elementLabel);
-            extentReportManager.getExtentTest().log(Status.PASS, String.format("The '%s' element is null.", elementLabel));
+            extentReportManager.getExtentTest().log(Status.FAIL, String.format("The '%s' element is null.", elementLabel));
             return false;
         }
         return true;

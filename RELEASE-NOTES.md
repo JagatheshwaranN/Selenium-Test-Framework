@@ -33,7 +33,7 @@ Multiple components were triggering driver teardown:
 - Restricted cleanup to:
     - `@AfterMethod` (primary teardown)
     - Optional fallback in `onFinish(ISuite)`
-- Ensured `DriverCleanupListener` is not registered in `testng.xml` or `pom.xml`
+- Ensured `DriverCleanupListener` is removed
 
 **Result:**
 - Stable and predictable driver lifecycle

@@ -100,16 +100,16 @@ public class BrowserManager extends FileReader {
             log.error("Browser is not specified or is empty.");
             throw new ExceptionHub.ConfigTypeException("Browser is not specified.");
         }
-        return switch (getBrowser()) {
-            case CHROME -> {
+        return switch (getBrowser().trim().toLowerCase()) {
+            case "chrome" -> {
                 log.info("Chrome browser is set for test execution");
                 yield BrowserType.CHROME;
             }
-            case FIREFOX -> {
+            case "firefox" -> {
                 log.info("Firefox browser is set for test execution");
                 yield BrowserType.FIREFOX;
             }
-            case EDGE -> {
+            case "microsoftedge", "edge" -> {
                 log.info("Edge browser is set for test execution");
                 yield BrowserType.EDGE;
             }

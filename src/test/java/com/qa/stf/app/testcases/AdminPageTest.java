@@ -30,16 +30,16 @@ public class AdminPageTest extends BaseTest {
     AdminPage adminPage;
 
     @Test(dataProviderClass = DataSupplier.class, dataProvider = "fetchData")
-    public void adminPageTest(Hashtable<String, String> data) {
+    public void adminPageTest(Method method, Hashtable<String, String> data) {
 
         var classObject = AdminPageTest.class;
-        Method[] methods = classObject.getMethods();
-        if (!DataSupplier.isTestRunnable(methods[0].getName(), DriverManager.excelReader)) {
-            throw new SkipException("Skipping the Test - " + StringUtils.capitalize(methods[0].getName())
+        //Method[] methods = classObject.getMethods();
+        if (!DataSupplier.isTestRunnable(method.getName(), DriverManager.excelReader)) {
+            throw new SkipException("Skipping the Test - " + StringUtils.capitalize(method.getName())
                     + " as the RunMode is set to N");
         }
         if (data.get("RunMode").equalsIgnoreCase(TestConstants.RUN_MODE_NO)) {
-            throw new SkipException("Skipping the TestCase - " + StringUtils.capitalize(methods[0].getName())
+            throw new SkipException("Skipping the TestCase - " + StringUtils.capitalize(method.getName())
                     + " as the RunMode for the Test Data is set to N");
         }
 

@@ -68,8 +68,8 @@ public class BasePage extends Page implements ElementActions {
     // Instance of ExtentReportManager to manage the extent report
     private final ExtentReportManager extentReportManager;
 
-    // HashMap to store key-value pairs of string data
-    public static HashMap<String, String> anyObject;
+    // HashMap to store key-value pairs of string data, initialized as an empty HashMap
+    public static HashMap<String, String> anyObject = new HashMap<>();
 
     // List instance to hold string values, initialized as null
     List<String> list = null;

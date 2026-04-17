@@ -165,7 +165,7 @@ public class WaitHandler {
      *                                               within the timeout.
      * @throws ExceptionHub                          if the provided element is null.
      */
-    private void waitForElementToBeClickable(WebElement element, String elementLabel) {
+    public void waitForElementToBeClickable(WebElement element, String elementLabel) {
         if (element == null) {
             throw new ExceptionHub(elementLabel + " element is null.");
         }
@@ -233,11 +233,10 @@ public class WaitHandler {
     public void waitForPageToLoad() {
         try {
             log.info("Waiting for the page to reach 'loading' state.");
-            waitForPageReadyState("loading");
+            waitForPageReadyState("complete");
         } catch (TimeoutException ex) {
             log.error("Timeout occurred while waiting for the 'loading' state. " +
                     "Now checking for the 'complete' state.", ex);
-            waitForPageReadyState("complete");
         }
     }
 

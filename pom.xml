@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.jtaf</groupId>
     <artifactId>SeleniumPageObjectModelExtended</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>RELEASE-2.0.0</version>
     <name>Selenium Test Framework</name>
     <description>This project contains the Selenium Test Automation Framework</description>
     <properties>
