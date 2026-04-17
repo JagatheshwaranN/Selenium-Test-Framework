@@ -1,7 +1,5 @@
 # Selenium Test Framework – Release Notes - Version 2.0.0
 
----
-
 ## 🎯 Overview
 This release focuses on improving the stability, reliability, and thread-safety of the test automation framework, especially under parallel execution.
 
@@ -12,13 +10,9 @@ This release focuses on improving the stability, reliability, and thread-safety 
 - Framework design improvements
 - Runtime exception handling
 
----
-
 ## 🐛 Bug Fixes & Enhancements
 
----
-
-### 🐛 Bug 1 - Double Driver Teardown (Browser Not Closing Cleanly)
+## 🐛 Bug 1 - Double Driver Teardown (Browser Not Closing Cleanly)
 
 **Files Impacted:**
 - `DriverCleanupListener.java`
@@ -45,9 +39,7 @@ Multiple components were triggering driver teardown:
 - Stable and predictable driver lifecycle
 - Eliminates cross-thread browser termination
 
----
-
-### 🐛 Bug 2 - Extent Report Not Generated (Null Reference Issue)
+## 🐛 Bug 2 - Extent Report Not Generated (Null Reference Issue)
 
 **File Impacted:**
 - `TestListener.java`
@@ -62,9 +54,8 @@ Multiple components were triggering driver teardown:
 ```java
 private static ExtentReports extentReports;
 ```
----
 
-### 🐛 Bug 3 - Race Condition in Test Reporting (Missing Logs)
+## 🐛 Bug 3 - Race Condition in Test Reporting (Missing Logs)
 
 **File Impacted:**
 - `TestListener.java`
@@ -79,8 +70,8 @@ private static ExtentReports extentReports;
 Removed shared instance variable
 Used ThreadLocal<ExtentTest> via ExtentReportManager
 ```
----
-### 🐛 Bug 4 - Incorrect Inheritance in BaseTest (Singleton Violation)
+
+## 🐛 Bug 4 - Incorrect Inheritance in BaseTest (Singleton Violation)
 
 **File Impacted:**
 - `BaseTest.java`
@@ -109,8 +100,8 @@ public class BaseTest {
     }
 }
 ```
----
-### 🐛 Bug 5 - NullPointerException in Screenshot Capture
+
+## 🐛 Bug 5 - NullPointerException in Screenshot Capture
 **File Impacted:**
 - `ScreenCapture.java`
 
