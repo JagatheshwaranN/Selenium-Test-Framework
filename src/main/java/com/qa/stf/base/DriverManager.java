@@ -311,8 +311,14 @@ public class DriverManager extends BrowserManager {
      * </p>
      */
     public void closeDriver() {
-        if (getDriver() != null) {
-            getDriver().quit();
+        try {
+            if (getDriver() != null) {
+                getDriver().quit();
+                log.info("Driver closed successfully");
+            }
+        } catch (Exception e) {
+            log.error("Error while closing the driver: {}", e.getMessage());
+        } finally {
             driverLocal.remove();
         }
     }
@@ -326,10 +332,11 @@ public class DriverManager extends BrowserManager {
      *
      * @param key The name of the system property to retrieve.
      * @return The value of the system property, or "default_value" if the property is
-     * not found.
+     * not found or is null.
      */
     public static String getSystemProperty(String key) {
-        return System.getProperty(key, "default_value");
+        String value = System.getProperty(key);
+        return (value != null && !value.isEmpty()) ? value : "default_value";
     }
 
 }

@@ -57,6 +57,7 @@ public class AdminPageTest extends BaseTest {
         dashboardPage.navigateToAdminPage();
         Assert.assertEquals(adminPage.verifyAdminPageHeader(), ADMIN_PAGE_HEADER);
         Assert.assertTrue(adminPage.searchUser(data.get("User"), data.get("SearchCriteria")));
+        System.out.println("Admin Page Test Executed Successfully");
     }
 
 }

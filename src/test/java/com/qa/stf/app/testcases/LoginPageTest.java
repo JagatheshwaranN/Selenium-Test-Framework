@@ -51,6 +51,7 @@ public class LoginPageTest extends BaseTest {
         Assert.assertEquals(loginPage.verifyLoginPageHeader(), LOGIN_PAGE_HEADER);
         loginPage.doLogin(data.get("UserName"), pageManager.getEncryptionManager().decryptData(data.get("Password")));
         Assert.assertEquals(dashboardPage.verifyDashboardPageHeader(),DASHBOARD_PAGE_HEADER);
+        System.out.println("Login Page Test Executed Successfully");
     }
 
 }

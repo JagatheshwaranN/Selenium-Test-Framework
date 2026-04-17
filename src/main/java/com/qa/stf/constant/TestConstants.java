@@ -28,6 +28,7 @@ public class TestConstants {
 
 	// Common Details
 	public static final String OPTION_YES = "Yes";
+    public static final String OPTION_NO = "No";
 
 	// Browser Option Details
 	public static final String BROWSER_PRIVATE_MODE = "Private";

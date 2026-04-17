@@ -85,10 +85,11 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
     ExtentReportManager extentReportManager = ExtentReportManager.getInstance();
 
     // Instance of ExtentReports to manage and generate test execution reports
-    ExtentReports extentReports;
+    // TestListener.java
+    private static ExtentReports extentReports;  // was: ExtentReports extentReports;
 
     // Instance of ExtentTest to log individual test steps and results in the reports
-    ExtentTest extentTest;
+    //ExtentTest extentTest;
     
     // Constant key to configure the ReportNG property to disable output escaping in reports
     private static final String REPORT_CONFIG_KEY = "org.uncommons.reportng.escape-output";
@@ -164,7 +165,7 @@ public class TestListener extends DriverManager implements ITestListener, ISuite
      */
     @Override
     public void onTestStart(ITestResult result) {
-        extentTest = extentReports.createTest(StringUtils.capitalize(result.getMethod().getMethodName()));
+        ExtentTest extentTest = extentReports.createTest(StringUtils.capitalize(result.getMethod().getMethodName()));
         extentReportManager.setExtentTest(extentTest);
         extentReportManager.getExtentTest().log(Status.INFO, () -> StringUtils.capitalize(result.getName()) + TEST_START);
         Reporter.log(StringUtils.capitalize(result.getName()) + TEST_START);

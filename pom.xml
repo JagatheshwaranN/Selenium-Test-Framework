@@ -13,7 +13,7 @@
         <jdk.level>21</jdk.level>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
-        <selenium.version>4.27.0</selenium.version>
+        <selenium.version>4.43.0</selenium.version>
         <testng.version>7.10.2</testng.version>
         <log.version>2.25.4</log.version>
         <poi.version>5.5.1</poi.version>
@@ -150,6 +150,11 @@
                             src/test/resources/runner/${suiteXmlFile}
                         </suiteXmlFile>
                     </suiteXmlFiles>
+                    <systemPropertyVariables>
+                        <!--suppress UnresolvedMavenProperty -->
+                        <FullPageScreenShot>${FullPageScreenShot}</FullPageScreenShot>
+                        <org.freemarker.loggerLibrary>NONE</org.freemarker.loggerLibrary>
+                    </systemPropertyVariables>
                 </configuration>
             </plugin>
             <plugin>

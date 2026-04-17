@@ -4,16 +4,18 @@ import com.qa.stf.base.DriverManager;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 
-public class BaseTest extends DriverManager {
+public class BaseTest {
+
+    protected DriverManager driverManager = DriverManager.getInstance();
 
     @BeforeMethod
 	public void testStartUp() {
-		initializeDriver();
+        driverManager.initializeDriver();
 	}
 
-	@AfterMethod
+	@AfterMethod(alwaysRun = true)
 	public void testTearDown() {
-		closeDriver();
+        System.out.println("Test Execution Completed. Closing the Driver.");
+        driverManager.closeDriver();
 	}
 }
-
